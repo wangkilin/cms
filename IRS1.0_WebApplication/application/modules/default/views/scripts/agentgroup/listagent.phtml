@@ -1,0 +1,43 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$translate = Streamwide_Web_Translate::functor();
+
+
+?>
+      <table id="agent_list">
+
+        <thead>
+          <tr>
+            <td colspan="4"><?php echo $translate('agentgroup_agent_list');?></td>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+        // list agents
+        foreach((array)$this->AgentList as $Agent) {
+        ?>
+          <tr class="list_item" itemId="<?php echo $Agent['UserId']?>" agentName="<?php echo $Agent['Name']?>">
+            <td class="column_3"><i title="<?php echo $translate("agentgroup_is_". (empty($Agent['IsOnline']) ? 'not_':'') ."online")?>" class="agent_is_<?php echo (empty($Agent['IsOnline']) ? 'not_':'')?>active">.</i></td>
+            <td class="column_0"><input type="checkbox"  bind="action_list" name="agentIds[]" value="<?php echo $Agent['UserId']?>"/></p>
+            <td class="column_1 agent_name_column"><?php echo $Agent['Name']?></td>
+            <td class="column_2"><i title="<?php echo $translate("agentgroup_is_". (empty($Agent['IsOnline']) ? 'not_':'') ."supervisor")?>" class="agent_is_<?php echo (empty($Agent['SupervisorStatus']) ? 'not_':'')?>supervisor">.</i></td>
+          </tr>
+        <?php
+        }// end foreach
+        ?>
+        </tbody>
+
+      </table>
+<?php
+/* EOF */

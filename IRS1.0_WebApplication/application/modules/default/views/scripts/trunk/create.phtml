@@ -1,0 +1,47 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+
+$this->layout()->disableLayout();
+?>
+<div id="trunk-create-dialog" class="dialog">
+	<div class="dialog-content">
+	    <div class="dialog-heading" id="trunk-create-heading">
+	        <span class="heading-text"><?php echo $this->translate('trunk_create_trunk')?></span>
+	        <span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+	    </div>
+	    <div class="dialog-body" id="trunk-create-body">
+	        <form id="trunk-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                <span class="desc"><?php echo $this->translate('trunk_name')?></span>
+                <div><input type="text" name="Label" value=""/></div>
+                <br/>
+                <span class="desc"><?php echo $this->translate('trunk_id')?></span>
+                <div><input type="text" name="ExternalId" value=""/></div>
+                <br/>
+                <span class="desc"><?php echo $this->translate('trunk_ipaddress')?></span>
+                <div><input type="text" name="IpAddress" value=""/></div>
+                <br/>
+                <span class="desc"><?php echo $this->translate('trunk_port')?></span>
+                <div>
+                    <input type="text" name="Port" value=""/>
+                </div>
+                <br/>
+                <div class="dialog-button">
+                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+	        </form>
+	    </div>
+	</div>
+</div>
+<?php
+/* EOF */

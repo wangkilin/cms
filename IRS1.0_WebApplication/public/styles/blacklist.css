@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+
+#blacklists table .column-1
+{
+width:2%;
+}
+#blacklists table .column-2
+{
+width:12%;
+}
+#blacklists table .column-3
+{
+width:12%;
+}
+#blacklists table .column-4
+{
+width:6%;
+}
+#blacklists table .column-5
+{
+width:20%;
+}
+#blacklists table .column-6
+{
+width:20%;
+}
+#blacklists table .column-7
+{
+width:15%;
+}
+#blacklists table .column-0
+{
+width:5%;
+}
+
+#dtmf-container
+{
+margin-left:30px;
+}
+#dtmf-container.unactive span
+{
+color:#787878;
+}
+#blacklist-numbers table .column-1
+{
+width:5%;
+}
+#blacklist-numbers table .column-2
+{
+width:30%;
+}
+#blacklist-numbers table .column-3
+{
+width:15%;
+}
+#blacklist-numbers table .column-4
+{
+width:50%;
+}
+#blacklist-number-list
+{
+overflow-y:auto;
+overflow-x:hidden;
+max-height:150px;
+}
+#blacklist-number-list tbody
+{
+}
+.gap
+{
+padding:0 3px;
+}
+
+
+.list-title
+{
+background:#B4B4B4;
+line-height:25px;
+font-style:italic;
+color:#FFF;
+}
+.list-title td
+{
+border-right:1px solid #CACACA;
+text-align:left;
+font-weight:700;
+}
+.list-title .column-0
+{
+border:0;
+}

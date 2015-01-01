@@ -1,0 +1,94 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/customer';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div  id="customer-update-dialog" class="dialog">
+	<div class="dialog-content">
+		<div id="customer-update-heading" class="dialog-heading">
+            <span class="heading-text"><?php echo $this->translate('customer_update_customer');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div id="customer-update-body" class="dialog-body">
+			<form action="" id="customer-update-form" method="post" enctype="application/x-www-form-urlencoded">
+				<div class="tabs">
+                    <div id="account-info" class="tab-title active">
+                        <span><?php echo $this->translate('customer_accountInfo_tab')?></span>
+                    </div>
+                    <div id="quotas" class="tab-title">
+                        <span><?php echo $this->translate('customer_quotas_tab')?></span>
+                    </div>
+                </div>
+                <div id="customer-account-info" class="tab-panel active">
+                    <table class="content">
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_accountName')?></b><br />
+                            <input type="text" name="CustomerAccountName" value="<?php echo $this->CustomerAccount['CustomerAccountName']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_billingId')?></b><br />
+                            <input type="text" name="CustomerAccountBillingId" value="<?php echo $this->CustomerAccount['CustomerAccountBillingId']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactName')?></b><br />
+                            <input type="text" name="ContactName" value="<?php echo $this->CustomerAccount['ContactName']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactEmail')?></b><br />
+                            <input type="text" name="ContactEmail" value="<?php echo $this->CustomerAccount['ContactEmail']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactPhone')?></b><br />
+                            <input type="text" name="ContactPhone" value="<?php echo $this->CustomerAccount['ContactPhone']?>" />
+                        </p>
+                    </table>
+                </div>
+                <div id="customer-quotas" class="tab-panel">
+                    <table class="content">
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxPrompt')?></b><br />
+                            <input type="text" name="MaxResPrompt" value="<?php echo $this->CustomerAccount['Quotas']['MaxResPrompt']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxOrigin')?></b><br />
+                            <input type="text" name="MaxResOrigin" value="<?php echo $this->CustomerAccount['Quotas']['MaxResOrigin']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxBlacklist')?></b><br />
+                            <input type="text" name="MaxResBlacklist" value="<?php echo $this->CustomerAccount['Quotas']['MaxResBlacklist']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxCalendar')?></b><br />
+                            <input type="text" name="MaxResCalendar" value="<?php echo $this->CustomerAccount['Quotas']['MaxResCalendar']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxAgentgroup')?></b><br />
+                            <input type="text" name="MaxResAgentgroup" value="<?php echo $this->CustomerAccount['Quotas']['MaxResAgentgroup']?>" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxUser')?></b><br />
+                            <input type="text" name="MaxResUser" value="<?php echo $this->CustomerAccount['Quotas']['MaxResUser']?>" />
+                        </p>
+                    </table>
+                </div>
+                <div class="dialog-button">
+                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

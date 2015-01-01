@@ -1,0 +1,176 @@
+@CHARSET "UTF-8";
+
+#numbergroups table .column-1
+{
+width:2%;
+}
+#numbergroups table .column-2
+{
+width:15%;
+}
+#numbergroups table .column-3
+{
+width:10%;
+}
+#numbergroups table .column-4
+{
+width:15%;
+}
+#numbergroups table .column-5
+{
+width:15%;
+}
+#numbergroups table .column-6
+{
+width:15%;
+}
+#numbergroups table .column-7
+{
+width:10%;
+}
+#numbergroups table .column-0
+{
+width:10%;
+}
+#main_content_container table,
+#assign-numbers > table,
+#routing-plan-container > table
+{
+width:100%
+}
+#assign-numbers table td
+{
+vertical-align:middle;
+}
+#numbergroup-gap
+{
+text-align:center;
+}
+.numbers
+{
+max-height:110px;
+min-height:110px;
+border:1px solid;
+overflow-y:auto;
+border-color:#B1B1B1;
+background-color:#E9E9E9;
+}
+.numbers ul
+{
+width:100%;
+height:100%;
+}
+.numbers li
+{
+cursor:pointer;
+padding:2px;
+}
+#numbers li.on
+{
+background-color:#C2C2C2;
+}
+#numbers-assigned li.on
+{
+background-color:#C0D5A5;
+}
+
+.plus
+{
+background:url(../images/ui-icon-plus.png) no-repeat 0 0;
+cursor:pointer;
+float:left;
+}
+#routing-plan-container .td-select-routing-tree
+{
+width:40%;
+}
+#routing-plan-container.td-assigned-dates
+{
+width:44%;
+}
+#routing-plan-container .td-row-add-remove
+{
+width:6%;
+}
+
+.assigned-dates
+{
+border:1px solid #E1E1E1;
+background:#FFF;
+width:203px;
+cursor:pointer;
+*width:173px;
+*float:left;
+}
+.assigned-dates-calendar
+{
+display:none;
+position:absolute;
+z-index:1;
+background:#FFF;
+padding:3px 8px 5px;
+border:1px solid #000;
+}
+.assigned-dates-calendar.active
+{
+display:block;
+}
+.assigned-dates input
+{
+width:133px;
+border:0;
+cursor:pointer;
+*width:103px;
+*height:10px;
+}
+.assigned-dates-calendar-button
+{
+text-align:center;
+}
+.calendar-icon
+{
+background:url("../images/icon_calendar.gif") no-repeat 50% 50% #FFF;
+display:block;
+width:28px;
+height:40px;
+}
+.row-remove,
+.row-add,
+.row-update,
+.row-create
+{
+background:url("../images/ui-button_bg_normal.png") repeat-x 50% 50% #9C9C9C;
+width:20px;
+height:20px;
+cursor:pointer;
+display:inline-block;
+border:1px solid #DBDBDB;
+color:#FFF;
+text-align:center;
+}
+.row-update,
+.row-create
+{
+display:none;
+}
+.row-update.active,
+.row-create.active
+{
+display:block;
+}
+.row-remove:hover,
+.row-add:hover,
+.row-update:hover,
+.row-create:hover
+{
+background:url("../images/ui-button_bg_hover.png") repeat-x 50% 50% #9C9C9C;
+border:1px solid #E1E1E1;
+}
+.row-remove:active,
+.row-add:active,
+.row-update:active,
+.row-create:active
+{
+background:url("../images/ui-button_bg_onpress.png") repeat-x 50% 50% #9C9C9C;
+border:1px solid #CCC;
+}

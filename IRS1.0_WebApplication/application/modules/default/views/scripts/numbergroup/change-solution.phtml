@@ -1,0 +1,25 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+foreach ($this->AvailableNumbers as $number) {
+    echo '<li id="number-' . $number['PremiumNumberId'] . '" title="'
+        . $number['PremiumNumber'] . '">' . $number['PremiumNumber'] . '</li>';
+}
+echo '<select>';
+foreach ($this->Trees as $tree) {
+    echo '<option value="' . $tree['TreeId'] . '">' . $tree['Label'] . '</option>';
+}
+echo '</select>';
+/* EOF */

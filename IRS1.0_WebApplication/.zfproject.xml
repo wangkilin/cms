@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<projectProfile>
+  <projectDirectory>
+    <projectProfileFile/>
+    <applicationDirectory>
+      <apisDirectory enabled="false"/>
+      <configsDirectory>
+        <applicationConfigFile type="ini"/>
+      </configsDirectory>
+      <modulesDirectory>
+        <moduleDirectory moduleName="default">
+          <configsDirectory/>
+          <modelsDirectory/>
+          <controllersDirectory>
+            <controllerFile controllerName="index">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="error"/>
+          </controllersDirectory>
+          <viewsDirectory>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="index">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="error">
+                <viewScriptFile forActionName="error"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory enabled="false"/>
+          </viewsDirectory>
+        </moduleDirectory>
+      </modulesDirectory>
+      <bootstrapFile/>
+    </applicationDirectory>
+    <dataDirectory enabled="false">
+      <cacheDirectory enabled="false"/>
+      <searchIndexesDirectory enabled="false"/>
+      <localesDirectory enabled="false"/>
+      <logsDirectory enabled="false"/>
+      <sessionsDirectory enabled="false"/>
+      <uploadsDirectory enabled="false"/>
+    </dataDirectory>
+    <libraryDirectory>
+      <zfStandardLibraryDirectory enabled="false"/>
+    </libraryDirectory>
+    <publicDirectory>
+      <publicStylesheetsDirectory/>
+      <publicScriptsDirectory/>
+      <publicImagesDirectory/>
+      <publicIndexFile/>
+      <htaccessFile/>
+    </publicDirectory>
+    <projectProvidersDirectory enabled="false"/>
+    <temporaryDirectory enabled="false"/>
+    <testsDirectory enabled="false">
+      <testPHPUnitConfigFile/>
+      <testApplicationDirectory>
+        <testApplicationBootstrapFile/>
+      </testApplicationDirectory>
+      <testLibraryDirectory>
+        <testLibraryBootstrapFile/>
+      </testLibraryDirectory>
+    </testsDirectory>
+  </projectDirectory>
+</projectProfile>

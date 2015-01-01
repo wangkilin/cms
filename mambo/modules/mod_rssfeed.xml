@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>新闻联合</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>The Syndicate module will display a link whereby people can syndicate your site for all your latest news. When you click on the RSS icon, you will be redirected to a new page that will list all the latest news in XML format. In order to use the Newsfeed in another Mambo site or a Newsfeed reader, you need to cut and paste the URL.</description>
+	<files>
+		<filename module="mod_rssfeed">mod_rssfeed.php</filename>
+	</files>
+	<params>
+		<param name="text" type="text" default="" label="文本" description="输入和 RSS 链接一起显示的文本" />
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+		<param name="rss091" type="radio" default="1" label="RSS 0.91" description="显示 RSS 0.91 ？">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="rss10" type="radio" default="1" label="RSS 1.0" description="显示 RSS 1.0 ？">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="rss20" type="radio" default="1" label="RSS 2.0" description="显示 RSS 2.0 ？">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="atom" type="radio" default="1" label="Atom" description="显示 Atom 0.3 ？">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="opml" type="radio" default="1" label="OPML" description="显示 OPML ？">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="rss091_image" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="RSS 0.91 图标" description="选择要使用的图标" />
+		<param name="rss10_image" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="RSS 1.0 图标" description="选择要使用的图标" />
+		<param name="rss20_image" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="RSS 2.0 图标" description="选择要使用的图标" />
+		<param name="atom_image" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="Atom 图标" description="选择要使用的图标" />
+		<param name="opml_image" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="OPML 图标" description="选择要使用的图标" />
+	</params>
+</mosinstall>

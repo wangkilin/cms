@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<mosinstall type="component">
+  <name>user_extended</name>
+  <creationDate>05.12.2004</creationDate>
+  <author>Taylor/Zechmann/mic</author>
+  <copyright>(C) Copyright 2004 by Phil Taylor and Bernhard Zechmann and Michael Pagler.
+  Released under the GNU/GPL License.</copyright>
+  <authorEmail>mamboz@zechmann.com</authorEmail>
+  <authorUrl>www.zechmann.com</authorUrl>
+  <version>1.2.3 (for 4.5.1)</version>
+  <description>UserExtended is a Mambo 4.5.1 user component.</description>
+  <files>
+    <filename>user_extended.html.php</filename>
+    <filename>user_extended.php</filename>
+    <filename>detect_language.php</filename>
+    <filename>language/english.php</filename>
+    <filename>language/germanf.php</filename>
+    <filename>language/germani.php</filename>
+    <filename>language/french.php</filename>
+    <filename>language/italian.php</filename>
+    <filename>language/spanish.php</filename>
+    <filename>language/dutch.php</filename>
+  </files>
+  <install>
+    <queries>
+      <query>
+        CREATE TABLE IF NOT EXISTS `#__user_extended` (
+          `id` int(11) NOT NULL default '0',
+          `user_id` int(11) NOT NULL default '0',
+          `user1` varchar(255) NOT NULL default '',
+          `user2` varchar(255) NOT NULL default '',
+          `user3` varchar(255) NOT NULL default '',
+          `user4` varchar(255) NOT NULL default '',
+          `user5` varchar(255) NOT NULL default '',
+          `user6` varchar(255) NOT NULL default '',
+          `user7` varchar(255) NOT NULL default '',
+          `user8` varchar(255) NOT NULL default '',
+          `user9` varchar(255) NOT NULL default '',
+          `user10` varchar(255) NOT NULL default '',
+          `user11` varchar(255) NOT NULL default '',
+          `user12` varchar(255) NOT NULL default '',
+          `user13` varchar(255) NOT NULL default '',
+          `user14` varchar(255) NOT NULL default '',
+          `user15` varchar(255) NOT NULL default '',
+          PRIMARY KEY  (`id`)
+        ) TYPE=MyISAM;
+      </query>
+      <query>
+        CREATE TABLE IF NOT EXISTS `#__user_extended_config` (
+          `id` int(11) NOT NULL auto_increment,
+
+          `user1_name` varchar(255) NOT NULL default '',
+          `user1_show` int(11) NOT NULL default '0',
+          `user1_must` int(11) NOT NULL default '0',
+          `user1_size` varchar(10) NOT NULL default '30',
+
+          `user2_name` varchar(255) NOT NULL default '',
+          `user2_show` int(11) NOT NULL default '0',
+          `user2_must` int(11) NOT NULL default '0',
+          `user2_size` varchar(10) NOT NULL default '30',
+
+          `user3_name` varchar(255) NOT NULL default '',
+          `user3_show` int(11) NOT NULL default '0',
+          `user3_must` int(11) NOT NULL default '0',
+          `user3_size` varchar(10) NOT NULL default '30',
+
+          `user4_name` varchar(255) NOT NULL default '',
+          `user4_show` int(11) NOT NULL default '0',
+          `user4_must` int(11) NOT NULL default '0',
+          `user4_size` varchar(10) NOT NULL default '30',
+
+          `user5_name` varchar(255) NOT NULL default '',
+          `user5_show` int(11) NOT NULL default '0',
+          `user5_must` int(11) NOT NULL default '0',
+          `user5_size` varchar(10) NOT NULL default '30',
+
+          `user6_name` varchar(255) NOT NULL default '',
+          `user6_show` int(11) NOT NULL default '0',
+          `user6_must` int(11) NOT NULL default '0',
+          `user6_size` varchar(10) NOT NULL default '30',
+
+          `user7_name` varchar(255) NOT NULL default '',
+          `user7_show` int(11) NOT NULL default '0',
+          `user7_must` int(11) NOT NULL default '0',
+          `user7_size` varchar(10) NOT NULL default '30',
+
+          `user8_name` varchar(255) NOT NULL default '',
+          `user8_show` int(11) NOT NULL default '0',
+          `user8_must` int(11) NOT NULL default '0',
+          `user8_size` varchar(10) NOT NULL default '30',
+
+          `user9_name` varchar(255) NOT NULL default '',
+          `user9_show` int(11) NOT NULL default '0',
+          `user9_must` int(11) NOT NULL default '0',
+          `user9_size` varchar(10) NOT NULL default '30',
+
+          `user10_name` varchar(255) NOT NULL default '',
+          `user10_show` int(11) NOT NULL default '0',
+          `user10_must` int(11) NOT NULL default '0',
+          `user10_size` varchar(10) NOT NULL default '30',
+
+          `user11_name` varchar(255) NOT NULL default '',
+          `user11_show` int(11) NOT NULL default '0',
+          `user11_must` int(11) NOT NULL default '0',
+          `user11_size` varchar(10) NOT NULL default '30',
+
+          `user12_name` varchar(255) NOT NULL default '',
+          `user12_show` int(11) NOT NULL default '0',
+          `user12_must` int(11) NOT NULL default '0',
+          `user12_size` varchar(10) NOT NULL default '30',
+
+          `user13_name` varchar(255) NOT NULL default '',
+          `user13_show` int(11) NOT NULL default '0',
+          `user13_must` int(11) NOT NULL default '0',
+          `user13_size` varchar(10) NOT NULL default '30',
+
+          `user14_name` varchar(255) NOT NULL default '',
+          `user14_show` int(11) NOT NULL default '0',
+          `user14_must` int(11) NOT NULL default '0',
+          `user14_size` varchar(10) NOT NULL default '30',
+
+          `user15_name` varchar(255) NOT NULL default '',
+          `user15_show` int(11) NOT NULL default '0',
+          `user15_must` int(11) NOT NULL default '0',
+          `user15_size` varchar(10) NOT NULL default '30',
+
+          PRIMARY KEY  (`id`)
+        ) TYPE=MyISAM AUTO_INCREMENT=1 ;
+        </query>
+        <query>
+        INSERT IGNORE INTO `#__user_extended_config`
+        (`id`,
+         `user1_name`, `user1_show`, `user1_must`, `user1_size`,
+         `user2_name`, `user2_show`, `user2_must`, `user2_size`,
+         `user3_name`, `user3_show`, `user3_must`, `user3_size`,
+         `user4_name`, `user4_show`, `user4_must`, `user4_size`,
+         `user5_name`, `user5_show`, `user5_must`, `user5_size`,
+         `user6_name`, `user6_show`, `user6_must`, `user6_size`,
+         `user7_name`, `user7_show`, `user7_must`, `user7_size`,
+         `user8_name`, `user8_show`, `user8_must`, `user8_size`,
+         `user9_name`, `user9_show`, `user9_must`, `user9_size`,
+         `user10_name`, `user10_show`, `user10_must`, `user10_size`,
+         `user11_name`, `user11_show`, `user11_must`, `user11_size`,
+         `user12_name`, `user12_show`, `user12_must`, `user12_size`,
+         `user13_name`, `user13_show`, `user13_must`, `user13_size`,
+         `user14_name`, `user14_show`, `user14_must`, `user14_size`,
+         `user15_name`, `user15_show`, `user15_must`, `user15_size`
+         )
+         VALUES (1,
+         'custom1', 1, 0, '30',
+         'custom2', 1, 0, '30',
+         'custom3', 1, 0, '30',
+         'custom4', 1, 0, '30',
+         'custom5', 1, 0, '30',
+         'custom6', 1, 0, '30',
+         'custom7', 1, 0, '30',
+         'custom8', 1, 0, '30',
+         'custom9', 1, 0, '30',
+         'custom10', 1, 0, '30',
+         'custom11', 1, 0, '30',
+         'custom12', 1, 0, '30',
+         'custom13', 1, 0, '30',
+         'custom14', 1, 0, '30',
+         'custom15', 1, 0, '30'
+         );
+      </query>
+    </queries>
+  </install>
+  <uninstall>
+  </uninstall>
+    <installfile>install.user_extended.php</installfile>
+    <uninstallfile>uninstall.user_extended.php</uninstallfile>
+  <administration>
+    <menu>UserExtended</menu>
+    <submenu>
+      <menu task="">Extended Add/Edit Users</menu>
+      <menu task="config">Configuration</menu>
+      <menu task="about">About UserExtended</menu>
+    </submenu>
+    <files>
+      <filename>admin.user_extended.html.php</filename>
+      <filename>admin.user_extended.php</filename>
+      <filename>toolbar.user_extended.html.php</filename>
+      <filename>toolbar.user_extended.php</filename>
+      <filename>user_extended.class.php</filename>
+      <filename>install.user_extended.php</filename>
+      <filename>uninstall.user_extended.php</filename>
+      <filename>CHANGELOG.txt</filename>
+      <filename>LICENSE.txt</filename>
+      <filename>README.txt</filename>
+    </files>
+    <images>
+      <filename>images/logo.png</filename>
+    </images>
+</administration>
+</mosinstall>

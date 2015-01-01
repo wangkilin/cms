@@ -1,0 +1,797 @@
+body, html {
+
+	margin:0;
+
+	padding:3;
+
+	background-image: url(../images/page_bck.gif);
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+} 
+
+
+
+tbody { 
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+table.main {
+
+	border: 1px solid #000000;
+
+}
+
+
+
+.content {
+
+	background-image: url(../images/content_bck.gif);
+
+	background-repeat: repeat-x;
+
+	background-position: left top;
+
+	height: 198px;
+
+	padding-top: 20px;
+
+	padding-right: 7px;
+
+	padding-bottom: 10px;
+
+	padding-left: 7px;
+
+}
+
+
+
+.date {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #FFFFFF;
+
+	padding-top: 10px;
+
+	padding-right: 0px;
+
+	padding-bottom: 0px;
+
+	padding-left: 60px;
+
+}
+
+
+
+.search {
+
+	color: #FFFFFF;
+
+	padding-top: 5px;
+
+	padding-right: 0px;
+
+	padding-bottom: 0px;
+
+	padding-left: 50px;
+
+}
+
+
+
+
+
+/* Default MOS Class Settings
+
+**********************************************************************************************************/
+
+
+
+td.pathway {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+	padding-top: 1px;
+
+	padding-left: 50px;
+
+}
+
+
+
+a.pathway:link, a.pathway:visited {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+a.pathway:hover {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #666666;
+
+}
+
+
+
+/* Links
+
+**********************************************************************************************************/
+
+
+
+a.mainlevel:link, a.mainlevel:visited {
+
+	color: #666666;
+
+	text-align: left;
+
+	font-weight: bold;
+
+	border-left-width: 3px;
+
+	border-left-style: solid;
+
+	border-left-color: #666666;
+
+	padding-left: 2px;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	line-height: 13px;
+
+}
+
+
+
+a.mainlevel:hover {
+
+	color: #333333;
+
+	text-align: left;
+
+	background-color: #DBE2DA;
+
+	width: 100%;
+
+	border-left-width: 3px;
+
+	border-left-style: solid;
+
+	border-left-color: #DBE2DA;
+
+}
+
+
+
+a.mainmenu:link, a.mainmenu:visited {
+
+	color: #666666; 
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: bold;
+
+}
+
+
+
+a.mainmenu:hover, {
+
+	color: #333333;
+
+	text-align: left;
+
+}
+
+
+
+a.sublevel:link, a.sublevel:visited {
+
+	color: #666666; 
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: normal;
+
+}
+
+
+
+a.sublevel:hover {
+
+	color: #333333;
+
+	text-align: left;
+
+}
+
+
+
+/* Module Styles
+
+**********************************************************************************************************/
+
+
+
+table.moduletable {
+
+	width: 95%;
+
+	text-align: center;
+
+	margin-right: 0px;
+
+	margin-left: 0px;
+
+}
+
+
+
+table.moduletable th {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size : 12px;
+
+	font-weight : bold;
+
+	color : #000000;
+
+	text-align : center;
+
+	background-image: url(../images/middle_top.gif);
+
+	height: 21px;
+
+	padding-top: 8px;
+
+}
+
+
+
+table.moduletable td {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: normal;
+
+	text-align: left;
+
+}
+
+
+
+/* Polls Style
+
+**********************************************************************************************************/
+
+
+
+.poll {
+
+	color : #666666;
+
+	line-height : 12px;
+
+	font-weight: bold;
+
+}
+
+
+
+/* Sections Style
+
+**********************************************************************************************************/
+
+
+
+.sectiontableheader {
+
+	background-color : #B0B9B8;
+
+	color : #FFFFFF;
+
+	font-weight : bold;
+
+	font-size: 11px;
+
+	line-height: 13px;
+
+	border-top-width: 1px;
+
+	border-top-style: solid;
+
+	border-top-color: #666666;
+
+}
+
+
+
+.sectiontableentry1 {
+
+	font-size: 11px;
+
+	background-color : #E6E7E1;
+
+	border-bottom-width: 1px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #666666;
+
+}
+
+
+
+.sectiontableentry2 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	background-color : #e6e8e9;
+
+	border-bottom-width: 1px;
+
+	border-bottom-style: solid;
+
+	border-bottom-color: #666666;
+
+}
+
+
+
+.pagenav {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+}
+
+
+
+a.pagenav:link, a.pagenav:visited {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+}
+
+
+
+a.pagenav:hover {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: bold;
+
+	color: #333333;
+
+}
+
+
+
+
+
+/*****************************************************************************************************/
+
+
+
+.small {
+
+	font-size : 11px;
+
+	color : #666666;
+
+}
+
+
+
+.smalldark {
+
+	font-size : 11px;
+
+	color : #333333;
+
+	text-decoration : none;
+
+}
+
+
+
+.createdate {
+
+	font-size : 10px;
+
+	color : #666666;
+
+	text-decoration : none;
+
+	font-weight : medium;
+
+}
+
+
+
+.modifydate  {
+
+	font-size : 10px;
+
+	color : #666666;
+
+	text-decoration : none;
+
+	font-weight : medium;
+
+}
+
+
+
+/* Content Styles
+
+**********************************************************************************************************/
+
+
+
+.contentpane {
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+.contentpaneopen {
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+.contentheading, .componentheading {
+
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+
+	font-size : 14px;
+
+	font-weight : bold;
+
+	color : #8B9F8B;
+
+	text-align : left;
+
+	line-height: 16px;
+
+	padding-left: 20px;
+
+}
+
+.category {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: bold;
+
+	color: #000000;
+
+}
+
+
+
+a.category:link, a.category:visited {
+
+  color            : #666666;
+
+  font-weight      : bold;
+
+}
+
+
+
+a.category:hover {
+
+  color            : #333333;
+
+}
+
+
+
+/* Form Styles
+
+**********************************************************************************************************/
+
+
+
+form { 
+
+	display:inline; 
+
+	margin: 0px; 
+
+	padding: 0px; 
+
+} 
+
+
+
+.button {
+
+  font-family      : Arial, Helvetica, sans-serif;
+
+  font-style       : normal;
+
+  font-size        : 10px;
+
+  font-weight      : bold;
+
+  background-color : #F0F0F0;
+
+  color            : #000000;
+
+  border           : 1px solid #CCCCCC;
+
+}
+
+
+
+.inputbox {
+
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+
+  font-size        : 10px;
+
+  color            : #000000;
+
+  background-color : #F0F0F0;
+
+  border           : 1px solid #CCCCCC;
+
+}
+
+
+
+/* Links
+
+**********************************************************************************************************/
+
+
+
+a:link, a:visited {
+
+  font-size        : 11px;
+
+  color            : #666666;
+
+  text-decoration  : none;
+
+}
+
+
+
+a:hover {
+
+  color            : #333333;
+
+  text-decoration  : none;
+
+}
+
+
+
+/* For content item titles that are hyperlink instead of Read On
+
+**********************************************************************************************************/
+
+
+
+a.contentpagetitle:link, a.contentpagetitle:visited {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 13px;
+
+	font-weight: bold;
+
+ 	color: #666666;
+
+	text-align:left;
+
+	}
+
+
+
+a.contentpagetitle:hover {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 13px;
+
+	font-weight: bold;
+
+	text-align:left;
+
+	color: #333333;
+
+	text-decoration: underline;
+
+	font-weight: bold;
+
+	}
+
+
+
+.description {
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+/* Styles for dhtml tabbed-pages */
+
+.ontab {
+
+	background-color: #ffae00;
+
+	border-left: outset 2px #ff9900;
+
+	border-right: outset 2px #808080;
+
+	border-top: outset 2px #ff9900;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+.offtab {
+
+	background-color : #e5e5e5;
+
+	border-left: outset 2px #E0E0E0;
+
+	border-right: outset 2px #E0E0E0;
+
+	border-top: outset 2px #E0E0E0;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #000000;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.tabheading {
+
+	background-color: #ffae00;
+
+	text-align: left;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.pagetext {
+
+	visibility: hidden;
+
+	display: none;
+
+	position: relative;
+
+	top: 0;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+/* for modifying {moscode} output.  Don't set the colour! */
+
+.moscode {
+
+	background-color: #f0f0f0;
+
+}
+
+
+
+/* Text passed with mosmsg url parameter */
+
+.message {
+
+	font-weight: bold;
+
+	font-size : 10pt;
+
+	color : #ff6600;
+
+	text-align: center;
+
+}

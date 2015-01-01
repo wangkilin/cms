@@ -1,0 +1,61 @@
+<?php
+/**
+ * $Rev: 2544 $
+ * $LastChangedDate: 2010-06-12 18:29:57 +0800 (Sat, 12 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: update.phtml 2544 2010-06-12 10:29:57Z junzhang $
+ */
+
+
+$this->layout()->disableLayout();
+?>
+<div id="tree-edit-dialog" class="dialog">
+	<div class="dialog-content">
+		<form  action="<?php echo $this->baseUrl() . '/tree/edit/id/' . $this->Tree['TreeId'];?>" method="<?php echo Zend_Form::METHOD_POST;?>" enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+			 <div class="dialog-edit">
+			 	<h1 class="dialog-heading"><label><?php echo $this->translate('tree_edit_tree')?></label><span class="heading-close">×</span></h1>
+			 	<p id="tree_name_zone">
+			 	   <label><i><?php echo $this->translate('tree_name')?></i></label>
+			    	<br/>
+			 	   <input type = "text" name = "Label" value = "<?php echo $this->Tree['Label']?>" />
+			 	   <i><?php echo $this->translate('tree_name_description');?></i>
+			 	</p>
+      <p id="tree_rootNode_zone">
+         <label><?php echo $this->translate('tree_root_node')?></label><br/>
+         <select name="RootNodeId" >
+            <option value=""><?php echo $this->translate('tree_select_root_node')?></option>
+            <?php foreach($this->Nodes as $node){?>
+            <option value="<?php echo $node['NodeId']?>"><?php echo $node['Label']?></option>
+            <?php }?>
+         </select>
+      </p>
+      <p id="tree_status_zone">
+         <label><?php echo $this->translate('tree_status_select')?></label><br/>
+         <select name="StatusId" >
+           <option value=""><?php echo $this->translate('tree_select_status')?></option>
+           <?php foreach($this->Statuses as $status){?>
+           <option value="<?php echo $status['RefTreeStatusId']?>"><?php echo $status['Description']?></option>
+           <?php }?>
+         </select>
+      </p>
+
+      <p id="tree_nodeConstraints_zone">
+         <label><?php echo $this->translate('tree_node_constraints')?></label><br/>
+         <input type="text" name="NodeConstraints" size="30" value="<?php echo $this->Tree['NodeConstraints']?>"></input>
+      </p>	
+			</div>
+			<div>
+			    <span>
+			        <center><button type="submit" name="OK" value="OK"><?php echo $this->translate('application_handler_ok')?></button></center>
+			    </span>
+			</div>
+		</form>
+	</div>
+</div>
+<?php
+/* EOF */

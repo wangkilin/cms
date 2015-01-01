@@ -1,0 +1,2549 @@
+$Id: webservice.def 2540 2010-06-12 09:19:55Z kwu $
+$Rev: 2540 $
+$LastChangedBy: kwu $
+$LastChangedDate: 2010-06-12 17:19:55 +0800 (Sat, 12 Jun 2010) $
+
+------------------------------------------------------------------------------------------------
+Method name:
+Description: 
+Parameters:
+Returns:
+Errors:
+
+class Agentgroup {
+    public function Agentgroup.GetByCustomer() {
+        Method name: Agentgroup.GetByCustomer
+        Description: get groups by customer.
+        Parameters: 
+            int The customer account id.
+            int The page number. [optional]
+            int The number of records per page. [optional]
+        Returns: 
+            array The Agent group list.
+                struct The Agent group structure parameters.
+                    AgentGroupId int Agent group id. 
+                    Label string The agent group name. 
+                    PostProcessTime int Post process time. 
+                    CustomerAccountId int The id of customer account. 
+                    CustomerUserId int The id of creator. 
+                    ReferenceCounter int Reference Counter. 
+                    CreationDate datetime creatation date time. ISO8601 format. 
+                    ModificationDate datetime Modification date time. ISO8601 format.
+                    AgentsCount The total number of agents belong to this group 
+        Errors:
+    }
+
+    public function Agentgroup.CountAllAgents() {
+        Method name: Agentgroup.CountAgents
+        Description: get total number of agents belong to customer
+        Parameters:
+            int The customer account id.
+        Returns:
+            int The total number of agents. 
+        Errors:
+    }
+
+    public function Agentgroup.CountUnaffectedAgents() {
+        Method name: Agentgroup.CountUnaffectedAgents
+        Description: get total number of agents belong to customer, and agents is not of any group info.
+        Parameters:
+            int The customer account id.
+        Returns:
+            int The total number of unaffected agents. 
+        Errors:
+    }
+
+    public function Agentgroup.GetGroupsByAgent() {
+        Method name: Agentgroup.GetGroupsByAgent
+        Description: get groups by agent id. To display the groups that agent belongs to
+        Parameters:
+            int The agent id
+        Returns:
+            array The list of agent groups.
+                struct The Agentgroup structure parameters.
+                    AgentgroupId    int The agent group id.
+                    AgentGroupName  string The agent group name. 
+        Errors:
+    }
+
+    public function Agentgroup.GetGroupsBySupervisor() {
+        Method name: Agentgroup.GetGroupsBySupervisor
+        Description: get groups by supervisor agent id. To display the groups that agent belongs to and agent is supervisor.
+        Parameters:
+            int The agent id
+        Returns:
+            array The list of agent groups.
+                struct The Agentgroup structure parameters.
+                    AgentgroupId    int The agent group id.
+                    AgentGroupName  string The agent group name. 
+        Errors:
+    }
+
+    public function Agentgroup.GetAgents() {
+        Method name: Agentgroup.GetAgents
+        Description: Get agents by group id
+        Parameters: 
+            int The Agent group id.
+            int The page number. [optional]
+            int The number of records per page. [optional]
+        Returns:    
+            array The agents list.
+                struct The agent structure parameters.
+                    Name String The agent name. 
+                    UserId int The user id. 
+                    SupervisorStatus boolean If the agent is supervisor.  *** new added ***
+                    IsLocked boolean  If the agent is locked by system. *** new added *** 
+                    Email string The agent email.  *** new added ***
+                    PhoneNumber string The phone number of agent.  *** new added ***
+        Errors:     
+    }
+
+    public function Agentgroup.GetStatistics() {
+        Method name: Agentgroup.GetStatistics
+        Description: Get live statistics by group id
+        Parameters: 
+            int The Agent group id.
+            int The page number. [optional]
+            int The number of records per page. [optional]
+        Returns:
+            array The list of statistics
+                struct The agent statistic structure
+                    Name string The agent name
+                    UserId int The agent id
+                    OnlineStatus int The agent on/off status
+                    CallsTaken int The number of taken calls for the agent current session
+                    AvailabilityStatus int The agent free/on call/post processing status
+                    Timestamp int The timestamp the status is updated
+        Errors:
+    }
+
+    public function Agentgroup.GetStatisticsByAgentNamePart() {
+        Method name: Agentgroup.GetStatisticsByAgentNamePart
+        Description: Get live statistics by group id
+        Parameters: 
+            int The Agent group id.
+            string The agent partial name
+            int The page number. [optional]
+            int The number of records per page. [optional]
+        Returns:
+            array The list of statistics
+                struct The agent statistic structure
+                    Name string The agent name
+                    UserId int The agent id
+                    OnlineStatus int The agent on/off status
+                    CallsTaken int The number of taken calls for the agent current session
+                    AvailabilityStatus int The agent free/on call/post processing status
+                    Timestamp int The timestamp the status is updated
+        Errors:
+    }
+
+    public function Agentgroup.CountAgents() {
+        Method name: Agentgroup.CountAgents
+        Description: count number of agents of an agent group, optionally restricted by agent name
+        Parameters: 
+            int The agent group id
+            string The agent partial name [optional]
+        Returns:
+            int The number of agents
+        Errors:
+    }
+}
+
+class Tree {
+    public function Tree.Create() {
+        Method name: Tree.Create
+        Description: create a tree or tree template
+        Parameters:
+            struct The tree structure
+                Label string The tree label
+                IsTemplate boolean The flag indicating if the tree is a template
+                ParentTreeId int The parent tree id if create a sub tree [optional]
+                NodeConstraints string The json string for node constraints of a tree template [optional]
+                SolutionId int The solution id if create a tree for restricted solution [optional]
+                CustomerAccountId int The customer account who creates the tree [optional]
+                CustomerUserId int The user who creates the tree
+        Returns:
+            int The Id of created tree or tree template
+        Errors:
+    }
+
+    public function Tree.GetById() {
+        Method name: Tree.GetById
+        Description: get a tree by its id
+        Parameters:
+            int The tree id
+        Returns:
+            struct The tree structure
+                TreeId int The tree id
+                Label string The tree label
+                IsTemplate boolean The flag indicating if the tree is a template
+                ParentTreeId int The parent tree id if create a sub tree
+                ParentTreeLabel string The parent tree label 
+                NodeConstraints string The json string for node constraints of the template 
+                SolutionId int The solution id if the tree 
+                SolutionTypeId int The solution type id
+                SolutionType string The solution type literal
+                TemplateTreeId int The template tree id if create a tree for restricted solution 
+                TemplateTreeLabel string the template label
+                StatusId int The id of tree status 
+                StatusLabel string The status literal of tree
+                CustomerUserId int The id of user who creates the tree
+                CustomerUserName string The name of user who creates the tree
+                CustomerAccountId int The id of account whose user creates the tree [optional]
+                RootNodeId  int The root node of the tree
+                RootNodeLabel string The root node label of the tree
+                CreationDateTime string The creation date time
+                ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Tree.GetByCustomer() {
+        Method name: Tree.GetByCustomer
+        Description: get trees by customer account id and optionally further restricted by solution
+        Parameters:
+            int The customer account id
+            int The solution id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trees with the specified solution id and customer account id
+                struct The tree structure
+                    TreeId int The tree id
+                    Label string The tree label
+                    IsTemplate boolean The flag indicating if the tree is a template
+                    ParentTreeId int The parent tree id if create a sub tree
+                    ParentTreeLabel string The parent tree label 
+                    NodeConstraints string The json string for node constraints of the template 
+                    SolutionId int The solution id if the tree 
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id if create a tree for restricted solution 
+                    TemplateTreeLabel string the template label
+                    StatusId int The id of tree status 
+                    StatusLabel string The status literal of tree
+                    CustomerUserId int The id of user who creates the tree
+                    CustomerUserName string The name of user who creates the tree
+                    CustomerAccountId int The id of account whose user creates the tree
+                    RootNodeId  int The root node of the tree
+                    RootNodeLabel string The root node label of the tree
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Tree.GetByNamePart() {
+        Method name: Tree.GetByNamePart
+        Description: get trees by customer account id and partial name
+        Parameters:
+            string The partial tree name
+            int The customer account id
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trees with the specified solution id and customer account id
+                struct The tree structure
+                    TreeId int The tree id
+                    Label string The tree label
+                    IsTemplate boolean The flag indicating if the tree is a template
+                    ParentTreeId int The parent tree id if create a sub tree
+                    ParentTreeLabel string The parent tree label 
+                    NodeConstraints string The json string for node constraints of the template 
+                    SolutionId int The solution id if the tree 
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id if create a tree for restricted solution 
+                    TemplateTreeLabel string the template label
+                    StatusId int The id of tree status 
+                    StatusLabel string The status literal of tree
+                    CustomerUserId int The id of user who creates the tree
+                    CustomerUserName string The name of user who creates the tree
+                    CustomerAccountId int The id of account whose user creates the tree
+                    RootNodeId  int The root node of the tree
+                    RootNodeLabel string The root node label of the tree
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Tree.Update() {
+        Method name: Tree.Update
+        Description: update a tree
+        Parameters:
+            struct the tree structure
+                TreeId int The tree id
+                Label string The tree label [optional]
+                RootNodeId  int The root node of the tree [optional]
+                NodeConstraints string The json string for node constraints of the template [optional]
+                StatusId int The tree status id [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Tree.Delete() {
+        Method name: Tree.Delete
+        Description: delete a tree and all of its nodes by its id
+        Parameters:
+            int The tree id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Tree.Count() {
+        Method name: Tree.Count
+        Description: count total number of trees  by customer account id
+        Parameters:
+            int The customer account id
+        Returns:
+            int total number of trees of the customer account
+        Errors:
+    }
+
+    public function Tree.Copy() {
+        Method name: Tree.Copy
+        Description: deep copy a tree and all of its nodes by tree id
+        Parameters:
+            int The tree id
+        Returns:
+            int The copied tree id
+        Errors:
+    }
+
+    public function Tree.CopyNodes() {
+        Method name: Tree.CopyNodes
+        Description: deep copy all the nodes down from the specified node id for copy/paste
+        Parameters:
+            int The from node id
+        Returns:
+            int The copied root node id
+        Errors:
+    }
+
+    public function Tree.GetStatuses() {
+        Method name: Tree.GetStatuses
+        Description: get all ref tree statuses
+        Parameters:
+        Returns:
+            array The list of tree statuses
+                struct The tree status structure
+                    StatusId int The ref tree status id
+                    Label string the tree status description
+        Errors:
+    }
+
+    public function Tree.GeTemplates() {
+        Method name: Tree.GeTemplates
+        Description: get tree templates
+        Parameters:
+            int The solution type id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of tree templates with the specified solution id
+                struct The tree structure
+                    TreeId int The tree id
+                    Label string The tree label
+                    IsTemplate boolean The flag indicating if the tree is a template
+                    ParentTreeId int The parent tree id if create a sub tree
+                    ParentTreeLabel string The parent tree label 
+                    NodeConstraints string The json string for node constraints of the template 
+                    SolutionId int The solution id if the tree 
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id if create a tree for restricted solution 
+                    TemplateTreeLabel string the template label
+                    StatusId int The id of tree status 
+                    StatusLabel string The status literal of tree
+                    CustomerUserId int The id of user who creates the tree
+                    CustomerUserName string The name of user who creates the tree
+                    CustomerAccountId int The id of account whose user creates the tree [optional]
+                    RootNodeId  int The root node of the tree
+                    RootNodeLabel string The root node label of the tree
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Tree.GetTemplatesByNamePart() {
+        Method name: Tree.GetTemplatesByNamePart
+        Description: get tree templates by partial name
+        Parameters:
+            string The partial tree name
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of tree templates with the partial name
+                struct The tree structure
+                    TreeId int The tree id
+                    Label string The tree label
+                    IsTemplate boolean The flag indicating if the tree is a template
+                    ParentTreeId int The parent tree id if create a sub tree
+                    ParentTreeLabel string The parent tree label 
+                    NodeConstraints string The json string for node constraints of the template 
+                    SolutionId int The solution id if the tree 
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id if create a tree for restricted solution 
+                    TemplateTreeLabel string the template label
+                    StatusId int The id of tree status 
+                    StatusLabel string The status literal of tree
+                    CustomerUserId int The id of user who creates the tree
+                    CustomerUserName string The name of user who creates the tree
+                    CustomerAccountId int The id of account whose user creates the tree [optional]
+                    RootNodeId  int The root node of the tree
+                    RootNodeLabel string The root node label of the tree
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Tree.CountTemplates() {
+        Method name: Tree.CountTemplates
+        Description: count total number of tree templates by specified solution id
+        Parameters:
+            int The solution type id [optional]
+        Returns:
+            int total number of tree templates with the specified solution id
+        Errors:
+    }
+
+    public function Tree.GetNodes() {
+        Method name: Tree.GetNodes
+        Description: get all nodes of the tree, optionally from specified node id
+        Parameters:
+            int The tree id
+            int The node id [optional]
+        Returns:
+            array The list of nodes of the tree
+                struct The node structure
+                    NodeId  int The node id
+                    Label string The node label
+                    RefNodeTypeId int The node type id
+                    RefNodeType string The node type
+                    IsActive boolean The flag indicating if the node is active
+                    Outputs array The node outputs
+                        struct The node output structure
+                            NodeOutputId int the node output id
+                            NodeId int the node id the output belongs to
+                            NextNodeId int the next node id this output indicates
+                            Label string the node output label
+                            IsDefault boolean the flag indicating the output is default
+                            IsActive boolean the flag indicating the output is active
+                            IsAllowed boolean the flag indicating the output is allowed
+        Errors:
+    }
+    
+    public function Tree.GetNumberGroup() {
+        Method name: Tree.GetNumberGroup
+        Description: get the associated number group for the tree
+        Parameters:
+            int The tree id
+        Returns:
+            array The list of premium number groups
+                struct The premium number group structure
+                    PremiumNumberGroupId  int The premium number group id
+                    PremiumNumberGroupName   string The premium number group name
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                    CustomerAccountName string The customer account label [optional]
+                    CustomerUserId int The id of user who creates the premium number group
+                    CustomerUserName string The name of user who creates the premium number group
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+                    EmergencyTreeId int The emergency tree id
+                    EmergencyActivated boolean The flag indicating emergency is activated
+        Errors:
+    }
+
+    public function Tree.GetSubTrees() {
+        Method name: Tree.GetSubTrees
+        Description: get sub trees with a tree id
+        Parameters:
+            int The tree id
+        Returns:
+            array The list of trees whose parent is the specified tree id
+                struct The tree structure
+                    TreeId int The tree id
+                    Label string The tree label
+                    IsTemplate boolean The flag indicating if the tree is a template
+                    ParentTreeId int The parent tree id if create a sub tree
+                    ParentTreeLabel string The parent tree label 
+                    NodeConstraints string The json string for node constraints of the template 
+                    SolutionId int The solution id if the tree 
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id if create a tree for restricted solution 
+                    TemplateTreeLabel string the template label
+                    StatusId int The id of tree status 
+                    StatusLabel string The status literal of tree
+                    CustomerUserId int The id of user who creates the tree
+                    CustomerUserName string The name of user who creates the tree
+                    CustomerAccountId int The id of account whose user creates the tree [optional]
+                    RootNodeId  int The root node of the tree
+                    RootNodeLabel string The root node label of the tree
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+}
+
+class Node {
+    public function Node.Create() {
+        Method name: Node.Create
+        Description: create a node
+        Parameters:
+            struct The node structure
+                Label string The node label
+                NodeTypeId int The node type id
+                TreeId int The tree id node belongs to
+                IsActive boolean The active flag
+        Returns:
+            int The id of created node
+        Errors:
+    }
+
+    public function Node.GetById() {
+        Method name: Node.GetById
+        Description: get a node by its id
+        Parameters:
+            int The node id
+        Returns:
+            struct The node structure
+                Label string The node label
+                NodeTypeId int The node type id
+                TreeId int The tree id node belongs to
+                IsActive boolean The active flag
+        Errors:
+    }
+
+    public function Node.Update() {
+        Method name: Node.Update
+        Description: update a node by its id
+        Parameters:
+            int The node id
+            struct The node structure
+                Label string The node label [optional]
+                IsActive boolean The active flag [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Node.Delete() {
+        Method name: Node.Delete
+        Description: delete a node by its id
+        Parameters:
+            int The node id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Node.GetTypes() {
+        Method name: Node.GetTypes
+        Description: get node types
+        Parameters:
+        Returns:
+            array The list of node types
+                struct The node type structure
+                    NodeTypeId int The node type id
+                    Label string the node type label
+        Errors:
+    }
+}
+
+class NodeOutput {
+    public function NodeOutput.Create() {
+        Method name: NodeOutput.Create
+        Description: create a node output for a node
+        Parameters:
+            int The node id
+            struct The node output structure
+                Label string The node output label
+                IsDefault boolean The default flag [optional]
+                IsActive boolean The active flag [optional]
+                IsAllowed boolean The allowed flag [optional]
+                NextNodeId int The next node id [optional]
+        Returns:
+            int The created node output id
+        Errors:
+    }
+
+    public function NodeOutput.GetById() {
+        Method name: NodeOutput.GetById
+        Description: get a node output by its id
+        Parameters:
+            int The node output id
+        Returns:
+            struct The node output structure
+                NodeOutputId int The node output id
+                NodeId int The node id this output belongs to
+                Label string The node output label
+                IsDefault boolean The default flag 
+                IsActive boolean The active flag 
+                IsAllowed boolean The allowed flag 
+                NextNodeId int The next node id 
+        Errors:
+    }
+
+    public function NodeOutput.Update() {
+        Method name: NodeOutput.Update
+        Description: update node output by its id
+        Parameters:
+            int The node output id
+            struct The node output structure
+                Label string The node output label [optional]
+                IsDefault boolean The default flag [optional]
+                IsActive boolean The active flag [optional] 
+                IsAllowed boolean The allowed flag [optional] 
+                NextNodeId int The next node id [optional] 
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function NodeOutput.Delete() {
+        Method name: NodeOutput.Delete
+        Description: delete a node output by its id
+        Parameters:
+            int The node output id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+}
+
+class Solution {
+    public function Solution.GetAll() {
+        Method name: Solution.GetAll
+        Description: get all solutions
+        Parameters:
+        Returns:
+            array The list of solutions
+                struct The solution structure
+                    SolutionId int The solution id
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+        Errors:
+    }
+    public function Solution.GetTypes() {
+        Method name: Solution.GetTypes
+        Description: get all solution types
+        Parameters:
+        Returns:
+            array The list of solution types
+                struct The solution type structure
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+        Errors:
+    }
+}
+
+class PremiumNumber {
+    public function PremiumNumber.Create() {
+        Method name: PremiumNumber.Create
+        Description: create a premium number
+        Parameters:
+            struct The premium number structure
+                PremiumNumber   string The actual premium number
+                PremiumNumberUI string The presented premium number
+                SolutionId  int The solution id the premium number belongs to
+                CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                MaxCallDuration int The maximum call duraion in seconds for this premium number
+        Returns:
+            int The Id of created premium number
+        Errors:
+    }
+
+    public function PremiumNumber.GetById() {
+        Method name: PremiumNumber.GetById
+        Description: get premium number by its id
+        Parameters:
+            int The premium number id
+        Returns:
+            struct The premium number structure
+                PremiumNumberId  int The premium number id
+                PremiumNumber   string The actual premium number
+                PremiumNumberUI string The presented premium number
+                SolutionId  int The solution id the premium number belongs to
+                SolutionTypeId int The solution type id
+                SolutionType string The solution type literal
+                TemplateTreeId int The template tree id assigned to restricted solution
+                TemplateTreeLabel string The template tree label 
+                CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                CustomerAccountName string The customer account label
+                MaxCallDuration int The maximum call duraion in seconds for this premium number
+                CreationDateTime string The creation date time
+                StaticContactId int The redirected contact id for the static premium number
+                StaticContactName string The redirected contact name for the static premium number
+                StaticContactPhone string The redirected contact phone for the static premium number
+        Errors:
+    }
+
+    public function PremiumNumber.GetByCustomer() {
+        Method name: PremiumNumber.GetByCustomer
+        Description: get premium numbers assgined to a customer account, get all if id is missing
+        Parameters:
+            int The customer account id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of premium numbers
+                struct The premium number structure
+                    PremiumNumberId  int The premium number id
+                    PremiumNumber   string The actual premium number
+                    PremiumNumberUI string The presented premium number
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                    CustomerAccountName string The customer account label [optional]
+                    MaxCallDuration int The maximum call duraion in seconds for this premium number
+                    CreationDateTime string The creation date time
+                    StaticContactId int The redirected contact id for the static premium number
+                    StaticContactName string The redirected contact name for the static premium number
+                    StaticContactPhone string The redirected contact phone for the static premium number
+        Errors:
+    }
+
+    public function PremiumNumber.GetNotGrouped() {
+        Method name: PremiumNumber.GetNotGrouped
+        Description: get ungrouped premium numbers of a specific solution and a customer account
+        Parameters:
+            int The solution id
+            int The customer account id 
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of premium numbers
+                struct The premium number structure
+                    PremiumNumberId  int The premium number id
+                    PremiumNumber   string The actual premium number
+                    PremiumNumberUI string The presented premium number
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                    CustomerAccountName string The customer account label [optional]
+                    MaxCallDuration int The maximum call duraion in seconds for this premium number
+                    CreationDateTime string The creation date time
+                    StaticContactId int The redirected contact id for the static premium number
+                    StaticContactName string The redirected contact name for the static premium number
+                    StaticContactPhone string The redirected contact phone for the static premium number
+        Errors:
+    }
+
+    public function PremiumNumber.GetByNumberPart() {
+        Method name: PremiumNumber.GetByNumberPart
+        Description: search premium numbers that start with the partial number, search all if id is missing
+        Parameters:
+            string The partial number to be searched for
+            int The customer account id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of premium numbers
+                struct The premium number structure
+                    PremiumNumberId  int The premium number id
+                    PremiumNumber   string The actual premium number
+                    PremiumNumberUI string The presented premium number
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to [optional]
+                    CustomerAccountName string The customer account label [optional]
+                    MaxCallDuration int The maximum call duraion in seconds for this premium number
+                    CreationDateTime string The creation date time
+                    StaticContactId int The redirected contact id for the static premium number
+                    StaticContactName string The redirected contact name for the static premium number
+                    StaticContactPhone string The redirected contact phone for the static premium number
+        Errors:
+    }
+
+    public function PremiumNumber.Delete() {
+        Method name: PremiumNumber.Delete
+        Description: delete a premium number
+        Parameters:
+            int The premium number id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumber.Update() {
+        Method name: PremiumNumber.Update
+        Description: update a premium number by its id
+        Parameters:
+            struct The premium number structure
+                PremiumNumberId  int The premium number id
+                MaxCallDuration int The maximum call duraion in seconds for this premium number [optional]
+                StaticContactId int The redirected contact id [optional]
+                Phone   string The redirected phone number [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumber.Count() {
+        Method name: PremiumNumber.Count
+        Description: count premium numbers, count all if id is missing
+        Parameters:
+            int The customer account id [optional]
+        Returns:
+            int The total number of premium numbers
+        Errors:
+    }
+}
+
+class PremiumNumberGroup {
+    public function PremiumNumberGroup.Create() {
+        Method name: PremiumNumberGroup.Create
+        Description: create a premium number group
+        Parameters:
+            struct The premium number group structure
+                PremiumNumberGroupName string The premium number group name
+                SolutionId  int The solution id the premium number group belongs to
+                CustomerAccountId int The customer account who creates the premium number group [optional]
+                CustomerUserId int The user who creates the premium number group
+                EmergencyTreeId int The emergency tree of the premium number group [optional]
+                EmergencyActivated boolean The flag indicating the emergency tree is activated [optional]
+        Returns:
+            int The id of created premium number group
+        Errors:
+    }
+
+    public function PremiumNumberGroup.GetById() {
+        Method name: PremiumNumberGroup.GetById
+        Description: get a premium number group by its id
+        Parameters:
+            int The premium number group id
+        Returns:
+            struct The premium number group structure
+                PremiumNumberGroupId  int The premium number group id
+                PremiumNumberGroupName   string The premium number group name
+                SolutionId  int The solution id the premium number belongs to
+                SolutionTypeId int The solution type id
+                SolutionType string The solution type literal
+                TemplateTreeId int The template tree id assigned to restricted solution
+                TemplateTreeLabel string The template tree label 
+                CustomerAccountId int The customer account id the premium number is assigned to
+                CustomerAccountName string The customer account label
+                CustomerUserId int The id of user who creates the premium number group
+                CustomerUserName string The name of user who creates the premium number group
+                CreationDateTime string The creation date time
+                ModificationDateTime string The modification date time
+                EmergencyTreeId int The emergency tree id
+                EmergencyActivated boolean The flag indicating emergency is activated
+        Errors:
+    }
+
+    public function PremiumNumberGroup.GetByCustomer() {
+        Method name: PremiumNumberGroup.GetByCustomer
+        Description: get premium number groups by cutomer account id
+        Parameters:
+            int The customer account id
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of premium number groups
+                struct The premium number group structure
+                    PremiumNumberGroupId  int The premium number group id
+                    PremiumNumberGroupName   string The premium number group name
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to
+                    CustomerAccountName string The customer account label
+                    CustomerUserId int The id of user who creates the premium number group
+                    CustomerUserName string The name of user who creates the premium number group
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+                    EmergencyTreeId int The emergency tree id
+                    EmergencyActivated boolean The flag indicating emergency is activated
+        Errors:
+    }
+
+    public function PremiumNumberGroup.GetByNamePart() {
+        Method name: PremiumNumberGroup.GetByNamePart
+        Description: get premium number groups by partial name
+        Parameters:
+            string The partial premium number group name
+            int The customer account id
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of premium number groups
+                struct The premium number group structure
+                    PremiumNumberGroupId  int The premium number group id
+                    PremiumNumberGroupName   string The premium number group name
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to
+                    CustomerAccountName string The customer account label
+                    CustomerUserId int The id of user who creates the premium number group
+                    CustomerUserName string The name of user who creates the premium number group
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+                    EmergencyTreeId int The emergency tree id
+                    EmergencyActivated boolean The flag indicating emergency is activated
+        Errors:
+    }
+
+    public function PremiumNumberGroup.Update() {
+        Method name: PremiumNumberGroup.Update
+        Description: update a premium number group by its id
+        Parameters:
+            struct The premium number group structure
+                PremiumNumberGroupName string The premium number group name [optional]
+                EmergencyTreeId int The emergency tree of the premium number group [optional]
+                EmergencyActivated boolean The flag indicating the emergency tree is activated [optional]
+        Returns:
+        Errors:
+    }
+
+    public function PremiumNumberGroup.Delete() {
+        Method name: PremiumNumberGroup.Delete
+        Description: delete a premium number group by its id
+        Parameters:
+            int The premium number group id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumberGroup.Count() {
+        Method name: PremiumNumberGroup.Count
+        Description: count premium number groups by customer account id
+        Parameters:
+            int The customer account id
+        Returns:
+            int The total number of premium number groups of the customer account
+        Errors:
+    }
+
+    public function PremiumNumberGroup.GetPremiumNumbers() {
+        Method name: PremiumNumberGroup.GetPremiumNumbers
+        Description: get premium numbers by premium number group id
+        Parameters:
+            int The premium number group id
+        Returns:
+            array The list of premium numbers
+                struct The premium number structure
+                    PremiumNumberId  int The premium number id
+                    PremiumNumber   string The actual premium number
+                    PremiumNumberUI string The presented premium number
+                    SolutionId  int The solution id the premium number belongs to
+                    SolutionTypeId int The solution type id
+                    SolutionType string The solution type literal
+                    TemplateTreeId int The template tree id assigned to restricted solution
+                    TemplateTreeLabel string The template tree label 
+                    CustomerAccountId int The customer account id the premium number is assigned to
+                    CustomerAccountName string The customer account label
+                    MaxCallDuration int The maximum call duraion in seconds for this premium number
+                    CreationDateTime string The creation date time
+                    StaticContactId int The redirected contact id for the static premium number
+                    StaticContactName string The redirected contact name for the static premium number
+                    StaticContactPhone string The redirected contact phone for the static premium number
+        Errors:
+    }
+
+    public function PremiumNumberGroup.AddPremiumNumbers() {
+        Method name: PremiumNumberGroup.AddPremiumNumbers
+        Description: add premium numbers to premium number group
+        Parameters:
+            int The premium number group id
+            array The list of assigned premium numbers
+                int The premium number id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumberGroup.RemovePremiumNumbers() {
+        Method name: PremiumNumberGroup.RemovePremiumNumbers
+        Description: remove premium numbers from premium number group
+        Parameters:
+            int The premium number group id
+            array The list of removed premium numbers
+                int The premium number id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumberGroup.GetAllocatedTrees() {
+        Method name: PremiumNumberGroup.GetAllocatedTrees
+        Description: get allocated trees by premium number group id
+        Parameters:
+            int The premium number group id
+        Returns:
+            array The list of associated trees for the given premium number group
+                struct The associated tree structure
+                    RoutingPlanId int The routing plan id
+                    TreeId int The associated tree id
+                    TreeLabel string The associated tree label
+                    StartDateTime string The start datetime of the tree
+                    EndDateTime string The end datetime of the tree
+        Errors:
+    }
+
+    public function PremiumNumberGroup.AddAllocatedTree() {
+        Method name: PremiumNumberGroup.AddAllocatedTree
+        Description: add allocated tree for a premium number group id
+        Parameters:
+            int The premium number group id
+            struct The associated tree structure
+                TreeId int The associated tree id
+                StartDateTime string The start datetime of the tree
+                EndDateTime string The end datetime of the tree
+        Returns:
+            int The routing plan id if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumberGroup.RemoveAllocatedTree() {
+        Method name: PremiumNumberGroup.RemoveAllocatedTree
+        Description: remove an allocated tree for a premium number group
+        Parameters:
+            int The routing plan id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function PremiumNumberGroup.UpdateAllocatedTree() {
+        Method name: PremiumNumberGroup.UpdateAllocatedTree
+        Description: update tree or time to a allocated tree for a premium number group id
+        Parameters:
+            struct The associated tree structure
+                RoutingPlanId int The routing plan id
+                TreeId int The associated tree id 
+                StartDateTime string The start datetime of the tree
+                EndDateTime string The end datetime of the tree
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+}
+
+class Trunk {
+    public function Trunk.Create() {
+        Method name: Trunk.Create
+        Description: create a trunk
+        Parameters:
+            struct The trunk structure
+                ExternalId string The trunk external id
+                Label string The trunk label
+                IPAddress string The trunk IP address
+                Port int The trunk port number
+        Returns:
+            int The id of created trunk
+        Errors:
+    }
+
+    public function Trunk.GetById() {
+        Method name: Trunk.GetById
+        Description: get a trunk by its id
+        Parameters:
+            int The trunk id
+        Returns:
+            struct The trunk structure
+                TrunkId int The trunk id
+                Label string The trunk label
+                ExternalId string The trunk external id
+                IPAddress string The trunk IP address
+                Port int The trunk port number
+                TrunkStatusId int The trunk status id
+                TrunkStatus string The trunk status
+                CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Trunk.GetAll() {
+        Method name: Trunk.GetAll
+        Description: get all trunks
+        Parameters:
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunks
+                struct The trunk structure
+                    TrunkId int The trunk id
+                    Label string The trunk label
+                    ExternalId string The trunk external id
+                    IPAddress string The trunk IP address
+                    Port int The trunk port number
+                    TrunkStatusId int The trunk status id
+                    TrunkStatus string The trunk status
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Trunk.GetByNamePart() {
+        Method name: Trunk.GetByNamePart
+        Description: get all trunks with the name part
+        Parameters:
+            string The partial name of the trunk
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunks
+                struct The trunk structure
+                    TrunkId int The trunk id
+                    Label string The trunk label
+                    ExternalId string The trunk external id
+                    IPAddress string The trunk IP address
+                    Port int The trunk port number
+                    TrunkStatusId int The trunk status id
+                    TrunkStatus string The trunk status
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Trunk.Update() {
+        Method name: Trunk.Update
+        Description: update a trunk by its id
+        Parameters:
+            struct The trunk structure
+                Label string The trunk label [optional]
+                ExternalId string The trunk external id [optional]
+                IPAddress string The trunk IP address [optional]
+                Port int The trunk port number [optional]
+                TrunkStatusId int The trunk status id [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Trunk.Delete() {
+        Method name: Trunk.Delete
+        Description: delete a trunk by its id
+        Parameters:
+            int The trunk id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Trunk.Count() {
+        Method name: Trunk.Count
+        Description: count total number of trunks
+        Parameters:
+        Returns:
+            int The total number of trunks
+        Errors:
+    }
+
+    public function Trunk.GetStatuses() {
+        Method name: Trunk.GetStatuses
+        Description: get trunk statuses
+        Parameters:
+        Returns:
+            array The list of trunk statuses
+                struct The trunk statuses structure
+                    TrunkStatusId int The trunk status id
+                    TrunkStatus string The trunk status
+        Errors:
+    }
+
+    public function Trunk.GetTrunkGroups() {
+        Method name: Trunk.GetTrunkGroups
+        Description: get associated trunk groups by trunk id 
+        Parameters:
+            int The trunk id
+        Returns:
+            array The list of trunk groups
+                struct The trunk group structure
+                    TrunkGroupId int The trunk group id
+                    TrunkGroupLabel string The trunk group label
+        Errors:
+    }
+}
+
+class TrunkGroup {
+    public function TrunkGroup.Create() {
+        Method name: TrunkGroup.Create
+        Description: create a trunk group
+        Parameters:
+            string The trunk group label
+        Returns:
+            int The id of created trunk group
+        Errors:
+    }
+
+    public function TrunkGroup.GetById() {
+        Method name: TrunkGroup.GetById
+        Description: get a trunk group by its id
+        Parameters:
+            int The trunk group id
+        Returns:
+            struct The trunk group structure
+                TrunkGroupId int The trunk group id
+                Label string The trunk group label
+                CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkGroup.GetAll() {
+        Method name: TrunkGroup.GetAll
+        Description: get all trunk groups
+        Parameters:
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunk groups
+                struct The trunk group structure
+                    TrunkGroupId int The trunk group id
+                    Label string The trunk group label
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkGroup.GetByNamePart() {
+        Method name: TrunkGroup.GetByNamePart
+        Description: get all trunk groups with the name part
+        Parameters:
+            string The partial trunk group name
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunk groups
+                struct The trunk group structure
+                    TrunkGroupId int The trunk group id
+                    Label string The trunk group label
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkGroup.Update() {
+        Method name: TrunkGroup.Update
+        Description: update a trunk group by its id
+        Parameters:
+            struct The trunk group structure
+                TrunkGroupId int The trunk group id
+                Label string The trunk group label
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function TrunkGroup.GetTrunks() {
+        Method name: TrunkGroup.GetTrunks
+        Description: get trunks by trunk group id
+        Parameters:
+            int The trunk group id
+        Returns:
+            array The list of trunks
+                struct The trunk structure
+                    TrunkId int The trunk id
+                    Label string The trunk label
+                    ExternalId string The trunk external id
+                    IPAddress string The trunk IP address
+                    Port int The trunk port number
+                    TrunkStatusId int The trunk status id
+                    TrunkStatus string The trunk status
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkGroup.AddTrunks() {
+        Method name: TrunkGroup.AddTrunks
+        Description: add trunks to a trunk group
+        Parameters:
+            int The trunk group id
+            array The list of trunks to be added
+                int The trunk id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function TrunkGroup.RemoveTrunks() {
+        Method name: TrunkGroup.RemoveTrunks
+        Description: remove trunks from a trunk group
+        Parameters:
+            int The trunk group id
+            array The list of trunks to be removed
+                int The trunk id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function TrunkGroup.Delete() {
+        Method name: TrunkGroup.Delete
+        Description: delete a trunk group by its id
+        Parameters:
+            int The trunk group id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function TrunkGroup.Count() {
+        Method name: TrunkGroup.Count
+        Description: count total number of trunk groups
+        Parameters:
+        Returns:
+            int The total number of trunk groups
+        Errors:
+    }
+}
+
+class TrunkRoute {
+    public function TrunkRoute.Import() {
+        Method name: TrunkRoute.Import
+        Description: import trunk route csv file
+        Parameters:
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function TrunkRoute.GetAll() {
+        Method name: TrunkRoute.GetAll
+        Description: get all imported trunk routes
+        Parameters:
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunk routes
+                struct The trunk route structure
+                    Prefix string The trunk route prefix
+                    PrimaryTrunkGroupId int The primarty trunk group id
+                    PrimaryTrunkGroupLabel int The primarty trunk group Label
+                    SecondaryTrunkGroupId int The secondary trunk group id
+                    SecondaryTrunkGroupLabel int The secondary trunk group Label
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkRoute.GetByNamePart() {
+        Method name: TrunkRoute.GetByNamePart
+        Description: get imported trunk routes with the specified name part
+        Parameters:
+            string The parital name/prefix ?
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of trunk routes
+                struct The trunk route structure
+                    Prefix string The trunk route prefix
+                    PrimaryTrunkGroupId int The primarty trunk group id
+                    PrimaryTrunkGroupLabel int The primarty trunk group Label
+                    SecondaryTrunkGroupId int The secondary trunk group id
+                    SecondaryTrunkGroupLabel int The secondary trunk group Label
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function TrunkRoute.Count() {
+        Method name: TrunkRoute.Count
+        Description: count all imported trunk routes
+        Parameters:
+        Returns:
+            int The total number of imported trunk routes
+        Errors:
+    }
+}
+
+class Customer {
+    public function Customer.Create() {
+        Method name: Customer.Create
+        Description: create a customer account
+        Parameters:
+            struct The customer account structure
+                CustomerAccountName string The customer account name
+                CustomerAccountBillingId string The customer account billing id
+                ContactName string The contact name
+                ContactEmail string The contact email
+                ContactPhone string The contact phone
+                MaxResPrompt int The maximum prompt resource
+                MaxResOrigin int The maximum origin resource
+                MaxResBlacklist int The maximum blacklist resource
+                MaxResCalendar int The maximum calendar resource
+                MaxResAgentgroup int The maximum agentgroup resource
+                MaxResContact int The maximum contact resource
+                MaxResUser int The maximum users
+        Returns:
+            int The id of created customer account
+        Errors:
+    }
+
+    public function Customer.GetById() {
+        Method name: Customer.GetById
+        Description: get a customer account by id
+        Parameters:
+            int The id of customer account
+        Returns:
+            struct The customer account structure
+                CustomerAccountId int the customer account id
+                CustomerAccountName string The customer account name
+                CustomerAccountBillingId string The customer account billing id
+                ContactName string The contact name
+                ContactEmail string The contact email
+                ContactPhone string The contact phone
+                MaxResPrompt int The maximum prompt resource
+                MaxResOrigin int The maximum origin resource
+                MaxResBlacklist int The maximum blacklist resource
+                MaxResCalendar int The maximum calendar resource
+                MaxResAgentgroup int The maximum agentgroup resource
+                MaxResContact int The maximum contact resource
+                MaxResUser int The maximum users
+                CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Customer.GetAll() {
+        Method name: Customer.GetAll
+        Description: get all customer account
+        Parameters:
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of customer accounts
+                struct The customer account structure
+                    CustomerAccountId int the customer account id
+                    CustomerAccountName string The customer account name
+                    CustomerAccountBillingId string The customer account billing id
+                    ContactName string The contact name
+                    ContactEmail string The contact email
+                    ContactPhone string The contact phone
+                    MaxResPrompt int The maximum prompt resource
+                    MaxResOrigin int The maximum origin resource
+                    MaxResBlacklist int The maximum blacklist resource
+                    MaxResCalendar int The maximum calendar resource
+                    MaxResAgentgroup int The maximum agentgroup resource
+                    MaxResContact int The maximum contact resource
+                    MaxResUser int The maximum users
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Customer.GetByNamePart() {
+        Method name: Customer.GetByNamePart
+        Description: get all customer account with the name part
+        Parameters:
+            string The partial name of the customer account
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of customer accounts
+                struct The customer account structure
+                    CustomerAccountId int the customer account id
+                    CustomerAccountName string The customer account name
+                    CustomerAccountBillingId string The customer account billing id
+                    ContactName string The contact name
+                    ContactEmail string The contact email
+                    ContactPhone string The contact phone
+                    MaxResPrompt int The maximum prompt resource
+                    MaxResOrigin int The maximum origin resource
+                    MaxResBlacklist int The maximum blacklist resource
+                    MaxResCalendar int The maximum calendar resource
+                    MaxResAgentgroup int The maximum agentgroup resource
+                    MaxResContact int The maximum contact resource
+                    MaxResUser int The maximum users
+                    CreationDateTime string The creation date time
+        Errors:
+    }
+
+    public function Customer.Update() {
+        Method name: Customer.Update
+        Description: update a customer account by id
+        Parameters:
+            struct The customer account structure
+                CustomerAccountId int The customer account id
+                CustomerAccountName string The customer account name
+                CustomerAccountBillingId string The customer account billing id
+                ContactName string The contact name
+                ContactEmail string The contact email
+                ContactPhone string The contact phone
+                MaxResPrompt int The maximum prompt resource
+                MaxResOrigin int The maximum origin resource
+                MaxResBlacklist int The maximum blacklist resource
+                MaxResCalendar int The maximum calendar resource
+                MaxResAgentgroup int The maximum agentgroup resource
+                MaxResContact int The maximum contact resource
+                MaxResUser int The maximum users
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Customer.Delete() {
+        Method name: Customer.Delete
+        Description: delete a customer account by its id
+        Parameters:
+            int The customer account id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Customer.Count() {
+        Method name: Cusomer.Count
+        Description: count total number of customer accounts
+        Parameters:
+        Returns:
+            int The total number of customer accounts
+        Errors:
+    }
+}
+
+class User {
+    public function User.GetProfiles {
+        Method name: User.GetProfiles
+        Description: get profiles for users
+        Parameters:
+        Returns:
+            array The list of profiles
+                struct The profile structure
+                    ProfileId int The profile id
+                    Label string The profile label
+                    SuperAdmin boolean The super admin flag
+                    AdminUsers boolean The flag to admin users
+                    AdminTrees boolean The flag to admin trees
+                    AdminResources boolean The flag to admin resources
+                    AdminStats boolean The flag to admin statistics
+                    AgentCapability boolean The flag to act as an agent
+        Errors:
+    }
+
+    public function User.Create() {
+        Method name: User.Create
+        Description: create a User
+        Parameters:
+            struct The user structure
+                Name string The user name
+                EmailAddress string The user email address
+                Password string The user password
+                ProfileId int The granted profile for user
+                ParentUserId int The parent user id
+                CustomerAccountId int The customer account user belongs to
+                AgentParameters struct The agent parameter structure [optional]
+                    AgentPhoneNumber string The agent phone number
+                    DisponibilityTime int The disponibility time in seconds
+                    UnlimitedDisponibility boolean The flag indicating unlimited disponibility
+        Returns:
+            int The id of created user
+        Errors:
+    }
+
+    public function User.GetById() {
+        Method name: User.GetById
+        Description: get user by its id
+        Parameters:
+            int The user id
+        Returns:
+            struct The user structure
+                UserId int The user id
+                Name string The user name
+                EmailAddress string The user email address
+                Password string The user password
+                ProfileId int The granted profile id for user
+                ProfileLabel string The granted profile label for user
+                ParentUserId int The parent user id
+                ParentUserName string The parent user name
+                CustomerAccountId int The customer account id user belongs to
+                CustomerAccountName string The customer account name user belongs to
+                IsLocked boolean The flag indicating if the user is locked
+                AgentParameters struct The agent attributes for the user 
+                    AgentPhoneNumber string The agent phone number
+                    DisponibilityTime int The disponibility time in seconds
+                    UnlimitedDisponibility boolean The flag indicating unlimited disponibility
+                    LoginDateTime string The login date time
+        Errors:
+    }
+
+    public function User.Login() {
+        Method name: User.Login
+        Description: get user by its login and password
+        Parameters:
+            string The user email address
+            string The user password
+        Returns:
+            struct The user structure
+                UserId int The user id
+                Name string The user name
+                EmailAddress string The user email address
+                Password string The user password
+                ProfileId int The granted profile id for user
+                ProfileLabel string The granted profile label for user
+                ParentUserId int The parent user id
+                ParentUserName string The parent user name
+                CustomerAccountId int The customer account id user belongs to
+                CustomerAccountName string The customer account name user belongs to
+                IsLocked boolean The flag indicating if the user is locked
+                AgentParameters struct The agent attributes for the user 
+                    AgentPhoneNumber string The agent phone number
+                    DisponibilityTime int The disponibility time in seconds
+                    UnlimitedDisponibility boolean The flag indicating unlimited disponibility
+                    LoginDateTime string The login date time
+        Errors:
+    }
+
+    public function User.GetByCustomer() {
+        Method name: User.GetByCustomer
+        Description: get users by customer account id, get all if missing, and optionally further restricted by parent user id
+        Parameters:
+            int The customer account id [optional]
+            int The parent user id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of users
+                struct The user structure
+                    UserId int The user id
+                    Name string The user name
+                    EmailAddress string The user email address
+                    Password string The user password
+                    ProfileId int The granted profile id for user
+                    ProfileLabel string The granted profile label for user
+                    ParentUserId int The parent user id
+                    ParentUserName string The parent user name
+                    CustomerAccountId int The customer account id user belongs to
+                    CustomerAccountName string The customer account name user belongs to
+                    IsLocked boolean The flag indicating if the user is locked
+                    AgentParameters struct The agent attributes for the user 
+                        AgentPhoneNumber string The agent phone number
+                        DisponibilityTime int The disponibility time in seconds
+                        UnlimitedDisponibility boolean The flag indicating unlimited disponibility
+                        LoginDateTime string The login date time
+        Errors:
+    }
+
+    public function User.GetByNamePart() {
+        Method name: User.GetByNamePart
+        Description: search users by customer account id, get all if missing, and optionally further restricted by parent user id
+        Parameters:
+            string The partial user name
+            int The customer account id [optional]
+            int The parent user id [optional]
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of users
+                struct The user structure
+                    UserId int The user id
+                    Name string The user name
+                    EmailAddress string The user email address
+                    Password string The user password
+                    ProfileId int The granted profile id for user
+                    ProfileLabel string The granted profile label for user
+                    ParentUserId int The parent user id
+                    ParentUserName string The parent user name
+                    CustomerAccountId int The customer account id user belongs to
+                    CustomerAccountName string The customer account name user belongs to
+                    IsLocked boolean The flag indicating if the user is locked
+                    AgentParameters struct The agent attributes for the user 
+                        AgentPhoneNumber string The agent phone number
+                        DisponibilityTime int The disponibility time in seconds
+                        UnlimitedDisponibility boolean The flag indicating unlimited disponibility
+                        LoginDateTime string The login date time
+    }
+
+    public function User.Update() {
+        Method name: User.Update
+        Description: update user by its id
+        Parameters:
+            struct The user structure
+                UserId int The user id
+                Name string The user name [optional]
+                EmailAddress string The user email address [optional]
+                Password string The user password [optional]
+                ProfileId int The granted profile id for user [optional]
+                ParentUserId int The parent user id [optional]
+                CustomerAccountId int The customer account id user belongs to [optional]
+                IsLocked boolean The flag indicating if the user is locked [optional]
+                AgentParameters struct The agent attributes for the user [optional]
+                    AgentPhoneNumber string The agent phone number [optional]
+                    DisponibilityTime int The disponibility time in seconds [optional]
+                    UnlimitedDisponibility boolean The flag indicating unlimited disponibility [optional]
+                    LoginDateTime string The login date time [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function User.Delete() {
+        Method name: User.Delete
+        Description: delete a user by its id
+        Parameters:
+            int The user id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function User.Count() {
+        Method name: User.Count
+        Description: count number of users 
+        Parameters:
+            int The customer account id [optional]
+            int The parent user id [optional]
+        Returns:
+            int The number of Users
+        Errors:
+    }
+
+    public function User.Reset() {
+        Method name: User.Reset
+        Description: reset a user password by its id
+        Parameters:
+            int The user id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+}
+
+class Report {
+    public function Report.Create() {
+        Method name: Report.Create
+        Description: create a statistic report
+        Parameters:
+            struct The report structure
+                ReportName string The report name
+                ReportFormat string The report file format
+                ReportType string The report type
+                OriginGroupId int The orgin group id to group with for origin statistic report [optional]
+                CustomerUserId int The user id who creates the report
+                CustomerAccountId int The customer account id of the report
+                PhoneNumber struct The report for phone numbers 
+                    PhoneNumberType string The phone number type
+                    PhoneNumberFrom string The from phone number of the report
+                    PhoneNumberTo string The to phone number of the report
+                Timeframe struct The report timeframe structure
+                    ReportTimeframeValue string The report timeframe value [optional]
+                    ReportTimeframeId int The report time frame id [optional]
+                    ReportStartDate string The report start date [optional]
+                    ReportEndDate string The report end date [optional]
+                    SumOnly boolean The aggregate flag [optional]
+                EmailFrequency string The report mail frequency
+                Recipients array The list of report recipients
+                    int The recipient user id
+        Returns:
+            int The id of created report
+        Errors:
+    }
+
+    public function Report.GetById() {
+        Method name: Report.GetById
+        Description: get a report by its id
+        Parameters:
+            int The report id
+        Returns:
+            struct The report structure
+                ReportId int The report id
+                ReportName string The report name
+                ReportFormat string The report file format
+                ReportType string The report type
+                OriginGroupId int The origin group id to group with for origin statistic report 
+                OriginGroupName string The origin group name to group with
+                PhoneNumber struct The report for phone numbers 
+                    PhoneNumberType string The phone number type
+                    PhoneNumberFrom string The from phone number of the report 
+                    PhoneNumberTo string The to phone number of the report 
+                Timeframe struct The report timeframe structure
+                    ReportTimeframeValue string The report timeframe value
+                    ReportTimeframeId int The report timeframe id
+                    ReportStartDate string The report start date 
+                    ReportEndDate string The report end date 
+                    SumOnly boolean The aggregate flag 
+                EmailFrequency string The report mail frequency 
+                EmailSent boolean The mail sent flag
+                CustomerAccountId int The customer account id of the report
+                CustomerAccountName string The customer account name of the report
+                CreationDateTime string The creation date time
+                ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Report.GetByCustomer() {
+        Method name: Report.GetByCustomer
+        Description: get reports by customer account id
+        Parameters:
+            int The customer account id
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of reports
+                struct The report structure
+                    ReportId int The report id
+                    ReportName string The report name
+                    ReportFormat string The report file format
+                    ReportType string The report type
+                    OriginGroupId int The origin group id to group with for origin statistic report 
+                    OriginGroupName string The origin group name to group with
+                    PhoneNumber struct The report for phone numbers 
+                        PhoneNumberType string The phone number type
+                        PhoneNumberFrom string The from phone number of the report 
+                        PhoneNumberTo string The to phone number of the report 
+                    Timeframe struct The report timeframe structure
+                        ReportTimeframeValue string The report timeframe value
+                        ReportTimeframeId int The report timeframe id
+                        ReportStartDate string The report start date 
+                        ReportEndDate string The report end date 
+                        SumOnly boolean The aggregate flag 
+                    EmailFrequency string The report mail frequency 
+                    EmailSent boolean The mail sent flag
+                    CustomerAccountId int The customer account id of the report
+                    CustomerAccountName string The customer account name of the report
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Report.GetByNamePart() {
+        Method name: Report.GetByNamePart
+        Description: search report by partial name
+        Parameters:
+            string The report partial name
+            int The customer account id 
+            string The report name part
+            int The page number [optional]
+            int The number of records per page [optional]
+        Returns:
+            array The list of reports
+                struct The report structure
+                    ReportId int The report id
+                    ReportName string The report name
+                    ReportFormat string The report file format
+                    ReportType string The report type
+                    OriginGroupId int The origin group id to group with for origin statistic report 
+                    OriginGroupName string The origin group name to group with
+                    PhoneNumber struct The report for phone numbers 
+                        PhoneNumberType string The phone number type
+                        PhoneNumberFrom string The from phone number of the report 
+                        PhoneNumberTo string The to phone number of the report 
+                    Timeframe struct The report timeframe structure
+                        ReportTimeframeValue string The report timeframe value
+                        ReportTimeframeId int The report timeframe id
+                        ReportStartDate string The report start date 
+                        ReportEndDate string The report end date 
+                        SumOnly boolean The aggregate flag 
+                    EmailFrequency string The report mail frequency 
+                    EmailSent boolean The mail sent flag
+                    CustomerAccountId int The customer account id of the report
+                    CustomerAccountName string The customer account name of the report
+                    CreationDateTime string The creation date time
+                    ModificationDateTime string The modification date time
+        Errors:
+    }
+
+    public function Report.Update() {
+        Method name: Report.Update 
+        Description: update a report by its id
+        Parameters:
+            struct The report structure
+                ReportId int The report id
+                ReportName string The report name [optional]
+                ReportFormat string The report file format [optional]
+                ReportType string The report type [optional]
+                OriginGroupId int The origin group id to group with for origin statistic report  [optional]
+                PhoneNumber struct The report for phone numbers  [optional]
+                    PhoneNumberType string The phone number type [optional]
+                    PhoneNumberFrom string The from phone number of the report [optional] 
+                    PhoneNumberTo string The to phone number of the report  [optional]
+                Timeframe struct The report timeframe structure [optional]
+                    ReportTimeframeValue string The report timeframe value [optional]
+                    ReportTimeframeId int The report timeframe id [optional]
+                    ReportStartDate string The report start date  [optional]
+                    ReportEndDate string The report end date  [optional]
+                    SumOnly boolean The aggregate flag  [optional]
+                EmailFrequency string The report mail frequency  [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Report.Delete() {
+        Method name: Report.Delete
+        Description: delete a report by id
+        Parameters:
+            int The report id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Report.Count() {
+        Method name: Report.Count
+        Description: count the number of report by customer account id, optionally further restricted name part
+        Parameters:
+            int The customer account id 
+            string The report name part [optional]
+        Returns:
+            int The number of reports
+        Errors:
+    }
+
+    public function Report.GetTimeframes() {
+        Method name: Report.GetTimeframes
+        Description: get report timeframes
+        Parameters:
+        Returns:
+            array The list of report timeframes
+                struct The report timeframe structure
+                    ReportTimeframeId int The report timeframe id
+                    Resolution int The report resolution
+                    ResolutionUnit string The report resolution unit
+                    TimeframeUnit string The report timeframe unit
+                    TimeframeMax string The report timeframe max
+        Errors:
+    }
+
+    public function Report.GetRecipients() {
+        Method name: Report.GetRecipients
+        Description: get report recipients
+        Parameters:
+            int The report id
+        Returns:
+            array The list of report recipients
+                struct The recipient structure
+                    UserId int The user id
+                    Name string The user name
+                    EmailAddress string The email address
+        Errors:
+    }
+
+    public function Report.AddRecipients() {
+        Method name: Report.AddRecipients
+        Description: get report recipients
+        Parameters:
+            array The list of recipients to be added
+                int The recipient id
+        Returns:
+            string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Report.RemoveRecipients() {
+        Method name: Report.RemoveRecipients
+        Description: get report recipients
+        Parameters:
+            array The list of recipients to be added
+                int The recipient id
+        Returns:
+            string 'OK' if operation succeeds
+        Errors:
+    }
+}
+
+class Blacklist {
+    public function Blacklist.CreateNodeParameter() {
+        Method name: Blacklist.CreateNodeParameter
+        Description: create a blacklist node parameter
+        Parameters:
+            struct The blacklist node parameter structure
+                NodeId int The node id
+                HasPayphoneFilter boolean The payphone flag
+                PayphoneRejectionPromptId int The prompt to be played
+                BlacklistId int The id of blacklist
+                BlacklistRejectionPromptId int The prompt id to be played
+        Returns:
+            int The id of created blacklist parameter
+        Errors:
+    }
+
+    public function Blacklist.GetNodeParameter() {
+        Method name: Blacklist.GetNodeParameter
+        Description: get a blacklist node parameter by its id
+        Parameters:
+            int The id of blacklist parameter
+        Returns:
+            struct The blacklist node parameter structure
+                NodeParamBlacklistId int The black list param id
+                NodeId int The node id
+                HasPayphoneFilter boolean The payphone flag
+                PayphoneRejectionPromptId int The prompt to be played
+                BlacklistId int The id of blacklist
+                BlacklistRejectionPromptId int The prompt id to be played
+        Errors:
+    }
+
+    public function Blacklist.UpdateNodeParameter() {
+        Method name: Blacklist.UpdateNodeParameter
+        Description: update a blacklist node parameter by its id
+        Parameters:
+            int The id of blacklist parameter
+            struct The blacklist node parameter structure
+                HasPayphoneFilter boolean The payphone flag
+                PayphoneRejectionPromptId int The prompt to be played
+                BlacklistId int The id of blacklist
+                BlacklistRejectionPromptId int The prompt id to be played
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Blacklist.GetNodeOutputs() {
+        Method name: Blacklist.GetNodeOutputs
+        Description: get blacklist node outputs by its id
+        Parameters:
+            int The id of blacklist node
+        Returns:
+            array The list of blacklist node outputs
+                struct The blacklist node ouputs structure
+                    NodeOutputId int The node output id
+                    NodeOutputName string The node output name
+        Errors:
+    }
+}
+
+class Origin {
+    public function Origin.GetNodeOutputs() {
+        Method name: Origin.GetNodeOutputs
+        Description: get a origin node outputs 
+        Parameters:
+            array The list of node outputs
+                struct The node outputs structure
+                    NodeOutputId int The node output id
+                    NodeOutputName string The node output name
+                    IsActive boolean The active flag
+                    OriginId int The origin id
+                    OriginName string The origin name
+                    NodeParamerId int The node parameter id
+        Returns:
+        Errors:
+    }
+
+    public function Origin.AddNodeParameter() {
+        Method name: Origin.AddNodeParameter
+        Description: add a node parameter to origin node
+        Parameters:
+            int The node id
+            int The node output id
+            int The origin id
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Origin.RemoveNodeParameter() {
+        Method name: Origin.RemoveNodeParameter
+        Description: remove a node parameter from origin node
+        Parameters:
+            int The node parameter id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+}
+
+class Calendar {
+    public function Calendar.GetNodeOutputs() {
+        Method name: Calendar.GetNodeOutputs
+        Description: get node outputs of a calendar node
+        Parameters:
+            int The node id
+        Returns:
+            array The list of node outputs
+                struct The calendar output structure
+                    OutputId int The node output id
+                    OutputName string The node output name
+                    IsActive boolean The active flag
+                    CalendarId int the calendar resource id
+                    CalendarTypeId int the calendar type id
+                    PeriodId int The period id
+                    NodeParameterId int The node parameter id
+        Errors:
+    }
+
+    public function Calendar.CountPeriod() {
+        Method name: Calendar.CountPeriod
+        Description: count number of periods for week view calendar
+        Parameters:
+            int The calendar id
+        Returns:
+            int The number of periods of week view calendar
+        Errors:
+    }
+
+    public function Calendar.AddNodeParameter() {
+        Method name: Calendar.AddNodeParameter
+        Description: add a node parameter to a calendar node
+        Parameters:
+            int The calendar node id
+            int The node output id
+            int The period id
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Calendar.RemoveNodeParameter() {
+        Method name: Calendar.RemoveNodeParameter
+        Description: remove a node parameter from a calendar node
+        Parameters:
+            int The node parameter id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Calendar.GetTypes() {
+        Method name: Calendar.GetTypes
+        Description: get calendar types
+        Parameters:
+        Returns:
+            array The list of calendar types
+                struct The calendar type structure
+                    CalendarTypeId int The calendar type id
+                    Label string The calendar type label
+        Errors:
+    }
+}
+
+class Distribution {
+    public function Distribution.GetNodeOutputs() {
+        Method name: Distribution.GetNodeOutputs
+        Description: get node outputs of a distribution node
+        Parameters:
+            int The node id
+        Returns:
+            array The list of node outputs
+                struct The distribution output structure
+                    OutputId int The node output id
+                    OutputName string The node output name
+                    IsActive boolean The active flag
+                    DistributionTypeId int the distribution type id
+                    NodeParameterId int The node parameter id
+                    Percentage int the distribution ratio
+        Errors:
+    }
+
+    public function Distribution.AddNodeParameter() {
+        Method name: Distribution.AddNodeParameter
+        Description: add a node parameter to a distribution node
+        Parameters:
+            int The distribution node id
+            int The node output id
+            int The distribution type id
+            int The distribution ratio
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Distribution.UpdateNodeParameter() {
+        Method name: Distribution.UpdateNodeParameter
+        Description: update a node parameter of a distribution node
+        Parameters:
+            int The node parameter id
+            int The distribution type id [optional]
+            int The distribution ratio [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Distribution.RemoveNodeParameter() {
+        Method name: Distribution.RemoveNodeParameter
+        Description: remove a node parameter of a distribution node
+        Parameters:
+            int The node parameter id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Distribution.GetTypes() {
+        Method name: Distribution.GetTypes
+        Description: get distribution types
+        Parameters:
+        Returns:
+            array The list of distribution types
+                struct The distribution type structure
+                    DistributionTypeId int The distribution type id
+                    Label string The distribution type label
+        Errors:
+    }
+}
+
+class Prompt {
+    public function Prompt.GetNodeOutput() {
+        Method name: Prompt.GetNodeOutput
+        Description: get node output of a prompt node
+        Parameters:
+            int The node id
+        Returns:
+            struct The distribution output structure
+                OutputId int The node output id
+                OutputName string The node output name
+                IsActive boolean The active flag
+        Errors:
+    }
+
+    public function Prompt.AddNodeParameter() {
+        Method name: Prompt.AddNodeParameter
+        Description: add a node parameter to a prompt node
+        Parameters:
+            struct The prompt node parameter structure
+                NodeId int The node id
+                PromptId int The prompt id
+                IsStandard boolean The system/standard flag
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Prompt.UpdateNodeParameter() {
+        Method name: Prompt.UpdateNodeParameter
+        Description: update a node parameter of a prompt node
+        Parameters:
+            int The node parameter id
+            struct The prompt node parameter structure
+                PromptId int The prompt id [optional]
+                IsStandard boolean The system/standard flag [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Prompt.GetNodeParameter() {
+        Method name: Prompt.GetNodeParameter
+        Description: get node parameter of a prompt node
+        Parameters:
+            int The node id
+        Returns:
+            struct The prompt node parameter structure
+                NodeParameterId int The node parameter id
+                PromptId int THe prompt id
+                PromptName string The prompt name
+                IsStandard boolean The system/standard flag
+        Errors:
+    }
+}
+
+class Menu {
+    public function Menu.AddNodeParameter() {
+        Method name: Menu.AddNodeParameter
+        Description: add a node parameter to a menu node
+        Parameters:
+            int The node id
+            struct The menu node parameter structure
+                MaxTries int The number of max tries
+                NoInputTimeout int The no input timeout in seconds
+                GreetingPromptId int The greeting prompt id
+                NoInputPromptId int The no input prompt id
+                WrongKeyPromptId int The wrong key prompt id
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Menu.UpdateNodeParameter() {
+        Method name: Menu.UpdateNodeParameter
+        Description: update a node parameter of a menu node
+        Parameters:
+            int The node parameter id
+            struct The menu node parameter structure
+                MaxTries int The number of max tries [optional]
+                NoInputTimeout int The no input timeout in seconds [optional]
+                GreetingPromptId int The greeting prompt id [optional]
+                NoInputPromptId int The no input prompt id [optional]
+                WrongKeyPromptId int The wrong key prompt id [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Menu.GetNodeParameter() {
+        Method name: Menu.GetNodeParameter
+        Description: get a node parameter of a menu node
+        Parameters:
+            int The node id
+        Returns:
+            struct The menu node parameter structure
+                NodeParameterId int The node parameter id
+                MaxTries int The number of max tries 
+                NoInputTimeout int The no input timeout in seconds 
+                GreetingPromptId int The greeting prompt id 
+                NoInputPromptId int The no input prompt id 
+                WrongKeyPromptId int The wrong key prompt id 
+        Errors:
+    }
+
+    public function Menu.GetNodeOutputs() {
+        Method name: Menu.GetNodeOutputs
+        Description: get node outputs of a menu node
+        Parameters:
+            int The node id
+        Returns:
+            array The list of node outputs
+                struct The menu output structure
+                    OutputId int The node output id
+                    OutputName string The node output name
+                    IsActive boolean The active flag
+        Errors:
+    }
+}
+
+class Link {
+    public function Link.AddNodeParameter() {
+        Method name: Link.AddNodeParameter
+        Description: add a node parameter to link node
+        Parameters:
+            int The node id
+            int The linked node id
+            boolean The internal link flag
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Link.UpdateNodeParameter() {
+        Method name: Link.UpdateNodeParameter
+        Description: update a node parameter to link node
+        Parameters:
+            int The link node parameter id
+            int The linked node id [optional]
+            boolean The internal link flag [optional]
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Link.GetNodeParameter() {
+        Method name: Link.GetNodeParameter
+        Description: get node parameter of link node
+        Parameters:
+            int The link node id
+        Returns:
+            struct The link node parameter structure
+                NodeParameterId int The node parameter id
+                NodeId int The node id
+                LinkedNodeId int The linked node id 
+                IsInternal boolean The internal link flag 
+        Errors:
+    }
+}
+
+class Hangup {
+    public function Hangup.AddNodeParameter() {
+        Method name: Hangup.AddNodeParameter
+        Description: add node parameter to a hangup node
+        Parameters:
+            int The node id
+            int The release cause id
+        Returns:
+            int The created node parameter id
+        Errors:
+    }
+
+    public function Hangup.UpdateNodeParameter() {
+        Method name: Hangup.UpdateNodeParameter
+        Description: update node parameter of a hangup node
+        Parameters:
+            int The node parameter id
+            int The release cause id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Hangup.GetReleaseCauses() {
+        Method name: Hangup.GetReleaseCauses
+        Description: get release causes for hangup
+        Parameters:
+        Returns:
+            array The list of release causes
+                struct The release cause structure
+                    ReleaseCauseId int The release cause id
+                    Label string The release cause label
+        Errors:
+    }
+
+    public function Hangup.GetNodeParameter() {
+        Method name: Hangup.GetNodeParameter
+        Description: get node parameter of a hangup node
+        Parameters:
+            int The node id
+        Returns:
+            struct The hangup node parameter structure
+                NodeParameterId int The node parameter id
+                NodeId int The node id
+                ReleaseCauseId int The release cause id
+        Errors:
+    }
+}
+
+class Outgoing {
+    public function Outgoing.AddNodeParameter() {
+        Method name: Outgoing.AddNodeParameter
+        Description: add parameter to an outgoing node
+        Parameters:
+            struct The outgoing node parameter structure
+                NodeId int The node id the parameter belongs to
+                DestinationTypeId int The outgoing destination type
+                ContactId int The contact id [optional]
+                PhoneNumber string The outgoing phone number to create automatic contact [optional]
+                IsAgentGroupAllowed boolean The agent group allowed flag
+                AgentGroupId int The agent group id [optional]
+                IsFailoverAllowed boolean The failover allowed flag
+                RingDuration int The ring duration in seconds [optional]
+                IsWaitingQueueAllowed boolean The waiting queue allowed flag 
+                WaitingQueue struct The waiting queue structure [optional]
+                    HasWaitingQueue boolean The waiting queue active flag 
+                    QueueGreetingPromptId int The greeting prompt id
+                    QueuePeriodicPromptId int The periodic prompt id
+                    QueueMaxLength int The queue max length
+                    QueueMaxWaitingTime int The queue max waiting time in seconds
+                    QueueHasPositionPrompt boolean The queue position flag
+                    QueueMaxPositionPrompt int The limit to queue poistion 
+                IsSimutaneousCallAllowed boolean The simutaneous call allowed flag
+                SimutaneousCall struct The simutaneous call structure [optional]
+                    HasSimutaneousCalls boolean The simutaneous call active flag
+                    MaxSimutaneousCalls int The max simutaneous calls
+        Returns:
+            int The id of created outgoing node parameter
+        Errors:
+    }
+
+    public function Outgoing.UpdateNodeParameter() {
+        Method name: Outgoing.UpdateNodeParameter
+        Description: update parameter of an outgoing node
+        Parameters:
+            struct The outgoing node parameter structure
+                NodeParameterId int The node parameter id
+                DestinationTypeId int The outgoing destination type
+                ContactId int The contact id [optional]
+                IsAgentGroupAllowed boolean The agent group allowed flag
+                AgentGroupId int The agent group id [optional]
+                IsFailoverAllowed boolean The failover allowed flag
+                RingDuration int The ring duration in seconds [optional]
+                IsWaitingQueueAllowed boolean The waiting queue allowed flag 
+                WaitingQueue struct The waiting queue structure [optional]
+                    HasWaitingQueue boolean The waiting queue active flag 
+                    QueueGreetingPromptId int The greeting prompt id
+                    QueuePeriodicPromptId int The periodic prompt id
+                    QueueMaxLength int The queue max length
+                    QueueMaxWaitingTime int The queue max waiting time in seconds
+                    QueueHasPositionPrompt boolean The queue position flag
+                    QueueMaxPositionPrompt int The limit to queue poistion 
+                IsSimutaneousCallAllowed boolean The simutaneous call allowed flag
+                SimutaneousCall struct The simutaneous call structure [optional]
+                    HasSimutaneousCalls boolean The simutaneous call active flag
+                    MaxSimutaneousCalls int The max simutaneous calls
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+
+    public function Outgoing.GetNodeParameter() {
+        Method name: Outgoing.GetNodeParameter
+        Description: get parameter of an outgoing node
+        Parameters:
+            int The node id
+        Returns:
+            struct The outgoing node parameter structure
+                NodeParameterId int The node parameter id
+                NodeId int The node id to whom the node parameter belongs to
+                DestinationTypeId int The outgoing destination type
+                DestinationType string The destination type literal
+                ContactId int The contact id 
+                IsAgentGroupAllowed boolean The agent group allowed flag
+                AgentGroupId int The agent group id 
+                IsFailoverAllowed boolean The failover allowed flag
+                RingDuration int The ring duration in seconds 
+                IsWaitingQueueAllowed boolean The waiting queue allowed flag 
+                WaitingQueue struct The waiting queue structure 
+                    HasWaitingQueue boolean The waiting queue active flag 
+                    QueueGreetingPromptId int The greeting prompt id
+                    QueuePeriodicPromptId int The periodic prompt id
+                    QueueMaxLength int The queue max length
+                    QueueMaxWaitingTime int The queue max waiting time in seconds
+                    QueueHasPositionPrompt boolean The queue position flag
+                    QueueMaxPositionPrompt int The limit to queue poistion 
+                IsSimutaneousCallAllowed boolean The simutaneous call allowed flag
+                SimutaneousCall struct The simutaneous call structure 
+                    HasSimutaneousCalls boolean The simutaneous call active flag
+                    MaxSimutaneousCalls int The max simutaneous calls
+        Errors:
+    }
+
+    public function Outgoing.GetNodeOutputs() {
+        Method name: Outgoing.GetNodeOutputs
+        Description: get node outputs of a outgoing/destination node
+        Parameters:
+            int The node id
+        Returns:
+            array The list of node outputs
+                struct The menu output structure
+                    OutputId int The node output id
+                    OutputName string The node output name
+                    IsActive boolean The active flag
+        Errors:
+    }
+
+    public function Outgoing.GetDestinationTypes() {
+        Method name: Outgoing.GetDestinationTypes
+        Description: get outgoing desination types
+        Parameters:
+        Returns:
+            array The list of outgoing types
+                struct The outgoing types structure
+                    DestinationTypeId int The destination type id
+                    DestinationType string The destination type literal
+        Errors:
+    }
+
+    public function Outgoing.GetFailoverContacts() {
+        Method name: Outgoing.GetFailoverContacts
+        Description: get outgoing failover contacts
+        Parameters:
+            int The node parameter id
+        Returns:
+            array The list of outgoing failover contacts
+                struct The outgoing failover contact structure
+                    NodeParamOutgoingFailoverId int The node parameter outgoing failover id
+                    Rank int The rank
+                    ContactId int The contact id
+                    ContactName string The contact name
+                    ContactPhone string The contact phone
+        Errors:
+    }
+
+    public function Outgoing.AddFailoverContact() {
+        Method name: Outgoing.AddFailoverContact
+        Description: add an outgoing failover contact
+        Parameters:
+            int The node parameter id
+            int The rank
+            int The contact id [optional]
+            string The phone number to create automatic contact [optional]
+        Returns:
+            int The outgoing node parameter failover id
+        Errors:
+    }
+
+    public function Outgoing.RemoveFailoverContact() {
+        Method name: Outgoing.RemoveFailoverContact
+        Description: remove a outgoing failover contact
+        Parameters:
+            int The outgoing node parameter failover id
+        Returns:
+            string The string 'OK' if operation succeeds
+        Errors:
+    }
+}
+

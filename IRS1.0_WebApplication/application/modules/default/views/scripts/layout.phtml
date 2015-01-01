@@ -1,0 +1,105 @@
+<?php
+/**
+ * $Rev: 2475 $
+ * $LastChangedDate: 2010-06-09 17:00:07 +0800 (Wed, 09 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: layout.phtml 2475 2010-06-09 09:00:07Z junzhang $
+ */
+
+/**
+ * Global view layout container
+ */
+
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$cssUrl = $baseUrl . '/styles/';
+$jsUrl = $baseUrl . '/js/';
+
+// Layout instance
+$layout = $this->layout();
+
+// javascript sources
+$jsSources = '';
+$jsonDatas = array(
+    array(
+        'loading' => $this->translate('application_msg_loading')
+    ),
+    $this->translate('application_handler_confirm')
+);
+$jsSources .= 'var VIEW_DATA = ' . Zend_Json::encode($jsonDatas) . ';' . PHP_EOL;
+
+// Rendering the doc type property
+echo $this->doctype(),
+    PHP_EOL;
+?>
+<html>
+<head>
+<?php
+    // Set application title
+echo $this->headTitle($this->translate('application_title_product'))
+        ->setSeparator(' - '),
+
+    PHP_EOL,
+
+    // Set shortcut icon
+    '<link href="' . $baseUrl . '/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />',
+
+    PHP_EOL,
+
+    // Set application global stylesheet
+    $this->headLink()
+        ->offsetSetStylesheet(-99, $cssUrl . 'reset.css')
+        ->offsetSetStylesheet(-98, $cssUrl . '960.css')
+        ->offsetSetStylesheet(-97, $cssUrl . 'jquery-theme.css')
+        ->offsetSetStylesheet(-89, $cssUrl . 'ui-reset.css')
+        ->offsetSetStylesheet(-88, $cssUrl . 'ui-layout.css')
+        ->offsetSetStylesheet(-87, $cssUrl . 'ui-form.css')
+        ->offsetSetStylesheet(-86, $cssUrl . 'ui-mask.css')
+        ->offsetSetStylesheet(-85, $cssUrl . 'ui-growl.css')
+        ->offsetSetStylesheet(-84, $cssUrl . 'ui-dialog.css')
+        ->offsetSetStylesheet(-83, $cssUrl . 'ui-icons.css')
+        ->offsetSetStylesheet( 99, $cssUrl . 'ui-ie.css', 'screen', 'IE'),
+
+    PHP_EOL,
+
+    // Set application global javascript
+    $this->headScript()
+        ->offsetSetFile(-99, $jsUrl . 'jquery.js')
+        ->offsetSetFile(-98, $jsUrl . 'jquery-ui.js')
+        ->offsetSetFile(-97, $jsUrl . 'common.js')
+        ->offsetSetScript(98, $jsSources),
+
+    PHP_EOL;
+
+?>
+</head>
+<body><div id="main" class="container_16">
+    <div class="container-main"><div class="fix-header"></div>
+        <div id="header">
+            <div class="logo"><a href="<?php echo $baseUrl; ?>"><img src="<?php echo $baseUrl;?>/images/logo.gif" alt="Streamwide" /></a></div>
+            <?php echo $layout->render('layout-menu'); ?>
+        </div>
+
+    <?php
+        // while the content is not empty
+        if ($layout->content) {
+            echo $layout->content;
+        }
+    ?>
+    <div class="fix-footer"></div></div>
+    <div id="footer">&copy; Copyright StreamWIDE</div>
+
+</div>
+
+</body>
+</html>
+<?php
+
+/* EOF */

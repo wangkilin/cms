@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allm_flower</name>
+  <creationDate>06/23/2004</creationDate>
+  <author>allmambo.com Crew</author>
+  <copyright>(C) Released under GPL license</copyright>
+  <authorEmail>arnes@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Nice clean template with a nice flower graphic.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/bg.jpg</filename>
+	<filename>images/header.gif</filename>
+	<filename>images/header1.jpg</filename>
+	<filename>images/spacer.gif</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

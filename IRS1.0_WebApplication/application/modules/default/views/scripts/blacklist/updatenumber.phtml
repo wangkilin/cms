@@ -1,0 +1,57 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="blacklist-number-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="blacklist-number-heading">
+            <span class="heading-text"><?php echo $this->translate('blacklist_update_number');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="blacklist-number-body">
+			<form action="" id="blacklist-number-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('blacklist_update_number_desc')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="PhoneNumber" value="<?php echo $this->BlacklistNumber['PhoneNumber'];?>"/>
+                                        <input type="hidden" name="BlacklistNumberId" value="<?php echo $this->BlacklistNumber['BlacklistNumberId'];?>"/>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

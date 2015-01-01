@@ -1,0 +1,21 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+
+<div class="notification"><?php echo $this->translate('origin_' . strtolower($this->Action) . '_is_processed');?></div>
+
+<?php
+/* EOF */

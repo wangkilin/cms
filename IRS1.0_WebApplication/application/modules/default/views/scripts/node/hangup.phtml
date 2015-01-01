@@ -1,0 +1,89 @@
+<?php
+/**
+ * $Rev: 2653 $
+ * $LastChangedDate: 2010-06-23 12:06:53 +0800 (Wed, 23 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_node
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: hangup.phtml 2653 2010-06-23 04:06:53Z junzhang $
+ */
+
+/**
+ * Modal Window for Node HangUp in a HTML version
+ */
+
+$isUpdating = is_array($this->Node);
+$nodeName = $isUpdating ? $this->Node['Label'] : $this->translate('dialog_form_node_label_default');
+$assignedReleaseCauseId = $isUpdating ? $this->NodeParameter['ReleaseCauseId'] : '';
+?>
+<div class="dialog" id="hangup-dialog">
+    <form id="form-node-hangup" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="dialog-content">
+            <div class="dialog-heading" id="hangup-heading">
+                <span class="heading-text"><?php echo $this->translate('dialog_heading_node_hangup'); ?></span>
+                <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+                <div class="heading-switcher">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="heading-switcher-on">
+                                    <input type="radio" name="IsActive" value="1"<?php echo (!$isUpdating || $this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_active'); ?>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="heading-switcher-spacer">&nbsp;</span>
+                            </td>
+                            <td>
+                                <div class="heading-switcher-off">
+                                    <input type="radio" name="IsActive" value="0"<?php echo ($isUpdating && !$this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_deactive'); ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog-body" id="hangup-body">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_hangup_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_hangup') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_hangup') )); ?>
+                    </span>
+                </div>
+                <div>
+                    <label for="ReleaseCauseId" class="block"><?php echo $this->translate('dialog_form_node_hangup_release_cause'); ?></label>
+                    <select id="ReleaseCauseId" name="ReleaseCauseId">
+                        <option value=""><?php echo $this->translate('dialog_form_node_hangup_release_cause_option_default'); ?></option>
+                        <?php 
+                            foreach($this->ReleaseCauses as $causeInfo) {
+                                $releaseCauseId = $causeInfo['ReleaseCauseId'];
+                                echo '<option value="', $releaseCauseId, '"';
+                                if ($isUpdating && $releaseCauseId === $assignedReleaseCauseId) {
+                                    echo ' selected="selected"';
+                                }
+                                echo '>', $causeInfo['Label'], '</option>', PHP_EOL;
+                            } 
+                        ?>
+                    </select>
+                </div>
+                <?php if ($isUpdating) : ?>
+                <input type="hidden" name="NodeParamHangupId" value="<?php echo $this->NodeParameter['NodeParamHangupId']; ?>" />
+                <?php endif; ?>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+/* EOF */

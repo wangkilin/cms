@@ -1,0 +1,261 @@
+<?php
+/**
+ * $Rev: 2622 $
+ * $LastChangedDate: 2010-06-21 17:37:27 +0800 (Mon, 21 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: tree.phtml 2622 2010-06-21 09:37:27Z junzhang $
+ */
+
+/**
+ * Tree Generator layout container
+ */
+
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$cssUrl = $baseUrl . '/styles/';
+$jsUrl = $baseUrl . '/js/';
+
+// javascript sources
+$jsSources = '';
+$jsonDatas = array(
+    array(
+        'loading' => $this->translate('application_msg_loading')
+    ),
+    $this->translate('application_handler_confirm')
+);
+$jsSources .= 'var VIEW_DATA = ' . Zend_Json::encode($jsonDatas) . ';' . PHP_EOL;
+
+// Layout instance
+$layout = $this->layout();
+
+// Rendering the doc type property
+echo $this->doctype(),
+    PHP_EOL;
+?>
+<html>
+<head>
+<?php
+    // Set application title
+echo $this->headTitle($this->translate('application_title_product'))
+        ->setSeparator(' - '),
+
+    PHP_EOL,
+
+    // Set shortcut icon
+    '<link href="' . $baseUrl . '/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />',
+
+    PHP_EOL,
+
+    // Set application global stylesheet
+    $this->headLink()
+        ->offsetSetStylesheet(-99, $cssUrl . 'reset.css')
+        ->offsetSetStylesheet(-97, $cssUrl . 'jquery-theme.css')
+        ->offsetSetStylesheet(-89, $cssUrl . 'ui-reset.css')
+        ->offsetSetStylesheet(-88, $cssUrl . 'ui-layout.css')
+        ->offsetSetStylesheet(-87, $cssUrl . 'ui-form.css')
+        ->offsetSetStylesheet(-86, $cssUrl . 'ui-mask.css')
+        ->offsetSetStylesheet(-85, $cssUrl . 'ui-growl.css')
+        ->offsetSetStylesheet(-84, $cssUrl . 'ui-dialog.css')
+        ->offsetSetStylesheet(-83, $cssUrl . 'ui-icons.css')
+        ->offsetSetStylesheet(-50, $cssUrl . 'ui-tree.css')
+        ->offsetSetStylesheet( 99, $cssUrl . 'ui-ie.css', 'screen', 'IE'),
+
+    PHP_EOL,
+
+    // Set application global javascript
+    $this->headScript()
+        ->offsetSetFile(-99, $jsUrl . 'jquery.js')
+        ->offsetSetFile(-98, $jsUrl . 'jquery-ui.js')
+        ->offsetSetFile(-97, $jsUrl . 'common.js')
+        ->offsetSetScript(98, $jsSources),
+
+    PHP_EOL;
+
+?>
+</head>
+<body><div id="main">
+    <div id="header">
+        <div class="logo"><a href="<?php echo $baseUrl; ?>"><img src="<?php echo $baseUrl;?>/images/logo.gif" alt="Streamwide" /></a></div>
+        <?php echo $layout->render('layout-menu'); ?>
+    </div>
+
+    <div id="panel">
+        <div class="fix-header"></div>
+        <dl class="items">
+            <dt class="ui-state-default">
+                <i class="ui-icon ui-icon-minus"></i>
+                <b><?php echo $this->translate('list_panel_tree_number_groups'); ?></b>
+            </dt>
+            <dd>
+                <?php 
+                    //TODO: list the the number groups those belongs to the current tree
+                ?>
+            </dd>
+            <dt class="ui-state-default">
+                <i class="ui-icon ui-icon-minus"></i>
+                <a href="#">
+                    <span class="ui-icon ui-icon-triangle-1-s"></span>
+                </a>
+                <b><?php echo $this->translate('list_panel_tree'); ?></b>
+            </dt>
+            <dd class="tree-lists">
+                <ol>
+                    <li class="root<?php if ($this->CurrentTreeId == $this->RootTreeInfo['TreeId']) : ?> highlight<?php endif; ?>">
+                        <span class="ui-icon ui-icon-minus"></span> 
+                        <?php 
+                            echo '<a href="', $baseUrl, '/tree/builder/TreeId/', $this->RootTreeInfo['TreeId'], '">',
+                                $this->RootTreeInfo['Label'],
+                                '</a>'; 
+                        ?>
+                    </li>
+                    <?php foreach($this->SubTreeLists as $subTreeInfo) : ?>
+                    <li<?php if ($this->CurrentTreeId == $subTreeInfo['TreeId']) : ?> class="highlight"<?php endif; ?>>
+                        <?php 
+                            echo '<a href="', $baseUrl, '/tree/builder/TreeId/', $subTreeInfo['TreeId'], '">',
+                                $subTreeInfo['Label'],
+                                '</a>'; 
+                        ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ol>
+            </dd>
+            <dt class="ui-state-default">
+                <i class="ui-icon ui-icon-minus"></i>
+                <b><?php echo $this->translate('list_panel_tree_nodes'); ?></b>
+            </dt>
+            <dd class="detail-nodes">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="type-origin">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_origin'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_origin_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-calendar">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_calendar'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_calendar_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-link">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_link'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_link_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="type-menu">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_menu'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_menu_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-destination">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_destination'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_destination_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-distribution">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_distribution'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_distribution_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="type-blacklist">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_blacklist'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_blacklist_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-hangup">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_hangup'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_hangup_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="type-prompt">
+                                <b></b>
+                                <u><?php echo $this->translate('tree_node_type_prompt'); ?></u>
+                                <q>
+                                    <?php echo $this->translate('tree_node_type_prompt_description'); ?>
+                                <i><i></i></i></q>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="container-main">
+        <div class="fix-header"></div>
+        <?php  echo $layout->content; ?>
+        <div id="bottom">
+            <a class="expend" href="#" title="Expend All Nodes">
+                <b>Expend</b>
+            </a>
+            <a class="collapse" href="#" title="Collapse All Nodes">
+                <b>Collapse</b>
+            </a>
+            <a class="valign" href="#start" title="Go Back to Start">
+                <span class="ui-icon ui-icon-triangle-1-e"></span>
+                <span class="ui-icon ui-icon-triangle-1-s"></span>
+                <b>Go Back to Start</b>
+                <span class="ui-icon ui-icon-triangle-1-w"></span>
+                <span class="ui-icon ui-icon-triangle-1-n"></span>
+            </a>
+            <div id="tips">
+                <b>tips area: </b>
+                <span>Define a routing parameter by clicking on the arrow button in the start box</span>
+                <a class="previous" href="#" title="<?php echo $this->translate('application_handler_previous'); ?>">
+                    <span class="ui-icon ui-icon-circle-triangle-w"></span>
+                </a>
+                <a class="next" href="#" title="<?php echo $this->translate('application_handler_next'); ?>">
+                    <span class="ui-icon ui-icon-circle-triangle-e"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div></body>
+</html>
+<?php
+
+/* EOF */

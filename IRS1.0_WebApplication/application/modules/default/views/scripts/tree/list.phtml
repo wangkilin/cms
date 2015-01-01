@@ -1,0 +1,119 @@
+<?php
+/**
+ * $Rev: 2659 $
+ * $LastChangedDate: 2010-06-23 15:44:52 +0800 (Wed, 23 Jun 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 2659 2010-06-23 07:44:52Z yaoli $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$jsSources = 'var LOCAL = "' . $baseUrl . '/tree/";' . PHP_EOL;
+
+$this->headLink()
+    ->appendStylesheet($baseUrl . '/styles/jquery-tablesorter.css')
+    ->appendStylesheet($baseUrl . '/styles/resource.css')
+    ->appendStylesheet($baseUrl . '/styles/tree.css');
+
+$this->headScript()
+    ->appendFile($baseUrl . '/js/jquery-metadata.js')
+    ->appendFile($baseUrl . '/js/jquery-tablesorter.js')
+    ->appendFile($baseUrl . '/js/resource.js')
+    ->appendFile($baseUrl . '/js/tree.js')
+    ->offsetSetScript(999, $jsSources);
+?>
+<div class="grid_16 oops-container">
+    <div id="tree-lists" class="list-container">
+        <div class="list-content">
+            <table width="100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                        <?php echo $this->translate('application_handler_batch_delete'); ?>
+                                                    </button>
+                                                </div>
+                                                <div class="list-header-create-new">
+                                                    <button type="button" id="create">
+                                                        <?php echo $this->translate('default_form_label_button_new_tree'); ?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/tree/list'; ?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="LabelPart" class="keyword input_default" value="<?php
+                                                                echo $this->translate('application_handler_search_input');
+                                                            ?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                            <?php echo $this->translate('application_handler_ok'); ?>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="tree-items" class="list-body">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1"><div><input type="checkbox" class="checkbox-switch" /></div></th>
+                                            <th class="column-2" title="<?php echo $this->translate('tree_list_name'); ?>">
+                                                <span><?php echo $this->translate('tree_list_name'); ?></span>
+                                            </th>
+                                            <?php if (!$this->IsSuperAdmin) : ?>
+                                            <th class="column-3" title="<?php echo $this->translate('tree_list_solution_type'); ?>">
+                                                <span><?php echo $this->translate('tree_list_solution_type'); ?></span>
+                                            </th>
+                                            <th class="column-4" title="<?php echo $this->translate('tree_list_templete_name'); ?>">
+                                                <span><?php echo $this->translate('tree_list_templete_name'); ?></span>
+                                            </th>
+                                            <?php endif; ?>
+                                            <th class="column-5" title="<?php echo $this->translate('tree_list_created_date'); ?>">
+                                                <span><?php echo $this->translate('tree_list_created_date'); ?></span>
+                                            </th>
+                                            <th class="column-6" title="<?php echo $this->translate('tree_list_modified_date'); ?>">
+                                                <span><?php echo $this->translate('tree_list_modified_date'); ?></span>
+                                            </th>
+                                            <th class="column-7" title="<?php echo $this->translate('tree_list_created_by'); ?>">
+                                                <span><?php echo $this->translate('tree_list_created_by'); ?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('tree_list_status'); ?>">
+                                                <span><?php echo $this->translate('tree_list_status'); ?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        echo $this->render('tree/list-items.phtml');
+                                    ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<?php
+/* EOF */

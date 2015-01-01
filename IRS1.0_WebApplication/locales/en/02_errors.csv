@@ -1,0 +1,8 @@
+## global errors translaton on this web application
+##----------------------------
+## Defined in WebApplication
+##----------------------------
+error_40001;Oups, your account is aborted.
+error_40002;Oups, your account is locked.
+##----------------------------
+## EOF

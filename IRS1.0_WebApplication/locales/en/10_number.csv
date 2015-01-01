@@ -1,0 +1,44 @@
+left_menu_number;Number
+left_menu_add_number;Create New Number
+
+number_list_no_item;You don't have any Numbers.
+
+number_list_customer_number;Customer Number
+number_list_customer_name;Customer Name
+number_list_system_number;System Number
+number_list_max_call_duration;Max Call Duration(min.)
+number_list_solution;Solution
+number_list_templete_name;Templete Name
+number_list_assignment;Assignment
+number_list_date_created;Date Created
+
+number_list_number_sort
+number_list_solution_sort
+number_list_templete_name_sort
+number_list_assign_sort
+number_list_date_create_sort
+
+
+number_create_number;Create new Number
+number_create_customer_number;Customer Number
+number_create_system_number;System Number
+number_create_select_customer;Select a Customer
+number_create_select_solution;Select a Solution
+number_create_max_call_duration;Max Call Duration
+number_create_max_call_duration_minute;Minutes
+
+number_update_number;Edit Number
+number_update_max_call_duration;Max Call Duration
+number_update_max_call_duration_minute;Minutes
+
+number_update_solution;Solution:
+number_update_create_date;Created on:
+number_update_redirect_number;Redirect Number
+number_update_redirect_number_show;Write a phone number that will be the destination of your prenium number
+
+number_is_created;Number(s) %s is created!
+
+number_is_updated;Number(s) %s is udpated!
+
+number_delete_number; number(s) :
+number_is_deleted;Number(s) %s is deleted!

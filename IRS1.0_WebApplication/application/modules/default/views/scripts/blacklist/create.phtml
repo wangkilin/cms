@@ -1,0 +1,101 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="blacklist-create-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="blacklist-create-heading">
+            <span class="heading-text"><?php echo $this->translate('blacklist_create_blacklist');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="blacklist-create-body">
+			<form action="" id="blacklist-create-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('blacklist_name');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <span class="">
+                                                            <input type="text" name="BlacklistName" value=""/>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="dynamic-container">
+                                                        <span class="gap"></span>
+                                                        <span class="">
+                                                            <input type="checkbox" name="DynamicBlacklist" value="1"/>
+                                                            <?php echo $this->translate('blacklist_is_dynamic');?>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <div id="dtmf-container" class="unactive">
+                                                        <span class=""><?php echo $this->translate('blacklist_dtmf');?></span>
+                                                        <select name="DynamicDtmf" disabled="disabled">
+                                                            <?php
+                                                                foreach (array('*', '#') as $value) {
+                                                                    for ($i = 0; $i < 10; $i++) {
+                                                                            $v = $value . $i;
+                                                                            echo '<option value="' . $v . '">' . $v . '</option>';
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                        <span class="gap"></span>
+                                                        <span class=""><?php echo $this->translate('blacklist_expiration');?></span>
+                                                        <select name="DynamicDuration" disabled="disabled">
+                                                            <?php
+                                                                for ($i = 1; $i < 25; $i++) {
+                                                                    echo '<option value="' . $i . '">' . $i . "</option>";
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                        <span class=""><?php echo $this->translate('blacklist_expiration_time_hours');?></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+.list-content table .column-1
+{
+width:2%;
+}
+.list-content table .column-2
+{
+width:12%;
+}
+.list-content table .column-3
+{
+width:12%;
+}
+.list-content table .column-4
+{
+width:20%;
+}
+.list-content table .column-5
+{
+width:20%;
+}
+.list-content table .column-6
+{
+width:12%;
+}
+.list-content table .column-7
+{
+width:12%;
+}
+.list-content table .column-0
+{
+width:5%;
+}
+
+.group-by,
+#date-period,
+.date-period-values
+{
+display:none;
+}
+.destination table,
+.time-period table,
+.group-by table,
+.email-scheduling table
+{
+width:100%;
+margin-left:5px;
+}
+.t1
+{
+padding:4px 0;
+width:30%;
+}
+.destination .phone-range
+{
+width:100px;
+}
+#date-period-date-range input
+{
+width:100px;
+}

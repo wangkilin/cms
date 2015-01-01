@@ -1,0 +1,59 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/trunkgroup';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->TrunkGroups);
+?>
+<tfoot>
+    <tr>
+        <td colspan="3">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->TrunkGroups as $trunkGroup) {
+?>
+        <tr id="row-item-<?php echo $trunkGroup['TrunkGroupId']?>" class="row-item <?php echo ($count++%2 ? 'leaper' : '') ;?>">
+            <td class="column-1"><input type="checkbox"/></td>
+            <td class="column-2" title="<?php echo $trunkGroup['Label']?>">
+                <span><?php echo $trunkGroup['Label']?></span>
+                <div class="manager">
+                    <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                    href="<?php echo $baseUrl?>/update/TrunkGroupId/<?php echo $trunkGroup['TrunkGroupId']?>"><?php
+                        echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                        title="<?php echo $this->translate('application_handler_delete')?>"
+                    href="<?php echo $baseUrl?>/delete?TrunkGroupIds[]=<?php echo $trunkGroup['TrunkGroupId']?>&TrunkGroupLabels[]=<?php
+                        echo urlencode($trunkGroup['Label'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+                </div>
+            </td>
+            <td class="column-0" title="<?php echo $trunkGroup['TrunkCount']?>">
+                <span><?php echo $trunkGroup['TrunkCount']?></span>
+            </td>
+        </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="3"><span><?php echo $this->translate('trunkgroup_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

@@ -1,0 +1,263 @@
+@CHARSET "UTF-8";
+
+#main_content {
+margin:0;
+}
+#agentgroup_list_zone hr
+{
+width:90%;
+}
+.list_item {
+height:25px;
+}
+.black_button
+{
+-moz-border-radius:5px 5px 5px 5px;
+background:-moz-linear-gradient(center top , #9A9A9A, #898989) repeat scroll 0 0 transparent;
+border:1px solid #ACACAC;
+color:#FFFFFF;
+display:inline-block;
+margin-left:15px;
+padding:3px 10px;
+text-shadow:0 0.02em 0.1em #000000;
+}
+
+#main_content_container > table
+{
+background:none repeat scroll 0 0 #F5f5f5;
+border-collapse:separate;
+border-spacing:5px;
+height:350px;
+}
+
+#functional_bar
+{
+height:30px;
+}
+#functional_bar *
+{
+float:left;
+}
+#add_agent
+{
+background:url("../images/ui-icons_222222_256x240.png") no-repeat scroll -144px -96px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 5px;
+}
+#add_group
+{
+background:url("../images/ui-icons_222222_256x240.png") no-repeat scroll -176px -128px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 5px;
+}
+#agentgroup_list_zone
+{
+width:15%;
+background:none repeat scroll 0 0 #EFEFEF;
+vertical-align:top;
+}
+#agent_list_zone
+{
+width:25%;
+background:none repeat scroll 0 0 #EFEFEF;
+vertical-align:top;
+}
+#agent_detail_zone
+{
+width:55%;
+background:none repeat scroll 0 0 #E9E9E9;
+vertical-align:top;
+}
+#operation_bar
+{
+height:25px;
+padding:3px 0;
+border:1px solid #D5D5D5;
+}
+#search_resource_form
+{
+}
+#agent_group_list
+{
+}
+#agent_list
+{
+}
+
+.list_item.on
+{
+background:#F3EEDB none repeat scroll 0 0;
+}
+#agent_detail_zone table
+{
+}
+#agent_group_list thead tr
+,#agent_list thead tr
+{
+background:none repeat scroll 0 0 #ECECEA;
+}
+#agent_detail_zone table thead tr
+{
+background:none repeat scroll 0 0 #ECECE0;
+}
+.agent_group_name
+{
+cursor:pointer;
+}
+i.agent_is_active
+{
+background:url("../images/ui-icons_cd0a0a_256x240.png") no-repeat scroll -80px -144px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 0 5px;
+}
+i.agent_is_not_active
+{
+background:url("../images/ui-icons_606060_256x240.png") no-repeat scroll -80px -144px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 0 5px;
+}
+i.agent_is_supervisor
+{
+background:url("../images/ui-icons_cd0a0a_256x240.png") no-repeat scroll -224px -112px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 0 5px;
+}
+i.agent_is_not_supervisor
+{
+background:url("../images/ui-icons_606060_256x240.png") no-repeat scroll -224px -112px transparent;
+text-indent:-2000em;
+float:left;
+height:16px;
+width:16px;
+margin: 0 5px;
+}
+#agent_list .column_3
+,#agent_list .column_2
+,#agent_list .column_0
+{
+width:16px;
+}
+#modify_button
+,#change_group
+,#delete_group
+,#delete_agent
+{
+float:left;
+border:1px solid #dddddd;
+margin:0 8px;
+color:#666666;
+padding:2px;
+}
+#modify_button.on
+,#change_group.on
+,#delete_group.on
+,#delete_agent.on
+{
+border:1px solid #999999;
+color:#000000;
+}
+#modify_button.on:hover
+, #change_group.on:hover
+, #delete_group.on:hover
+, #delete_agent.on:hover
+{
+border:1px solid #333333;
+}
+#agent_info_table
+, #agents_info_table 
+, #edit_agent_table 
+, #edit_group_table 
+, #agentgroup_usage_table
+{
+display:none;
+border-collapse:separate;
+border-spacing:5px;
+}
+#supervisor_zone_td
+,#affected_groups_zone_td
+,#change_group_zone_td
+{
+vertical-align:top;
+height:25px;
+}
+#supervisor_zone 
+, #affected_groups_zone
+,#change_group
+{
+background:none repeat scroll 0 0 #E5E5E5;
+border:1px solid;
+z-index:999;
+width:180px;
+}
+#supervisor_zone.dropdown 
+, #affected_groups_zone.dropdown
+,#change_group.dropdown
+{
+z-index:1000;
+position:absolute;
+}
+#supervisor_zone  div
+, #affected_groups_zone div
+,#change_group div
+{
+display:none;
+}
+#supervisor_zone.dropdown div
+, #affected_groups_zone.dropdown div
+,#change_group.dropdown div
+{
+display:block;
+}
+#supervisor_zone .dropdown_summary
+, #affected_groups_zone .dropdown_summary
+,#change_group .dropdown_summary
+{
+display:block;
+}
+#modify_button_td
+{
+width:10px;
+}
+#change_group_zone_td
+{
+width:190px;
+}
+#delete_group_td
+{
+}
+#delete_agent_td
+{
+}
+.dropdown_summary u
+{
+background:url("../images/ui-icons_222222_256x240.png") no-repeat scroll -64px -16px transparent;
+text-indent:-2000em;
+float:right;
+height:16px;
+width:16px;
+margin: 3px;
+}
+#bind_group .list_item
+, #unbind_group .list_item
+{
+padding:0 0 0 20px;
+}
+td >div.on
+{
+cursor:pointer;
+}

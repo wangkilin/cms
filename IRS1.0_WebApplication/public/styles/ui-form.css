@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+/**
+ * Form Basic Style Sheet
+ *
+ * $Rev: 2614 $
+ * $LastChangedDate: 2010-06-21 15:23:31 +0800 (Mon, 21 Jun 2010) $
+ * $LastChangedBy: slan $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: ui-form.css 2614 2010-06-21 07:23:31Z slan $
+ */
+
+form
+{
+}
+
+input[type="text"],
+input[type="password"],
+textarea
+{
+color:#737373;
+border:1px solid #E1E1E1;
+padding:4px;
+font-weight:bold;
+width:180px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus
+{
+border-color:#c7e4b1;
+}
+input.input_default
+{
+color:#777;
+}
+input.input_date
+{
+background:url("../images/icon_calendar.gif") no-repeat 3px 50% #FFF;
+cursor:pointer;
+padding-left:23px;
+width:83px;
+}
+
+.form-header
+{
+border:1px solid #C4C4C4;
+padding:3px 5px;
+position:relative;
+}
+.form-content
+{
+border:1px solid #C4C4C4;
+border-top:none;
+border-bottom:none;
+padding:5px;
+}
+.form-footer
+{
+border:1px solid #C4C4C4;
+border-top:none;
+padding:5px;
+}
+.form-button
+{
+vertical-align:middle;
+}
+
+
+#form-login,
+#form-reset,
+#form-dashboard,
+#form-admin-account
+{
+/* margin-top:20px; */
+position:absolute;
+top:30%;
+}
+#form-login .form-container,
+#form-reset .form-container
+{
+background-color:#E6E6E6;
+}
+#form-login .form-content div,
+#form-reset .form-content div
+{
+padding:2px 0;
+}
+
+#form-login table
+{
+width:100%;
+vertical-align:middle;
+}
+#form-login .col01
+{
+width:70%;
+text-align:right;
+}
+#form-login .form-button
+{
+text-align:center;
+}
+
+#form-dashboard .search-box
+{
+float:none;
+}
+.col01 ol li dl{
+    margin: 0 -20px 10px 20px;
+}
+/* EOF */

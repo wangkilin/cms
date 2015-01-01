@@ -1,0 +1,66 @@
+---
+1. How to use the WsServer class?
+---
+
+There are 2 main types of using the service:
+
+a. $server = new WsServer();
+   $server->registerMethod('methodName', 'functionName');
+   ...
+   $server->addIntrospectionData($introspectionData);
+   $server->call();
+   unset($server);
+
+b. $server = new WsServer($methodData, $introspectionData, true);
+   $response = $server->getResponse()
+
+
+---
+2. Type definitions examples
+---
+
+$methodData = array ('sample.method1' => 'functionName',
+                     'sample.method2' => 'functionName2',
+                     ...
+                    );
+
+$introspectionData = array (
+    "methodList" => array (
+        array (
+            "name" => "sample.example",
+            "author" => "Andrei Radulescu",
+            "purpose" => "example",
+            "version" => "1.0",
+            "signatures" => array (
+                array (
+                    "params" => array (
+                        array (
+                            "type" => "string",
+                            "description" => "example",
+                            "optional" => 0
+                        )
+                    ),
+                    "returns" => array (
+                        array (
+                            "type" => "string",
+                            "description" => "example2",
+                            "optional" => 0
+                            )
+                    )
+                )
+            )
+        )
+    )
+);
+
+
+---
+3. Change encoding (for server and client) and other options (beware!) with output_options structure
+---
+
+Format:
+* output_type: php, xml
+* verbosity: no_white_space, newlines_only, pretty
+* escaping: cdata, non-ascii, non-print, markup (may be a string with one value or an array with multiple values)
+* version: xmlrpc, soap 1.1, jsonrpc
+* encoding: iso-8859-1, other character set supported by iconv

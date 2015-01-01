@@ -1,0 +1,55 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/admin';
+?>
+<div class="notification"><?php echo $this->translate('admin_is_updated', $this->User['Name']);?></div>
+<table>
+    <tr>
+        <td class="column-1">
+            <input type="checkbox" name="User_list[]" value="<?php echo $this->User['UserId']?>"/></p>
+        </td>
+        <td class="column-2">
+            <span><?php echo $this->User['Name']?></span>
+            <div class="manager">
+                <a class="manager-edit" href="<?php echo $baseUrl?>/update/UserId/<?php echo $this->User['UserId']?>">
+                    <?php echo $this->translate('application_handler_edit')?>
+                </a> | <a class="manager-delete" href="<?php echo $baseUrl?>/delete?UserIds[]=<?php echo $this->User['UserId']?>&UserNames[]=<?php
+                    echo urlencode($this->User['Name'])?>"><?php echo $this->translate('application_handler_delete')?>
+                </a>
+            </div>
+        </td>
+        <td class="column-3" title="">
+            <span><?php echo $this->User['CustomerAccountName'];?></span>
+        </td>
+        <td class="column-4" title="">
+            <span><?php echo $this->User['EmailAddress']?></span>
+        </td>
+        <td class="column-5" title="">
+            <span><?php echo $this->User['ProfileLabel']?></span>
+        </td>
+        <td class="column-6" title="">
+            <span><?php echo $this->User['ParentUserName']?></span>
+        </td>
+        <td class="column-7" title="">
+            <span><?php echo $this->User['LastLoginDatetime']?></span>
+        </td>
+        <td class="column-0" title="">
+            <i class="resource_<?php echo ($this->User['IsLocked']>0 ? 'in':'not')?>_use"><?php echo $this->User['ReferenceCounter']?></i>
+        </td>
+    </tr>
+</table>
+<?php
+/* EOF */

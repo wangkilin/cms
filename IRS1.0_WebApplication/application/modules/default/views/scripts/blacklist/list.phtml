@@ -1,0 +1,74 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->Blacklists);
+?>
+<tfoot>
+    <tr>
+        <td colspan="8">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->Blacklists as $blacklist) {
+?>
+            <tr id="row-item-<?php echo $blacklist['BlacklistId']?>" class="row-item<?php echo ($count++%2 ? ' leaper' : '') ;?>">
+                <td class="column-1"><input type="checkbox"/></td>
+                <td class="column-2" title="<?php echo $blacklist['BlacklistName']?>">
+                    <span><?php echo $blacklist['BlacklistName']?></span>
+                    <div class="manager">
+                        <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                        href="<?php echo $baseUrl?>/update/BlacklistId/<?php echo $blacklist['BlacklistId']?>"><?php
+                            echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                            title="<?php echo $this->translate('application_handler_delete')?>"
+                        href="<?php echo $baseUrl?>/delete?BlacklistIds[]=<?php echo $blacklist['BlacklistId']?>&BlacklistNames[]=<?php
+                            echo urlencode($blacklist['BlacklistName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+                    </div>
+                </td>
+                <td class="column-3" title="<?php echo $blacklist['NumberCount']?>">
+                    <span><?php echo $blacklist['NumberCount']?></span>
+                </td>
+                <td class="column-4" title="<?php echo $blacklist['DynamicDtmf']?>">
+                    <span><?php echo $blacklist['DynamicDtmf']?></span>
+                </td>
+                <td class="column-5" title="<?php echo $blacklist['CreationDatetime']?>">
+                    <span><?php echo $blacklist['CreationDatetime']?></span>
+                </td>
+                <td class="column-6" title="<?php echo $blacklist['ModificationDatetime']?>">
+                    <span><?php echo $blacklist['ModificationDatetime']?></span>
+                </td>
+                <td class="column-7" title="<?php echo $blacklist['CustomerUserName']?>">
+                    <span><?php echo $blacklist['CustomerUserName']?></span>
+                </td>
+                <td class="column-0">
+                    <span class="resource_<?php echo ($blacklist['ReferenceCounter'] > 0 ? 'in':'not')?>_use">&nbsp;</span>
+                </td>
+            </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="8"><span><?php echo $this->translate('blacklist_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

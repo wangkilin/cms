@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Add or Edit a Category</title>
+
+  <para>This page allow you to edit the details for a Category.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Category Title</emphasis>: This is a short name to appear in lists and menus.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Category Name</emphasis>: This is the long name to be displayed in headings in the Frontend.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Image</emphasis>: You can display an imageabove a category list in the Frontend.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Image Position</emphasis>: This is the position to display the image associated with the category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Ordering</emphasis>: You can order the Category items.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Access Level</emphasis>: Select from the list the user access level that should be able to view this Category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This is whether the category is published or not.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Description</emphasis>: This is the descriptive text that is displayed with the category list in the Frontend.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>Click the 'Upload' icon to upload an image from your computer, via the pop-up screen.</para>
+
+  <para>When you are finished your edits, click the 'Save' icon or 'Cancel' to discard your changes.</para>
+</section>

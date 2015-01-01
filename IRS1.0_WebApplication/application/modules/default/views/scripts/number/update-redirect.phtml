@@ -1,0 +1,71 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="number-update-redirect-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="number-update-redirect-heading">
+            <span class="heading-text"><?php echo $this->translate('number_update_number');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="number-update-redirect-body">
+			<form action="" id="number-update-redirect-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td colspan="2">
+                                <div>
+                                    <span class=""><?php echo $this->PremiumNumber['PremiumNumberUi'];?></span>
+                                    <span class=""><?php echo $this->translate('number_update_solution');?></span>
+                                    <span class=""><?php echo $this->translate('solution_type_' . $this->PremiumNumber['SolutionTypeId']);?></span>
+                                    <span class=""><?php echo $this->translate('number_update_create_date');?></span>
+                                    <span class=""><?php echo $this->PremiumNumber['CreationDatetime'];?></span>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+                                <div><span class="desc"><?php echo $this->translate('number_update_redirect_number');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input class="contact-search" type="text" name="Contact" value="<?php echo $this->PremiumNumber['StaticContactPhone'];?>"/>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span class="tips"><?php echo $this->translate('number_update_redirect_number_show');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+							<td colspan="2">
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

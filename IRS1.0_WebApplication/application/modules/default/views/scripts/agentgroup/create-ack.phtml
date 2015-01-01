@@ -1,0 +1,28 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('agentgroup_group_is_added');?></div>
+
+      <table>
+          <tr class="list_item" itemId="<?php echo $this->AgentGroupId;?>">
+            <td class="agent_group_name" groupId="<?php echo $this->AgentGroupId;?>">
+              <?php echo $this->AgentGroupName;?>
+            </td>
+            <td class="agent_count"><?php echo $this->AgentsCount;?></td>
+          </tr>
+      </table>
+<?php
+/* EOF */

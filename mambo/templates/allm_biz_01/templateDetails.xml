@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>allm_biz_01</name>
+	<creationDate>08/16/2004</creationDate>
+	<author>allmambo Crew</author>
+	<copyright>(C) Released under GPL license</copyright>
+	<authorEmail>templates@allmambo.com</authorEmail>
+	<authorUrl>www.allmambo.com</authorUrl>
+	<version>1.0</version>
+	<description>fixed width business themed template with JS rollover picture menu</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>menu_roll.php</filename>
+		<filename>rollover.js</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/footer_bck.gif</filename>
+		<filename>images/header_bott.gif</filename>
+		<filename>images/left_bck.gif</filename>
+		<filename>images/left_img.gif</filename>		
+		<filename>images/left_mod_bck.gif</filename>		
+		<filename>images/logo.gif</filename>		
+		<filename>images/menu_right.gif</filename>		
+		<filename>images/right_bck.gif</filename>		
+		<filename>images/right_mid.gif</filename>		
+		<filename>images/right_mod_bck.gif</filename>		
+		<filename>images/spacer.gif</filename>		
+		<filename>images/top_left_bck.gif</filename>		
+		<filename>images/menu/menu_1.gif</filename>
+		<filename>images/menu/menu_1_ovr.gif</filename>
+		<filename>images/menu/menu_2.gif</filename>
+		<filename>images/menu/menu_2_ovr.gif</filename>
+		<filename>images/menu/menu_3.gif</filename>
+		<filename>images/menu/menu_3_ovr.gif</filename>
+		<filename>images/menu/menu_4.gif</filename>
+		<filename>images/menu/menu_4_ovr.gif</filename>
+	</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

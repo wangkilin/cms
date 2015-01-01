@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 13:10:35 $</date>
+  </sectioninfo>
+
+  <title>Media Manager</title>
+
+  <para>Uploading a file:</para>
+
+  <para>To upload a file, either enter the files location on your hard drive into the text box, or click the 'Browse' icon. The 'Browse' icon will open a new pop-up window from which you can navigate to the location of the file on your hard drive that you want to upload.</para>
+
+  <para>Select the directory that you wish to upload the file to. Click the 'Upload' icon. Your image or document will upload and thereafter will be available in the Media Manager gallery for that file type.</para>
+
+  <para>Creating a new directory:</para>
+
+  <para>In the Create Directory text box, enter a name for the new directory, and then click the 'Create' icon on the toolbar. The directory will then be available to you for storing your files. This directory will be a sub-directory under the main directory. It will shown as a new folder in the Media Manager window.</para>
+
+  <para>NOTE: To create a new directory, your server must not be on Safe Mode. If it is, then you must create your directories using your FTP software. Your Internet Server Provider may be willing to turn off Safe Mode for your site if you ask them. If they are unwilling then you will need to create your directories using your FTP software or ask your Super Administrator to set up your directories.</para>
+
+  <para>You can delete this directory by clicking on the 'Trash Can' icon under the image of the folder. Clicking the 'Folder' icon will switch to the contents of that directory. You can then delete the file.</para>
+
+  <para>Working with files</para>
+
+  <para>There are various things you can do when working with files, for instance, 'clicking' on the image of the file in the Media Manager window will enter the hyperlink code in the 'Code' field'. This can then be used by copying and pasting the code into, for example, a news item, article, etc. This can be manipulated to suit.</para>
+
+  <para>The same effect can be achieved by clicking on the pencil icon just under the image in the Media manager window.</para>
+
+  <para>To Delete a file, click the 'Trash Can' icon under the image of the file in the Media Manager window.</para>
+
+  <para>NOTE: Make sure your files have the correct file extension for their image or document type. This will help the Media Manager organize images or files into their appropriate galleries for you.</para>
+</section>

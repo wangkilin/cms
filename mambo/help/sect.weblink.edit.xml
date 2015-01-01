@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Add or Edit a Web Link</title>
+
+  <para>This page allow you to edit the details for a Web Link.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Name</emphasis>: This is the name for the Web Link.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Category</emphasis>: Select the desired category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">URL</emphasis>: Add the URL address of the Web Link.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Description</emphasis>: Add a text description for the Web Link.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Ordering</emphasis>: You can order of the category by clicking on the blue arrows.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Approved</emphasis>: Select from the list the user access level that should be able to view this Web Link.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This is whether the Web Link is published or not.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>When you are finished your editing, click the 'Save' icon or 'Cancel' to discard your changes.</para>
+</section>

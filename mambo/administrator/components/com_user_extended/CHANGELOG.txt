@@ -1,0 +1,119 @@
+#################################################
+#                                               #
+#  User Extended Component                      #
+#  Version: 1.2.3 (for 4.5.1)                   #
+#                                               #
+#                                               #
+#  Authors:                                     #
+#                                               #
+#  Component and Extensions Developer           #
+#    Name   : Bernhard Zechmann (MamboZ)        #
+#    Email  : mamboz@zechmann.com               #
+#    Website: www.zechmann.com                  #
+#                                               #
+#  Former Addon Hack Version: 1.0.1[Elizabeth]  #
+#    Name   : Phil Taylor                       #
+#    Website: www.phil-taylor.com               #
+#                                               #
+#  Language detection & multilanguage support   #
+#    Name   : Michael Magler (mic)              #
+#    Email  : mic@egi.at                        #
+#    Website: www.egi.at                        #
+#                                               #
+#################################################
+
+
+CHANGELOG
+
+05-Dec-2004
+ - Version 1.2.3
+ - fixed language detection 
+ - support for dutch (Thanks to Evert Jan Hooijer)
+ - database modification: NO
+
+02-Dec-2004
+ - Version 1.2.2
+ - fixed $mosConfig_absolute_path slash problem
+ - fixed mos_ to #_ problem in xml file
+ - database modification: NO
+
+05-Oct-2004
+ - Version 1.2.1 (for 4.5.1)
+ - separated 4.5.0 and 4.5.1 versions
+ - fixed password mailing (for 4.5.1)
+ - spanish language support
+ - dropped sizeonly fields support
+ - database modification: NO
+
+27-Sep-2004
+ - Version 1.2.0
+ - support for Mambo 4.5.1
+ - XML optimized for updates
+ - database modification: NO
+
+27-Jun-2004
+ - Version 1.1.1
+ - adapted for MOS4.5 up to Patch 1.0.9
+ - admin toolbars corrected
+ - php short-tags replaced
+ - database modification: NO
+
+12-Jun-2004
+ - Version 1.1.0
+ - code cleaning
+ - backend redesign
+ - bugfixings in language detection
+ - database modification: NO
+
+11-Jun-2004
+ - Version 1.0.9
+ - optimized UserView
+ - enhanced UserView for viewing other users
+ - minor code cleanings
+ - preparation for Userlist Extended component
+
+30-May-2004
+ - Version 1.0.8
+ - added capability to detect users language
+ - display messages and text in supported languages
+
+16-May-2004
+ - Version 1.0.7
+ - bugfix and code cleaning
+ - New: viewing option added
+   index.php?option=com_user_extended&task=UserView
+
+13-May-2004
+ - Version 1.0.6
+ - New: customizable fieldsize in backend
+
+12-May-2004
+ - Version 1.0.5 Released
+ - bugfix for field numbers
+ - bugfix for editing details of existing users
+
+06-May-2004
+ - Version 1.0.4 Released
+ - bugfix in custom fields (shown/required)
+
+06-May-2004
+ - Version 1.0.3 Released
+ - updated menu links for easier implementation
+
+05-May-2004
+ - Version 1.0.2 Released
+ - integrated component by MamboZ
+
+16-Jan-2004
+ - Fixed type in Custom14
+
+15-Jan-2004
+ - Version 1.0.1[Elizabeth] Released
+ - Fixed undefinded vars in Mambo Core Code
+ - Fixed undefinded vars in Custom code
+ - Fixed Missing Argument in storeextended
+
+14-Jan-2004
+ - Version 1.0.0[Sharon] Released
+
+#################################################

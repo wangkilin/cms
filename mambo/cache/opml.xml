@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.1" -->
+<opml xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>    
+        <title>Powered by Mambo 4.5.1</title>
+    </head>
+    <body>
+    <outline type="rss"  title="Mambo 4.5.1正式版发布了！" text="Mambo 4.5.1正式版发布了！" url="http://localhost/mambo//index.php?option=com_content&amp;task=view&amp;id=3"/>
+    <outline type="rss"  title="什么是Mambo智能建站系统(CMS)？" text="什么是Mambo智能建站系统(CMS)？" url="http://localhost/mambo//index.php?option=com_content&amp;task=view&amp;id=1"/>
+    </body>
+</opml>

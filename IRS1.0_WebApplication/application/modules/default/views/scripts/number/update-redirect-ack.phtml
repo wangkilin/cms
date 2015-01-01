@@ -1,0 +1,65 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/number';
+?>
+<div class="notification"><?php  echo $this->translate('number_is_updated', $this->PremiumNumber['PremiumNumberUi']);?></div>
+<table>
+    <tr>
+        <?php if ($this->IsSuperAdmin) { ?>
+            <td class="column-1"><input type="checkbox"/></td>
+        <?php } ?>
+        <td class="column-2" title="<?php echo $this->PremiumNumber['PremiumNumberUi'];?>">
+            <span><?php echo $this->PremiumNumber['PremiumNumberUi'];?></span>
+            <div class="manager">
+                <?php if ($this->IsSuperAdmin || 1 == $this->PremiumNumber['SolutionTypeId']) { ?>
+                <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit');?>"
+                href="<?php echo $baseUrl?>/update/PremiumNumberId/<?php echo $this->PremiumNumber['PremiumNumberId'];?>"><?php
+                    echo $this->translate('application_handler_edit');?></a><?php } if ($this->IsSuperAdmin) { ?>|<a class="manager-delete"
+                    title="<?php echo $this->translate('application_handler_delete');?>"
+                href="<?php echo $baseUrl?>/delete?PremiumNumberIds[]=<?php echo $this->PremiumNumber['PremiumNumberId'];?>&PremiumNumberUis[]=<?php
+                    echo urlencode($this->PremiumNumber['PremiumNumberUi']);?>"><?php echo $this->translate('application_handler_delete');?></a>
+                <?php } ?>
+            </div>
+        </td>
+        <?php if ($this->IsSuperAdmin) { ?>
+            <td class="column-3" title="<?php echo $this->PremiumNumber['CustomerAccountName'];?>">
+                <span><?php echo $this->PremiumNumber['CustomerAccountName'];?></span>
+            </td>
+            <td class="column-4" title="<?php echo $this->PremiumNumber['PremiumNumber'];?>">
+                <span><?php echo $this->PremiumNumber['PremiumNumber'];?></span>
+            </td>
+            <td class="column-5" title="<?php echo $this->PremiumNumber['MaxCallDuration'];?>">
+                <span><?php echo $this->PremiumNumber['MaxCallDuration'];?></span>
+            </td>
+        <?php } ?>
+        <td class="column-6" title="<?php echo $this->translate('solution_type_' . $this->PremiumNumber['SolutionTypeId']);?>">
+            <span><?php echo $this->translate('solution_type_' . $this->PremiumNumber['SolutionTypeId']);?></span>
+        </td>
+        <td class="column-0" title="<?php echo $this->PremiumNumber['TemplateTreeLabel'];?>">
+            <span><?php echo $this->PremiumNumber['TemplateTreeLabel'];?></span>
+        </td>
+        <?php if (! $this->IsSuperAdmin) { ?>
+            <td class="column-7" title="<?php echo $this->PremiumNumber['PremiumNumberGroupName'];?>">
+                <span><?php echo $this->PremiumNumber['PremiumNumberGroupName'];?></span>
+            </td>
+            <td class="column-8" title="<?php echo $this->PremiumNumber['CreationDatetime'];?>">
+                <span><?php echo $this->PremiumNumber['CreationDatetime'];?></span>
+            </td>
+        <?php } ?>
+    </tr>
+</table>
+<?php
+/* EOF */

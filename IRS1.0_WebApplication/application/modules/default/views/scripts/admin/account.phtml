@@ -1,0 +1,94 @@
+<?php
+/**
+ * $Rev: 2597 $
+ * $LastChangedDate: 2010-06-18 18:50:10 +0800 (Fri, 18 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_index
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: account.phtml 2597 2010-06-18 10:50:10Z junzhang $
+ */
+
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$jsSources = 'var ERR_PWD_CHECKING = \'' . $this->translate('default_form_description_admin_account_password_confirm_failed') . '\';' . PHP_EOL;
+
+$this->headTitle()->append(
+    $this->translate('application_title_admin_account')
+);
+
+$this->headScript()
+    ->appendFile($baseUrl . '/js/admin-account.js')
+    ->appendScript($jsSources);
+
+$userInfo = $this->User;
+?>
+<form id="form-admin-account" name="form-admin-account" class="grid_6 prefix_5 suffix_5" action="<?php echo $baseUrl, '/admin/account'; ?>" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="form-container">
+        <div class="form-header">
+            <b><?php echo $this->translate('default_form_title_admin_account', array($userInfo['Name'])); ?></b>
+        </div>
+        <div class="form-content">
+            <q class="description">
+                <?php echo $this->translate('default_form_description_admin_account'); ?>
+            </q>
+            <p>
+                <label for="Name">
+                    <?php echo $this->translate('default_form_label_admin_account_name'); ?>
+                </label>
+                <br />
+                <input type="text" id="Name" name="Name" class="input_default" value="<?php echo $userInfo['Name']; ?>" />
+                <em class="description">
+                    <?php echo $this->translate('default_form_description_admin_account_name'); ?>
+                </em>
+            </p>
+            <?php if (1 == 0) : /*debug here*/ ?>
+            <p>
+                <label for="EmailAddress">
+                    <?php echo $this->translate('default_form_label_admin_account_email_address'); ?>
+                </label>
+                <br />
+                <input type="text" id="EmailAddress" name="EmailAddress" class="input_default" value="<?php echo $userInfo['EmailAddress']; ?>" />
+                <em class="description">
+                    <?php echo $this->translate('default_form_description_admin_account_email_address'); ?>
+                </em>
+            </p>
+            <?php endif; ?>
+            <p>
+                <label for="Password">
+                    <?php echo $this->translate('default_form_label_admin_account_password'); ?>
+                </label>
+                <br />
+                <input type="password" id="Password" name="Password" class="input_default" />
+                <em class="description">
+                    <?php echo $this->translate('default_form_description_admin_account_password'); ?>
+                </em>
+            </p>
+            <p>
+                <label for="Password-Confirm">
+                    <?php echo $this->translate('default_form_label_admin_account_password_confirm'); ?>
+                </label>
+                <br />
+                <input type="password" id="Password-Confirm" name="Password-Confirm" class="input_default" />
+                <em class="description">
+                    <?php echo $this->translate('default_form_description_admin_account_password_confirm'); ?>
+                </em>
+            </p>
+            <p class="dialog-button">
+                <span>
+                    <button type="submit" class="create-button">
+                        <?php echo $this->translate('application_handler_ok'); ?>
+                    </button>
+                </span>
+            </p>
+        </div>
+        <div class="form-footer"></div>
+    </div>
+</form>
+<?php
+//print_r($this->getVars());
+/* EOF */

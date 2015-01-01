@@ -1,0 +1,105 @@
+left_menu_report;Report List
+left_menu_add_report;Create New Report
+
+report_list_no_item;You don't have any Reports.
+
+report_list_name;Report Name
+report_list_type;Report Type
+report_list_date_created;Date Created
+report_list_date_modified;Modified Date
+report_list_created_by;Created by
+report_list_affected_number;Affected Number
+report_list_export;Export
+report_list_name_sort;Sort by Report Name
+report_list_number_sort;Sort by # numbers
+report_list_dtmf_sort;Sort by DTMF
+report_list_date_created_sort;Sort by Date Created
+report_list_date_modified_sort;Sort by Modified Date
+report_list_created_by_sort;Sort by Created by
+report_list_in_use_sort;Sort by In use
+##----------------------------
+## update report
+##----------------------------
+report_update_report;Edit Report
+report_name;Name
+report_data_type;Report Data Type
+report_data_type_select;Select a Report Type
+report_data_type_overall;Overall system call volume
+report_data_type_agent;Agents call volume
+report_data_type_group;Groups call volume
+report_data_type_waiting;Caller waiting time
+report_data_type_origin;Caller origins distribution
+report_data_type_quality;System quality of service
+report_export_format;Report File Type
+report_export_format_select;Select an export format
+report_export_format_csv;CSV
+report_export_format_html;HTML
+report_destination;Destination
+report_phone_number_type_one;Number
+report_phone_number_type_range;Number slot
+report_phone_number_type_range_from;From
+report_phone_number_type_range_to;To
+report_phone_number_type_all;All
+report_time_period;Time Period
+report_stats_type;Stats Type
+report_stats_type_by;Stats By:
+report_date_period;Date Period
+report_timeframe_0;Date Range
+report_timeframe_1;Minutes
+report_timeframe_2;10 Minutes
+report_timeframe_3;Hours
+report_timeframe_4;Days
+report_timeframe_5;Weeks
+report_timeframe_6;Months
+report_date_period_at_last;at last :
+report_date_period_days;day(s)
+report_date_period_weeks;week(s)
+report_date_period_months;month(s)
+report_group_by;Group By
+report_group_by_select;Select a geographic group
+report_email_scheduling;Email Scheduling
+report_email_scheduling_frequency;Frequency
+report_email_scheduling_frequency_select;Select Frequency
+report_email_scheduling_frequency_time;Once
+report_email_scheduling_frequency_day;Daily
+report_email_scheduling_frequency_week;Weekly
+report_email_scheduling_frequency_month;Monthly
+report_email_scheduling_to;To
+report_email_scheduling_to_select;Select User
+##----------------------------
+## create report
+##----------------------------
+report_is_created;Report %s is created!
+report_create_report;Create a New Report
+##----------------------------
+## update report
+##----------------------------
+report_is_updated;Report %s is udpated!
+##----------------------------
+## delete report(s)
+##----------------------------
+report_delete_report; report(s) :
+report_is_deleted;Report(s) %s is deleted!
+##----------------------------
+##  report number types
+##----------------------------
+report_number_type_1;Dynamic
+report_number_type_0;Static
+##----------------------------
+## create report number
+##----------------------------
+report_number_is_added;Number %s is added!
+##----------------------------
+##----------------------------
+## udpate report number
+##----------------------------
+report_update_number;Edit Report Number
+report_update_number_desc;Number
+report_number_is_updated;Number %s is updated!
+##----------------------------
+## delete number(s)
+##----------------------------
+report_delete_number; number(s) :
+report_number_is_deleted;Number(s) %s is deleted!
+##----------------------------
+## EOF

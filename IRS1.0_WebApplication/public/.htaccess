@@ -1,0 +1,12 @@
+SetEnv APPLICATION_ENV development
+#SetEnv APPLICATION_ROLE developer
+#SetEnv APPLICATION_LOCALE en
+#SetEnv Request_URI .*$ no-gzip
+
+RewriteEngine On
+RewriteBase /irs/
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule !\.(css|js|jpg|gif|png|swf)$ index.php [NC,L]

@@ -1,0 +1,139 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$translate = Streamwide_Web_Translate::functor();
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/origin';
+
+/**
+ * Pager Index
+ * @TODO implement next, previous pattern
+ */
+function pagerIndex(array $pageInfo, $currentCount, $view, $baseUrl='')
+{
+    $pages = '<u>'
+        . $view->translate('application_handler_page_items')
+        . '<a href="' . $baseUrl . '/ItemsPerPage/25" class="'
+        . ( 25 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '25">25</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/50" class="'
+        . (50 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '50">50</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/100" class="'
+        . (100 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '100">100</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/-1" class="'
+        . (-1 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . 'all">'
+        . $view->translate('application_handler_page_items_all')
+        . '</a>'
+        . '</u>'
+        . $view->translate(
+            'application_handler_pages',
+            array(
+                1 == $pageInfo['CurrentPage'] ? 1 : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + 1,
+                1 == $pageInfo['CurrentPage'] ? $currentCount : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + $currentCount,
+                $pageInfo['ItemsTotal']
+            )
+        )
+        . (1 != $pageInfo['CurrentPage']
+            ? ' &lt;<a href="' . $baseUrl . '/ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] - 1) . '" class="page-previous">'
+            . $view->translate('application_handler_previous')
+            . '</a>' : '')
+            . '<span class="currentIndex">' . $pageInfo['CurrentPage']
+            . '</span>'
+        . (-1 != $pageInfo['ItemsPerPage'] && $pageInfo['ItemsTotal'] > $pageInfo['ItemsPerPage'] * $pageInfo['CurrentPage']
+            ? '<a href="' . $baseUrl . '/ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] + 1) . '" class="page-next">'
+            . $view->translate('application_handler_next')
+            . '</a>&gt;' : '');
+
+    return $pages;
+}
+?>
+<div id="main_content">
+  <div id="main_content_container">
+    <table class="functional_bar">
+        <tr>
+            <td class="batch_button_zone">
+                <button id="batch_delete"><?php echo $translate('application_handler_batch_delete')?></button>
+            </td>
+            <td>
+                <form id="search_resource_form" action="<?php echo $baseUrl . '/list'?>">
+                    <input type="text" name="ResourceKeyWord" id="resource_key_word"/>
+                    <input id="search_resource_button" type="submit" value="<?php echo $translate('application_handler_ok')?>"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <form id="resouce_list_form" class="resource_list" action="<?php echo $baseUrl . '/remove'?>">
+      <table id="main_content_block">
+
+        <thead>
+          <tr>
+            <td class="column_0"><input type="checkbox" id="list_checkbox_switch" bind="action_list" class="list_checkbox_switch"/></td>
+            <td class="column_1" title="<?php echo $translate('origin_list_name_sort')?>"><?php echo $translate('origin_list_name')?></td>
+            <td class="column_2" title="<?php echo $translate('origin_list_date_created_sort')?>"><?php echo $translate('origin_list_date_created')?></td>
+            <td class="column_3" title="<?php echo $translate('origin_list_date_modified_sort')?>"><?php echo $translate('origin_list_date_modified')?></td>
+            <td class="column_4" title="<?php echo $translate('origin_list_created_by_sort')?>"><?php echo $translate('origin_list_created_by')?></td>
+            <td class="column_5" title="<?php echo $translate('origin_list_in_use_sort')?>"><?php echo $translate('origin_list_in_use')?></td>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+        // list origins
+        $count = 0;
+        foreach((array)$this->Origins as $origin) {
+        ?>
+          <tr class="list_item <?php echo ($count++%2 ? 'leaper' : '') ;?>" itemId="<?php echo $origin['OriginId']?>">
+            <td class="column_0"><input type="checkbox"  bind="action_list" name="action_list[]" value="<?php echo $origin['OriginId']?>"/></p>
+            <td class="column_1">
+              <span><?php echo $origin['OriginName']?></span>
+              <q>
+                  <a class="list_edit" href="<?php echo $baseUrl?>/update/id/<?php echo $origin['OriginId']?>"><?php echo $translate('application_handler_edit')?></a>
+                  |
+                  <a class="list_delete" href="<?php echo $baseUrl?>/remove/id/<?php echo $origin['OriginId']?>/OriginName/<?php echo urlencode($origin['OriginName'])?>"><?php echo $translate('application_handler_delete')?></a>
+              </q>
+            </td>
+            <td class="column_2"><?php echo date('Y-m-d H:i:s', strtotime($origin['CreationDatetime']))?></td>
+            <td class="column_3"><?php echo date('Y-m-d H:i:s', strtotime($origin['ModificationDatetime']))?></td>
+            <td class="column_4"><?php echo $origin['CustomerUserName']?></td>
+            <td class="column_5"><i class="resource_<?php echo ($origin['ReferenceCounter']>0 ? 'in':'not')?>_use"><?php echo $origin['ReferenceCounter']?></i></td>
+          </tr>
+        <?php
+        }// end foreach
+        ?>
+        </tbody>
+
+        <tfoot id="main_content_list_foot">
+          <tr>
+              <td colspan="8">
+                 <?php
+                 if($this->Origins) {
+                 	   $url = $baseUrl . '/list' . ($this->KeyWord ? '/ResourceKeyWord/'.urlencode($this->KeyWord) : '');
+
+                       echo pagerIndex(array('CurrentPage'=>$this->CurrentPage,
+                                'ItemsPerPage'=>$this->ItemsPerPage,
+                                'ItemsTotal'=>$this->ItemsTotal
+                            ), count($this->Origins), $this, $url);
+                 }
+                 ?>
+              </td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </form>
+  </div>
+</div>
+<?php
+/* EOF */

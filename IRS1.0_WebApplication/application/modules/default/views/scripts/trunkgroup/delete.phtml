@@ -1,0 +1,35 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div id="trunkgroup-delete" class="dialog">
+    <div class="dialog-content">
+        <form method="<?php echo Zend_Form::METHOD_POST;?>" enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+            <div id="group-heading" class="dialog-heading dialog-delete">
+                <b><?php echo $this->translate('application_handler_delete');?> </b>
+                <b><?php echo $this->translate('trunkgroup_delete_trunkgroup');?> </b>
+                <em><?php echo $this->DeletedTrunkGroups;?> ?</em>
+                <span class="heading-close"><button type="button" class="delete"><?php echo $this->translate('application_handler_close');?></span>
+            </div>
+            <div class="dialog-button">
+                <span><button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel');?></button></span>
+                <span class="button-gap">&nbsp;</span>
+                <span><button type="submit" class="delete"><?php echo $this->translate('application_handler_delete');?></span>
+            </div>
+        </form>
+    </div>
+</div>
+<?php
+/* EOF */

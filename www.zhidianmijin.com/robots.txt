@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /cert/ 证书文件
+Disallow: /modules/ 模块文件
+Disallow: /templates/ 模板文件
+Disallow: /inc/ 配置文件
+Disallow: /medias/ 图片样式文件

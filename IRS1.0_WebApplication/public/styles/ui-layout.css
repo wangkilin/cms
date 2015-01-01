@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+/**
+ * Layout Style Sheet
+ *
+ * $Rev: 2637 $
+ * $LastChangedDate: 2010-06-22 15:00:36 +0800 (Tue, 22 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: ui-layout.css 2637 2010-06-22 07:00:36Z junzhang $
+ */
+
+#main
+{
+position:relative;
+min-height:200px;
+height:100%;
+}
+.container-main
+{
+min-height:100%;
+border:1px solid #787878;
+border-width:0 1px;
+background:#FFF;
+}
+
+#header
+{
+position:relative;
+white-space:nowrap;
+height:68px;
+background:#6C6C6C url(../images/ui-bg_nav_global_68x68.png) repeat-x 0 0;
+}
+.fix-header
+{
+clear:both;
+height:0px;
+font-size:0;
+line-height:0;
+visibility:hidden;
+}
+#header .status
+{
+position:absolute;
+right:10px;
+top:0;
+color:#E5E5E5;
+padding:3px 6px;
+border:1px solid #8B8B8B;
+background:#4E4E4E;
+-moz-border-radius:0 0 3px 3px;
+-webkit-border-bottom-left-radius:3px;
+-webkit-border-bottom-right-radius:3px;
+}
+#header .status .ui-icon
+{
+cursor:pointer;
+margin-left:-3px;
+margin-right:6px;
+display:inline-block;
+vertical-align:middle;
+background-image:url(../images/ui-icons_f6f6f6_256x240.png);
+}
+#header .status a
+{
+color:#BDD2A1;
+}
+#header .status a:hover
+{
+color:#E5E5E5;
+}
+#header .status dl
+{
+display:none;
+left:auto;
+right:25%;
+position:absolute;
+border:1px solid #8B8B8B;
+background:#4E4E4E;
+padding:3px 6px;
+-moz-border-radius:0 0 3px 3px;
+-webkit-border-bottom-left-radius:3px;
+-webkit-border-bottom-right-radius:3px;
+}
+#header .logo
+{
+position:absolute;
+margin-left:20px;
+-moz-box-shadow:0 -0.4em 0.4em 0 #333333;
+-webkit-box-shadow:0 -0.4em 0.4em 0 #333333;
+}
+
+#nav-main
+{
+padding-top:14px;
+}
+#nav-main,
+#nav-sub
+{
+padding-left:130px;
+}
+#nav-main li,
+#nav-sub li
+{
+display:inline-block;
+}
+#nav-main li
+{
+line-height:26px;
+padding:0 26px;
+}
+#nav-main li.on
+{
+padding:0;
+}
+#nav-main a,
+#nav-main a b
+{
+cursor:pointer;
+display:block;
+height:26px;
+line-height:26px;
+background:url(../images/ui-bg_nav_highlight_600x26.png) no-repeat -1000% -1000%;
+}
+#nav-main a,
+#nav-sub a
+{
+color:#CCC;
+}
+#nav-main a:hover,
+#nav-sub a:hover
+{
+color:#BDD2A1;
+}
+#nav-main .on a
+{
+color:#FFF;
+padding-left:26px;
+background-position:0 0;
+}
+#nav-main .on a b
+{
+background-position:100% 0;
+padding-right:26px;
+}
+#nav-sub li
+{
+line-height:28px;
+padding:0 13px;
+}
+#nav-sub li.on
+{
+padding:0;
+}
+#nav-sub a,
+#nav-sub a b
+{
+cursor:pointer;
+display:block;
+height:28px;
+line-height:28px;
+}
+#nav-sub .on a
+{
+margin-top:4px;
+height:18px;
+color:#FFF;
+border:1px solid #797979;
+background:#717171;
+padding-left:13px;
+padding-right:13px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+#nav-sub .on a b
+{
+line-height:18px;
+}
+#footer
+{
+color:#FFF;
+margin-top:-30px;
+height:30px;
+line-height:30px;
+background:#676767 url(../images/ui-bg_nav_global_68x68.png) repeat-x 0 0;
+}
+.fix-footer
+{
+clear:both;
+visibility:hidden;
+height:30px;
+}
+/* EOF */

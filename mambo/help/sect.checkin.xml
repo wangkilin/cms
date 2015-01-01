@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/11 04:57:30 $</date>
+  </sectioninfo>
+  <title>Global Checkin</title>
+   <sect1>
+<para>When a User edits a file after logging in, they Check It Out. This
+      prevents other Users from being able to edit the document at the same
+      time, thus preventing loss of data upon saving.</para>
+
+      <para>When the User clicks Save or Cancel, the file should be checked
+      back in. If there is a connection error, or the user presses the Back
+      button in his or her browser, a file can stay checked out, meaning no
+      one can edit it.</para>
+
+      <para>If you want to be able to edit the file, you can perform a Global
+      Checkin. Be very careful in doing this. Anyone who is editing a document
+      at that very moment can have his or her work lost.</para>
+
+      <para>To perform the Check In, click on System &gt; Global Check In from
+      the menu bar in the Admin Section. You will get a list of all items and
+      it will show you how many items, and from which tables, are Checked back
+      in.</para>
+</sect1>
+</section>

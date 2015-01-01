@@ -1,0 +1,42 @@
+left_menu_origin;Origin List
+left_menu_add_origin;New Origin
+
+origin_list_name;Origin List
+origin_list_date_created;Date Created
+origin_list_date_modified;Modified Date
+origin_list_created_by;Created by
+origin_list_in_use;In use
+
+origin_list_name_sort;Sort by Origin List
+origin_list_date_created_sort;Sort by Date Created
+origin_list_date_modified_sort;Sort by Modified Date
+origin_list_created_by_sort;Sort by Created by
+origin_list_in_use_sort;Sort by In use
+
+## edit origin
+origin_edit_origin;Edit Geographic Resource
+origin_name;Origin List
+origin_description;Origin Description
+origin_file;File
+origin_is_updated;Origin Update
+origin_remove_origin; origin %s ?
+origin_input_name;Geographical Resource Name
+origin_name_description;Write a name for your Grographical list
+origin_list_explain;Select items and them click Right/Left button to Add/Drop resource between the Predefined List and User Defined List
+origin_defined_list;User Defined List
+origin_predefined_list;Predefined List
+origin_phone_prefix;Prefix
+origin_type_prefix;Type a phone prefix
+origin_associate_is_processed;Resource is added
+origin_addprefix_is_processed;Prefix is added
+origin_removeitem_is_processed;Item removed!
+origin_origin_group;Origin Group
+origin_select_origin_group;-- Please select origin group --
+## create origin ---------------------
+origin_create_origin;Create Geographic Resource
+origin_is_created;Origin is created!
+## delete origin ---------------------
+origin_batch_is_deleted;The selected origins are deleted!
+origin_is_deleted;The origin:%s is deleted!
+##----------------------------
+## EOF

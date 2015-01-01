@@ -1,0 +1,106 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/origingroup.css');
+$this->headScript()->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/origingroup.js');
+
+?>
+<div class="grid_2 prefix_1 oops-container">
+    <div class="left_menu" id="left_menu">
+        <a href="<?php echo $baseUrl. '/origingroup/list'?>" class="list-refresh sw-button on">
+            <?php echo $this->translate('left_menu_origingroup')?>
+        </a>
+        <a href="<?php echo $baseUrl. '/origingroup/create'?>" class="sw-button only-popup" id="create">
+            <?php echo $this->translate('left_menu_add_origingroup')?>
+        </a>
+    </div>
+</div>
+
+<div class="grid_12 suffix_1 oops-container">
+    <div class="list-container" id="origingroups">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                        <?php echo $this->translate('application_handler_batch_delete')?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box">
+                                                    <form action="<?php echo $baseUrl. '/origingroup/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="TrunkLabelPart" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button type="submit" class="search">
+                                                            <?php echo $this->translate('application_handler_ok')?>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="list-title">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></td>
+                                            <td class="column-2" title="<?php echo $this->translate('origingroup_list_name')?>">
+                                                <span><?php echo $this->translate('origingroup_list_name')?></span>
+                                            </td>
+                                            <td class="column-3" title="<?php echo $this->translate('origingroup_list_id')?>">
+                                                <span><?php echo $this->translate('origingroup_list_id')?></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="list-body">
+                                <?php echo $this->render('origingroup/list.phtml')?>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    var LOCAL = "<?php echo $baseUrl, '/origingroup/'?>";
+</script>
+<?php
+
+/* EOF */

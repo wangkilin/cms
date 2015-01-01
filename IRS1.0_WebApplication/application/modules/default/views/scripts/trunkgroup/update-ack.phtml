@@ -1,0 +1,40 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/trunkgroup';
+?>
+<div class="notification"><?php echo $this->translate('trunkgroup_is_updated', $this->TrunkGroup['Label']);?></div>
+<table>
+    <tr>
+        <td class="column-1">
+            <input type="checkbox" name="trunkGroup_list[]" value="<?php echo $this->TrunkGroup['TrunkGroupId']?>"/></p>
+        </td>
+        <td class="column-2">
+            <span><?php echo $this->TrunkGroup['Label']?></span>
+            <div class="manager">
+                <a class="manager-edit" href="<?php echo $baseUrl?>/update/TrunkGroupId/<?php echo $this->TrunkGroup['TrunkGroupId']?>">
+                    <?php echo $this->translate('application_handler_edit')?>
+                </a> | <a class="manager-delete" href="<?php echo $baseUrl?>/delete?TrunkGroupIds[]=<?php echo $this->TrunkGroup['TrunkGroupId']?>&TrunkGroupLabels[]=<?php
+                    echo urlencode($this->TrunkGroup['Label'])?>"><?php echo $this->translate('application_handler_delete')?>
+                </a>
+            </div>
+        </td>
+        <td class="column-0">
+            <span><?php echo $this->TrunkGroup['TrunkCount']?></span>
+        </td>
+    </tr>
+</table>
+<?php
+/* EOF */

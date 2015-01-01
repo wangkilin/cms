@@ -1,0 +1,353 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/numbergroup';
+?>
+<div class="dialog" id="numbergroup-update-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="numbergroup-update-heading">
+            <span class="heading-text"><?php echo $this->translate('numbergroup_update_heading');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="numbergroup-update-body">
+			<form action="" id="numbergroup-update-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('numbergroup_update_name');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" class=""
+                                        name="PremiumNumberGroupName" value="<?php echo $this->PremiumNumberGroup['PremiumNumberGroupName'];?>"/>
+                                    </span>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_update_name_tip');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_update_assign_number_tip');?></span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<td>
+                                <div id="assign-numbers">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div><span id="numbergroups-unassigned-title"><?php echo $this->translate('numbergroup_update_assign_available_number_title');?></span></div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <div><span id="numbergroups-assigned-title"><?php echo $this->translate('numbergroup_update_assign_group_number_title');?></span></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div id="numbers" class="numbers">
+                                                        <ul class="connectedSortable">
+                                                            <?php
+                                                                foreach ($this->AvailableNumbers as $number) {
+                                                                    echo '<li id="number-' . $number['PremiumNumberId'] . '">' . $number['PremiumNumber'] . '</li>';
+                                                                }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="numbergroup-gap">
+                                                    <br/>
+                                                    <a href="numbergroup/number/Act/add/PremiumNumberGroupId/<?php echo $this->PremiumNumberGroup['PremiumNumberGroupId'];?>" id="ass"
+                                                        class="sw-icon sw-icon-arrow-right<?php echo (empty($this->AvailableNumbers) ? ' unactive' : '');?>">&gt;</a>
+                                                    <br/>
+                                                    <a href="numbergroup/number/Act/delete/PremiumNumberGroupId/<?php echo $this->PremiumNumberGroup['PremiumNumberGroupId'];?>" id="unass"
+                                                        class="sw-icon sw-icon-arrow-left<?php echo (empty($this->GroupNumbers) ? ' unactive' : '');?>">&lt;</a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="numbers-assigned" class="numbers">
+                                                        <ul>
+                                                            <?php
+                                                                foreach ($this->GroupNumbers as $number) {
+                                                                    echo '<li id="number-' . $number['PremiumNumberId'] . '">' . $number['PremiumNumber'] . '</li>';
+                                                                }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('numbergroup_update_assign_routing_tree');?></span>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_update_assign_routing_tree_tip');?></span>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div>
+                                    <span id="emergency-active" class="ui-icon plus">
+                                        <input type="hidden" name="EmergencyActivated" id="emergency" value="<?php echo intval($this->PremiumNumberGroup['EmergencyActivated']);?>"/>
+                                        <input type="hidden" name="PremiumNumberGroupId" value="<?php echo intval($this->PremiumNumberGroup['PremiumNumberGroupId']);?>"/>
+                                    </span>
+                                    <select id="emergency-tree" name="EmergencyTreeId">
+                                        <option value="-1"><?php echo $this->translate('numbergroup_update_select_emergency_routing_tree');?></option>
+                                    <?php
+                                        foreach ($this->RoutingTrees as $tree) {
+                                            echo '<option value="' . $tree['TreeId'] . '"'
+                                                . ($tree['TreeId'] == $this->PremiumNumberGroup['EmergencyTreeId'] ? ' selected' : ' ') . '>'
+                                                . $tree['Label'] . '</option>';
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div id="routing-plan-container">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="td-select-routing-tree">
+                                                    <div><span><?php echo $this->translate('numbergroup_update_select_routing_tree');?></span></div>
+                                                </td>
+                                                <td class="td-assigned-dates">
+                                                    <div><span><?php echo $this->translate('numbergroup_update_assigned_dates');?></span></div>
+                                                </td>
+                                                <td class="td-row-add-remove">&nbsp;
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <?php
+                                                if (empty($this->AllocatedTrees)) {
+                                                    $this->AllocatedTrees = array(
+                                                        array(
+                                                            'RoutingPlanId' => -1,
+                                                            'StartDatetime' => '',
+                                                            'EndDatetime' => '',
+                                                        )
+                                                    );
+                                                }
+                                                foreach ($this->AllocatedTrees as $allocatedTree) {
+                                                    $startDatetime = '';
+                                                    $endDatetime = '';
+                                                    $startDate = '';
+                                                    $startTime = '';
+                                                    $startHour = '';
+                                                    $endDate = '';
+                                                    $endTime = '';
+                                                    $endHour = '';
+                                                    if ('' != $allocatedTree['StartDatetime'] && '' != $allocatedTree['EndDatetime']) {
+                                                        $startDatetime = strtotime($allocatedTree['StartDatetime']);
+                                                        $endDatetime = strtotime($allocatedTree['EndDatetime']);
+                                                        $startDate = date('Y-m-d', $startDatetime);
+                                                        $startTime = date('H:i', $startDatetime);
+                                                        $startHour = date('G', $startDatetime);
+                                                        $endDate = date('Y-m-d', $endDatetime);
+                                                        $endTime = date('H:i', $endDatetime);
+                                                        $endHour = date('G', $endDatetime);
+                                                    }
+
+                                            ?>
+                                            <tr class="row-assigned-dates" routingplan="<?php echo $allocatedTree['RoutingPlanId']?>">
+                                                <td>
+                                                    <select class="routing-tree" name="routing-tree">
+                                                        <option value="-1"><?php echo $this->translate('numbergroup_update_select_routing_tree');?></option>
+                                                    <?php
+                                                        foreach ($this->RoutingTrees as $tree) {
+                                                            echo '<option value="' . $tree['TreeId'] . '"'
+                                                                . ($tree['TreeId'] == $allocatedTree['TreeId'] ? ' selected' : ' ') . '>'
+                                                                . $tree['Label'] . '</option>';
+                                                        }
+                                                    ?>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <div class="assigned-dates">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td rowspan="2">
+                                                                        <div>
+                                                                        <span class="calendar-icon">&nbsp;</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span>From</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><input type="text" class="start-date"
+                                                                        name="StartDatetime[]" value="<?php echo $startDate . ' ' . $startTime;?>"></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span>To</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><input type="text" readonly class="end-date"
+                                                                        name="EndDatetime[]" value="<?php echo $endDate . ' ' . $endTime;?>"></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="assigned-dates-calendar">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_update_assigned_dates_start_date')?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_update_assigned_dates_end_date')?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="calendar-start-date"></div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="calendar-end-date"></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_update_assigned_dates_start_time')?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_update_assigned_dates_end_time')?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                            <select class="start-time" name="start-time[]">
+                                                                                <?php
+                                                                                    for ($i = 0; $i < 24; $i++) {
+                                                                                        echo '<option value="' . $i .'"'
+                                                                                            . ($i == $startHour ? ' selected' : '') . '>'
+                                                                                            . ($i < 10 ? '0' . $i : $i) . ':00</option>';
+                                                                                    }
+                                                                                ?>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                            <select class="end-time" name="end-time[]">
+                                                                                <?php
+                                                                                    for ($i = 0; $i < 24; $i++) {
+                                                                                        echo '<option value="' . $i .'"'
+                                                                                            . ($i == $endHour ? ' selected' : '') . '>'
+                                                                                            . ($i < 10 ? '0' . $i : $i) . ':00</option>';
+                                                                                    }
+                                                                                ?>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2">
+                                                                        <div class="assigned-dates-calendar-button">
+                                                                            <button class="cancel-calendar" type="button">
+                                                                            <?php echo $this->translate('application_handler_cancel')?>
+                                                                            </button>
+                                                                            <button class="done" type="button">
+                                                                            <?php echo $this->translate('application_handler_done')?>
+                                                                            </button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <?php
+                                                            if ('-1' != $allocatedTree['RoutingPlanId']) {
+                                                        ?>
+                                                        <span class="row-update">U</span>
+                                                        <?php
+                                                            } else {
+                                                        ?>
+                                                        <span class="row-create">C</span>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="row-remove">-</span>
+                                                        <span class="row-add">+</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" id="ok" name="ok"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

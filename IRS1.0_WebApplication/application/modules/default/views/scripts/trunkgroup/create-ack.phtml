@@ -1,0 +1,29 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+
+<div class="notification"><?php echo $this->translate('trunkgroup_is_created', $this->Label);?></div>
+<table>
+<?php
+echo $this->Action('list', 'trunkgroup', null, array(
+                'CurrentPage' => $this->Pagination['CurrentPage'],
+                'ItemsPerPage' => $this->Pagination['ItemsPerPage']
+            ));
+
+?>
+</table>
+<?php
+/* EOF */

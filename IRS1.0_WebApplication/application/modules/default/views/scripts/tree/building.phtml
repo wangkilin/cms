@@ -1,0 +1,143 @@
+<?php
+/**
+ * $Rev: 2641 $
+ * $LastChangedDate: 2010-06-22 16:46:33 +0800 (Tue, 22 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: building.phtml 2641 2010-06-22 08:46:33Z junzhang $
+ */
+
+/**
+ * Rendering a Node for Building Routing Tree
+ */
+
+$treeNodes = $this->TreeNodes;
+$nodeTypes = $this->NodeTypes;
+$nodeId = $this->CurrentNodeId;
+
+if (is_null($nodeId) || in_array($nodeId, $this->RenderedNodeIds)) {
+    return;
+}
+$nodeInfo = $treeNodes[$nodeId];
+$nodeType = $nodeTypes[$nodeInfo['NodeTypeId']];
+$outputCounter = array_key_exists('Outputs', $nodeInfo) ? count($nodeInfo['Outputs']) : 0;
+
+?>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <div id="node-<?php echo $nodeId; ?>" class="node type-<?php echo $nodeType; ?>">
+                    <div class="contextmenu ui-state-hover">
+                        <a id="edit" class="trigger" href="#">
+                            <span class="ui-icon ui-icon-triangle-1-s"></span>
+                            <?php echo $this->translate('tree_node_type_' . $nodeType); ?>
+                        </a>
+                        <dl>
+                            <dd>
+                                <a class="edit" href="#"><?php echo $this->translate('application_handler_edit'); ?></a>
+                            </dd>
+                            <dd>
+                                <a class="delete" href="#"><?php echo $this->translate('application_handler_delete'); ?></a>
+                            </dd>
+                            <dd class="<?php echo $nodeInfo['IsActive'] ? 'visible' : 'hidden'; ?>">
+                                <a class="deactive" href="#"><?php echo $this->translate('application_handler_deactive'); ?></a>
+                                <a class="active" href="#"><?php echo $this->translate('application_handler_active'); ?></a>
+                            </dd>
+                            <dd class="last">
+                                <a class="copy" href="#"><?php echo $this->translate('application_handler_copy'); ?></a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <b><?php echo $nodeInfo['Label']; ?></b>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <?php if ($outputCounter) : ?>
+    <tfoot>
+        <tr>
+            <td>
+                <div class="parent-to-child">
+                    <i>
+                        <a href="#" class="ui-icon ui-icon-minus"></a>
+                    </i>
+                </div>
+                <table>
+                    <?php if ($outputCounter > 1) : ?>
+                    <thead>
+                        <tr>
+                            <?php 
+                                for ($index = 1; $index <= $outputCounter; $index++) : 
+                                    $className = '';
+                                    if (1 == $index) {
+                                        $className = ' class="first"';
+                                    } else if ($index == $outputCounter) {
+                                        $className = ' class="last"';
+                                    }
+                            ?>
+                            <td<?php echo $className; ?>>
+                                <div><i></i></div>
+                            </td>
+                            <?php endfor; ?>
+                        </tr>
+                    </thead>
+                    <?php endif; ?>
+                    <tbody class="node-outputs">
+                        <tr>
+                            <?php for ($index = 0; $index < $outputCounter; $index++) : ?>
+                            <td>
+                                <div id="NodeOutputId-<?php echo $nodeInfo['Outputs'][$index]['NodeOutputId']; ?>" class="output type-<?php echo $nodeType; ?>">
+                                    <q><?php echo $nodeInfo['Outputs'][$index]['Label']; ?></q>
+                                </div>
+                            </td>
+                            <?php endfor; ?>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <?php foreach ($nodeInfo['Outputs'] as $output) : ?>
+                            <td>
+                                <?php if (($nextNodeId = $output['NextNodeId']) && !in_array($nextNodeId, $this->RenderedNodeIds) && array_key_exists($nextNodeId, $treeNodes)) : ?>
+                                <div class="parent-to-child">
+                                    <i>
+                                        <a href="#" class="ui-icon ui-icon-minus"></a>
+                                    </i>
+                                </div>
+                                <?php
+                                    echo $this->action('builder', 'tree', null, array(
+                                        'IsBuilding' => true,
+                                        'NodeId' => $nextNodeId
+                                    ));
+                                ?>
+                                <?php else : ?>
+                                <div class="output-to-node contextmenu">
+                                    <a id="create" class="trigger" href="#">
+                                        <span class="ui-icon ui-icon-plus"></span>
+                                    </a>
+                                    <dl>
+                                        <dd><a class="paste" href="#paste"><?php echo $this->translate('application_handler_paste'); ?></a></dd>
+                                        <?php foreach($nodeTypes as $id => $type) : ?>
+                                        <dt><a id="<?php echo $id; ?>" class="Type-<?php echo $type; ?>" href="#<?php echo $type; ?>"><?php echo $this->translate('contextmenu_' . $type); ?></a></dt>
+                                        <?php endforeach; ?>
+                                    </dl>
+                                </div>
+                                <?php endif; ?>
+                            </td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tfoot>
+                </table>
+            </td>
+        </tr>
+    </tfoot>
+    <?php endif; ?>
+</table>
+<?php
+
+/* EOF */

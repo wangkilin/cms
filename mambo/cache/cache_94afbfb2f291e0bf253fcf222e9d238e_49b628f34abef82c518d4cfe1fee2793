@@ -1,0 +1,51 @@
+                      -871040260a:2:{s:6:"output";s:2799:"			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Example News Item 1								</td>
+							<td align="right" width="100%" class="buttonheading">
+			<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;do_pdf=1&amp;id=12', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" title="输出PDF">
+			<img src="http://localhost/cms/mambo/images/M_images/pdf_button.png" alt="输出PDF" align="middle" name="image" border="0" />			</a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;task=view&amp;id=12&amp;Itemid=39&amp;pop=1&amp;page=0', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" title="打印">
+				<img src="http://localhost/cms/mambo/images/M_images/printButton.png" alt="打印" align="middle" name="image" border="0" />				</a>
+				</td>
+							<td align="right" width="100%" class="buttonheading">
+			<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;task=emailform&amp;id=12', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no');" title="E-mail">
+			<img src="http://localhost/cms/mambo/images/M_images/emailButton.png" alt="E-mail" align="middle" name="image" border="0" />			</a>
+			</td>
+						</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td width="70%" align="left" valign="top" colspan="2">
+			<span class="small">
+			 作者： Administrator			</span>
+			&nbsp;&nbsp;
+			</td>
+		</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2004-07-07				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum.			</td>
+		</tr>
+					<tr>
+				<td colspan="2" align="left" class="modifydate">
+				最近更新 ( 2004-07-07 )
+				</td>
+			</tr>
+							<tr>
+					<td align="left" colspan="2">
+					<a href="http://localhost/cms/mambo/content/view/12/2/" class="readon">
+					阅读全文...					</a>
+					</td>
+				</tr>
+						</table>
+		";s:6:"result";N;}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allM_road</name>
+  <creationDate>06/12/2004</creationDate>
+  <author>allmambo.com Crew</author>
+  <copyright>(C) Released under GPL license</copyright>
+  <authorEmail>templates@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Fixed Width, Road, neutral Green Themed Template</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/content_top.gif</filename>
+	<filename>images/date_bck.gif</filename>
+	<filename>images/footer_left.gif</filename>
+	<filename>images/footer_mid.gif</filename>
+	<filename>images/footer_right.gif</filename>
+	<filename>images/left_bck.gif</filename>
+	<filename>images/logo.gif</filename>
+	<filename>images/logo_right.gif</filename>
+	<filename>images/menu_left.gif</filename>
+	<filename>images/menu_mid.gif</filename>
+	<filename>images/menu_right.gif</filename>
+	<filename>images/page_bck.gif</filename>
+	<filename>images/path_bck.gif</filename>
+	<filename>images/path_left.gif</filename>
+	<filename>images/right_bck.gif</filename>
+	<filename>images/right_top.gif</filename>
+	<filename>images/search_bck.gif</filename>
+	<filename>images/spacer.gif</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

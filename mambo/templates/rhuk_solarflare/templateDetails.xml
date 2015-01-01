@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="4.5.1">
+	<name>rhuk_solarflare</name>
+	<creationDate>07/27/04</creationDate>
+	<author>rhuk</author>
+	<copyright>GNU/GPL</copyright>
+	<authorEmail>rhuk@rhuk.net</authorEmail>
+	<authorUrl>http://www.mambodev.com</authorUrl>
+	<version>1.0</version>
+	<description>solarflare is a simple and stylish template.  The clean design of this template makes it very lightweight and fast.  </description>
+	<files>
+		<filename>index.php</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/advertisement.png</filename>
+		<filename>images/arrow.png</filename>
+		<filename>images/contenthead.png</filename>
+		<filename>images/indent1.png</filename>
+		<filename>images/indent2.png</filename>
+		<filename>images/indent3.png</filename>
+		<filename>images/indent4.png</filename>
+		<filename>images/header_short.jpg</filename>
+		<filename>images/menu_bg.png</filename>
+		<filename>images/powered_by.png</filename>
+		<filename>images/spacer.png</filename>
+		<filename>images/subhead_bg.png</filename>
+		<filename>images/title_back.png</filename>
+		</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

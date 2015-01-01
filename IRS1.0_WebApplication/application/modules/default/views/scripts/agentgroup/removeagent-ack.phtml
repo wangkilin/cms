@@ -1,0 +1,23 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('agentgroup_agent_is_removed');?></div>
+<div id="query_result"
+     group="<?php echo $this->CountGroupAgents?>"
+     unaffected="<?php echo $this->CountUnaffectedAgents?>">
+</div>
+<?php
+/* EOF */

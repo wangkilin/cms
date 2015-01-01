@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 04:56:34 $</date>
+  </sectioninfo>
+  <title>Send Message</title>
+  <para>This page allow you to send a message to a user.</para>
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">To</emphasis>: A list of the users for this Site</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Subject</emphasis>: The subject for the message.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Message</emphasis>: The body of the message.</para>
+    </listitem>
+  </itemizedlist>
+  <para>When you are ready to send your message, click the Save icon or Cancel to discard your changes.</para>
+  <para>Please note that users my choose to disable the receipt of messages.</para>
+</section>

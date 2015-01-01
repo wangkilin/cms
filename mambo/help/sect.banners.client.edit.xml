@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Banners: Add or Edit Client</title>
+
+  <para>This page allows you to add or edit Client details for your banners.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Client Name</emphasis>: This is the name of your client.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Contact Name</emphasis>: This is the name of the person to contact, or, for example, their position within the company.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Contact Email</emphasis>: This is the contact email address for the client.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Extra Info</emphasis>: You can add extra information to help you with managing this client.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>When you are finished your editing, click the 'Save' icon or 'Cance'l to discard your changes.</para>
+</section>

@@ -1,0 +1,73 @@
+left_menu_blacklist;Blacklist
+left_menu_add_blacklist;Create New Blacklist
+left_menu_import_blacklist;Import Blacklist
+left_menu_export_blacklist;Export Blacklist
+
+blacklist_list_no_item;You don't have any Blacklists.
+
+blacklist_list_name;Blacklist Name
+blacklist_list_number;# numbers
+blacklist_list_dtmf;DTMF
+blacklist_list_date_created;Date Created
+blacklist_list_date_modified;Modified Date
+blacklist_list_created_by;Created by
+blacklist_list_in_use;In use
+blacklist_list_name_sort;Sort by Blacklist Name
+blacklist_list_number_sort;Sort by # numbers
+blacklist_list_dtmf_sort;Sort by DTMF
+blacklist_list_date_created_sort;Sort by Date Created
+blacklist_list_date_modified_sort;Sort by Modified Date
+blacklist_list_created_by_sort;Sort by Created by
+blacklist_list_in_use_sort;Sort by In use
+##----------------------------
+## update blacklist
+##----------------------------
+blacklist_update_blacklist;Edit BlackList Resource
+blacklist_name;Blacklist Name
+blacklist_is_dynamic;Dynamic
+blacklist_dtmf;DTMF Keys
+blacklist_expiration;Exoiration Time
+blacklist_expiration_time_hours;Hours
+blacklist_add_number;Add a Number to the Blacklist
+blacklist_numberlist_numbers;Blacklist Numbers
+blacklist_numberlist_type;Type
+blacklist_numberlist_expiration;Expriation
+blacklist_numberlist_search_number;Search a number
+blacklist_numberlist_no_item;You don't have any Numbers.
+##----------------------------
+## create blacklist
+##----------------------------
+blacklist_is_created;Blacklist %s is created!
+blacklist_create_blacklist;Create a New Blacklist
+##----------------------------
+## update blacklist
+##----------------------------
+blacklist_is_updated;Blacklist %s is udpated!
+##----------------------------
+## delete blacklist(s)
+##----------------------------
+blacklist_delete_blacklist; blacklist(s) :
+blacklist_is_deleted;Blacklist(s) %s is deleted!
+##----------------------------
+##  blacklist number types
+##----------------------------
+blacklist_number_type_1;Dynamic
+blacklist_number_type_0;Static
+##----------------------------
+## create blacklist number
+##----------------------------
+blacklist_number_is_added;Number %s is added!
+##----------------------------
+##----------------------------
+## udpate blacklist number
+##----------------------------
+blacklist_update_number;Edit BlackList Number
+blacklist_update_number_desc;Number
+blacklist_number_is_updated;Number %s is updated!
+##----------------------------
+## delete number(s)
+##----------------------------
+blacklist_delete_number; number(s) :
+blacklist_number_is_deleted;Number(s) %s is deleted!
+##----------------------------
+## EOF

@@ -1,0 +1,667 @@
+/**
+* @version $Id: CHANGELOG,v 1.524.2.2 2004/10/06 10:51:55 prazgod Exp $
+* @package Mambo_4.5
+* @copyright (C) 2000 - 2004 Miro International Pty Ltd
+* @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+* Mambo is Free Software
+*/
+
+1. Changelog
+------------
+This is a non-exhaustive (but still near complete) changelog for
+Mambo 4.5, including beta and release candidate versions.
+Our thanks to all those people who've contributed bug reports and
+code fixes.
+
+Legend:
+
+# -> Bug Fix
++ -> Addition
+! -> Change
+- -> Removed
+! -> Note
+
+06-Oct-2004 Phil Taylor (Expo)
+ # [#2814] Content Editing does not display section title
+-------------------- 4.5.1a Stable Released ----------------------
+
+30-Sep-2004 Emir sakic
+ # Fixed [#2688] Can't select a category in the contents section
+
+29-Sep-2004 Emir Sakic
+ + Added automatic JS listing of categories when section is selected on admin content edit
+ # Fixed [#2677] Row in mos_content_frontpage table not deleted after deleting content item
+ # Fixed [#2680] Call to undefined variable
+
+28-Sep-2004 Phil Taylor
+ ! Moved pathway.php to a function mosPathWay()
+ ! ^^ Needs templates changing!
+ + Added more index.html files to prevent directory browsing
+ # fixed login form action url
+ ! Upgraded DOMIT! & DOMIT! RSS to latest versions (0.98/0.3)
+
+28-Sep-2004 Rey Gigataras
+ # Fixed mosimages & hideintrotext problem
+ # Fixed [#2655] creating menu-link from " Edit Category "
+
+28-Sep-2004 Emir Sakic
+ # Fixed [#2648] http:// prefix gives http://http:// in mambots menu
+
+28-Sep-2004 Robert Castley
+ # Fixed bug displaying images when editing content (frontend/admin)
+ # Fixed hardcoded English in content.php
+
+27-Sep-2004 Phil Taylor
+ # Fixed issue with mambot manager in PHP 4.1.2
+ # Fixed Tab spaces in typed content meta tags when editing
+ # Fixed deletion of menus when menu has children
+ # A couple of other small fixes to Menu Manager
+
+27-Sep-2004 Emir Sakic
+ # Fixed [#2625] User last visit does not include time offset
+
+27-Sep-2004 Rey Gigataras
+ # Fixed [#2613] Upgrade sql - Syndicate
+ # Fixed [#2631] com_weblinks SHOULD NOT prefix URLs starting with "ftp://"
+ # Fixed error in content.php Line 163
+ # Fixed bug with TinyMCE when no params set in database
+
+26-Sep-2004 Emir Sakic
+ # Fixed a bug with undefined function get() if $Itemid is empty
+ ! Changed setPageTitle() not to display "-" if $Itemid is empty
+
+26-Sep-2004 Rey Gigataras
+ ! Random image module opens _self link
+ ! Wrapper param allowing disabling of auto-prepend feature
+ # Fixed [#2616] 
+ # Fixed [#2610] Error With Polls
+ # Fixed [#2576] Contacts : Text is not flooding at left of the image in IE6
+ # Fixed [#2590] Parameters on administration module rss feed don't display correctly
+ # Fixed [#2568] User Menu -> Submit Weblink
+ # Fixed [#2601] Frontend: edit content -> invalid image paths
+ # Fixed [#2607] Hardcoded strings in components/com_component/content.html.php
+ # Fixed [#2595] File offline.php: couple of php short-tags
+ # Fixed [#2567] Wrapper : Auto height - Not respecting the parameter
+ # Fixed [#2588] Menu : Opening Url in a new window; open in the same window
+ # Fixed [#2577] Content : Trashed Content are displayed in FrontEnd
+
+25-Sep-2004 Rey Gigataras
+ - removed 'Blog - Content Category Multi'
+
+25-Sep-2004 Emir Sakic
+ # Fixed $menu notice on SetTitle
+ # Fixed the issue with incorrect blog ids
+ # Fixed the issue with incorrect categoryid with blogs
+ # Fixed javascript error in contact component
+ # Fixed the poll def() undefined error
+ # Statistics module cosmetics
+
+24-Sep-2004 Rey Gigataras
+ + Ability to select multiple categories in 'Blog - Content Category'
+ + Ability to select multiple categories in 'Blog - Content Section'
+
+23-Sep-2004 Phil Taylor
+ # remove RELEASE CANDIDATE 4 - NOT FOR PRODUCTION USE!
+ 
+-------------------- 4.5.1 Stable Released ----------------------
+
+23-Sep-2004 Phil Taylor
+ # Fixed [ #2542 ] Newsflash reordering
+ # Fixed [ #2528 ] Wrapper / Static Content double trouble
+ # Support for HTMLDoc PDF Generation depreciated
+ 
+23-Sep-2004 Emir Sakic
+ # Centered the final text in the installer
+ # Fixed the bug with Remember me cookie doesn't get deleted
+ # Fixed bug with Install directory default paths in elements installer
+ # XHTML compability in media manager onclick Code generation
+
+23-Sep-2004 Alex Kempkens
+ # Fixed [ #2523 ] Typos in comment
+ # Fixed [ #2508 ] link reference back to admin templates corrected
+ # Fixed [ #2525 ] Hardcoded language - 'login name'
+ # Fixed missing html_entity_decode in registration html
+ 
+22-Sep-2004 Phil Taylor
+ # Fixed [ #2501 ] Mod-files not physically deleted
+ # Obsure pathway issue when linking two items both urls and one a child of another - dont ask!
+ + Ability to append a html string to the pathway (Virtual Pathway) hook for CMT's
+ 
+22-Sep-2004 Rey Gigataras
+ ! Alphabeticaly sorted 'new' Menu Options
+ + Menu option 'Blog - Content Category Multi'
+ + Menu option 'Table - Weblink Category'
+ + Menu option 'Table - Newsfeed Category'
+ + Param for Section/Category Description & Image in Blogs
+ + GC to show icons or text for Print|PDF|Email
+ + Javascript cloaking to email in 'Table - Contacts Category
+ # Fixed [ #2523 ] Typos in commend - mambo.php'
+ # Fixed [ #2519 ] frontend.html.php not echoing $moduleclass_sfx
+ # Fixed [ #2514 ] [ #2515 ] Contacts : Icon/Text setting not working properly
+ # Fixed [ #2514 ] Category Manager : Missing "Cancel" button or "Back" icon is not working
+ # Fixed [ #2511 ] Category Table - Contacts : Telephone col is displayed if set to Hide
+ # Fixed [ #2503 ] Wrong order in drop-down field
+ # Fixed Page Headings, if 'Page Title' param left blank, will load Menu Name
+
+21-Sep-2004 Andy Miller
+ # Fixed [ #2464 ] Who's online alignment problem in FF (planetfall)
+
+21-Sep-2004 Phil Taylor
+ # Fixed: Mambot install/uninstall in windows file system
+ + Added a few more dynamic page titles where missing
+ # Undefined var in menu manager
+ # GC Overlib typos
+ # Fixed [ #2496 ] Path to Mambo logo image wrong when site is offline and SEF is enabled
+ # Fixed [ #2495 ] Contacts component shows too much details
+ # Fixed [ #2494 ] Error in Contacts component when trying to view a contact with access level registered
+ ! Upgraded DOMIT to latest Version - DOMIT! RSS v0.2 pre
+ ! Upgraded DOMIT to latest Version - DOMIT! 0.98-pre
+ # Fixed [ #2499 ] Path to stylesheet wrong when site is offline and SEF is enabled
+
+21-Sep-2004 Robert Castley
+ - Removed RTE from distribution due to lack of ongoing development
+ ! Moved uploadimage.php into popups directory
+
+21-Sep-2004 Rey Gigataras
+ + Menu option 'Table - Contact Category'
+ + Ability to control display params for 'Table - Content Category' linked from 'List - Content Section'
+ # Fixed Checked out name not appearing in Newsfeeds Manager view
+ # Fixed issues related to [ #2456 ] in other areas
+ # Fixed [ #2456 ] JS error if you click on content item title if that item is checked out
+ # Fixed [ #2467 ] 'No items to display' from empty blog category is hardcoded
+
+20-Sep-2004 Phil Taylor
+ ! Corrected all XML Files to common standard
+ ! Added version attribute to all mosinstall XML elements
+ ! removed references to filename.xml in all XML files
+ # Fixed language installer uninstall not removing xml file
+ # Fixed [ #2436 ] Installer needs to show correct amount of folders needed to be chmoded
+ ! Upgrade to latest DOMIT! 0.98 Pre Release - Fixes PHP5 Issue in Installer
+ # Undefined index: REQUEST_URI in mosvote
+ + Directory Permission Tab in System Info
+ # Fixed: Unpublished mambots still get trigged
+
+20-Sep-2004 Alex Kempkens
+ # Fixed [ #2423 ] Time offset, tool-tip...
+
+20-Sep-2004 Emir Sakic
+ # Fixed [ #2424 ] Administrator Template Installer thumbnails incorrect directory
+ + Added admin template preview thumbnails
+
+20-Sep-2004 Rey Gigataras
+ ! "Welcome to Frontpage" header set to 'hide' on install
+ + Menu option 'Link - Newsfeed'
+ + Menu option 'Link - Contact Item'
+ + Categories display support for 'Contact' component
+ + Param support to change TinyMCE mode
+ # Fixed [ #2463 ] contact-searchbot error
+ # Fixed [ #2450 ] Static content title alias needs to be shown throughout the site
+ # Fixed [ #2457 ] Filter only filters on title, not title alias in static content manager
+ # Fixed ordering when copying content
+ # Fixed [ #2447 ] copying or moving menu items in com_menus fails to recreate ordering
+ # Fixed [ #2445 ] Bug in section/category copy->cancel
+ # Fixed [ #2437 ] manage contacts in admin gives errors
+
+19-Sep 2004 Alex Kempkens
+ # Fixed [ #2241 ] Menu Type assignment problems
+ # Fixed [ #2071 ] Frontend category - nav broken: not reacting on user rights
+
+19-Sep-2004 Emir Sakic
+ # Fixed javascript error when editing content item in admin
+ # Fixed javascript error when previewing images on item edit
+ # Fixed bug [ #2379 ] Javascript error on preview static content with RTE
+
+19-Sep-2004 Phil Taylor
+ # Temp Fixed [ #2287 ] DOMIT! not PHP5 compatible
+ # Fixed [ #2387 ] "componentadmindir() undefined" when installing a module
+ # Fixed [ #2398 ] ALT Tag / Java Double
+ # Fixed [ #2407 ] mosRedirect() missing urlencode() of $msg
+ # Fixed [ #2406 ] Contact - hardcoded string "Email a copy..."
+ # Fixed [ #2405 ] Unable to style pagenumber with artcile paging.
+ # Fixed [ #2400 ] test for configuration.php write permission incorrect
+ # Fixed [ #2399 ] Error removing mambot
+ # Fixed [ #2389 ] Navigation links in Mambot Manager lead to edit screen
+ # Fixed [ #2364 ] Template File Not Found!
+ # Fixed [ #2355 ] RSS feed links dont generate SEF links
+ # Fixed [ #2330 ] Component Uninstall - database tables not deleted
+ # Fixed more installer issues, Language and template installer
+ # Fixed [ #2354 ] Not showing content on pages where module Random Images applied
+ # Fixed [ #2414 ] Weblinks - Call-time pass-by-reference
+ # Fixed [ #2415 ] install4.php - 2 warnings
+ # Fixed offset issue in contacts when email address not valid
+ # Replaced missing overlib_mini.js when editing content
+ # Replaced missing overlib_mini.js when editing Static content
+ # Fixed Archive Content Function not working
+ # Fixed [ #2421 ] mambot manager doesn't show up... errors appear in RC4
+
+19-Sep-2004 Rey Gigataras
+ ! New 'Content Items' default to the first place 
+ ! New 'Static Content' default to the first place 
+ ! New 'Weblinks' default to the first place 
+ ! New 'Newsfeeds' default to the first place 
+ ! New 'Contact Items' default to the first place 
+ ! New 'Newsfeeds' default to the first place 
+ ! New 'Frontpage Items' default to the first place 
+ + Admin icons can be replaced by icons in Admin templates image directory  
+ + Frontend icons can be replaced by icons in Admin templates image directory  
+ + Params for 'Login' Component  
+ + Login & Logout url redirection for 'Login' Component
+ + 'Spacer' param type
+ # Fixed [ #2411 ] No Listfield and no Icons in contact form
+
+18-Sep-2004 Rey Gigataras
+ ! unpublished 'MamboForge' Admin module
+ + Ability for submitters using Contact us email form to send a copy to themselves
+ + Individual Contact Params
+ # Fixed [ #2391 ] Polls - incorrect indentation of last vote
+
+17-Sep-2004 Rey Gigataras
+ + 'Link to Menu' option for Sections
+ + 'Link to Menu' option for Categories
+ + 'Link to Menu' option for Content Items
+ + 'Link to Menu' option for Static Content
+ + Params for Login Module
+ + Order control for Static Content Manager
+ + Columns for Static Content Manager
+ # Fixed [ #2380 ] Extra ?> in includes/HTML_toolbar.php
+ # Fixed [ #2353 ] Admin Section manager: delete/unpublish returns empty page
+ # Fixed [ #2369 ] admin module reordering doesn't work
+ # Fixed [ #2367 ] Error sending mass email
+ # Fixed [ #2359 ] Upload image popup when editing content
+
+17-Sep-2004 Andrew Eddie
+ # Fixed [ #2366 ] HTTP_SERVER_VARS in <b>/home/bfitltd/public_html/includes/mambo
+ # Fixed [ #2361 ] Error when previewing content in popup whenediting content
+
+16-Sep-2004 Emir Sakic
+ + Added hook for custom SEF components
+ # Added SEF support to new filter feature in component listing
+
+16-Sep-2004 Rey Gigataras
+ ! mosvote output XHTML compliant
+ ! Handling of Reset Hits in Typed Content now matches Content Items
+ + Category validation check to Add/Edit Contacts
+ + Category filter to Manage Contacts view
+ + 'Hits' Global Param
+ # Fixed [ #2349 ] "E-mail this to a friend" - URL bug in email
+ # Fixed [ #2346 ] xhtml 1.0 transistional issues
+ # Fixed [ #2336 ] some cosmetic things
+ # Fixed [ #2334 ] bug in contact component
+ # Fixed [ #2327 ] Hits value reset to Zero on content item, but Not checked out
+
+16-Sep-2004 Andy Miller
+ ! Neutralized the calendar css palette
+ # Fixed calendar issues with SolarFlare template
+
+16-Sep-2004 Phil Taylor
+ # Major issues with component installs when xml file incorrect
+ # Fixed [ #2155 ] Component XML File loaded to wrong location
+ # Fixed [ #2313 ] Component installer fails with error
+
+15-Sep-2004 Emir Sakic
+ + Added html_entity_decode() function for older PHP versions
+ 
+15-Sep-2004 Robert Castley
+ # Fixed [ #2302 ] - tooltips not working in Mambots Manager
+
+15-Sep-2004 Rey Gigataras
+ ! Newsfeeds component output XHTML compliant
+ ! Weblinks component output XHTML compliant
+ ! Polls component output XHTML compliant
+ ! After voting redirection is straight to Poll results
+ + Filter option for 'Category Table'
+ + params for Newsfeeds component
+ + new params for Web Links component
+ + User definable images for mod_rssfeed
+ # Fixed url problem with Order Dropdown for 'Category Table'
+ # Fixed hardcoded text in Order Dropdown for 'Category Table'
+ # Fixed [ #2311 ] _SEARCH_BOX instead of hardcoded 'search...'
+ # Fixed [ #2308 ] Plain english in categories frontend
+ # Fixed [ #2298 ] Weblink component does not evaluate image flags
+
+14-Sep-2004 Alex Kempkens
+ # Fixed [ #2102 ] Backend - edit menu item, re-ordering doesn't work
+ # Fixed [ #2046 ] Profile in users section - info missing
+
+-------------------- 4.5.1 RC 4 Released ----------------------
+
+14-Sep-2004 Phil Taylor
+ + Added title and author meta tags and GC Config
+
+14-Sep-2004 Emir Sakic
+ + Added writable cache directory check for admin modules
+
+14-Sep-2004 Rey Gigataras
+ ! Default display for Output is by date
+ ! Added Language & Template Install to mod_fullmenu
+ + Filter to Module Install/Uninstall list
+ + 'Read More' Global Param
+ + Params to mod_rssfeed Module
+ + Syndication Settings Admin Component
+ + Syndication support for RSS 0.91, 1.0, 2.0, ATOM & OPML via feedcreator class
+ + Added Ordering dropdown select for Category Table
+ # Fixed [ #2021 ] Frontend: Some bugs when editing static content items
+ # Fixed [ #2260 ] Language installer missing back link
+
+13-Sep-2004 Phil Taylor
+ + Page Titles added to content
+
+13-Sep-2004 Andrew Eddie
+ ! Reworked page titles and metatags into mainframe
+ + Added option content buffering
+
+13-Sep-2004 Rey Gigataras
+ ! Removed restriction on modules having same name
+ ! Extra attributes available for Param type 'imagelist' 
+ + Added Mamboforge Feed to Admin Cpanel
+ + Added ID column to Module display
+ + New 'Custom' modules now operational in Admin
+ + Added ability to provide save and cancel icon in template, for frontend editing
+ # Fixed: Menu items not being correctly displayed in Polls
+ # Fixed [ #2105 ] New admin typed content module creates site module
+ # Fixed [ #2237 ] Menu Icon Alignment backwards in 4.5.1 RC3
+ # Fixed [ #2222 ] Moving away from editing content not properly working
+ # Fixed [ #2036 ] Subitems of mainmenu display indent image in spite of -Do not use an image-
+
+13-Sep-2004 Andrew Eddie
+ + Cached module positions
+ # Fixed [ #2232 ] ANDREW - Mambot installer issue
+
+12-Sep-2004 Phil Taylor
+ + Added SEO Dynamic Page Titles as a GC var
+ ! Improved SEO for robots
+ # mosimage alignment issue when set to none it aligned left
+ # Fixed: You can no longer install components twice
+ # Fixed [ #2059 ] mosimage undefined offset
+ + Added check for existing files before installing new files
+
+12-Sep-2004 Rey Gigataras
+ ! Massmail message prefix text defined in language file
+ + Added 'Title Column' param to Category Table menu item
+ + Added 'Back Button' param to Frontpage component
+ # Fixed [ #2212 ] no search results in typed content
+ # Fixed [ #2178 ] empty tabs added to content meta fields when editing from the frontend
+ # Fixed [ #2179 ] wrong redirection after editing a content item from the frontend
+
+11-Sep-2004 Phil Taylor
+ + Added dynamic page titles when viewing content items/core components
+ + Added hook for CMTs to change pagetitle on page load
+ + Added support for custom tags within HEAD tags
+ + Added support for components to provide metadata for inclusion in mambo metatags
+ # Item Metadata only loads if viewing content item
+
+11-Sep-2004 Rey Gigataras
+ ! Modified param 'Date Column' for Category Tables to tri-state format
+ # Fixed [ #2152 ] Category pages doesn't display correctly when "Show Date" is disabled
+ # Fixed [ #2199 ] Frontpage Manager unable to control the display order
+
+11-Sep-2004 Ron Bakker
+ # Fixed [ #2150] SQL syntax when editing user
+
+11-Sep-2004 Tim Broeker
+ ! Moved tabs below conent pane for front-end editing
+ # Fixes flicker bug and editor lockup bug
+
+10-Sep-2004 Tim Broeker
+ ! Removed overlib call from admin templates
+ ! Added overlib to individual HTML functions
+
+10-Sep-2004 Phil Taylor
+ # Fixed [ #2063 ] News Feed Component renders incorrectly in Safari
+
+10-Sep-2004 Robert Castley
+ # Added strtolower() to get_class for PHP 5 compatibility
+
+9-Sep-2004 Andy Miller
+ # Fixed [ #2063] News Feed Component renders incorrectly in Safari
+
+9-Sep-2004 Andrew Eddie
+ # Fixed [ #2138 ] PHP Notice undefined var categories line 508 - when editing content
+
+8-Sep-2004 Ron Bakker
+ # Fixed [ #2094] RTE not parsing html
+
+8-Sep-2004 Emir Sakic
+ # Fixed section / category edit on item editting in admin
+
+8-Sep-2004 Alex Kempkens
+ # Fixed [ #2099 ] Language Version displayed not updated
+ # Fixed [ #2101 ] Global Configuration -Site messages getting spaces added when saved
+
+7-Sep-2004 Tim Broeker
+ ! Changed module layout to match content layout (side tabs)
+ ! Moved overlib library into admin template header
+ ! Removed overlib from admin.*.html.php
+ # Fixes problem with editors breaking when switching tabs
+ # Fixes issue with WYSIWYGPRO
+ ! Changes to mosGetOrderingList to truncate headline
+ # Fixes tab layout issue with long headlines
+
+7-Sep-2004 Phil Taylor
+ - Removed vb integration code from devshed
+ # Fixed [ #2023 ] RC3 still shows last two modules twice
+ # Fixed problem with hiding dates in category tables
+
+7-Sep-2004 Rey Gigataras
+ + Added display of Access Level to Frontend Editing
+ + Added display of  Published State to Frontend Editing
+ # Fixed Wrapper Output XHTML issues
+ # Fixed [ #2070 ] mail text is constant
+ # Fixed [ #2073 ] Frontend - no edit icon for unpublished content 
+ # Fixed [ #1510 ] Double body tag
+ # Fixed [ #2043 ] Wrapper doesn't work
+
+7-Sep-2004 Alex Kempkens
+ # Fixed [ #2029 ] Other HTML inconsistencies / Typos - found more
+
+7-Sep-2004 Andrew Eddie
+ # Fixed [ #2050 ] MamBots Info tab
+ # Fixed [ #2049 ] Search minor issues
+ # Fixed [ #2011 ] moscode doesn't highlight code
+ # Fixed bug in RTE when displaying < and > characters
+ # Fixed debug_backtrace error when function not available
+ # Fixed [ #2054 ] RC3-admin backend-content managers error
+ # Fixed [ #2052 ] Bad tag in admin template
+ # Fixed [ #2055 ] missing open <body> tag in index3.php [nt]
+ # Fixed mis-spelt $access in site content component
+ # Fixed [ #2056 ] index3.php loads wrong css file
+ # Fixed [ #2013 ] tar.gz archives not anymore supported + other bug
+ # Fixed [ #2041 ] Installer check; [ #2047 ] Installer folder checks
+ # Fixed [ #2030 ] Frontend editing: Invalid image url
+
+6-Sep-2004 Rey Gigataras
+ + Added JS Email Cloaking to email address displayed in Contact Us page
+ # Fixed ability to Delete Mambots
+ # Fixed [ #2032 ] Others
+ # Fixed [ #2029 ] Other HTML inconsistencies / Typos
+ # Fixed [ #2019 ] small bug with menu manager ( if user forget an option)
+ # Fixed [ #2018 ] admin.mambots.html.php - JS bug in validation
+
+6-Sep-2004 Phil Taylor
+ # Fixed [ #2010 ] Administration: manage Site Mambots
+ ! !DBCHANGE! Changed checked_out_time field definition in mos_banners
+ # Fixed [ #2012 ] when saving banner edit publish is set to no
+ # Fixed checkout functions on contacts and all view categories pages
+ # Fixed checkout functions on Section manager
+ # Fixed checkout functions on Weblink Manager
+
+-------------------- 4.5.1 RC 3 Released ----------------------
+
+6-Sep-2004 Rey Gigataras
+ ! Reorganisation of Admin 'Content' submenu
+ ! Renaming of 'Menu Options' to reflect new naming conventions
+ + Added new 'Wrapper' menu option
+
+6-Sep-2004 Alex Kempkens
+ # Fixed [ #2004 ] Caracter " ' " not accepted in new menu name
+ ! Changed handling of menu type and menu module names to refer on one single name
+
+6-Sep-2004 Emir Sakic
+ # Fixed bug [ #2000 ] Spaces in pagenavbar
+
+6-Sep-2004 Andrew Eddie
+ # Fixed [ #1989 ] administrator/auth.php needs patch
+ # Fixed [ #1995 ] error when clickin New in Site Mambot Manager
+ # Fixed [ #1988 ] Database class will not save when value is 0 (zero)
+ + New utility functions in database class
+ 
+5-Sep-2004 Rey Gigataras
+ ! Blog output code simplified by removing param 'count' & adding 'link'
+ + Added Pagination support for Blog Output
+ + Added Category ordering support for Blog Output
+ # Fixed [ #1971 ] Component meny empty for manager
+ # Fixed [ #1991 ] Missing argument 5 for showBlogSection()
+ # Fixed [ #1993 ] sorting in Item Manager redirects to Section Items view
+ # Fixed [ #1994 ] can not choose category when adding content items
+
+5-Sep-2004 Emir Sakic
+ # Fixed a bug in getItemid() function
+ + Added IP to session_id generation to prevent hacking by cookie stealing
+
+4-Sep-2004 Andrew Eddie
+ # Fixed [ #1981 ] [installer] Fatal error when uploading files
+ # Fixed [ #1966 ] Mambo 4.5.1 CVS - 3-Sep-2004 - Login error in frontside
+
+4-Sep-2004 Emir Sakic
+ # Fixed bug [ #1884 ] Session management issue
+ + Added secret word re-save to global configurations component
+ ! Grouped content managers in a single menu folder
+ # Improved Itemid handling in modules
+
+3-Sep-2004 Emir Sakic
+ + Added permission directory check for mambots in installation
+ ! Added getItemid() function to search results
+ # Fixed Notice: Unknown column 'a.created' in search
+ + Added query display on query error
+ # Fixed bug [ #1933 ] Conflicting error messages upon registration
+
+3-Sep-2004 Rey Gigataras
+ ! Menu option 'Content Item Link' now longer allows you to link to Typed Content
+ ! Menu option 'Typed Content' now merely creates a link to existing published Typed Content
+ + Added param to show empty Categories for Section or Category Lists 
+ + Added 'Typed Content Manager' link to Content Menu and Quick Icons
+ + Added new Admin page - 'Archive Manager'
+ + Added new Admin page - 'Static Content Manager'
+ # Fixed Bugs in Admin & Site modules displaying 'Trashed' items
+ # Fixed [ #1973 ] Typed Content items are not being permanently delete
+ # Fixed [ #1972 ] Trashed Typed Content items are not being correctly trashed
+ # Fixed [ #1888 ] missing tags in content.html.php
+ # Fixed [ #1938 ] Add Section select for Category creation
+ # Fixed [ #1940 ] Add new columns to Section Manager
+
+3-Sep-2004 Andrew Eddie
+ # Fixed [ #1954 ] Hardcoded language text - 'There are no Contact Details listed.'
+ # Fixed [ #1927 ] Sending new Message - Misleading toolbar button name: "Save" How about "Send" ?
+ ! DOMIT upgrade
+ # Fixed bug with pageNavigation include
+ # Fixed bug with editor and metadata include
+ + Added description to succesful MTLm install
+ 
+2-Sep-2004 Phil Taylor
+ # Fixed [ #1925 ] mod_unread.php does not show number of unread messages
+
+2-Sep-2004 Andy Miller
+ # Fixed [ #1894 ] indent images do not revert back to default images with some default templates
+
+2-Sep-2004 Rey Gigataras
+ ! Restored Trash items (content/menu) are restored to the bottom of list
+ + Added number of items in Trash for Content Categories
+ # Fixed [ #1944 ] weblinks.searchbot.php does not return ordered result
+ # Fixed [ #1939 ] Wrong usage of CONCAT_WS
+ # Fixed [ #1937 ] Change the title of "contact us" and change the url
+ # Fixed [ #1785 ] Manage News Feeds - Able to leave Category option blank
+
+2-Sep-2004 Andrew Eddie
+ # Fixed params support for mambots
+ # Fixed bug in params for admin modules
+ # Fixed [ #1494 ] Module Installer Errors (DOMIT bugs)
+ + Added debug position to distro templates
+ - Removed debugging class
+ - Improved database debug (debug on will backtrace)
+ # Fixed [ #1921 ] Search Mambot for content has a bug
+ # Fixed bug in modules toolbar
+ - Removed explicit database error message output
+ - Removed unused getObjectList method from database class
+
+1-Sep-2004 Alex Kempkens
+ # Fixed [ #1919 ] Admin pathway shows 'Site Name / com_users / cancel'
+ # Fixed [ #1918 ] Viewing installed modules - URL showing as 'http://http//
+
+1-Sep-2004 Emir Sakic
+ # Fixed blogs bug
+ + Added anchor support to mossef mambot
+ + Added mosFormatDate() and mosCurrentDate() functions
+ ! Replaced old date manipulations with mosFormatDate() function
+ # Fixed bug [ #1917 ] Installer not displaying component info
+ # Fixed bug [ #1813 ] Who's Online Undefined variable
+
+1-Sep-2004 Rey Gigataras
+ ! Reordered Admin Menu
+ ! changed cpanel.php to use new 'Quick Icon' module
+ + New Admin Module to handle the 'Quick Icons' displayed on the Control Panel page
+ 
+1-Sep-2004 Andrew Eddie
+ # Fixed [ #1903 ] admin.mambots.html.php - JS bug in validation
+ # Fixed [ #1786 ] Unpublish Contact Categories does not unpublish individual contact
+ # Fixed [ #1749 ] in admin, global configuration, IIS trims mosmsg after first space
+ ! Changed publishing behaviour of mambots
+ + Added custom button support to TinyMCE
+ # Fixed bug in frontpage $access vs $noauth var
+
+31-Aug-2004 Phil Taylor
+ # Removed hardcoded tabs from weblinks desc textarea
+ # Fixed [ #1762 ] Database Update Issue - cosmetic - and other issues
+ # Fixed [ #1762 ] Check for writeable backup path 
+ # Fixed [ #1909 ] Filter Users in Admin Component fails with Sql Error
+
+31-Aug-2004 Rey Gigataras
+ ! Renamed Add/Edit Section to 'Section Manager'
+ + Added param to hide category in Section Lists ( content_section )
+ + Added new Admin page - 'Category Manager'
+ + Added new Admin page - 'Item Manager'
+ + Added bot to search Contact info
+ # Fixed [ #1905 ] Hide title parameter doesn't affect frontpage
+ # Fixed [ #1892 ] blogs broken in CVS
+ # Fixed [ #1880 ] misaligned pdf/print/email buttons
+ # Fixed [ #1886 ] Mambo 4.5.1 CVS - Install Sql Error 
+ # Fixed [ #1807 ] Menu Separator also with security assignment
+
+31-Aug-2004 Andrew Eddie
+ # Fixed [ #1874 ] Template Manager - Upload New Component - Error
+ # Fixed [ #1872 ] Template upload to unwritable directory gives a blank page
+ # Fixed [ #1862 ] Template Manger -> Module Positions can't create new positions
+ # Fixed [ #1878 ] Admin modules fail to install
+ + Added custom editor button mambots
+ ! Reworked editor mambots
+ # Fixed [ #1753 ] unpublish mambot / current editor cuases fatal error getting to admin interface
+ # Fixed [ #1881 ] Error in admin module uninstaller
+
+30-Aug-2004 Andy Miller
+ + Added icons for all admin sections in admin_blue template
+ # Fixed bug [ #1869 ]  image src-link error in Edit Section
+
+30-Aug-2004 Rey Gigataras
+ ! PrintButton code consolildated into mambo.php
+ ! Frontpage component code consolidated into content.php
+ # Fixed [ #1857 ] archivesection for all sections doesn't work
+ # Fixed [ #1820 ] You are not authorized to view this resource. - Front Page
+ # Fixed [ #1831 ] back button
+
+30-Aug-2004 Emir Sakic
+ # Fixed bug [ #1803 ] User block message
+ # Fixed bug [ #1757 ] SEF does not support archives
+ # Added un-assign function on template delete
+
+30-Aug-2004 Alex Kempkens
+ # Fixed [ #1845 ] administrator/index3.php not loading correct css file
+
+30-Aug-2004 Andrew Eddie
+ # Fixed [ #1840 ] mosLoadModules function $style argument -1 or -2
+ # Fixed [ #1846 ] Mambot does not check publishing state
+ # Fixed [ #1806 ] Installing component - com_install() returned value is not displayed correctly
+ 
+ 
+2. Copyright and disclaimer
+---------------------------
+This application is opensource software released under the GPL.  Please
+see source code and the LICENSE file

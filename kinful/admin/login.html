@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login</title>
+<script type="text/javascript">
+function check_login(form_obj)
+{
+	return true;
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {
+	color: #728399;
+	font-weight: bold;
+	font-size: 24px;
+	text-indent: 20px;
+}
+.table_boder {
+	border: 1px solid #999999;
+}
+.body_text {
+	font-size: 12px;
+	color: #333333;
+}
+.at_bottom {
+	background-position: bottom;
+}
+.button_style {
+	font-size: 12px;
+	color: #666666;
+	background-color: #E0DEB8;
+	border: 1px solid #ECE9D8;
+	padding: 1px;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="84" bgcolor="#82B584"  id='menu_zone' background='themes/kinful/images/logo_bg.png' valign='top'>
+		<img src="themes/kinful/images/admin_logo.png" border="0" alt=""/>
+	</td>
+  </tr>
+</table>
+<p>&nbsp; </p>
+
+<table width="100" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#E0D5B1" class="table_boder"><table width="500" border="0" align="center" cellpadding="0" cellspacing="10" bgcolor="#EAE9DD" class="body_text">
+      <tr>
+        <td width="192" rowspan="2"><div align="center"><img src="themes/kinful/images/login_home.png" width="98" height="110" /></div></td>
+        <td width="308"><div align="center" class="STYLE1">
+          <div align="left">Login</div>
+        </div></td>
+      </tr>
+      <tr>
+        <td width="308" rowspan="2" valign="middle">
+        <form id="form1" name="login" method="post" action="index.php?yemodule=system&admin=login" onsubmit="return check_login(this)">
+            <table width="90%" height="120" border="0" align="center" cellpadding="0" cellspacing="8" bgcolor="#C2CBCB" class="table_boder">
+              <tr>
+              <td>用户名:<br />
+                    <input name="user_name" type="text" class="button_style" />                </td>
+              </tr>
+              <tr>
+                <td>密  码:<br />
+                    <input name="user_password" type="password" class="button_style" /></td>
+              </tr>
+              <tr>
+                <td><input name="Submit" type="submit" class="button_style" value="提 交" />&nbsp; 
+                <input name="Submit2" type="reset" class="button_style" value="重 置" /></td>
+              </tr>
+            </table>
+        </form>
+        </td>
+      </tr>
+      <tr>
+        <td class="body_text"><p>欢迎使用Kinful CMS！</p>
+          <p>请使用有效的用户名和密码来登录管理后台</p></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="at_bottom" bgcolor="#c5c5c5" height="30px">
+  <tr>
+    <td class="body_text"><div align="center">
+      <div align="center">Copyright 2000 - 2010 .  All rights reserved.</div>
+    </div></td>
+  </tr>
+</table>
+
+</body>
+</html>

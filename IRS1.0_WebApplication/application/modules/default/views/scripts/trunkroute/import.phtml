@@ -1,0 +1,127 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/trunkroute.css');
+$this->headScript()->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/trunkroute.js');
+
+
+$translate = Streamwide_Web_Translate::functor();
+
+/**
+ * Pager Index
+ * @TODO implement next, previous pattern
+ */
+function pagerIndex(array $pageInfo, $currentCount, $view, $baseUrl='')
+{
+    $pages = '<u>'
+        . $view->translate('application_handler_page_items')
+        . '<a href="' . $baseUrl . '/ItemsPerPage/25" class="'
+        . ( 25 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '25">25</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/50" class="'
+        . (50 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '50">50</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/100" class="'
+        . (100 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . '100">100</a> | '
+        . '<a href="' . $baseUrl . '/ItemsPerPage/-1" class="'
+        . (-1 == $pageInfo['ItemsPerPage'] ? 'item_selected ' : '')
+        . 'all">'
+        . $view->translate('application_handler_page_items_all')
+        . '</a>'
+        . '</u>'
+        . $view->translate(
+            'application_handler_pages',
+            array(
+                1 == $pageInfo['CurrentPage'] ? 1 : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + 1,
+                1 == $pageInfo['CurrentPage'] ? $currentCount : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + $currentCount,
+                $pageInfo['ItemsTotal']
+            )
+        )
+        . (1 != $pageInfo['CurrentPage']
+            ? ' &lt;<a href="' . $baseUrl . '/ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] - 1) . '" class="page-previous">'
+            . $view->translate('application_handler_previous')
+            . '</a>' : '')
+            . '<span class="currentIndex">' . $pageInfo['CurrentPage']
+            . '</span>'
+        . (-1 != $pageInfo['ItemsPerPage'] && $pageInfo['ItemsTotal'] > $pageInfo['ItemsPerPage'] * $pageInfo['CurrentPage']
+            ? '<a href="' . $baseUrl . '/ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] + 1) . '" class="page-next">'
+            . $view->translate('application_handler_next')
+            . '</a>&gt;' : '');
+
+    return $pages;
+}
+?>
+<div id="main_content">
+  <div id="main_content_container">
+    <table class="functional_bar">
+        <tr>
+            <td>
+                <form id="search_resource_form" action="<?php echo $baseUrl . '/list'?>">
+                    <input type="text" name="ResourceKeyWord" id="resource_key_word"/>
+                    <input id="search_resource_button" type="submit" value="<?php echo $translate('application_handler_ok')?>"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <form id="resouce_list_form" class="resource_list">
+      <table id="main_content_block">
+
+        <thead>
+          <tr>
+            <td class="column_0" title="<?php echo $translate('trunkroute_import_routename_sort')?>"><?php echo $translate('trunkroute_import_routename')?></td>
+            <td class="column_1" title="<?php echo $translate('trunkroute_import_date_sort')?>"><?php echo $translate('trunkroute_import_date')?></td>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+        // list trunks
+        $count = 0;
+        foreach((array)$this->TrunkRoutes as $trunkRoute) {
+        ?>
+          <tr>
+          	<td><input type = "radio" name = "TrunkRoute" value = "$trunkRoute['Prefix']"><?php echo $trunkRoute['Prefix']?></td>
+          	<td><?php echo $trunkRoute['CreationDateTime']?></td>
+          </tr>
+        <?php
+        }// end foreach
+        ?>
+        </tbody>
+
+        <tfoot id="main_content_list_foot">
+          <tr>
+              <td colspan="8">
+                 <?php
+                 if($this->TrunkRoutes) {
+                 	   $url = $baseUrl . '/list' . ($this->KeyWord ? '/ResourceKeyWord/'.urlencode($this->KeyWord) : '');
+
+                       echo pagerIndex(array('CurrentPage'=>$this->CurrentPage,
+                                'ItemsPerPage'=>$this->ItemsPerPage,
+                                'ItemsTotal'=>$this->ItemsTotal
+                            ), count($this->TrunkRoutes), $this, $url);
+                 }
+                 ?>
+              </td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </form>
+  </div>
+</div>
+<?php 
+/* EOF */

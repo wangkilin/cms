@@ -1,0 +1,76 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/media';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->Prompts);
+?>
+<tfoot>
+    <tr>
+        <td colspan="8">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->Prompts as $prompt) {
+?>
+        <tr id="row-item-<?php echo $prompt['PromptId']?>" class="row-item <?php echo ($count++%2 ? 'leaper' : '') ;?>">
+            <td class="column-1"><input type="checkbox"/></td>
+            <td class="column-2" title="<?php echo $prompt['PromptName']?>">
+                <span><?php echo $prompt['PromptName']?></span>
+                <div class="manager">
+                    <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                    href="<?php echo $baseUrl?>/update/PromptId/<?php echo $prompt['PromptId']?>"><?php
+                        echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                        title="<?php echo $this->translate('application_handler_delete')?>"
+                    href="<?php echo $baseUrl?>/delete?PromptIds[]=<?php echo $prompt['PromptId']?>&PromptNames[]=<?php
+                        echo urlencode($prompt['PromptName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+                </div>
+            </td>
+            
+            <td class="column-3" title="<?php echo $prompt['FileName']?>">
+                <span class="listen">LISTEN</span>
+            </td>
+            
+            <td class="column-4" title="<?php echo $prompt['FileSize']?>">
+                <span><?php echo $prompt['FileSize']?></span>
+            </td>
+            <td class="column-5" title="<?php echo $prompt['CreationDatetime']?>">
+                <span><?php echo $prompt['CreationDatetime']?></span>
+            </td>
+            <td class="column-6" title="<?php echo $prompt['ModificationDatetime']?>">
+                <span><?php echo $prompt['ModificationDatetime']?></span>
+            </td>
+            <td class="column-7" title="<?php echo $prompt['CustomerUserName']?>">
+                <span><?php echo $prompt['CustomerUserName']?></span>
+            </td>
+            <td class="column-0">
+                <span class="resource_<?php echo ($prompt['ReferenceCounter'] > 0 ? 'in':'not')?>_use">&nbsp;</span>
+            </td>
+        </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="8"><span><?php echo $this->translate('media_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

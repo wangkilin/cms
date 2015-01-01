@@ -1,0 +1,8 @@
+Alias /mambo "N:/CMS/mambo"
+
+<Directory "N:/CMS/mambo">
+    Options Indexes FollowSymLinks MultiViews ExecCGI
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>

@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+#customers table .column-1
+{
+width:2%;
+}
+#customers table .column-2
+{
+width:12%;
+}
+#customers table .column-3
+{
+width:8%;
+}
+#customers table .column-4
+{
+width:12%;
+}
+#customers table .column-5
+{
+width:20%;
+}
+#customers table .column-0
+{
+}
+
+.tabs
+{
+padding-left:10px;
+}
+.tabs .tab-title
+{
+display:inline-block;
+padding:3px 10px;  
+margin:0 5px;
+border:1px solid transparent;
+}
+.tabs .active
+{
+border:1px solid #A3A5A4;
+border-bottom:none;
+background:#D3D3D3;
+}
+.tabs span
+{
+cursor:pointer;
+}
+.tab-panel
+{
+display:none;
+padding:10px;
+border:1px solid #A3A5A4;
+background:#D3D3D3;
+margin:-2px 0 10px 0;
+}
+.tab-panel.active
+{
+display:block;
+}

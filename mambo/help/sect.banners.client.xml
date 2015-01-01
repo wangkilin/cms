@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Banners: Client List</title>
+
+  <para>The page shows your list of Clients for your banners.</para>
+
+  <para>Click the 'New' icon to add a new client.</para>
+
+  <para>Click the name of the client to Edit their details, or select the check box next to the name and click the 'Edit' icon.</para>
+
+  <para>To delete a client, select the check box next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the client or 'No' to cancel.</para>
+
+  <para>You will not be able to edit an item if it is checked out by another user. The name of the user that is editing the item will be shown in the table. It must be checked back by an administrator by going to Systems in the Menu bar--&gt;Global Checkin. It can also be checked back in by the User who has checked the item out by clicking the 'Edit' icon of the category item and then clicking the the 'Save' or 'Cancel' icon.</para>
+</section>

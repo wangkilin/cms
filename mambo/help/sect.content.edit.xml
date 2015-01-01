@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Edit Content</title>
+
+  <para>This page allow you to edit a content item. The main form shows::</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Title</emphasis>: This is the name for the Content item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Title Alias</emphasis>: This is the name, generally shorter, that appears in lists and menus. This field is optional.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Category</emphasis>: This is the item Category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Intro Text</emphasis>: This is the introductory (or complete) text for the item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Main Text</emphasis>: This is an additional text for the item. In blogs, for example, this text is shown when you click the "read more" link.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">URL's</emphasis>: ???</para>
+    </listitem>
+  </itemizedlist>
+
+  <para><emphasis role="bold">Toolbar Actions</emphasis></para>
+
+  <para><emphasis role="bold">Unpublish</emphasis>: Click this icon to unpublish a Content item.</para>
+
+  <para><emphasis role="bold">Preview</emphasis>: Click this icon to open a Preview window of this item. </para>
+
+  <para>NOTE: Some of the Mambots may not be properly processed in the Preview screen. Alternatively, you can hover to the Site dropdown menu item and click the 'Preview' icon.'</para>
+
+  <para><emphasis role="bold">Upload</emphasis>: Click this icon to open a window to upload an image. </para>
+
+  <para>NOTE: The image list is not refreshed when the file is uploaded.</para>
+
+  <para><emphasis role="bold">Save</emphasis>: Click this icon to Save the item and returns you to the list. This also 'Checks In' the item.</para>
+
+  <para><emphasis role="bold">Cancel:</emphasis> Click this icon to Returns to the list without saving. This also 'Checks In' the item.</para>
+
+  <section>
+    <title>Publishing Tab</title>
+
+    <para>The Publishing tab allows you to choose options relating to the publishing of your content items.</para>
+
+    <para>These options are as follows:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Show on Frontpage</emphasis>: This marks the Content item to be shown on the Frontpage.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Hide Title</emphasis>: You can choose to hide the title in the Frontend.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Published</emphasis>: This shows if the Content item is published or not.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Access Level</emphasis>: This sets the access level of the Content item. The available options are Public, Registered, and Special.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Author Alias</emphasis>: This gives an alias name for the creator of the Content item.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Change Creator</emphasis>: The drop down box contains the names of users with Publishing rights.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Ordering</emphasis>: This changes the order of the Content item within it's Section.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Override Created Date</emphasis>: This allows you to override the actual creation date of the item and insert your own date that you can select from the popup calendar box.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Start Publishing: </emphasis>This sets the start date for Publishing the item that you can select from the popup calendar box.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Finish Publishing</emphasis>: This sets the finishing date for Publishing the item that you can select from the popup calendar box. Typing in 'Never' will mean the item will always remain Published.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+
+  <section>
+    <title>Images Tab</title>
+
+    <para>The Images tab allows you to add images to your Content item.</para>
+
+    <para>From the drop down Sub-folder box, select the directory that contains the image you require. The Gallery images box updates with all the images that are in that particular folder. If required you can Upload an image to the folder by clicking the 'Upload' icon on the toolbar.</para>
+
+    <para>Click the desired image and then click the 'Insert' icon. This places the image into the central box named Content Images.</para>
+
+    <para>You can reorder the images in this box so that when you add <command>{mosimage}</command> into your editor boxes, they are displayed in the order you have set. You can also remove the image from this box by selecting the 'Remove' icon.</para>
+
+    <para>Select the image in the middle Content Images box and you can change its attributes in the 'Edit the image selected:' box on the right of the screen.</para>
+
+    <para>The options you have are as follows:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">Source</emphasis>: This gives the source name of the image.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Align</emphasis>: This allows you to set the image alignment to None, Left, Center and Right.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Alt Text</emphasis>: This sets the alternative text for the image. This is useful for visitors to your site who have images turned off as well as, for placing keywords for Search Engine Optimisation.</para>
+      </listitem>
+
+      <listitem>
+        <para><emphasis role="bold">Border</emphasis>: This places a black border around the image of the size you specify in pixels. Generally this would be set to '0'.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Once you have made your changes, click the 'Apply' icon.</para>
+  </section>
+
+  <section>
+    <title>Parameters Tab</title>
+
+    <para>TODO</para>
+  </section>
+
+  <section>
+    <title>Meta Info Tab</title>
+
+    <para>In the Metadata section you can apply a Description and Keywords to the Content item. This will help with Search Engine Optimisation, the site search facility and the user experience.</para>
+
+    <para>The Related Items module also uses this information to connect Content items of similar content and then displays them in a useful manner. Therefore, it pays to think carefully about your description and keywords and how your items connect to each other.</para>
+
+    <para>By clicking the 'Add Sect / Cat / Title' icon, you will add the Section name, the Category name, and the Title of the item to the keywords box.</para>
+
+    <para>If you have completed all the tabs under the Content items section, click 'Save' on the toolbar to save your changes. You can always go back and Edit them later if you need to make changes.</para>
+  </section>
+</section>

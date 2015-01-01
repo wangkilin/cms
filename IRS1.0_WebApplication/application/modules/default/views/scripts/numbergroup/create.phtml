@@ -1,0 +1,287 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/');
+?>
+<div class="dialog" id="numbergroup-create-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="numbergroup-create-heading">
+            <span class="heading-text"><?php echo $this->translate('numbergroup_create_heading');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="numbergroup-create-body">
+			<form action="" id="numbergroup-create-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('numbergroup_create_name');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" class="input_default"
+                                        name="PremiumNumberGroupName" value="<?php echo $this->translate('numbergroup_create_name_default');?>"/>
+                                    </span>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_create_name_tip');?></span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('numbergroup_create_solution');?></span></div>
+							</td>
+						</tr>
+                        <tr id="tr-solution">
+                            <td>
+                                <div>
+                                    <select name="SolutionId" id="solution-id">
+                                        <option value="-1"><?php echo $this->translate('numbergroup_create_solution_default');?></option>
+                                        <?php
+                                            foreach ($this->Solutions as $solution) {
+                                                echo '<option value="' . $solution['SolutionId'] . '">'
+                                                    . $this->translate('solution_type_' . $solution['SolutionTypeId']) . '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_create_assign_number_tip');?></span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<td>
+                                <div id="assign-numbers">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div><span id="numbergroups-unassigned-title"><?php echo $this->translate('numbergroup_create_assign_available_number_title');?></span></div>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <div><span id="numbergroups-assigned-title"><?php echo $this->translate('numbergroup_create_assign_group_number_title');?></span></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div id="numbers" class="numbers">
+                                                        <ul class="connectedSortable"></ul>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="numbergroup-gap">
+                                                    <br/>
+                                                    <a href="#" id="ass" class="sw-icon sw-icon-arrow-right">&gt;</a>
+                                                    <br/>
+                                                    <a href="#" id="unass" class="sw-icon sw-icon-arrow-left unactive">&lt;</a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="numbers-assigned" class="numbers"><ul></ul></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('numbergroup_create_assign_routing_tree');?></span>
+                                    <span class="tips"><?php echo $this->translate('numbergroup_create_assign_routing_tree_tip');?></span>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div>
+                                    <span id="emergency-active" class="ui-icon plus"><input type="hidden" name="EmergencyActivated" id="emergency" value="0"/></span>
+                                    <select class="routing-tree" name="EmergencyTreeId">
+                                        <option value="-1"><?php echo $this->translate('numbergroup_create_select_emergency_routing_tree');?></option>
+                                    </select>
+                                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+                                <div id="routing-plan-container">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="td-select-routing-tree">
+                                                    <div><span><?php echo $this->translate('numbergroup_create_select_routing_tree');?></span></div>
+                                                </td>
+                                                <td class="td-assigned-dates">
+                                                    <div><span><?php echo $this->translate('numbergroup_create_assigned_dates');?></span></div>
+                                                </td>
+                                                <td class="td-row-add-remove">&nbsp;
+                                                </td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr class="row-assigned-dates">
+                                                <td>
+                                                    <select class="routing-tree" name="TreeIds[]">
+                                                        <option value="-1"><?php echo $this->translate('numbergroup_create_select_routing_tree');?></option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <div class="assigned-dates">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td rowspan="2">
+                                                                        <div>
+                                                                        <span class="calendar-icon">&nbsp;</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span>From</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><input type="text" readonly class="start-date"
+                                                                        name="StartDatetime[]"></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span>To</span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><input type="text" readonly class="end-date"
+                                                                        name="EndDatetime[]"></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="assigned-dates-calendar">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_create_assigned_dates_start_date');?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_create_assigned_dates_end_date');?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="calendar-start-date"></div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="calendar-end-date"></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_create_assigned_dates_start_time');?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                        <span><?php echo $this->translate('numbergroup_create_assigned_dates_end_time');?></span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div>
+                                                                            <select class="start-time" name="start-time[]">
+                                                                                <?php
+                                                                                    for ($i = 0; $i < 24; $i++) {
+                                                                                        echo '<option value="' . $i .'">' . ($i < 10 ? '0' . $i : $i) . ':00</option>';
+                                                                                    }
+                                                                                ?>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                            <select class="end-time" name="end-time[]">
+                                                                                <?php
+                                                                                    for ($i = 0; $i < 24; $i++) {
+                                                                                        echo '<option value="' . $i .'">' . ($i < 10 ? '0' . $i : $i) . ':00</option>';
+                                                                                    }
+                                                                                ?>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2">
+                                                                        <div class="assigned-dates-calendar-button">
+                                                                            <button class="cancel-calendar" type="button">
+                                                                            <?php echo $this->translate('application_handler_cancel');?>
+                                                                            </button>
+                                                                            <button class="done" type="button">
+                                                                            <?php echo $this->translate('application_handler_done');?>
+                                                                            </button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>&nbsp;</div>
+                                                </td>
+                                                <td>
+                                                    <div><span class="row-remove">-</span><span class="row-add">+</span></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" id="ok" name="ok"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

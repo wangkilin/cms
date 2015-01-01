@@ -1,0 +1,182 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$AffectedGroupIds = array();
+foreach($this->AffectedGroups as $AffectedGroup) {
+	$AffectedGroupIds[] = $AffectedGroup['AgentGroupId'];
+}
+
+$SupervisorGroupIds = array();
+foreach($this->SupervisorGroups as $SupervisorGroup) {
+	$SupervisorGroupIds[] = $SupervisorGroup['AgentGroupId'];
+}
+?>
+      <table id="edit_agent_table">
+
+        <thead>
+          <tr>
+            <td colspan="2"><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <label for="AgentName">
+                <?php echo $this->translate('agentgroup_agent_name')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="AgentName" name="AgentName" value="<?php echo $this->User['Name']?>"/>
+                <input type="hidden" id="AgentId" name="AgentId" value="<?php echo $this->User['UserId']?>"/>
+            </td>
+          </tr>
+          <!--
+          <tr>
+            <td>
+                <label for="Login">
+                <?php echo $this->translate('agentgroup_agent_login')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="Login" name="Login" value="<?php //echo $this->User['Login']?>"/>
+            </td>
+          </tr>
+           -->
+          <tr>
+            <td>
+                <label for="Password">
+                <?php echo $this->translate('agentgroup_agent_password')?>
+                </label>
+            </td>
+            <td>
+                <input type="password" id="Password" name="Password" value=""/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="PhoneNumber">
+                <?php echo $this->translate('agentgroup_agent_phone')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="PhoneNumber" name="PhoneNumber" value="<?php echo $this->User['AgentParameters']['PhoneNumber']?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="Email">
+                <?php echo $this->translate('agentgroup_agent_email')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="Email" name="Email" value="<?php echo $this->User['EmailAddress']?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="">
+                <?php echo $this->translate('agentgroup_agent_affected_group')?>
+                </label>
+            </td>
+            <td id="affected_groups_zone_td">
+                <div id="affected_groups_zone" class="dropdown_list">
+                    <div class="dropdown_summary"><i defaultContent="<?php echo $this->translate('agentgroup_group_list')?>"><?php echo $this->translate('agentgroup_group_list')?></i><u>dropdown</u></div>
+                    <?php
+                    foreach($this->AgentGroups as $AgentGroup) {
+                    ?>
+                    <div>
+                        <input id="AffectedGroups_<?php echo $AgentGroup['AgentGroupId']?>" <?php echo in_array($AgentGroup['AgentGroupId'], $AffectedGroupIds)?'checked="checked"':'';?> type="checkbox" name="AffectedGroups[]" value="<?php echo $AgentGroup['AgentGroupId']?>"/>
+                        <label for="AffectedGroups_<?php echo $AgentGroup['AgentGroupId']?>"><?php echo $AgentGroup['AgentGroupName']?></label>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="SupervisorStatus">
+                <?php echo $this->translate('agentgroup_agent_is_supervisor')?>
+                </label>
+            </td>
+            <td id="supervisor_zone_td">
+                <div id="supervisor_zone" class="dropdown_list">
+                    <div class="dropdown_summary"><i defaultContent="<?php echo $this->translate('agentgroup_group_list')?>"><?php echo $this->translate('agentgroup_group_list')?></i><u>dropdown</u></div>
+                    <?php
+                    foreach($this->AgentGroups as $AgentGroup) {
+                    ?>
+                    <div>
+                        <input id="supervisor_status_<?php echo $AgentGroup['AgentGroupId']?>" <?php echo in_array($AgentGroup['AgentGroupId'], $SupervisorGroupIds)?'checked="checked"':'';?> type="checkbox" name="SupervisorStatus[]" value="<?php echo $AgentGroup['AgentGroupId']?>"/>
+                        <label for="supervisor_status_<?php echo $AgentGroup['AgentGroupId']?>"><?php echo $AgentGroup['AgentGroupName']?></label>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="Status">
+                <?php echo $this->translate('agentgroup_agent_status')?>
+                </label>
+            </td>
+            <td>
+                <select name="Status">
+                    <option value="1" <?php echo $this->AgentOptions['AvailabilityStatus'] ? 'selected="selected"' : ''?>>
+                        <?php echo $this->translate('agentgroup_supervisor_available')?>
+                    </option>
+                    <option value="0" <?php echo $this->AgentOptions['AvailabilityStatus'] ? '' : 'selected="selected"'?>>
+                        <?php echo $this->translate('agentgroup_supervisor_unavailable')?>
+                    </option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="DisponibilityTime">
+                <?php echo $this->translate('agentgroup_agent_DisponibilityTime')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="DisponibilityTime" name="DisponibilityTime"  value="<?php echo $this->User['AgentParameters']['DisponibilityTime']?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="UnlimitedDisponibility">
+                <?php echo $this->translate('agentgroup_agent_UnlimitedDisponibility')?>
+                </label>
+            </td>
+            <td>
+                <select id="UnlimitedDisponibility" name="UnlimitedDisponibility">
+                    <option value="1" <?php echo '1'==$this->User['AgentParameters']['UnlimitedDisponibility']?'selected="selected"':''?>>
+                        <?php echo $this->translate('agentgroup_unlimited_disponibility_1')?>
+                    </option>
+                    <option value="0" <?php echo '0'==$this->User['AgentParameters']['UnlimitedDisponibility']?'selected="selected"':''?>>
+                        <?php echo $this->translate('agentgroup_unlimited_disponibility_0')?>
+                    </option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <a class="form_cancel sw-button"><?php echo $this->translate('application_handler_cancel')?></a>
+                <a id="edit_agent_button" class="sw-button"><?php echo $this->translate('application_handler_save')?></a>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+<?php
+/* EOF */

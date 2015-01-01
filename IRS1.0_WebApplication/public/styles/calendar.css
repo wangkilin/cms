@@ -1,0 +1,276 @@
+@CHARSET "UTF-8";
+
+
+#calendars table .column-1
+{
+width:2%;
+}
+#calendars table .column-2
+{
+width:15%;
+}
+#calendars table .column-3
+{
+width:15%;
+}
+#calendars table .column-4
+{
+width:20%;
+}
+#calendars table .column-5
+{
+width:20%;
+}
+#calendars table .column-6
+{
+width:20%;
+}
+#calendars table .column-0
+{
+}
+
+#calendar-table
+{
+width:100%;
+}
+.date-range
+{
+border:1px solid #E1E1E1;
+background:#FFF;
+width:153px;
+cursor:pointer;
+}
+.date-range input
+{
+width:83px;
+border:0;
+cursor:pointer;
+}
+.date-range-calendar
+{
+display:none;
+position:absolute;
+z-index:1;
+background:#FFF;
+padding:3px 8px 5px;
+border:1px solid #000;
+}
+.date-range-calendar.active
+{
+display:block;
+}
+.date-range-calendar .date-range-calendar-button
+{
+text-align:center;
+}
+#time-slot-update
+{
+display:none;
+position:absolute;
+z-index:201;
+background:#FFF;
+padding:8px;
+border:1px solid #000;
+}
+#time-slot-update.active
+{
+display:block;
+}
+.calendar-icon
+{
+background:url("../images/icon_calendar.gif") no-repeat 50% 50% #FFF;
+display:block;
+width:28px;
+height:40px;
+}
+#calendar-week-view
+{
+border:1px solid #AAA;
+width:178px;
+text-indent:4px;
+line-height:19px;
+overflow:hidden;
+white-space:nowrap;
+}
+#calendar-week-view span
+{
+overflow:hidden;
+display:block;
+}
+#calendar-week-view-header
+{
+background:url("../images/ui-bg_highlight-soft_100_e5e5e5_1x100.png") repeat-x scroll 50% 50% #E8E8E8;
+border-bottom:1px solid #AAA;
+}
+.triangle
+{
+border-left:2px ridge #F1F1F1;
+cursor:pointer;
+background:url("../images/ui-icons_606060_256x240.png") -63px -14px;
+padding:.25em 0 0 .15em;
+width:16px;
+height:16px;
+float:right;
+position:relative;
+}
+.triangle.active
+{
+position:static;
+}
+.context-menu
+{
+display:none;
+z-index:1;
+position:absolute;
+border:1px solid;
+background:#58585A;
+color:#FFF;
+text-indent:0;
+margin:-4px 0 0 -4px;
+}
+.context-menu > div
+{
+border-top:1px solid #CCC;
+padding:2px 5px;
+}
+.context-menu > div:hover
+{
+color:#FFFF00;
+}
+.active > .context-menu
+{
+display:block;
+}
+.context-menu .first
+{
+background:url("../images/ui-icons_f6f6f6_256x240.png") -63px -14px;
+width:16px;
+border:0;
+padding:0;
+}
+
+.wv-calendar-row
+{
+margin:5px 8px;
+border:1px solid #AAA;
+cursor:pointer;
+}
+.wv-calendar-row input
+{
+display:none;
+}
+.wv-calendar-row.rename input
+{
+display:block;
+width:120px;
+height:12px;
+position:absolute;
+margin:-24px 0 0 5px;
+font-weight:400;
+}
+.wv-calendar-row.rename span
+{
+opacity:0;
+}
+.wv-calendar-row .triangle
+{
+background:url("../images/ui-icons_f6f6f6_256x240.png") -63px -14px;
+}
+.wv-calendar-row .triangle.active
+{
+position:static;
+}
+.wv-calendar-row.active
+{
+}
+.wv-calendar-row.active span
+{
+font-weight:700;
+}
+#wv-calendar-1, #wv-calendar-1 .triangle, .wv-calendar-1
+{
+background-color:#006633;
+color:#F1F5EC;
+}
+#wv-calendar-2, #wv-calendar-2 .triangle, .wv-calendar-2
+{
+background-color:#854F61;
+color:#FDE9F4;
+}
+#wv-calendar-3, #wv-calendar-3 .triangle, .wv-calendar-3
+{
+background-color:#CC0000;
+color:#FFE3E3;
+}
+#wv-calendar-4, #wv-calendar-4 .triangle, .wv-calendar-4
+{
+background-color:#EC7000;
+color:#FFF0E1;
+}
+#wv-calendar-5, #wv-calendar-5 .triangle, .wv-calendar-5
+{
+background-color:#0000CC;
+color:#DFE2FF;
+}
+#wv-calendar-6, #wv-calendar-6 .triangle, .wv-calendar-6
+{
+background-color:#D121C6;
+color:#F7EAF7;
+}
+
+.row-remove,
+.row-add
+{
+background:url("../images/ui-button_bg_normal.png") repeat-x 50% 50% #9C9C9C;
+width:20px;
+height:20px;
+cursor:pointer;
+display:inline-block;
+border:1px solid #DBDBDB;
+color:#FFF;
+text-align:center;
+}
+.row-remove:hover,
+.row-add:hover
+{
+background:url("../images/ui-button_bg_hover.png") repeat-x 50% 50% #9C9C9C;
+border:1px solid #E1E1E1;
+}
+.row-remove:active,
+.row-add:active
+{
+background:url("../images/ui-button_bg_onpress.png") repeat-x 50% 50% #9C9C9C;
+border:1px solid #CCC;
+}
+
+#week-calendar .wc-container
+{
+border:1px solid #AAA;
+}
+.wc-header .wc-day-column-header
+{
+padding:0;
+}
+.wc-header
+{
+border-top:0;
+}
+.wc-header td
+{
+background:url("../images/ui-bg_highlight-soft_100_e5e5e5_1x100.png") repeat-x scroll 50% 50% #E8E8E8;
+}
+.wc-business-hours
+{
+font-size:1.2em;
+}
+.wc-cal-event .wc-time
+{
+background:none;
+border:0;
+padding-top:2px;
+font-size:200%;
+}
+.wc-cal-event .wc-title
+{
+font-size:200%;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Messages Configuration</title>
+
+  <para>There are two configuration options available to your Administrator. Use the select box to choose your option: 'YES AND NO'</para>
+
+  <para>Lock Inbox:</para>
+
+  <para>This option allows you to prevent Administrators or System processes from sending you messages. If you are the only administrator or work with a small group of admins you may choose not to use this feature at all. It is a good idea to leave the box open while you are adding new components as it will help you be aware of system processes.</para>
+
+  <para>Mail me on new Message:</para>
+
+  <para>This option will result in an email being sent to you each time you receive a new message.</para>
+</section>

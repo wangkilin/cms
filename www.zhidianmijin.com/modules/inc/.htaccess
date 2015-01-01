@@ -1,0 +1,14 @@
+#RewriteEngine  on
+
+#RewriteCond  %{REQUEST_URI}  ^/error\.htm$
+#RewriteRule  ^error\.htm$ error.php                 
+#RewriteRule ^error\.htm$ error.php
+#RewriteCond  %{REQUEST_URI} !^/error\.htm$
+
+
+#RewriteBase   /suan/k3kk/php/inc
+#RewriteLogLevel 3
+#RewriteLog logs/rewrite.log
+
+#RewriteRule !\.(html|js|ico|gif|jpg|png|css)$ index.php
+#RewriteRule (.*)\.(html|js|ico|gif|jpg|png|css)$ /suan/k3kk/php/medias/images/$1.$2

@@ -1,0 +1,54 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/trunkroute';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->TrunkRoutes);
+?>
+<tfoot>
+    <tr>
+        <td colspan="8">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->TrunkRoutes as $trunkRoute) {
+?>
+        <tr class="row-item <?php echo ($count++%2 ? 'leaper' : '') ;?>">
+            <td class="column-1" title="<?php echo $trunkRoute['Prefix']?>">
+                <span><?php echo $trunkRoute['Prefix']?></span>
+            </td>
+            <td class="column-2" title="<?php echo $trunkRoute['PrimaryTrunkGroupLabel']?>">
+                <span><?php echo $trunkRoute['PrimaryTrunkGroupLabel']?></span>
+            </td>
+            <td class="column-0" title="<?php echo $trunkRoute['SecondaryTrunkGroupLabel']?>">
+                <span><?php echo $trunkRoute['SecondaryTrunkGroupLabel']?></span>
+            </td>
+        </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="8"><span><?php echo $this->translate('trunkroute_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

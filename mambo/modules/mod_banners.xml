@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>横幅广告</name>
+	<author>Mambo Project</author>
+	<creationDate>August 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>The banner module allows to show the active banners out of the component within your site.</description>
+	<files>
+		<filename module="mod_banners">mod_banners.php</filename>
+	</files>
+	<params>
+		<param name="banner_cids" type="text" default="" label="广告客户" description="Reference to banner client id. Enter separated by ','!" />
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

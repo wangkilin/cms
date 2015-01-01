@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>最新文章</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This module shows a list of the most recently published Items that are still current (some may have expired even though they are the most recent). Items that are displayed on the Front Page Component are not included in the list.</description>
+	<files>
+		<filename module="mod_latestnews">mod_latestnews.php</filename>
+	</files>
+	<params>
+		<param name="show_front" type="radio" default="1" label="首页条目" description="显示已经设定在首页显示的条目吗？">
+			<option value="1">显示</option>
+			<option value="0">隐藏</option>
+		</param>
+		<param name="count" type="text" default="5" label="数量" description="最大列表数(默认为 5)" />
+		<param name="catid" type="text" default="" label="分类ID" description="设置要统计的分类 (可以是一组，每个ID用逗号隔开)" />
+		<param name="secid" type="text" default="" label="单元ID" description="设置要统计的单元 (可以是一组，每个ID用逗号隔开)." />
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

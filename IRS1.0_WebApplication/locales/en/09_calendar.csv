@@ -1,0 +1,69 @@
+calendar_list_name;Calendar Name
+calendar_list_calendar_type;Calendar Type
+calendar_list_date_created;Date Created
+calendar_list_date_modified;Modified Date
+calendar_list_created_by;Create by
+calendar_list_in_use;In use
+
+calendar_list_no_item;You don't have any Calendars.
+
+calendar_list;Calendar List
+calendar_create_new;New Calendar
+##----------------------------
+## modal window
+##----------------------------
+calendar_from;From
+calendar_to;To
+calendar_week_view_create;Create calendar
+calendar_week_view_delete;Delete this calendar
+calendar_week_view_rename;Rename this calendar
+calendar_start_date;Start Date
+calendar_end_date;End Date
+calendar_specific_date;Choose a specific date
+calendar_date_range;Choose a date range
+calendar_week_view;Week view
+##----------------------------
+##----------------------------
+## calendar type
+##----------------------------
+calendar_type_10;Select the type of calendar
+##----------------------------
+## create modal window
+##----------------------------
+calendar_create_heading;Calendar
+calendar_create_tip;You can define a set of mulitiple specific date or date range or even week views as a user resource.
+calendar_create_name;Calendar Resource Name
+calendar_create_name_default;Write a name...
+calendar_create_name_tip;Write a name for your calendar Resource
+calendar_create_type;Calendar Resource Type
+##----------------------------
+## update modal window
+##----------------------------
+calendar_update_heading;Calendar
+calendar_update_tip;You can define a set of mulitiple specific date or date range or even week views as a user resource.
+calendar_update_name;Calendar Resource Name
+calendar_update_name_default;Write a name...
+calendar_update_name_tip;Write a name for your calendar Resource
+calendar_update_type;Calendar Resource Type
+##----------------------------
+## create calendar,period,frequency
+##----------------------------
+calendar_is_created;Calendar %s is created!
+calendar_period_is_created;Period is created!
+calendar_period_day_is_created;Period day is created!
+calendar_frequency_is_created;Perido frequenct is created!
+##----------------------------
+## update calendar,period,frequency
+##----------------------------
+calendar_is_updated;Calendar %s is udpated!
+calendar_period_is_updated;Period is updated!
+calendar_period_day_is_updated;Preiod day is updated!
+calendar_frequency_is_updated;Period frequency is updated!
+##----------------------------
+## delete calendar(s)
+##----------------------------
+calendar_delete_calendar; calendar(s) :
+calendar_is_deleted;Calendar(s) %s is deleted!
+calendar_period_is_deleted;Period is deleted!
+calendar_period_day_is_deleted;Period day is deleted!
+calendar_frequency_is_deleted;Period frequency is deleted!

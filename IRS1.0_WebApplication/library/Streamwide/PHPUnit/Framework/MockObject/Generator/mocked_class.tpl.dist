@@ -1,0 +1,25 @@
+{prologue}{class_declaration}
+{
+    protected $invocationMocker;
+
+{clone}{mocked_methods}
+    public function expects(PHPUnit_Framework_MockObject_Matcher_Invocation $matcher)
+    {
+        return $this->__phpunit_getInvocationMocker()->expects($matcher);
+    }
+
+    public function __phpunit_getInvocationMocker()
+    {
+        require_once 'SwPHPUnit/Framework/MockObject/InvocationMocker.php';
+        if ($this->invocationMocker === NULL) {
+            $this->invocationMocker = new SwPHPUnit_Framework_MockObject_InvocationMocker($this);
+        }
+
+        return $this->invocationMocker;
+    }
+
+    public function __phpunit_verify()
+    {
+        $this->__phpunit_getInvocationMocker()->verify();
+    }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Install Mambo Element</title>
+
+  <para>This page will show options for installing one of the following Mambo elements:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Component</para>
+    </listitem>
+
+    <listitem>
+      <para>Language</para>
+    </listitem>
+
+    <listitem>
+      <para>Module</para>
+    </listitem>
+
+    <listitem>
+      <para>Template</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>There are two ways to install an element:</para>
+
+  <para><emphasis role="bold">Upload new ...</emphasis></para>
+
+  <para>Providing you have GZip support with PHP, you will be able to upload a zipped package file that will be automatically installed to your server. Browse to the location of the package file on your PC or workstation. Then click the 'Upload File' icon.</para>
+
+  <para><emphasis role="bold">Install from directory</emphasis></para>
+
+  <para>If you don't have GZip support then you may upload an unpacked archive to your host's server. Type the location of this file (it must be the absolute location) then click the 'Instal' icon.</para>
+</section>

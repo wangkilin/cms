@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall version="4.5.1" type="mambot" group="pat">
+	<name>mosimage</name>
+	<author>Mambo Project</author>
+	<creationDate>August 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>Replaces {mosimage} tag in content with specified images</description>
+	<files>
+		<filename mambot="mosimage">mosimage.php</filename>
+	</files>
+	<params/>
+</mosinstall>

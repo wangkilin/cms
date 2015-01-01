@@ -1,0 +1,59 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/trunkgroup';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div  id="trunkgroup-create-dialog" class="dialog">
+	<div class="dialog-content">
+		<div id="trunkgroup-create-heading" class="dialog-heading">
+            <span class="heading-text"><?php echo $this->translate('trunkgroup_create_trunkgroup');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div id="trunkgroup-create-body" class="dialog-body">
+			<form action="" id="trunkgroup-create-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<p>
+							<tr>
+								<td>
+									<div>
+										<span class="desc"><?php echo $this->translate('trunkgroup_create_name')?></span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<input type="text" name="Label" />
+										<em class="tips">Input TrunkGroup Name</em>
+									</div>
+								</td>
+							</tr>
+						</p>
+						<tr>
+							<td>
+								<div class="dialog-button">
+                   					<span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+               					</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

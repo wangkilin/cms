@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<appendix xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <title>Support</title>
+  <sect1>
+    <title>Official Sites</title>
+    <para><xhtml:a href="http://www.mamboserver.com">www.mamboserver.com</xhtml:a> - The Official web site for Mambo</para>
+    <para><xhtml:a href="http://mamboforge.net/tracker/?atid=101&amp;group_id=5&amp;func=browse">Bug Reporting</xhtml:a> - Use the bug tracker on mamboforge to lodge bugs that you find</para>
+    <para><xhtml:a href="http://forum.mamboserver.com">forum.mamboserver.com</xhtml:a> - The Official technical support forum</para>
+    <para><xhtml:a href="http://mamboforge.net/frs/?group_id=5">Downloads and Patches</xhtml:a> - Get the Mambo source here as well as any updates</para>
+  </sect1>
+  <sect1>
+    <title>Addons for Mambo</title>
+    <para><xhtml:a href="http://mamboforge.net">mamboforge.net</xhtml:a> - The object of MamboForge.net is to provide a free project management and download environment for Mambo related projects. It is one of largest central repositories on the web for everything that is to do with Mambo.</para>
+  </sect1>
+</appendix>

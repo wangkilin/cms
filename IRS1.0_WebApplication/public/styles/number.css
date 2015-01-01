@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+#numbers table .column-1
+{
+width:2%;
+}
+#numbers table .column-2
+{
+width:15%;
+}
+#numbers table .column-3
+{
+width:15%;
+}
+#numbers table .column-4
+{
+width:15%;
+}
+#numbers table .column-5
+{
+width:15%;
+}
+#numbers table .column-6
+{
+width:10%;
+}
+#numbers table .column-0
+{
+width:15%;
+border-right:1px solid #CACACA;
+}
+#numbers table .column-7
+{
+width:15%;
+}
+#numbers table .column-8
+{
+border-right:none;
+}

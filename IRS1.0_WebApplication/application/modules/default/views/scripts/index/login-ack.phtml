@@ -1,0 +1,19 @@
+<?php
+/**
+ * $Rev: 2483 $
+ * $LastChangedDate: 2010-06-09 18:54:39 +0800 (Wed, 09 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_index
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: login-ack.phtml 2483 2010-06-09 10:54:39Z junzhang $
+ */
+
+echo '<div class="ok notification">',
+    $this->translate('application_msg_welcome_login', array($this->User['Name'])),
+    '</div>';
+
+/* EOF */

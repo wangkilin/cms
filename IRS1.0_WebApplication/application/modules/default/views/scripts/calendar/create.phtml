@@ -1,0 +1,97 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+?>
+<div class="dialog" id="calendar-create-dialog">
+	<div class="dialog-content">
+        <div class="dialog-heading" id="calendar-create-heading">
+            <span class="heading-text"><?php echo $this->translate('calendar_create_heading')?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+        </div>
+        <div class="dialog-body" id="calendar-create-body">
+            <form action="" id="calendar-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                <table class="content">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div><span class="tips"><?php echo $this->translate('calendar_create_tip')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('calendar_create_name')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" class="input_default" name="Label" value="<?php echo $this->translate('calendar_create_name_default')?>"/>
+                                    </span>
+                                    <span class="tips"><?php echo $this->translate('calendar_create_name_tip')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('calendar_create_type')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <select name="CalendarTypeId" id="calendar-type">
+                                        <option value="10"><?php echo $this->translate('calendar_type_10')?></option>
+                                        <?php
+                                            foreach ($this->CalendarTypes as $calendarType) {
+                                                echo '<option value="' . $calendarType['CalendarTypeId'] . '">'
+                                                    . $this->translate('calendar_type_' . $calendarType['CalendarTypeId'])
+                                                    . '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table id="calendar-table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="200px"><div id="date"></div></td>
+                                                <td rowspan="2"><div id="week-calendar"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div id="tips"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" id="ok" name="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+	</div>
+</div>
+<?php
+/* EOF */

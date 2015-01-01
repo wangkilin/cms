@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>站内搜索</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This module will display a search box</description>
+	<files>
+		<filename module="mod_search">mod_search.php</filename>
+	</files>
+	<params>
+		<param name="width" type="text" default="20" label="长度" description="搜索关键字输入框的最大可显示字符数" />
+		<param name="text" type="text" default="" label="文本" description="显示在输入框中的文本，如为空则显示你的语言文件中设置的 _SEARCH_BOX" />
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

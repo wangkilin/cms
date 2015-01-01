@@ -1,0 +1,165 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/jquery-tablesorter.css')
+                 ->appendStylesheet($baseUrl . '/styles/jquery-weekcalendar.css')
+                 ->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/calendar.css');
+$this->headScript()->appendFile($baseUrl . '/js/jquery-metadata.js')
+                   ->appendFile($baseUrl . '/js/jquery-tablesorter.js')
+                   ->appendFile($baseUrl . '/js/jquery-weekcalendar.js')
+                   ->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/calendar.js');
+?>
+<div class="grid_2 prefix_1 oops-container">
+    <div id="left_menu" class="left_menu">
+        <a href="<?php echo $baseUrl?>/calendar/list" class="list-refresh sw-button on" type="button" ><?php echo $this->translate('calendar_list')?></a>
+        <a href="<?php echo $baseUrl?>/calendar/create" id="create" class="sw-button"><?php echo $this->translate('calendar_create_new')?></a>
+    </div>
+</div>
+<div class="grid_12 suffix_1 oops-container">
+    <div id="calendars" class="list-container">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                    <?php echo $this->translate('application_handler_batch_delete')?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/calendar/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="CalendarLabelPart" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                        <?php echo $this->translate('application_handler_ok')?></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="calendar-list" class="list-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></th>
+                                            <th class="column-2" title="<?php echo $this->translate('calendar_list_name')?>">
+                                                <span><?php echo $this->translate('calendar_list_name')?></span>
+                                            </th>
+                                            <th class="column-3" title="<?php echo $this->translate('calendar_list_calendar_type')?>">
+                                                <span><?php echo $this->translate('calendar_list_calendar_type')?></span>
+                                            </th>
+                                            <th class="column-4" title="<?php echo $this->translate('calendar_list_date_created')?>">
+                                                <span><?php echo $this->translate('calendar_list_date_created')?></span>
+                                            </th>
+                                            <th class="column-5" title="<?php echo $this->translate('calendar_list_date_modified')?>">
+                                                <span><?php echo $this->translate('calendar_list_date_modified')?></span>
+                                            </th>
+                                            <th class="column-6" title="<?php echo $this->translate('calendar_list_created_by')?>">
+                                                <span><?php echo $this->translate('calendar_list_created_by')?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('calendar_list_in_use')?>">
+                                                <span><?php echo $this->translate('calendar_list_in_use')?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        echo $this->render('calendar/list.phtml');
+                                    ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<?php
+?>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/calendar/'?>";
+var CALENDAR_DATE = {};
+CALENDAR_DATE.shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+CALENDAR_DATE.shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+CALENDAR_DATE.calendarType =
+    ["<?php echo $this->translate("calendar_specific_date");?>",
+    "<?php echo $this->translate("calendar_date_range");?>",
+    "<?php echo $this->translate("calendar_week_view");?>"];
+CALENDAR_DATE.specificDateTemplate =
+    '<div class="template" id="specific-date-template">'+
+    '<div class="date-row"><input type="text" name="Date[]" class="input_date" readonly=""/>'+
+    '<span class="row-remove">-</span><span class="row-add">+</span></div></div>';
+CALENDAR_DATE.dateRangeTemplate =
+    '<div class="template" id="date-range-template">'+
+    '<div class="date-row"><div class="date-range">'+
+    '<table><tbody><tr><td rowspan="2"><div><span class="calendar-icon">&nbsp;</span>'+
+    '</div></td><td><div><span><?php echo $this->translate('calendar_from')?></span></div></td>'+
+    '<td><div><span><input type="text" name="StartDate[]" class="start-date" readonly=""/></span>'+
+    '</div></td></tr><tr><td><div><span><?php echo $this->translate('calendar_to')?></span></div></td>'+
+    '<td><div><span><input type="text" name="EndDate[]" class="end-date" readonly=""/></span></div>'+
+    '</td></tr></tbody></table></div>'+
+    '<span class="row-remove">-</span><span class="row-add">+</span>'+
+    '</div></div>';
+CALENDAR_DATE.weekViewTemplate =
+    '<div class="template" id="week-view-template">'+
+    '<div id="calendar-week-view"><div id="calendar-week-view-header">'+
+    '<div class="triangle"><div class="context-menu"><div class="first">&nbsp;</div>'+
+    '<div id="create-wv-calendar"><?php echo $this->translate('calendar_week_view_create')?></div>'+
+    '<div class="last">&nbsp</div></div>&nbsp;</div><span>Calendars</span></div></div>';
+CALENDAR_DATE.weekViewRowTemplate =
+    '<div class="wv-calendar-row"><div class="triangle"><div class="context-menu"><div class="first">&nbsp;</div>'+
+    '<div class="delete-wv-calendar"><?php echo $this->translate('calendar_week_view_delete')?></div>'+
+    '<div class="rename-wv-calendar"><?php echo $this->translate('calendar_week_view_rename')?></div>'+
+    '<div class="last">&nbsp</div></div>&nbsp;</div><span>Calendar</span></div>';
+CALENDAR_DATE.dateRangeCalendar =
+    '<div class="date-range-calendar"><table><tbody>'+
+    '<tr><td><div><span><?php echo $this->translate('calendar_start_date')?></span></div></td>'+
+    '<td><div><span><?php echo $this->translate('calendar_end_date')?></span></div></td></tr>'+
+    '<tr><td><div class="calendar-start-date"></div></td><td><div class="calendar-end-date"></div></td></tr>'+
+    '<tr><td colspan="2"><div class="date-range-calendar-button">'+
+    '<button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel')?></button>'+
+    '<button type="button" class="done"><?php echo $this->translate('application_handler_done')?></button></div></td></tr>'+
+    '</tbody></table></div>';
+CALENDAR_DATE.timeSlotUpdateTemplate =
+    '<div id="time-slot-update"><table><tbody>'+
+    '<tr><td><div><span><?php echo $this->translate('calendar_from')?></span><span><select class="start">'+
+    '</select></span></div></td><td><div><span><?php echo $this->translate('calendar_to')?></span><span><select class="end">'+
+    '</select></span></div></td></tr>'+
+    '<tr><td colspan="2"><div><span><button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel')?></button></span>'+
+    '<span><button type="button" class="done"><?php echo $this->translate('application_handler_done')?></button></span>'+
+    '<span><button type="button" class="delete"><?php echo $this->translate('application_handler_delete')?></button></span></div></td></tr>'+
+    '</tbody></table></div>';
+</script>
+<?php
+/* EOF */

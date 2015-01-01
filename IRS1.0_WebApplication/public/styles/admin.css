@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+#admins table .column-1
+{
+width:2%;
+}
+#admins table .column-2
+{
+width:10%;
+}
+#admins table .column-3
+{
+width:15%;
+}
+#admins table .column-4
+{
+width:15%;
+}
+#admins table .column-5
+{
+width:20%;
+}
+#admins table .column-6
+{
+width:14%;
+}
+#admins table .column-7
+{
+width:14%;
+}
+#admins table .column-0
+{
+width:5%;
+}

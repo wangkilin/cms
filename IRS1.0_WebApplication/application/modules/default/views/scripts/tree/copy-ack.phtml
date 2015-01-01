@@ -1,0 +1,28 @@
+<?php
+/**
+ * $Rev: 2605 $
+ * $LastChangedDate: 2010-06-21 10:39:20 +0800 (Mon, 21 Jun 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: copy-ack.phtml 2605 2010-06-21 02:39:20Z yaoli $
+ */
+
+$this->layout()->disableLayout();
+
+echo '<div class="notification" id="item-', $this->Result, '">',
+    $this->translate('default_form_clone_tree_ok'),
+    '</div>',
+    PHP_EOL, '<table>'
+    $this->Action('list', 'tree', null, array(
+        'CustomerUserId'    => $this->CustomerUserId,
+        'CustomerAccountId' => $this->CustomerAccountId,
+        'CurrentPage'       => $this->Pagination['CurrentPage'],
+        'ItemsPerPage'      => $this->Pagination['ItemsPerPage'],
+    )), '</table>';
+
+/* EOF */

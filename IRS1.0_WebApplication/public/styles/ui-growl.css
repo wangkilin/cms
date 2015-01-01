@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* growl style*/
+.growl#top-right
+{
+top:0;
+right:0;
+margin:25px 25px 0 0;
+}
+.growl#top-center
+{
+top:0;
+left:47%;
+}
+.growl#top-center.err
+{
+left:45%;
+}
+.growl
+{
+position:fixed;
+color:#FFF;
+font-size:14px;
+font-weight:bold;
+z-index:9999;
+}
+.growl-notification
+{
+-moz-border-radius:5px;
+background:#000;
+opacity:0.85;
+text-align:left;
+width:100%;
+padding:4px 5px;
+max-width:200px;
+}
+.growl#top-right .growl-notification
+{
+padding:10px;
+}
+.growl#top-center .growl-notification
+{
+-moz-border-radius:0 0 5px 5px;
+}
+.growl#top-center .growl-notification.error
+{
+-moz-border-radius:5px;
+margin-top:10px;
+}
+.growl .growl-notification .close
+{
+z-index:99;
+float:right;
+font-weight:bold;
+cursor:pointer;
+}
+.growl .growl-notification .message
+{
+}
+/* EOF */

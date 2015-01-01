@@ -1,0 +1,26 @@
+##-------list------
+left_menu_trunk;Trunk List
+left_menu_add_trunk;Create New Trunk
+
+trunk_list_name;Trunk Name
+trunk_list_id;Trunk Id
+trunk_list_ipPort;Ip:Port
+
+trunk_list_no_item;You don't have any Trunks
+
+##---update--create---
+trunk_create_trunk;Create Trunk
+trunk_add_trunk;Create Trunk
+trunk_update_trunk;Edit Trunk
+trunk_name;Trunk Name
+trunk_id;Trunk Id
+trunk_ipaddress;IPAddress
+trunk_port;Port
+
+##--------delete----
+trunk_delete_trunk; Trunk(s): 
+
+##-----notification---------------
+trunk_is_created;trunk %s is created
+trunk_is_deleted;trunk %s is deleted
+trunk_is_updated;trunk %s is updated

@@ -1,0 +1,168 @@
+                       707134275<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://purl.org/rss/1.0/"
+	xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:admin="http://webns.net/mvcb/" >
+ <channel rdf:about="http://mamboforge.net/export/rss_sfnews.php">
+  <copyright>Copyright 1999-2000 VA Linux Systems, Inc.</copyright>
+  <title>MamboForge Project News</title>
+  <link>http://mamboforge.net</link>
+  <description>MamboForge Project News Highlights</description>
+ <items>
+ <rdf:Seq>
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3086" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3079" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3071" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3070" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3069" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3067" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3066" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3065" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3064" />
+ <rdf:li rdf:resource="http://mamboforge.net/forum/forum.php?forum_id=3068" />
+ </rdf:Seq>
+ </items>
+ </channel>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3086">
+   <title>Events Calendar - First RSS feed beta available</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3086</link>
+   <description>A first beta for the Events Calendar RSS feed component is available for download (only MOS 4.5.1!). 
+See http://mosevents.sourceforge.net/mos/ for an example.
+
+Future plans:
+- offer link from within events component
+- check if mod_events specifications for RSS 1.0 can be supported (-&amp;gt;http://web.resource.org/rss/1.0/modules/event/). Comments are welcome.</description>
+   <dc:subject>Events Calendar</dc:subject>
+   <dc:creator>Mat Leinmueller</dc:creator>
+  <dc:date>Mon, 13 Dec 2004 10:58:23 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3079">
+   <title>Christmas Template for 4.5.1 Released</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3079</link>
+   <description>I've uploaded a Christmas Template for 4.5.1, red and green color, fixed width, 760px, fresh and clean, there is lovely Santa on top too! Enjoy it and Merry Christmas. ^o^</description>
+   <dc:subject>Mambo Dancing</dc:subject>
+   <dc:creator>magicbox </dc:creator>
+  <dc:date>Mon, 13 Dec 2004 7:13:20 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3071">
+   <title>Template Tutorial 1.0</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3071</link>
+   <description>Today we bring you another tutorial on how to install templates to your mambo cms.
+The tutorial is only small, 1.18mb and will take you through how the template installation is processed.</description>
+   <dc:subject>MamboTutorials.com</dc:subject>
+   <dc:creator>Paul Squillace</dc:creator>
+  <dc:date>Mon, 13 Dec 2004 7:09:36 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3070">
+   <title>MOS-Chat 1.4 finally out</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3070</link>
+   <description>MOS-Chat 1.4 is out, together with its 2 modules (chatters and counter). We have some major code improvements, general code clean up and some add-ons.  MOS-Chat home server has changed to www.mos-chat.com
+
+Major improvements are:
+- IE, Mozilla and Opera presents information correctly
+- Eliminated annoying refresh blinking of the messages area
+- Implemented manual refresh (not working with Opera yet)
+- Local time with Mozilla is disabled for every second (updates only every refresh), because Mozilla is doing some weird page blink when updating only one object
+- css file that you can modify manually to adjust look of chat
+
+Additional improvements are:
+- Chatter and Counter modules upgraded for new MOS_Chat 1.4 version
+- 1.3 languages files will work, only some new things will be displayed in english
+- MOS-Chat home server changed to www.mos-chat.com
+
+with best regards wishing happy chatting
+Peter Saitz
+MOS-Chat (MamboChat)
+http://www.mos-chat.com</description>
+   <dc:subject>MOS-Chat</dc:subject>
+   <dc:creator>Peter Saitz </dc:creator>
+  <dc:date>Mon, 13 Dec 2004 7:06:40 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3069">
+   <title>Facile Forms 1.2.6</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3069</link>
+   <description>Facile forms 1.2.6 is available for download now here on mamboforge. Improvements were made for foreign character sets, speeding up the nudge tool, adding a configurable layout grid, and additional standard scripts.</description>
+   <dc:subject>Facile Forms</dc:subject>
+   <dc:creator>Peter Koch</dc:creator>
+  <dc:date>Mon, 13 Dec 2004 7:05:11 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3067">
+   <title>SAM BBCode</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3067</link>
+   <description>I've released SAM BBCode. It's a mambot which parses your bbCode-content (using patBBCode). 
+
+Enjoy
+Simon Andreas Menke</description>
+   <dc:subject>sam_highlight</dc:subject>
+   <dc:creator>Simon menke</dc:creator>
+  <dc:date>Sat, 11 Dec 2004 1:24:20 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3066">
+   <title>Who is Online 3rd Party Extensions</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3066</link>
+   <description>I am done with the initial hack that integrates myPMS and Community Builder. I just need to work on making it configurable thru the parameters.
+
+Release Plan:
+1. Version 0.9 - Dec. 19, 2004
+2. Version 1.0 - major fixes for whatever bugs discovered in 0.9.
+
+Thanks.</description>
+   <dc:subject>Who is Online 3rd Party Extensions</dc:subject>
+   <dc:creator>Roceller Alvarez</dc:creator>
+  <dc:date>Sat, 11 Dec 2004 1:24:00 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3065">
+   <title> IM Buddy Collections</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3065</link>
+   <description>I am really excited for this new component for Mambo. The prototype is almost done with all the javascripts working fine. Hopefully, I can put this in PHP this weekend.
+
+Release Plan:
+1. Version 0.9 - functional for Yahoo IM. Members can add IM buddies and share buddy list to public.
+2. Version 1 - admin section
+3. Version 1.1 - photo upload
+4. Version x.x - support for ICQ, AIM, etc....
+
+I might be able to release Version 0.9 this Sunday, Dec.12,2004. Hopefully my girl will not bug me =). If not, come back the following weekend.
+
+MamboBuilder.com</description>
+   <dc:subject>IM Buddy Collections</dc:subject>
+   <dc:creator>Roceller Alvarez</dc:creator>
+  <dc:date>Sat, 11 Dec 2004 1:23:40 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3064">
+   <title>My PMSII Module updated for MOS 4.5.1a</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3064</link>
+   <description>Apologies to all for not getting this done myself.
+
+Antony Antouris was kind enough to make the appropriate corrections to the xml file to solve an upload problem with MOS 4.5.1a.  
+
+He also added an animated email icon into the package that helps to alert folks to unread messages.
+
+-GRAM</description>
+   <dc:subject>MyPMSII Module</dc:subject>
+   <dc:creator>Steve Graham</dc:creator>
+  <dc:date>Sat, 11 Dec 2004 1:22:32 GMT</dc:date>
+  </item>
+
+ <item rdf:about="http://mamboforge.net/forum/forum.php?forum_id=3068">
+   <title>Simpleboard 1.0.4 Beta1 released</title>
+   <link>http://mamboforge.net/forum/forum.php?forum_id=3068</link>
+   <description>Today, december 10th, Simpleboard 1.0.4 Beta1 has been released. This version, while it is still a beta version, contains some urgent security fixes. The previously released patch for 1.0.3 hasn't solved all problems properly and this version does. This version is also compatible with Mambo 4.5.0 1.0.9 and Mambo 4.5.1 without the need for a patch any files for any version. However, since it is a beta version, it is possible that the discuss-mambot 2.0 functionality hasn't been implemented correctly yet. The urgency of the security fix preceeded thorough testing priority. Please report all bugs on our forums and we'll work hard to release a stable version as soon as possible!</description>
+   <dc:subject>Simpleboard Forum Component</dc:subject>
+   <dc:creator>Jan de Graaff</dc:creator>
+  <dc:date>Sat, 11 Dec 2004 1:21:35 GMT</dc:date>
+  </item>
+</rdf:RDF>

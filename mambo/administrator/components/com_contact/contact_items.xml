@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Contact Items</name>
+	<author>Mambo Project</author>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>Parameters for individual Contact Items</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="一个小图片，放在菜单项的左边或右边，图片必须在目录 images/stories/ 中" />
+		<param name="pageclass_sfx" type="text" size="20" default="" label="页面css后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="print" type="list" default="" label="打印图标" description="显示/隐藏打印图标 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="name" type="radio" default="1" label="姓名" description="显示/隐藏姓名">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="position" type="radio" default="1" label="职务栏" description="显示/隐藏职务栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email" type="radio" default="1" label="Email栏" description="显示/隐藏Email栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="street_address" type="radio" default="1" label="地址" description="显示/隐藏地址信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="suburb" type="radio" default="1" label="城市" description="显示/隐藏城市信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="state" type="radio" default="1" label="省份" description="显示/隐藏省份信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="country" type="radio" default="1" label="国家" description="显示/隐藏国家信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="postcode" type="radio" default="1" label="邮编" description="显示/隐藏邮编">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="telephone" type="radio" default="1" label="电话栏" description="显示/隐藏电话信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="fax" type="radio" default="1" label="传真栏" description="显示/隐藏传真信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="misc" type="radio" default="1" label="备注" description="显示/隐藏备注信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="image" type="radio" default="1" label="图片" description="显示/隐藏图片">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="email_description" type="radio" default="1" label="Email描述" description="显示/隐藏 下面的Email描述">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email_description_text" type="text" size="30" default="" label="描述文本" description="Email表单的描述文本，如果留空，将使用语言文件的 _EMAIL_DESCRIPTION " />
+		<param name="email_form" type="radio" default="1" label="Email表单" description="显示/隐藏Email表单">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email_copy" type="radio" default="1" label="Email复制" description="显示/隐藏把email复制到发件人地址的复选框">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="drop_down" type="radio" default="0" label="下拉选择" description="显示/隐藏联系人的下拉选择">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>	
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="contact_icons" type="list" default="0" label="图标/文本" description="使用图标、文本或者空信息，在联系人信息旁边">
+			<option value="0">图标</option>
+			<option value="1">文本</option>
+			<option value="2">空信息</option>
+		</param>
+		<param name="icon_address" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="地址图标" description="地址信息的图标" />
+		<param name="icon_email" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="Email图标" description="Email信息的图标" />
+		<param name="icon_telephone" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="电话图标" description="电话信息的图标" />
+		<param name="icon_fax" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="传真图标" description="传真信息的图标" />
+		<param name="icon_misc" type="imagelist" directory="/images/M_images" hide_none="1" default="" label="备注图标" description="备注信息的图标" />
+	</params>
+</mosinstall>

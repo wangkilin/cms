@@ -1,0 +1,18 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification" filekey="<?php echo $this->FileKey;?>"><?php echo $this->translate('media_upload', $this->FileKey)?></div>
+<?php
+/* EOF */

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<appendix xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <title>What's New in 4.5.1</title>
+  <sect1>
+    <title>Overview</title>
+    <para>Version 4.5.1 includes many improvements to make life easy for Site Administrators.</para>
+    <para>We have endeavoured to polish many features without the need to make changes to the database structure.</para>
+  </sect1>
+  <sect1>
+    <title>Questions About This Version</title>
+    <qandaset>
+      <qandadiv>
+        <qandaentry>
+          <question>
+            <para>Is there printable documentation available?</para>
+          </question>
+          <answer>
+            <para>Yes, there are four Manuals available, one for Administrators, Developers, Documentation writers and one for the Installation of Mambo. Download the latest copy from <ulink url="http://mamboforge.net/docman/?group_id=5">http://mamboforge.net/docman/?group_id=5</ulink>.</para>
+          </answer>
+        </qandaentry>
+        <qandaentry>
+          <question>
+            <para>Where are the Frontpage Settings?</para>
+          </question>
+          <answer>
+            <para>You can edit the Frontpage parameters from the 'Home' menu link and then click on the "Parameters" tab.</para>
+          </answer>
+        </qandaentry>
+        <qandaentry>
+          <question>
+            <para>Some of my modules are showing errors. How do I fix them?</para>
+          </question>
+          <answer>
+            <para>There is a slight change to the way modules handle parameters. Contact the author of the module for assistance or look at the Developers' Manual for a temporary fix.</para>
+          </answer>
+        </qandaentry>
+        <qandaentry>
+          <question>
+            <para>Where is the Newsflash Component in the Administrator?</para>
+          </question>
+          <answer>
+            <para>The Newsflashes now work off content categories. Edit the Newsflash module and select a category to 'flash'. You also have several other options available (also shown below).</para>
+          </answer>
+        </qandaentry>
+        <qandaentry>
+          <question>
+            <para>Why does mosimage not work anymore?</para>
+          </question>
+          <answer>
+            <para>You need to delete from the <filename>/mambots</filename> directory the following files - mosimage.*, moscode.* and mospaging.*. These files have changed format and have moved into the <filename>/mambots/content directory</filename>.</para>
+          </answer>
+        </qandaentry>
+      </qandadiv>
+    </qandaset>
+  </sect1>
+  <sect1>
+    <title>Change of Official Name</title>
+    <para>After recent negotiations with Miro International Pty, we are pleased to inform the community that Mambo Open Source will be changing the name of the product to 'Mambo'. That's right, the REAL Mambo is called ... 'Mambo'.</para>
+    <para>While Miro's commercial version (and other Mambo flavours) are differentiated by extended names, we are now able to use the name Mambo by itself.</para>
+    <para>A great strength of the 'Mambo' brand is in it's name, and this move will ensure our product is not diluted in any way. This will reduce the confusion for many when faced with Mambo, Mambo Open Source, MOS etc.</para>
+    <para>MOSForge has been rebranded as MamboForge. We will be leaving a redirect from MOSForge to MamboForge in place for the next few months.</para>
+    <para>Please make the necessary changes to your references, bookmarks, sites etc.</para>
+  </sect1>
+  <sect1>
+    <title>Home Menu</title>
+    <para>The new "Home" item in the menu bar replaces the "My Admin" menu item. While it references those items that were under "My Admin", it also has a link to the administrator's "Control Panel".</para>
+  </sect1>
+  <sect1>
+    <title>Configuration</title>
+    <sect2>
+      <title>Page Caching</title>
+      <para>A rudimentary system of caching content items has been provided. Benchmarking has shown that performance increases significantly.</para>
+      <para>In the Caching tab you are able to configure:</para>
+      <itemizedlist>
+        <listitem>
+          <para>if caching is enabled</para>
+        </listitem>
+        <listitem>
+          <para>the directory where cache files are to be stored</para>
+        </listitem>
+        <listitem>
+          <para>the maximum life of a cache file (in seconds)</para>
+        </listitem>
+      </itemizedlist>
+      <para>Caching will be turned off by default.</para>
+      <para>The cache directory must be writable for this caching to be successfully implemented. Contact your Webmaster if you have any difficulties.</para>
+    </sect2>
+    <sect2>
+      <title>Mail Settings</title>
+      <para>New Mail options are available.</para>
+    </sect2>
+    <sect2>
+      <title>Miscellaneous</title>
+      <para>Several other new options are available. You may:</para>
+      <itemizedlist>
+        <listitem>
+          <para>set the default list length in the administrator lists</para>
+        </listitem>
+        <listitem>
+          <para>now select 'None" for the WYSIWYG editor</para>
+        </listitem>
+        <listitem>
+          <para>turn off statistics collection</para>
+        </listitem>
+      </itemizedlist>
+      <para>NOTE: When Statistics are not enabled, you will not be able to access some of the Statistics Menu Items.</para>
+      <para>The "Use Banner" configuration variable has been deleted from the configuration file since banner components are included by the template.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Preview</title>
+    <para>An inline preview window has been added. This is useful for quickly checking changes without swapping browser tabs or windows.</para>
+  </sect1>
+  <sect1>
+    <title>Templates</title>
+    <sect2>
+      <title>Administrator Templates</title>
+      <para>A template system has been introduced to the Administrator. Refer to the Developers' Manual for more information.</para>
+      <para>Part of the Administrator Templating system involves a separate file for the Control Panel. The Control Panel is an area to display useful information for the Site Administrator. This file may be customised to suit the requirements of you site.</para>
+      <para>Administrator Templates are installable in the usual manner. The xml setup file must include a <filename>client="administrator"</filename> attribute in the <filename>mosinstall</filename> tag.</para>
+    </sect2>
+    <sect2>
+      <title>Assignable Site Templates</title>
+      <para>A dynamic templating system has been incorporated. If you have several templates installed on your Mambo system you can now take advantage of all of them. This new system allows you to assign a template to a specific page (or pages) from main menu.</para>
+    </sect2>
+    <sect2>
+      <title>Template Positions</title>
+      <para>Template positions are now able to be maintained in the Administrator. A "description" field is also provided to allow for more meaningful position names to be displayed.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Trash Manager</title>
+    <para>Located under "Site", the Trash Manager shows you the items that have been send to trash. These items are no longer available to the Web Site but are still stored in the database. You may 'Restore' any items in the Trash Manager or you may 'Delete' them permanently from the database.</para>
+  </sect1>
+  <sect1>
+    <title>User Manager</title>
+    <sect2>
+      <title>Registration</title>
+      <para>An improved registration process is provided allowing for administrator activation of user accounts. See the &#8220;Use New Account Activation&#8221; option under the "Site" tab of Global Configuration.</para>
+      <para>The feature has several advantages. It verifies that the visitor exists and has a valid Email address. It gives the visitor the ability to choose their password. It also gives Administrator a better overview over active and non-activated accounts.</para>
+    </sect2>
+    <sect2>
+      <title>Use Unique Emails</title>
+      <para>There is a new option in Global Configuration called &#8220;Require Unique Email&#8221;. When enabled, this option will ensure that a single e-mail address can be registered only once.</para>
+    </sect2>
+    <sect2>
+      <title>Force Logout</title>
+      <para>You have the option of force logout any user via the User Manager list.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Site Menus</title>
+    <para>Menus now has its own place in the Administrator Menu Bar. Under this item is a link to the Menu Manager followed by the available menus.</para>
+    <sect2>
+      <title>Menu Manager</title>
+      <para>Support for additional menus has been vastly improved. Menus displayed for editing are based on the number of variants of the Main Menu Module. The Menu Manager has been provided as a convenient way for adding and deleting menus. You can control the available menus in the Module Manager.</para>
+    </sect2>
+    <sect2>
+      <title>New Menu Item</title>
+      <para>A "Content Item Link" can now be added to a menu. This is a link to an existing item with the Section-Category hierarchy.</para>
+    </sect2>
+    <sect2>
+      <title>Other Menu Changes</title>
+      <para>A "Move" function is available allowing you to move menu items between defined menus. A "Copy" function allows you to duplicate whole menus.</para>
+      <para>The restriction for adding a component to a menu only once has been removed. You can now add any component to a menu any number of times.</para>
+      <para>Support of component parameters, as for modules, is now provided. Refer to the Developers' Manual for details on how to specify parameters for Components.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Content</title>
+    <para>"Frontpage" has been moved from the components menu. "Frontpage Settings" is now handled by editing the menu parameters which calls the Frontpage Component (usually the "Home" menu item in the Main Menu).</para>
+    <sect2>
+      <title>Content List Page</title>
+      <para>Two new icons appear on a content items list page:</para>
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Copy</emphasis>: Allows you to copy and existing content item to another Section and Category.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis role="bold">Trash</emphasis>: Replaces the "Delete" icon. Placing items in the Trash makes them unavailable for use on the Web Site, but does not remove them permanently from the database.</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Content Edit Page</title>
+      <para>The Administrator content page has been reformatted slightly to eliminate an annoying behaviour whereby a WYSIWYG editor field will lock up if you use any other tab while editing.</para>
+      <para>A new "Parameters" tab allows you to configure the display of the content item, allowing you to override several globally set parameters (for example, Show Author).</para>
+      <para>NOTE:: You may disable WYSIWYG editor support in Global Configuration by setting the editor to 'None'.</para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Modules</title>
+    <sect2>
+      <title>New Features</title>
+      <para>The handling of Module parameters has been improved. You have the ability to define parameters for module allowing for the automatic display of edit boxes, select and radio lists. Refer to the Developers' Manual for details on how to specify parameters for Modules.</para>
+      <para>A Copy feature has been added to the Module Manager.</para>
+      <para>The Install Module Page also shows details from the XML file (eg, Author, Version, etc).</para>
+      <para>Administrator modules are now available and installable.</para>
+    </sect2>
+    <sect2>
+      <title>New Modules</title>
+      <para>A Search Box module (mod_search) has been added.</para>
+      <para>A Banner Module has been added.</para>
+    </sect2>
+    <sect2>
+      <title>Deleted Modules</title>
+      <para>The following modules have been removed from the Mambo distribution:</para>
+      <itemizedlist>
+        <listitem>
+          <para>mod_browser_prefs (was a very poor example of a module)</para>
+        </listitem>
+        <listitem>
+          <para>mod_counter (has been merged with mod_statistics)</para>
+        </listitem>
+        <listitem>
+          <para>mod_newsfeeds</para>
+        </listitem>
+        <listitem>
+          <para>mod_online (has been merged with mod_whosonline)</para>
+        </listitem>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Administrator Modules</title>
+      <para>Modules are supported in the administrator. There is a new option under the Modules menu to configure the Administrator Modules.</para>
+    </sect2>
+    <sect2>
+      <title>Quick Fix for Old Modules</title>
+      <para>Modules written for version 4.5 that use parameters will not work correctly in version 4.5.1 or later.</para>
+      <para>Developers are encouraged to upgrade the method of using parameters as it is very simple to do so. However, to get things running quickly you may insert the following code near the head of your module, before the parameters are used:</para>
+      <programlisting>$params = mosParseParams( $module-&gt;params );</programlisting>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Newsflash Changes</title>
+    <para>The newsflash modules has been updated to select items from a content category. There are also other options available to manage the display of items.</para>
+    <para>NOTE: The Newsflash component has been dropped from the Administrator. To upgrade your existing newsflashes:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Optionally create a new section for newsflashes</para>
+      </listitem>
+      <listitem>
+        <para>Create a new category for your newsflashes</para>
+      </listitem>
+      <listitem>
+        <para>Copy and paste your existing newsflashes into new content items in this new category.</para>
+      </listitem>
+      <listitem>
+        <para>Edit the Newsflash module parameters, selecting the new category you have just created.</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+  <sect1>
+    <title>Contacts</title>
+    <para>A contact can be linked to a user, thereby allowing you to have an extended user profile. This information will appear in a "Profile" tab when editting a user.</para>
+    <para>Category support has also been added to contacts.</para>
+  </sect1>
+  <sect1>
+    <title>Help System Changes</title>
+    <para>The Help System has been completely revised. Most pages now include a "Help" icon in the toolbar which opens the Help Screen in a new window. Your browser must support XML in order to see this page. Most modern browsers do. However, if you cannot see this page it's likely you will need to upgrade your browser.</para>
+    <para>The Help Index has also been revised and includes the ability to search for a phrase.</para>
+    <para>Refer to the Documentation Manual for more information about writing Help files.</para>
+  </sect1>
+  <sect1>
+    <title>Installer Updates</title>
+    <para>The installer has been updated with a new XML library. This library is more fussy about installer XML files being well formed. If you are trying to install a Component, Module or Template in Mambo you may get an error like "Can't find the installer file". If you look in the Zip file and find there is one there you will need to contact the author so that they can fix this file.</para>
+  </sect1>
+  <sect1>
+    <title>Mambots</title>
+    <para>Mambots are changing format. The format for Mambo 4.5 is still supported but will be deprecated in the next version. See the chapter on Mambots in the <emphasis role="bold">Developers' Manual</emphasis> for more information on performance and feature enhancements for event driven Mambots.</para>
+    <para>NOTE: A new addition is that searching is now done via Mambots. This allows any component to craft their own search bot and have it added to the results of the search component.</para>
+  </sect1>
+  <sect1>
+    <title>Editors</title>
+    <para>Editors are now installable as Mambots.</para>
+  </sect1>
+  <sect1>
+    <title>Site Search Component</title>
+    <para>New options are available for the Site Search component to search for any or all words or an whole phrase. You are also given to option of sorting the result set.</para>
+  </sect1>
+</appendix>

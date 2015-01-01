@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>用户登录</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This module displays a Username and Password login form. It also displays a link to retrieve a forgotten password. If user registration is enabled, (refer to the Configuration settings), then another link will be shown to invite users to self-register.</description>
+	<files>
+		<filename module="mod_login">mod_login.php</filename>
+	</files>
+	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+		<param name="pretext" type="text" default="" label="登录框上面文本" description="显示在登录表单上面的纯文本或html文本" />
+		<param name="posttext" type="text" default="" label="登录框下面文本" description="显示在登录表单下面的纯文本或html文本" />
+		<param name="login" type="text" default="" label="登录后网址" description="指定登录后跳转的页面，默认为首页" />
+		<param name="logout" type="text" default="" label="注销后网址" description="指定注销后跳转的页面，默认为首页" />
+		<param name="login_message" type="radio" default="0" label="登录信息" description="显示登录后的弹出窗口提示信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="logout_message" type="radio" default="0" label="注销信息" description="显示注销后的弹出窗口提示信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="greeting" type="radio" default="1" label="问候信息" description="是否显示问候信息">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="name" type="list" default="0" label="登录方式">
+			<option value="0">用户名</option>
+			<option value="1">姓名</option>
+		</param>
+	</params>
+</mosinstall>

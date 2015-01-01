@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/11 06:24:15 $</date>
+  </sectioninfo>
+  <title>Modules List</title>
+  <para>This page shows show a list of the instances of Modules in your site.</para>
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Module Name</emphasis>: The display name for the module.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Type</emphasis>: The type of module.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Position</emphasis>: The template position that the module will display in.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Pages</emphasis>: Shows whether a module is dislpayed on all, various or no pages. Note this is not applicable to Administrator modules.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Checked Out</emphasis>: The name of a user if this record is checked out. You will not be able to edit an item if it is checked out by another user.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Access</emphasis>: The user access level.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Reorder</emphasis>: Click the icons to move the record up or down in the list.</para>
+    </listitem>
+  </itemizedlist>
+  <para><emphasis role="bold">Toolbar Actions</emphasis></para>
+  <para>You "select" items by clicking the checkbox at the start of each row.</para>
+  <para><emphasis role="bold">[+] Publish and Unpublish</emphasis>: Publishes or Unpublishes the selected item(s).</para>
+  <para><emphasis role="bold">[1] Copy</emphasis>: makes a copy of the selected module.</para>
+  <para><emphasis role="bold">[0] New</emphasis>: Creates a new item.</para>
+  <para><emphasis role="bold">[1] Edit</emphasis>: Edits the item. Clicking the linked name will also preform this function.</para>
+  <para><emphasis role="bold">[+] Delete</emphasis>: Deletes a module. Note that you cannot delete the "last" module of a particular "type".</para>
+  <para><emphasis>Legend</emphasis></para>
+  <para>[0] - you can just click this icon, [1] - you select one item click the toolbar icon, [+] - you can select more than one item and click the toolbar icon.</para>
+</section>

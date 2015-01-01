@@ -1,0 +1,126 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/jquery-tablesorter.css')
+                 ->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/blacklist.css');
+$this->headScript()->appendFile($baseUrl . '/js/jquery-metadata.js')
+                   ->appendFile($baseUrl . '/js/jquery-tablesorter.js')
+                   ->appendFile($baseUrl . '/js/jquery-plugin-uploadify.js')
+                   ->appendFile($baseUrl . '/js/jquery-swfobject.js')
+                   ->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/blacklist.js');
+
+?>
+<div class="grid_2 prefix_1 oops-container">
+    <div id="left_menu" class="left_menu">
+        <a href="<?php echo $baseUrl?>/blacklist/list" class="list-refresh sw-button on">
+            <?php echo $this->translate('left_menu_blacklist')?>
+        </a>
+        <a href="<?php echo $baseUrl?>/blacklist/create" class="sw-button only-popup" id="create">
+            <?php echo $this->translate('left_menu_add_blacklist')?>
+        </a>
+        <a id="import" href="<?php echo $baseUrl?>/blacklist/import/Act/import" class="sw-button">
+            <?php echo $this->translate('left_menu_import_blacklist')?>
+        </a>
+        <a id="export" href="<?php echo $baseUrl?>/blacklist/export/Act/export" class="sw-button">
+            <?php echo $this->translate('left_menu_export_blacklist')?>
+        </a>
+    </div>
+</div>
+
+<div class="grid_12 suffix_1 oops-container">
+    <div id="blacklists" class="list-container">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                    <?php echo $this->translate('application_handler_batch_delete')?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/blacklist/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="BlacklistNamePart" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                        <?php echo $this->translate('application_handler_ok')?></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="blacklist-lists" class="list-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></th>
+                                            <th class="column-2" title="<?php echo $this->translate('blacklist_list_name')?>">
+                                                <span><?php echo $this->translate('blacklist_list_name')?></span>
+                                            </th>
+                                            <th class="column-3" title="<?php echo $this->translate('blacklist_list_number')?>">
+                                                <span><?php echo $this->translate('blacklist_list_number')?></span>
+                                            </th>
+                                            <th class="column-4" title="<?php echo $this->translate('blacklist_list_dtmf')?>">
+                                                <span><?php echo $this->translate('blacklist_list_dtmf')?></span>
+                                            </th>
+                                            <th class="column-5" title="<?php echo $this->translate('blacklist_list_date_created')?>">
+                                                <span><?php echo $this->translate('blacklist_list_date_created')?></span>
+                                            </th>
+                                            <th class="column-6" title="<?php echo $this->translate('blacklist_list_date_modified')?>">
+                                                <span><?php echo $this->translate('blacklist_list_date_modified')?></span>
+                                            </th>
+                                            <th class="column-7" title="<?php echo $this->translate('blacklist_list_created_by')?>">
+                                                <span><?php echo $this->translate('blacklist_list_created_by')?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('blacklist_list_in_use')?>">
+                                                <span><?php echo $this->translate('blacklist_list_in_use')?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        echo $this->render('blacklist/list.phtml');
+                                    ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/blacklist/'?>";
+</script>
+<?php
+/* EOF */

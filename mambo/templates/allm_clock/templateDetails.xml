@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allM_clock</name>
+  <creationDate>06/07/2004</creationDate>
+  <author>allmambo.com Crew</author>
+  <copyright>(C) Released under GPL license</copyright>
+  <authorEmail>templates@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Watch / Clock Themed Template</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/content_bck.gif</filename>
+	<filename>images/date_bck.gif</filename>
+	<filename>images/date_right.gif</filename>
+	<filename>images/left_bck.gif</filename>
+	<filename>images/left_footer.gif</filename>
+	<filename>images/left_top.gif</filename>
+	<filename>images/logo.gif</filename>
+	<filename>images/mid_footer.gif</filename>
+	<filename>images/middle_top.gif</filename>
+	<filename>images/page_bck.gif</filename>
+	<filename>images/path_bck.gif</filename>
+	<filename>images/right_bck.gif</filename>
+	<filename>images/right_footer.gif</filename>
+	<filename>images/right_top.gif</filename>
+	<filename>images/search_bck.gif</filename>
+	<filename>images/search_right.gif</filename>
+	<filename>images/spacer.gif</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

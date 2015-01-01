@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>my_template</name>
+	<creationDate>06/20/2004</creationDate>
+	<author>allmambo Crew</author>
+	<copyright>(C) Released under GPL license</copyright>
+	<authorEmail>templates@allmambo.com</authorEmail>
+	<authorUrl>www.allmambo.com</authorUrl>
+	<version>1.0</version>
+	<description>template used in the MOS Template 101 tutorial</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/butterfly.gif</filename>
+		<filename>images/designed_by.gif</filename>
+		<filename>images/footer_bck.gif</filename>
+		<filename>images/left_bck.gif</filename>
+		<filename>images/logo.gif</filename>
+		<filename>images/main_bck.gif</filename>
+		<filename>images/mod_title.gif</filename>
+		<filename>images/path_left.gif</filename>
+		<filename>images/path_right.gif</filename>
+		<filename>images/path_var.gif</filename>
+		<filename>images/powered_by.gif</filename>
+		<filename>images/right_bck.gif</filename>
+		<filename>images/top_left.gif</filename>
+		<filename>images/top_var.gif</filename>
+		</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

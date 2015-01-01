@@ -1,0 +1,92 @@
+<?php
+/**
+ * $Rev: 2611 $
+ * $LastChangedDate: 2010-06-21 12:27:39 +0800 (Mon, 21 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: list-items.phtml 2611 2010-06-21 04:27:39Z junzhang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/tree';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = $this->Pagination['ItemsTotal'];
+?>
+<tfoot>
+    <tr>
+        <td colspan="8">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php if ($this->CurrentCount) : $count = 0; ?>
+    <?php
+        foreach ($this->TreeLists as $item) :
+            $creationDate = $modificationDate = $templateName = '-';
+            if (!is_null($item['CreationDatetime'])) {
+                $creationDate = $item['CreationDatetime'];
+            }
+            if (!is_null($item['ModificationDatetime'])) {
+                $modificationDate = $item['ModificationDatetime'];
+            }
+            if (!is_null($item['TemplateTreeLabel'])) {
+                $templateName = $item['TemplateTreeLabel'];
+            }
+    ?>
+    <tr id="row-item-<?php echo $item['TreeId']; ?>" class="row-item<?php echo ($count++ % 2 ? ' leaper' : ''); ?>">
+        <td class="column-1"><input type="checkbox"/></td>
+        <td class="column-2" title="<?php echo $item['Label']; ?>">
+            <span><?php echo $item['Label']; ?></span>
+            <div class="manager">
+                <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit'); ?>" href="<?php
+                    echo $baseUrl, '/builder/TreeId/', $item['TreeId']; ?>">
+                    <?php echo $this->translate('application_handler_edit'); ?>
+                </a>
+                |
+                <a class="manager-copy" title="<?php echo $this->translate('application_handler_copy'); ?>" href="<?php
+                    echo $baseUrl, '/copy/TreeId/', $item['TreeId']; ?>">
+                    <?php echo $this->translate('application_handler_copy'); ?>
+                </a>
+                |
+                <a class="manager-delete" title="<?php echo $this->translate('application_handler_delete'); ?>" href="<?php
+                    echo $baseUrl, '/delete?TreeId[', $item['TreeId'], ']=', urlencode($item['Label']); ?>">
+                    <?php echo $this->translate('application_handler_delete'); ?></a>
+            </div>
+        </td>
+        <?php if (!$this->IsSuperAdmin) : ?>
+        <td class="column-3" title="<?php echo $this->translate('solution_type_' . $item['SolutionTypeId']); ?>">
+            <span><?php echo $this->translate('solution_type_' . $item['SolutionTypeId']); ?></span>
+        </td>
+        <td class="column-4" title="<?php echo $templateName; ?>">
+            <span><?php echo $templateName; ?></span>
+        </td>
+        <?php endif; ?>
+        <td class="column-5" title="<?php echo $creationDate; ?>">
+            <span><?php echo $creationDate; ?></span>
+        </td>
+        <td class="column-6" title="<?php echo $modificationDate; ?>">
+            <span><?php echo $modificationDate; ?></span>
+        </td>
+        <td class="column-7" title="<?php echo $item['CustomerUserName']; ?>">
+            <span><?php echo $item['CustomerUserName']; ?></span>
+        </td>
+        <td class="column-0" title="<?php echo $item['StatusLabel']; ?>">
+            <span><?php echo $item['StatusLabel']; ?></span>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+<?php else :?>
+    <tr class="row-item-none">
+        <td colspan="8"><span><?php echo $this->translate('tree_list_no_item'); ?></span></td>
+    </tr>
+<?php endif; ?>
+</tbody>
+<?php
+/* EOF */

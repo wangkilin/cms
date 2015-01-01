@@ -1,0 +1,15 @@
+trunkroute_list_routename;Route Name
+trunkroute_list_primarygroupname;Trunk Group 1
+trunkroute_list_secondarygroupname;Trunk Group 2
+
+trunkroute_list_routename_sort;Sort by Route Name
+trunkroute_list_primarygroupname_sort;Sort by Trunk Group 1
+trunkroute_list_secondarygroupname_sort;Sort by Trunk Group 2
+
+trunkroute_import_routename;Route Name Import
+trunkroute_import_date;Import Date
+
+trunkroute_import_routename_sort;Sort by Route Name Import
+trunkroute_import_date_sort;Sort by Import Date
+
+trunkroute_list_no_item; You don't have any TrunkRoutes!

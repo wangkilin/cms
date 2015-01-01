@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/11 04:57:31 $</date>
+  </sectioninfo>
+  <title>Add or Edit User</title>
+  <para>This page allow you to edit the details for a User.</para>
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Name</emphasis>: The real or display name for user.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Username</emphasis>: The login name for the user.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Email</emphasis>: An email address.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">New password</emphasis>: Enter the password only if changing the user.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Verify pasword</emphasis>: Enter the password a second time only if changing the password.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Group</emphasis>: Select a group for the user.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Block User</emphasis>: Select Yes if you wish to prevent the user from logging in to your site.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Receive Submission Emails</emphasis>: Select Yes if you want the user to receive emails on new items.</para>
+    </listitem>
+  </itemizedlist>
+  <para>When you are finished your edits, click the Save icon or Cancel to discard your changes.</para>
+  <para>The user groups available are fixed but have different levels of access control. The 'Public Frontend' and 'Public Backend' groups are merely placeholders at this stage. They do not contribute to the access control system except that in the future, they will define the default access levels for anonymous users in the Frontend and backend systems.</para>
+  <para>There are four (4) Frontend groups available:</para>
+  <para><emphasis role="bold">Registered</emphasis> - This group allows the user to login to the Frontend interface.</para>
+  <para><emphasis role="bold">Author</emphasis> - This group allows a user to post content, usually via a link in the User Menu.</para>
+  <para><emphasis role="bold">Editor</emphasis> - This group allows a user to post and edit any content item in your web site.</para>
+  <para><emphasis role="bold">Publisher</emphasis> - This group allows a user to post, edit and publish any content item in your web site.</para>
+  <para>There are three (3) Administrator groups that allow access to the Mambo Administration section:</para>
+  <para><emphasis role="bold">Manager</emphasis> - This group allows access to content creation and other system information.</para>
+  <para><emphasis role="bold">Administrator</emphasis> - This group allows access to most administration functions, for example, changing templates, and adding Modules, and Components etc. They can administer lesser users (editors and users) but cannot create other Administrators.</para>
+  <para><emphasis role="bold">Super Administrator</emphasis> - This group allows access to all administration functions. The Super Administrator can create any other user type (except another Super Administrator).</para>
+  <para><emphasis role="bold">NOTE</emphasis>: You cannot assign a new or existing user to a group "higher" than yourself (for example, a user in the Administrator group cannot create or edit a user in the Super Administrator group). A user in the Super Administrator group cannot be removed from this group, nor can they be deleted. For an explanation of user groups, refer to An Overview of User Groups and Access Control and Administrator Login.</para>
+</section>

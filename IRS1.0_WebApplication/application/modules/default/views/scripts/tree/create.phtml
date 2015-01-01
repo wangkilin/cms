@@ -1,0 +1,112 @@
+<?php
+/**
+ * $Rev: 2579 $
+ * $LastChangedDate: 2010-06-17 18:40:21 +0800 (Thu, 17 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: create.phtml 2579 2010-06-17 10:40:21Z junzhang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->layout()->disableLayout();
+?>
+<div id="tree-create-dialog" class="dialog">
+    <div class="dialog-content">
+        <form action="<?php echo $baseUrl , '/tree/create', ($this->IsSuperAdmin ? '" class="admin"': '"'); ?> method="post" enctype="application/x-www-form-urlencoded">
+            <div class="dialog-create">
+                <h1 class="dialog-heading"><label><?php echo $this->translate('default_form_title_create_tree'); ?></label><span class="heading-close">×</span></h1>
+                <p>
+                    <label for="Label">
+                        <?php echo $this->translate('default_form_label_tree_name'); ?>
+                    </label>
+                    <br/>
+                    <input type="text" id="Label" name="Label" class="input_default" value="<?php echo $this->translate('default_form_value_default_tree_name'); ?>" />
+                    <em><?php echo $this->translate('default_form_description_tree_name'); ?></em>
+                </p>
+                <p>
+                    <label for="ParentTreeId">
+                        <?php echo $this->translate('default_form_label_tree_parent_tree'); ?>
+                    </label>
+                    <br/>
+                    <select id="ParentTreeId" name="ParentTreeId" >
+                        <option value=""><?php echo $this->translate('default_form_label_option_default_tree_parent_tree'); ?></option>
+                        <?php foreach($this->TreeLists as $tree) : ?>
+                        <option value="<?php echo $tree['TreeId']?>"><?php echo $tree['Label']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <em><?php echo $this->translate('default_form_description_tree_parent_tree'); ?></em>
+                </p>
+                <?php if (!$this->IsSuperAdmin) : ?>
+                <p>
+                    <label for="SolutionTypeId-2">
+                        <input type="radio" id="SolutionTypeId-2" name="SolutionTypeId" value="2" checked="checked" />
+                        <?php echo $this->translate('default_form_label_tree_solution_type_restricted'); ?>
+                    </label>
+                    <label for="SolutionTypeId-3">
+                        <input type="radio" id="SolutionTypeId-3" name="SolutionTypeId" value="3" />
+                        <?php echo $this->translate('default_form_label_tree_solution_type_full'); ?>
+                    </label>
+                    <br/>
+                    <select id="SolutionId" name="SolutionId" >
+                        <option value=""><?php echo $this->translate('default_form_label_option_default_solution'); ?></option>
+                        <?php 
+                            foreach($this->Solutions as $item) {
+                                if (1 == $item['SolutionTypeId']) {
+                                    continue;
+                                }
+                                echo '<option label="SolutionTypeId-', $item['SolutionTypeId'], '" value="', $item['SolutionId'], '">', $item['TemplateTreeLabel'], ' </option>';
+                            }
+                        ?>
+                    </select>
+                    <em><?php echo $this->translate('default_form_description_tree_solution'); ?></em>
+                </p>
+                <?php else : ?>
+                <fieldset class="node-constraints">
+                    <legend>
+                        <?php echo $this->translate('default_form_label_tree_node_constraints'); ?>
+                    </legend>
+                    <em>
+                        <?php echo $this->translate('default_form_description_tree_node_constraints'); ?>
+                    </em>
+                    <table>
+                    <?php foreach($this->NodeTypes as $id => $item) : ?>
+                        <tr>
+                            <td class="column-1">
+                                <label for="NodeType-<?php echo $id; ?>">
+                                    <?php echo $this->translate('default_form_label_tree_node_constraint', array($this->translate('tree_node_type_' . $item))); ?>
+                                </label>
+                            </td>
+                            <td>
+                                <select id="NodeType-<?php echo $id; ?>" name="NodeType[<?php echo $id; ?>]">
+                                    <option value="-1"><?php echo $this->translate('default_form_label_option_default_tree_node_constraint'); ?></option>
+                                    <?php 
+                                        for($index = 0; $index < 21; $index++) {
+                                            echo '<option value="', $index, '">', $this->translate('default_form_label_option_item_tree_node_constraint', array($index)), ' </option>';
+                                        }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </table>
+                </fieldset>
+                <?php endif; ?>
+            </div>
+            <div class="dialog-button">
+                <span>
+                    <button id="ok" type="submit" class="create-button">
+                        <?php echo $this->translate('application_handler_ok')?>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<?php
+/* EOF */

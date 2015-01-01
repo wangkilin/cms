@@ -1,0 +1,150 @@
+<?php
+/**
+ * $Rev: 2643 $
+ * $LastChangedDate: 2010-06-22 17:20:01 +0800 (Tue, 22 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_index
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: dashboard.phtml 2643 2010-06-22 09:20:01Z junzhang $
+ */
+
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headScript()
+    ->appendFile($baseUrl . '/js/dashboard.js');
+
+// Session instance
+$sessionSpace = new Zend_Session_Namespace('SwIRS_Web');
+$session = $sessionSpace->getIterator();
+$menu = $session->offsetExists('menu') ? $session->offsetGet('menu') : array();
+$userInfo = $session->offsetExists('userInfo') ? $session->offsetGet('userInfo') : array('Name' => null);
+?>
+<div id="form-dashboard" name="form-dashboard" class="grid_8 prefix_4 suffix_4">
+    <div class="form-container">
+        <div class="form-header">
+            <b><?php echo $this->translate('default_form_title_dashboard'); ?></b>
+            <q><?php echo $this->translate('default_form_title_description_dashboard', array($userInfo['Name'])); ?></q>
+        </div>
+        <div class="form-content">
+            <table width="100%">
+                <tr>
+                    <td class="col01">
+                        <ol>
+                            <?php if ($this->IsSuperAdmin) : ?>
+                            <li>
+                                <a class="extends" href="#customer-switcher" id="customer-switcher-handle">
+                                    <?php echo $this->translate('default_form_content_dashboard_sudo_account'); ?>
+                                </a>
+                                <dl id="customer-switcher" style="display: none;">
+                                    <dt class="description">
+                                        <?php echo $this->translate('default_form_content_dashboard_sudo_customer'); ?>
+                                    </dt>
+                                    <dd>
+                                        <form class="search-box" id="form-search-customer" action="<?php echo $baseUrl, '/customer/list'; ?>" method="get" enctype="application/x-www-form-urlencoded">
+                                            <div class="search-box-input">
+                                                <div class="search-icon">&nbsp;</div>
+                                                <input type="text" class="keyword input_default" name="CustomerAccountNamePart"  value="<?php echo $this->translate('application_handler_search_input'); ?>" />
+                                            </div>
+                                        </form>
+                                        <div class="clear"></div>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/tree'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_tree_template'); ?>
+                                </a>
+                            </li>
+                            <?php else : ?>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/tree#new'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_new_rounting_tree'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="extends" href="#tree-last-modified" id="tree-last-modified-handle">
+                                    <?php echo $this->translate('default_form_content_dashboard_edit_rounting_tree'); ?>
+                                </a>
+                                <?php if ($this->TreeLists) : ?>
+                                <dl id="tree-last-modified" style="display:none;">
+                                    <dt class="description">
+                                        <?php echo $this->translate('default_form_content_dashboard_last_opened_rounting_tree'); ?>
+                                    </dt>
+                                    <?php foreach($this->TreeLists as $item) : ?>
+                                    <dd>
+                                        <a href="<?php echo $baseUrl, '/tree/builder/TreeId/', $item['TreeId']; ?>">
+                                            <?php echo $item['Label']; ?>
+                                        </a>
+                                    </dd>
+                                    <?php endforeach; ?>
+                                </dl>
+                                <?php endif; ?>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/numbergroup'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_numbergroup'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/number'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_number'); ?>
+                                </a>
+                            </li>
+                            <?php endif; ?>
+                        </ol>
+                    </td>
+                    <td class="col02">
+                        <ol>
+                            <?php if ($this->IsSuperAdmin) : ?>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/', $menu['resource'][0]; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_global_resource'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/', $menu['equipment'][0]; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_trunk'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/admin/account'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_account'); ?>
+                                </a>
+                            </li>
+                            <?php else : ?>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/', $menu['resource'][0]; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_resource'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/report'; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_report'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $baseUrl, '/', $menu['user'][0]; ?>">
+                                    <?php echo $this->translate('default_form_content_dashboard_user'); ?>
+                                </a>
+                            </li>
+                            <?php endif; ?>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-footer"></div>
+    </div>
+</div>
+<?php
+
+// free memory
+$sessionSpace = null;
+unset($sessionSpace);
+
+/* EOF */

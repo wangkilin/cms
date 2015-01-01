@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>存档内容</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This module shows a list of the calendar months, which contain Archived items. After you have changed the status of a Content Item to 'Archived' this list will be automatically generated.</description>
+	<files>
+		<filename module="mod_archive">mod_archive.php</filename>
+	</files>
+	<params>
+		<param name="count" type="text" default="5" label="数量" description="最大列表数(默认为 10)" />
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

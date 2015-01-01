@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allm_digitaldream</name>
+  <creationDate>06/18/2004</creationDate>
+  <author>allmambo.com Crew</author>
+  <copyright>(C) Released under GPL license</copyright>
+  <authorEmail>templates@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Digital Themed Template with very nice colors</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/aboutus.gif</filename>
+	<filename>images/btn2.gif</filename>
+	<filename>images/btn3.gif</filename>
+	<filename>images/btn4.gif</filename>
+	<filename>images/btn5.gif</filename>
+	<filename>images/contact.gif</filename>
+	<filename>images/content.gif</filename>
+	<filename>images/des_by.gif</filename>
+	<filename>images/detail1.gif</filename>
+	<filename>images/detail2.gif</filename>
+	<filename>images/detail3.gif</filename>
+	<filename>images/footer.gif</filename>
+	<filename>images/header.gif</filename>
+	<filename>images/home.gif</filename>
+	<filename>images/index_24.gif</filename>
+	<filename>images/links.gif</filename>
+	<filename>images/navigation.gif</filename>
+	<filename>images/news.gif</filename>
+	<filename>images/newstxt.gif</filename>
+	<filename>images/ordernow.gif</filename>
+	<filename>images/plan1.gif</filename>
+	<filename>images/plan2.gif</filename>
+	<filename>images/plan3.gif</filename>
+	<filename>images/sitemap.gif</filename>
+	<filename>images/spacer.gif</filename>
+	<filename>images/topleft.gif</filename>
+	<filename>images/yellowbar.gif</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

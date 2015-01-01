@@ -1,0 +1,112 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Yao LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="number-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="number-heading">
+            <span class="heading-text"><?php echo $this->translate('number_create_number');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="number-body">
+			<form action="" id="number-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('number_create_customer_number');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="PremiumNumberUi" value=""/>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('number_create_system_number');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="PremiumNumber" value=""/>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <select id="customer-id" name="AssignedCustomerAccountId">
+                                        <option value="-1"><?php echo $this->translate('number_create_select_customer');?></option>
+                                        <?php
+                                            foreach ($this->Customers as $customer) {
+                                                echo '<option value="' . $customer['CustomerAccountId'] . '">' . $customer['CustomerAccountName'] . '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <select id="solution-id" name="SolutionId">
+                                        <option value="-1"><?php echo $this->translate('number_create_select_solution');?></option>
+                                        <?php
+                                            foreach ($this->Solutions as $solution) {
+                                                echo '<option value="' . $solution['SolutionId'] . '">' .
+                                                     $this->translate('solution_type_' . $solution['SolutionTypeId']) . '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('number_create_max_call_duration');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="MaxCallDuration" value=""/>
+                                    </span>
+                                    <span><?php echo $this->translate('number_create_max_call_duration_minute');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

@@ -1,0 +1,62 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+$this->ListUrl = $baseUrl . '/listnumber/';
+$this->CurrentCount = count($this->BlacklistNumbers);
+?>
+<div id="blacklist-number-list" class="list-items">
+    <table>
+        <tbody>
+        <?php
+            if ($this->CurrentCount) {
+                $count = 0;
+                foreach ($this->BlacklistNumbers as $number) {
+                    $dynamcType = $this->translate('blacklist_number_type_' . intval($number['Dynamic']));
+        ?>
+                <tr id="row-item-<?php echo $number['BlacklistNumberId']?>" class="row-item <?php echo ($count++%2 ? 'leaper' : '');?>">
+                    <td class="column-1"><input type="checkbox"/></td>
+                    <td class="column-2" title ="<?php echo $number['PhoneNumber']?>">
+                        <span><?php echo $number['PhoneNumber']?></span>
+                        <div class="manager">
+                            <a class="manager-edit" title="<?php
+                                echo $this->translate('application_handler_edit');?>"
+                            href="<?php echo $baseUrl?>/updatenumber/BlacklistNumberId/<?php
+                                echo $number['BlacklistNumberId']?>"><?php
+                                echo $this->translate('application_handler_edit');?></a>|<a class="manager-delete" title="<?php
+                                echo $this->translate('application_handler_delete');?>"
+                            href="<?php echo $baseUrl?>/deletenumber?BlacklistNumberIds[]=<?php
+                                echo $number['BlacklistNumberId']?>&BlacklistNumberNames[]=<?php
+                                echo urlencode($number['PhoneNumber']);?>"><?php echo $this->translate('application_handler_delete');?></a>
+                        </div>
+                    </td>
+                    <td class="column-3" title="<?php echo $dynamcType;?>">
+                        <span><?php echo $dynamcType;?></span>
+                    </td>
+                    <td class="column-4" title ="<?php echo $number['EndDate']?>">
+                        <span><?php echo $number['EndDate']?></span>
+                    </td>
+                </tr>
+        <?php
+                }
+            } else {
+        ?>
+                <tr class="row-item-none">
+                    <td><span><?php echo $this->translate('blacklist_numberlist_no_item');?></span></td>
+                </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+<?php
+echo $this->render('pagination.phtml');
+/* EOF */

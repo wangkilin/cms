@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Category Manager List</title>
+
+  <para>This page shows show a list of the Categories for your for a particular Section on your site.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Category Name</emphasis>: This is the name of a category. Click the name to edit the category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold"># of Records</emphasis>: This is the number of content items in the category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold"># Checked Out</emphasis>: This is the number of content items 'checked out' in the category.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Checked Out</emphasis>: This is the name of a user if this Category item is 'checked out'. You will not be able to edit an item if it is checked out by another user. It must be checked back by an administrator by going to Systems in the Menu bar--&gt;Global Checkin. It can also be checked back in by the User who has checked the item out by clicking the 'Edit' icon of the category item and then clicking the the 'Save' or 'Cancel' icon.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Access</emphasis>: This is the User access level.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Reorder</emphasis>: Click the arrow icons to move the Category items up or down in the list.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>To Publish or Unpublish one or more categories, select the checkbox(es) next to the name of the category(ies) and click either the 'Publish' or 'Unpublish' icon.</para>
+
+  <para>Click the 'New' icon to add a new category.</para>
+
+  <para>Click on the name of the category to Edit the details, or select the check box next to the name and click the 'Edit' icon.</para>
+
+  <para>To delete a category, select the check box next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the category item or 'No' to cancel.</para>
+</section>

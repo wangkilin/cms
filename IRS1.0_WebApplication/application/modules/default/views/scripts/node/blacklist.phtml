@@ -1,0 +1,186 @@
+﻿<?php
+/**
+ * $Rev: 2661 $
+ * $LastChangedDate: 2010-06-23 17:36:49 +0800 (Wed, 23 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: blacklist.phtml 2661 2010-06-23 09:36:49Z junzhang $
+ */
+
+/**
+ * Modal Window for Node Blacklist in a HTML version
+ */
+$isUpdating = is_array($this->Node);
+$nodeName = $isUpdating ? $this->Node['Label'] : $this->translate('dialog_form_node_label_default');
+$payphoneRejectionPromptId = $isUpdating ? $this->NodeParameter['PayphoneRejectionPromptId'] : '';
+$blacklistRejectionPromptId = $isUpdating ? $this->NodeParameter['BlacklistRejectionPromptId'] : '';
+$blacklistId = $isUpdating ? $this->NodeParameter['BlacklistId'] : '';
+?>
+<div class="dialog" id="blacklist-dialog">
+    <form id="form-node-blacklist" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="dialog-content">
+            <div class="dialog-heading" id="blacklist-heading">
+                <span class="heading-text"><?php echo $this->translate('dialog_heading_node_blacklist'); ?></span>
+                <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+                <div class="heading-switcher">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="heading-switcher-on">
+                                    <input type="radio" name="IsActive" value="1"<?php echo (!$isUpdating || $this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_active'); ?>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="heading-switcher-spacer">&nbsp;</span>
+                            </td>
+                            <td>
+                                <div class="heading-switcher-off">
+                                    <input type="radio" name="IsActive" value="0"<?php echo ($isUpdating && !$this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_deactive'); ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog-body" id="blacklist-body">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_blacklist_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_blacklist') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_blacklist') )); ?>
+                    </span>
+                </div>
+                <table width="100%">
+                    <tr>
+                        <td colspan="2">
+                            <label for="HasPayphoneFilter" class="block">
+                                <input type="hidden" name="HasPayphoneFilter" value="0" />
+                                <input type="checkbox" id="HasPayphoneFilter" name="HasPayphoneFilter" value="1"<?php echo (!$isUpdating || $this->NodeParameter['HasPayphoneFilter']) ? ' checked="checked"' : ''; ?> />
+                                <?php echo $this->translate('dialog_form_node_blacklist_has_payphone_filter'); ?>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="HasPayphoneFilter">
+                            <select id="PayphoneRejectionPromptId" name="PayphoneRejectionPromptId">
+                                <option value=""><?php echo $this->translate('dialog_form_node_blacklist_payphone_rejection_prompt_option_default'); ?></option>
+                                <option value="0"><?php echo $this->translate('dialog_form_node_blacklist_prompt_no'); ?></option>
+                                <optgroup label="<?php echo $this->translate('dialog_form_node_blacklist_prompt_standard'); ?>">
+                                <?php 
+                                    foreach($this->StandardPrompts as $promptInfo) {
+                                        echo '<option value="', $promptInfo['PromptId'], '"';
+                                        if ($payphoneRejectionPromptId && $payphoneRejectionPromptId == $promptInfo['PromptId']) {
+                                            echo ' selected="selected"';
+                                        }
+                                        echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                    } 
+                                ?>
+                                </optgroup>
+                                <optgroup label="<?php echo $this->translate('dialog_form_node_blacklist_prompt_customer'); ?>">
+                                <?php 
+                                    foreach($this->CustomerPrompts as $promptInfo) {
+                                        echo '<option value="', $promptInfo['PromptId'], '"';
+                                        if ($payphoneRejectionPromptId && $payphoneRejectionPromptId == $promptInfo['PromptId']) {
+                                            echo ' selected="selected"';
+                                        }
+                                        echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                    } 
+                                ?>
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="description tips">
+                                <?php echo $this->translate('dialog_form_node_blacklist_payphone_rejection_prompt_description'); ?>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="IsBlacklistRejection" class="block">
+                                <input type="hidden" name="IsBlacklistRejection" value="0" />
+                                <input type="checkbox" id="IsBlacklistRejection" name="IsBlacklistRejection" value="1"<?php echo ($isUpdating && ($this->NodeParameter['BlacklistId'] || $this->NodeParameter['BlacklistRejectionPromptId'])) ? ' checked="checked"' : ''; ?> />
+                                <?php echo $this->translate('dialog_form_node_blacklist_is_blacklist_rejection'); ?>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="IsBlacklistRejection">
+                            <select id="BlacklistId" name="BlacklistId">
+                                <option value=""><?php echo $this->translate('dialog_form_node_blacklist_selection_option_default'); ?></option>
+                                <option value="0"><?php echo $this->translate('dialog_form_node_blacklist_selection_no'); ?></option>
+                                <?php 
+                                    foreach($this->Blacklists as $item) {
+                                        echo '<option value="', $item['BlacklistId'], '"';
+                                        if ($blacklistId && $blacklistId == $item['BlacklistId']) {
+                                            echo ' selected="selected"';
+                                        }
+                                        echo '>', $item['BlacklistName'], '</option>', PHP_EOL;
+                                    } 
+                                ?>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="description tips">
+                            <?php echo $this->translate('dialog_form_node_blacklist_selection_description'); ?>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="IsBlacklistRejection">
+                            <select id="BlacklistRejectionPromptId" name="BlacklistRejectionPromptId">
+                                <option value=""><?php echo $this->translate('dialog_form_node_blacklist_is_blacklist_rejection_prompt_option_default'); ?></option>
+                                <option value="0"><?php echo $this->translate('dialog_form_node_blacklist_prompt_no'); ?></option>
+                                <optgroup label="<?php echo $this->translate('dialog_form_node_blacklist_prompt_standard'); ?>">
+                                <?php 
+                                    foreach($this->StandardPrompts as $promptInfo) {
+                                        echo '<option value="', $promptInfo['PromptId'], '"';
+                                        if ($blacklistRejectionPromptId && $blacklistRejectionPromptId == $promptInfo['PromptId']) {
+                                            echo ' selected="selected"';
+                                        }
+                                        echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                    } 
+                                ?>
+                                </optgroup>
+                                <optgroup label="<?php echo $this->translate('dialog_form_node_blacklist_prompt_customer'); ?>">
+                                <?php 
+                                    foreach($this->CustomerPrompts as $promptInfo) {
+                                        echo '<option value="', $promptInfo['PromptId'], '"';
+                                        if ($blacklistRejectionPromptId && $blacklistRejectionPromptId == $promptInfo['PromptId']) {
+                                            echo ' selected="selected"';
+                                        }
+                                        echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                    } 
+                                ?>
+                                </optgroup>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="description tips">
+                            <?php echo $this->translate('dialog_form_node_blacklist_is_blacklist_rejection_prompt_description'); ?>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <?php if ($isUpdating) : ?>
+                <input type="hidden" name="NodeParameterBlacklistId" value="<?php echo $this->NodeParameter['NodeParameterBlacklistId']; ?>" />
+                <?php endif; ?>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+/* EOF */

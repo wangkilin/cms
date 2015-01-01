@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>热点新闻</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>The Newsflash module randomly selects one of the published items from a category upon each page refresh.  It may also dislpay multiple items is various configurations.</description>
+	<files>
+		<filename module="mod_newsflash">mod_newsflash.php</filename>
+	</files>
+	<params>
+		<param name="catid" type="mos_category" default="0" label="分类" description="要显示的分类" />
+		<param name="style" type="list" default="random" label="风格" description="设置分类显示风格">
+		    <option value="random">随机选择</option>
+		    <option value="horiz">横向</option>
+		    <option value="vert">纵向</option>
+		</param>
+		<param name="image" type="radio" default="0" label="图片" description="是否显示内容中的图片">
+			<option value="1">是</option>
+			<option value="0">否</option>
+		</param>
+        <param name="readmore" type="radio" default="0" label="阅读全文" description="是否显示阅读全文按钮">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="item_title" type="list" default="0" label="文章标题" description="显示文章标题？">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="items" type="text" default="" label="文章数" description="显示的文章个数" />
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

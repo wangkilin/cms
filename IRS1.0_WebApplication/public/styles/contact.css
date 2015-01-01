@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+#contacts table .column-1
+{
+width:2%;
+}
+#contacts table .column-2
+{
+width:12%;
+}
+#contacts table .column-3
+{
+width:12%;
+}
+#contacts table .column-4
+{
+width:20%;
+}
+#contacts table .column-5
+{
+width:20%;
+}
+#contacts table .column-6
+{
+width:20%;
+}
+#contacts table .column-0
+{
+width:5%;
+}
+
+#contacts resource_in_use
+{
+
+}

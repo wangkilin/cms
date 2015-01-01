@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/09/09 07:24:49 $</date>
+  </sectioninfo>
+
+  <title>Trash Manager</title>
+
+  <para>This page shows show a list of the Content Items that is in the 'Trash bin'.</para>
+
+  <para>If your list is long, you may enter text in the "Filter" box to refine the list based on whether the text is found in the title of any item in the trash bin. Type in any text and press 'Enter'.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Title</emphasis>: This is the title of the trashed item</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Section</emphasis>: This is the section of the trashed item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Category</emphasis>: This is the category of the trashed item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">ID</emphasis>: This is the ID of the trashed item.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>To Restore one or more items, select the checkbox(es) next to the title of the item(s) and click the 'Restore' icon.</para>
+
+  <para>To delete an item PERMANENTLY from the database, select the check box next to the title and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the content item or 'No' to cancel.</para>
+</section>

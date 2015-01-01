@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allm_lime</name>
+  <creationDate>06/30/2004</creationDate>
+  <author>allmambo.com Crew</author>
+  <copyright>(C) Under a GPL Licence</copyright>
+  <authorEmail>arnes@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Variable width template inspired by hawaiian colors.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/index_01.gif</filename>
+	<filename>images/index_02.gif</filename>
+	<filename>images/index_03.gif</filename>
+	<filename>images/index_04.gif</filename>
+      <filename>images/index_05.gif</filename>
+	<filename>images/index_06.gif</filename>
+	<filename>images/index_07.gif</filename>
+	<filename>images/spacer.gif</filename>
+      <filename>images/bg1.gif</filename>
+
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+  <name>allM_business_blues_var</name>
+  <creationDate>06/08/2004</creationDate>
+  <author>allmambo Crew</author>
+  <copyright>(C) Released under GPL license</copyright>
+  <authorEmail>templates@allmambo.com</authorEmail>
+  <authorUrl>www.allmambo.com</authorUrl>
+  <version>1.0</version>
+  <description>Business/Corporate Blue Themed Template .::variable width::.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+	<filename>images/date_bck.gif</filename>
+	<filename>images/footer_bck.gif</filename>
+	<filename>images/footer_left.gif</filename>
+	<filename>images/footer_right.gif</filename>
+	<filename>images/left_bck.gif</filename>
+	<filename>images/logo.gif</filename>
+	<filename>images/logo_1.gif</filename>
+	<filename>images/logo_2.gif</filename>
+	<filename>images/logo_strech.gif</filename>
+	<filename>images/main_arrow.gif</filename>
+	<filename>images/main_top_bck.gif</filename>
+	<filename>images/mod_title_bck.gif</filename>
+	<filename>images/path_bck.gif</filename>
+	<filename>images/right_col_bck.gif</filename>
+	<filename>images/right_col_top.gif</filename>
+	<filename>images/search_bck.gif</filename>
+	<filename>images/spacer.gif</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

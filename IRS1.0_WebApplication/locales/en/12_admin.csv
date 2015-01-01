@@ -1,0 +1,50 @@
+left_menu_admin;Global User List
+left_menu_add_admin;New User
+left_menu_admin_import;Import List(CSV)
+left_menu_admin_export;Export List(CSV)
+
+##-----admin-list------
+admin_list_name;Name
+admin_list_customer_account;Customer Account
+admin_list_login;Login
+admin_list_profile;Profile
+admin_list_created_by;Created by
+admin_list_last_login;Last Login
+admin_list_locked;Locked
+
+admin_list_no_item;You don't have any Users.
+
+admin_list_adminName_sort;Sort by Name
+admin_list_accountName_sort;Sort by Customer Account
+admin_list_login_sort;Sort by Login
+admin_list_profile_sort;Sort by Profile
+admin_list_createdBy_sort;Sort by Created by
+admin_list_lastLogin_sort;Sort by Last Login
+admin_list_locked_sort;Sort by Locked
+
+
+##------delete-----
+admin_delete_admin; Admin(s): 
+
+##------create------
+admin_create_admin;New User
+admin_create_profile;Profile
+admin_create_customer_account;Customer Account
+admin_create_name;Name
+admin_create_name_info;Write a full name here
+admin_create_email;eMail
+admin_create_email_info;eMail will used for login
+admin_create_password;Enter a Password
+admin_create_password_confirm;Re-enter Passwrod
+
+##----------update-------
+admin_update_admin;Edit User
+admin_update_profile;Profile
+admin_update_customer_account;Customer Account
+admin_update_name;Name
+admin_update_name_info;Write a full name here
+admin_update_email;eMail
+admin_update_email_info;eMail will used for login
+admin_update_password;Enter a Password
+admin_update_password_confirm;Re-enter Passwrod
+admin_update_islocked;Locked

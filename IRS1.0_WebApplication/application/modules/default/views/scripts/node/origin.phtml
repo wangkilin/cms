@@ -1,0 +1,303 @@
+<?php
+/**
+ * $Rev: 2503 $
+ * $LastChangedDate: 2010-06-10 18:52:13 +0800 (Thu, 10 Jun 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: origin.phtml 2503 2010-06-10 10:52:13Z zwang $
+ */
+
+/**
+ * Modal Window for Node Origin in a HTML version
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+// Disabled layout
+$this->layout()->disableLayout();
+$heading = '<div id="origin-heading" class="dialog-heading"><span class="heading-text">'
+    . $this->translate('origin_edit_origin') . '</span><span class="heading-close">×</span></div>';
+
+
+// prepare user defined origin resource: for select Option
+$resourceOrigins = '';
+foreach($this->UserOrigins as $origin) {
+    $resourceOrigins .= '<option value="' .$origin['OriginId'] . '">' .$origin['OriginName'] . '</option>';
+}
+
+// prepare resource binded origins: show Origin resource content
+$count = 1;
+$resourceBindOrigins = array();
+foreach($this->ResourceBindOrigins as $origin) {
+    if (! isset($resourceBindOrigins[$origin['OriginGroupName']])) {
+        $resourceBindOrigins[$origin['OriginGroupName']] = '';
+    }
+    $resourceBindOrigins[$origin['OriginGroupName']] .=
+                       '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $origin['OriginName']
+                           . '<input type="hidden" class="origin_item" name="params[0][ResourceOriginIds][]" value="' . $origin['OriginId'] . '">'
+                     . '</dd>';
+}
+
+// prepare resource binded prefixes: show Origin resource content
+$count = 1;
+$resourcePrefixes = '';
+foreach($this->ResourceBindPrefixes as $prefix) {
+    $resourcePrefixes .=
+                       '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $prefix['PrefixNumber']
+                     . '</dd>';
+}
+
+// prepare system origins by group
+$count = 1;
+foreach($this->SystemOrigins as $systemOrigin) {
+    $_tmpGroupName = '___' . $systemOrigin['OriginGroupName'];
+    if (!isset($$_tmpGroupName)) {
+        $$_tmpGroupName = '';
+    }
+
+    $$_tmpGroupName .= '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $systemOrigin['OriginName']
+                           . '<input type="hidden" class="origin_item" name="SysOriginIds[]" value="' . $systemOrigin['OriginId'] . '">'
+                     . '</dd>';
+}
+
+// prepare user defined origins: used for custom Origin
+$count = 1;
+$customOrigins = array();
+foreach($this->CustomBindOrigins as $origin) {
+    if (! isset($customOrigins[$origin['OriginGroupName']])) {
+        $customOrigins[$origin['OriginGroupName']] = '';
+    }
+    $customOrigins[$origin['OriginGroupName']] .=
+                       '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $origin['OriginName']
+                           . '<input type="hidden" class="origin_item" name="params[0][CustomOriginIds][]" value="' . $origin['OriginId'] . '">'
+                     . '</dd>';
+}
+
+// prepare resource binded prefixes: show Origin resource content
+$count = 1;
+$customPrefixes = '';
+foreach($this->CustomBindPrefixes as $prefix) {
+    $customPrefixes .=
+            '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $prefix['OriginPrefixName']
+               . '<input type="hidden" class="origin_item" name="params[0][CustomPrefixes][]" value="' . $prefix['OriginPrefixName'] . '">'
+          . '</dd>';
+}
+
+// prepare outputs
+$outputs = '';
+$count = 1;
+foreach($this->NodeOutputs as $output) {
+	$firstOutput = isset($firstOutput) ? '':'on';
+	$outputs .=
+             '<div class="node_output ' . $firstOutput . '" itemId="' . $count++ .'" resourceId="' . $output['OriginId'] . '" type="origin">'
+      .           '<input class="node_output_isactive" type="checkbox" name="params[' . $count . '][IsActive][]"'.(intval($output['IsActive'])==1?' checked="checked"' : '').' value="1"/>'
+      .           '<i>'
+      .               $output['NodeOutputName']
+      .           '</i>'
+      .               '<input class="node_output_id" type="hidden" name="params[' . $count . '][OutputId][]" value="'.$output['NodeOutputId'].'"/>'
+      .               '<input class="node_output_name" type="hidden" name="params[' . $count . '][OutputName][]" value="'.$output['NodeOutputName'].'"/>'
+      .           '<div class="output_menu">'
+      .              '<div>'
+      .               '<u>dropdown</u>'
+      .               '<div class="output_menu_item rename">Rename</div>'
+      .               '<div class="output_menu_item active">Active</div>'
+      .               '<div class="output_menu_item deactive">De-Active</div>'
+      .               '<div class="output_menu_item delete">Delete</div>'
+      .              '</div>'
+      .           '</div>'
+      .       '</div>';
+}
+if (''==$outputs) {
+    $outputs =
+             '<div class="node_output on" itemId="1" type="origin">'
+      .           '<input class="node_output_isactive" type="checkbox" name="params[1][IsActive][]" checked="checked" value="1"/>'
+      .           '<i>'
+      .               'Output 1'
+      .           '</i>'
+      .               '<input class="node_output_name" type="hidden" name="params[1][OutputName][]" value="Output"/>'
+      .           '<div class="output_menu">'
+      .              '<div>'
+      .               '<u>dropdown</u>'
+      .               '<div class="output_menu_item rename">Rename</div>'
+      .               '<div class="output_menu_item active">Active</div>'
+      .               '<div class="output_menu_item deactive">De-Active</div>'
+      .               '<div class="output_menu_item delete">Delete</div>'
+      .              '</div>'
+      .           '</div>'
+      .       '</div>';
+}
+
+
+// Here, get the final origin list
+$resouceGroups = '';
+$systemGroups = '';
+$customGroups = '';
+foreach($this->OriginGroups as $group) {
+    $systemGroups .= '<dl id="group_' . $group['OriginGroupId'] . '" class="collapse">'
+                   . '<dt><i>icon</i><u>' . $group['OriginGroupName'] . '</u></dt>';
+    $_tmpGroupName = '___' . $group['OriginGroupName'];
+    if (isset($$_tmpGroupName)) {
+        $systemGroups .= $$_tmpGroupName;
+    }
+
+    $systemGroups .= '</dl>';
+
+    if (isset($resourceBindOrigins[$group['OriginGroupName']])) {
+        $resouceGroups .= '<dl id="group_' . $group['OriginGroupId'] . '" class="collapse">'
+                   . '<dt><i>icon</i><u>' . $group['OriginGroupName'] . '</u></dt>';
+        $resouceGroups .= $resourceBindOrigins[$group['OriginGroupName']];
+        $resouceGroups .= '</dl>';
+    }
+
+    if (isset($customOrigins[$group['OriginGroupName']])) {
+        $customGroups .= '<dl class="collapse">'
+                   . '<dt><i>icon</i><u>' . $group['OriginGroupName'] . '</u></dt>';
+        $customGroups .= $customOrigins[$group['OriginGroupName']];
+        $customGroups .= '</dl>';
+    }
+}
+
+$body = '<p id="zone_resource_label">'
+           . '<label>' . $this->translate('node_origin_input_name') . '</label>'
+           . '<input type="text" name="Label" value=""/>'
+      . '</p>'
+      . '<input type="hidden" name="TreeId" value="' . $this->TreeId . '"/>'
+      . ($this->NodeId?('<input type="hidden" name="NodeId" value="' . $this->NodeId . '"/>'):'')
+
+      . '<table id="table_origin_node">'
+      .  '<tr>'
+      .    '<td id="output_zone" action="' . $baseUrl .'/node" deleteWarning="'.$this->translate('node_cannot_delete_last_output').'">'
+      .    $outputs
+      .       '<div id="add_origin_output_button">'
+      .         'Add output'
+      .       '</div>'
+      .       '<div id="output_template" class="" itemId="" type="origin">'
+      .           '<i>Output</i>'
+      .           '<div class="output_menu">'
+      .              '<div>'
+      .               '<u>dropdown</u>'
+      .               '<div class="output_menu_item rename">Rename</div>'
+      .               '<div class="output_menu_item active">Active</div>'
+      .               '<div class="output_menu_item deactive">De-Active</div>'
+      .               '<div class="output_menu_item delete">Delete</div>'
+      .              '</div>'
+      .           '</div>'
+      .       '</div>'
+      .    '</td>'
+      .    '<td id="td_resource_zone">'
+
+      . '<table class="resource_zone" itemId="1">'
+      .  '<tr>'
+      .    '<td class="zone_origin_list_explain" colspan="5">'
+      .       '<i class="resource_list">' . $this->translate('node_origin_resource_explain') . '</i>'
+      .       '<i class="custom_list">' . $this->translate('node_origin_list_explain') . '</i>'
+      .    '</td>'
+      .  '</tr>'
+      . '<tr>'
+      . '<td>'
+      .    '<p>'
+      .       '<input '
+      .         (!isset($this->DefaultOrigin['Automatic']) ||  $this->DefaultOrigin['Automatic']==true?'checked="checked"':'')
+      .         ' class="OriginTypeResource" type="radio" name="params[1][OriginType]" value="0"/>'
+      .       '<label>' . $this->translate('node_origin_type_user') . '</label>'
+      .    '</p>'
+      .    '<p>'
+      .       '<input '
+      .         (isset($this->DefaultOrigin['Automatic']) &&  $this->DefaultOrigin['Automatic']==false?'checked="checked"':'')
+      .         ' class="OriginTypeCustom" type="radio" name="params[1][OriginType]" value="1"/>'
+      .       '<label>' . $this->translate('node_origin_type_custom') . '</label>'
+      .    '</p>'
+      . '</td>'
+
+      // START:: User defined list
+      . '<td class="zone_user_resource_list resource_list">'
+      . '<label>' . $this->translate('node_origin_resource_list') . '</label>'
+      . '<br/>'
+      . '<select action="' . $baseUrl . '/origin" class="origin_resource_list" name="params[1][UserOriginId]">'
+           . $resourceOrigins
+      . '</select>'
+      . '</td>'
+      . '<td class="zone_user_resource_content resource_list">'
+      . '<label>' . $this->translate('node_origin_resource_origins') . '</label>'
+      . '<div class="resource_origin_list">'
+           . $resouceGroups
+           . '<dl class="resource_prefix_list">'
+           . '<dt>'
+           .   '<i>icon</i>'
+           .   '<u>' . $this->translate('node_origin_phone_prefix') . '</u>'
+           . '</dt>'
+           . $resourcePrefixes
+           . '</dl>'
+      . '</div>'
+      . '</td>'
+      // END:: User defined list
+
+
+      // START:: Costom list
+      . '<td class="zone_system_origin_list custom_list">'
+      . '<label>' . $this->translate('node_origin_predefined_list') . '</label>'
+      . '<div class="system_origin_list">'
+           . $systemGroups
+      . '</div>'
+      . '<p class="zone_phone_prefix">'
+           . '<label>' . $this->translate('node_origin_type_prefix') . '</label>'
+           . '<br>'
+           . '<input type="text" class="phone_prefix" value=""/>'
+      . '</p>'
+      . '</td>'
+
+      . '<td class="zone_button_container custom_list">'
+      . '<button class="right_arrow go_right" action="' . $baseUrl . '/origin">-&gt;</button>'
+      . '<button class="left_arrow go_left" action="' . $baseUrl . '/origin">&lt;-</button>'
+      . '<button class="right_arrow add_prefix" action="' . $baseUrl . '/origin/addprefix">-&gt;</button>'
+      . '</td>'
+
+      . '<td class="zone_user_origin_list custom_list">'
+      . '<label>' . $this->translate('node_origin_custom_list') . '</label>'
+      . '<div class="user_origin_list">'
+           . $customGroups
+           . '<dl class="user_prefix_list">'
+           . '<dt>'
+           .   '<i>icon</i>'
+           .   '<u>' . $this->translate('node_origin_phone_prefix') . '</u>'
+           . '</dt>'
+           . $customPrefixes
+           . '</dl>'
+      . '</div>'
+      . (isset($this->DefaultOrigin['OriginId'])?('<input type="hidden" name="params[1][CustomOriginId]" class="CustomOriginId" value="'.$this->DefaultOrigin['OriginId'].'">'):'')
+      . '</td>'
+      //END:: Custom list
+      . '</tr>'
+      . '</table>'
+
+
+      . '</td>'
+      . '</tr>'
+      . '</table>'
+
+      . '<div class="clear"/>'
+
+      . '<div class="middle_button_zone">'
+      .    '<span>'
+      .        '<button id="edit_button" itemId="'.$this->Origin['OriginId'].'">' . $this->translate('application_handler_ok') . '</button>'
+      .    '</span>'
+      . '</div>'
+
+        ;
+
+echo '<div class="dialog" id="node_output_origin_dialog"><div class="dialog-content">' . $heading . '<div id="origin-body" class="dialog-body">' .
+    $this->Form('edit-origin-form',
+        array(
+            'method' => Zend_Form::METHOD_POST,
+            'enctype' => Zend_Form::ENCTYPE_URLENCODED,
+            'action'  => $baseUrl . '/edit',
+            'class'   => 'edit-origin-form'
+        ), $body)
+    . '</div></div></div>'
+    ;
+
+/* EOF */

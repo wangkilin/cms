@@ -1,0 +1,335 @@
+@CHARSET "UTF-8";
+body
+{
+margin: 0px;
+font-size: 13px;
+color: #333333;
+font-family:Arial,Helvetica,sans-serif;
+}
+a{
+font-size: 13px;
+text-decoration: none;
+color: #333333;
+}
+a:link{
+color: #333333;
+}
+a:visited{
+color: #333333;
+}
+a:hover{
+color: #000000;
+}
+a:active{
+color: #333333;
+}
+
+form{
+margin:0;
+}
+
+.clear
+{
+clear:both;
+}
+
+#top_menu
+{
+border:0 none;
+padding:3px;
+}
+.head_content
+{
+}
+.left_content
+{
+border-right:1px dashed #C5C5C5;
+padding:5px;
+width:270px;
+}
+.main_content_top
+{
+}
+.right_content
+{
+border-left:1px dashed #C5C5C5;
+padding:5px;
+width:260px;
+}
+.body_banner_content
+{
+margin:2px 0;
+}
+.bottom_content
+{
+}
+#banner
+{
+text-align:center;
+}
+#banner_right
+{
+float:right;
+}
+#body_banner
+{
+}
+#body_content
+{
+}
+#bottom_menu
+{
+}
+#head_menu
+{
+display:block;
+height:28px;
+}
+#left_block
+{
+	
+}
+#left_menu
+{
+}
+#logo
+{
+padding:3px 16px 3px 3px;
+}
+#right_block
+{
+}
+#right_menu
+{
+}
+
+.newsList a
+{
+border-bottom:1px dotted #888888;
+margin:0 8px 0 0;
+padding:2px 0;
+float:left;
+clear:left;
+}
+.newsList i
+{
+color:#A171C1;
+float:right;
+font-size:11px;
+padding:5px 0 0;
+}
+
+.pageFoot,
+.pageFoot a
+{
+color:#555555;
+font-size:12px;
+padding:5px 20px 0;
+text-align:right;
+vertical-align:top;
+}
+
+.newsList
+{
+padding:0 15px;	
+}
+.latestNewsList
+{
+padding:0;
+}
+.newsList .news_title
+{
+clear:left;
+float:left;
+margin:3px 5px 3px 0;
+text-indent:16px;
+background:transparent url(../images/icon_star.gif) no-repeat scroll 0 -5px;
+}
+.newsList .news_create_time
+{
+color:#888888;
+float:left;
+font-size:11px;
+height:12px;
+margin:5px 0 0;
+overflow:hidden;
+width:70px;
+}
+#newsContentZone
+{
+padding: 0 10px;
+}
+#my_main_content .news_title
+{
+color:#A171C1;
+font-size:14px;
+font-weight:bold;
+margin: 0 0 8px;
+}
+#my_main_content  .news_create_author
+,#my_main_content .news_create_time
+,#my_main_content .news_reference_url
+{
+color:#999999;
+font-size:11px;
+font-style:italic;
+margin:2px;
+}
+
+#head_menu i
+{
+color:#965BD9;
+font-weight:bold;
+line-height:28px;
+}
+#head_menu a
+{
+color:#965BD9;
+font-weight:bold;
+line-height:28px;
+margin:0 5px;
+padding:0 3px;
+}
+#head_menu_front_head_menu
+{
+}
+.item
+{
+clear:left;
+float:left;
+width:100%;
+}
+.itemOddLine
+{
+}
+.itemEvenLine
+{
+background-color:#e1d7ee;
+}
+.itemOddLine:HOVER
+,.itemEvenLine:HOVER
+{
+background-color:#E7FAFA;
+border-bottom:1px dotted #d5d5d5;
+}
+.subItem
+{
+float:left;
+margin:3px 0;
+padding:2px 0;
+}
+.LIST_0
+{
+width:20px;
+}
+.itemPage
+{
+clear:left;
+float:left;
+margin:8px 0 2px;
+text-align:center;
+width:100%;
+}
+.itemNumberForPage
+{
+clear:left;
+float:left;
+text-align:center;
+width:100%;
+}
+#fortune_cloud {
+position:absolute;
+width:44px;
+height:24px;
+z-index:1;
+}
+#fortune_cloud_banner {
+z-index:1;
+background:url("../images/banner_cloud.png") repeat scroll 0px 0px;
+}
+#my_main_content
+{
+border:1px solid #E1D7EE;
+display:inline-block;
+margin:10px;
+padding:5px 1px;
+width:500px;
+}
+.news_information
+{
+margin:0 15px;
+}
+.newsList .news_information
+{
+margin:0;
+}
+.newsListTitle
+{
+border-bottom:2px solid #d29761;
+margin:15px 15px 3px 0;
+padding:0 0 5px;
+color:#921692;
+font-weight:bold;
+}
+#left_block_getLatestNews
+{
+position:absolute;
+z-index:2;
+}
+.companyWish
+{
+color:#333333;
+font-size:15px;
+height:80px;
+margin:0;
+padding:40px 0 0;
+}
+#left_block_randomNews
+{
+
+}
+#left_block_randomNews .news_information > div
+{
+float:left;
+width:130px;
+}
+#left_block_randomNews .news_information > div img
+{
+margin:0 0 0 5px;
+}
+#left_block_randomNews .news_information .news_title a
+{
+color:#6600ff;
+}
+#left_block_randomNews .news_information .news_title
+{
+float:right;
+position:absolute;
+width:130px;
+text-align:center;
+margin:110px 0 0;
+}
+#left_block_randomNews .news_information .news_intro_text
+{
+text-align:center;
+}
+.itemPage
+, .itemNumberForPage
+{
+display:none;
+}
+#page_foot_bg_music
+{
+float:left;
+height:20px;
+margin:0;
+overflow:hidden;
+padding:0;
+width:100px;
+}
+#flash_mp3
+{
+margin:0;
+padding:0;
+height:20px;
+}

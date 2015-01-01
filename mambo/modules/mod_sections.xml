@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>单元列表</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>The Section module shows a list of all Sections configured in your database. The Sections refer here to the Item Sections only. If the configuration 'Show Unauthorized Links' is set, the list will be limited to the sections the user is allowed to see.</description>
+	<files>
+	<filename module="mod_sections">mod_sections.php</filename>
+	</files>
+	<params>
+		<param name="count" type="text" default="5" label="数量" description="显示单元数量(默认为 5)" />
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

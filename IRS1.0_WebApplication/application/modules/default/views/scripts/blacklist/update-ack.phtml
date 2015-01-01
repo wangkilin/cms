@@ -1,0 +1,55 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+?>
+<div class="notification"><?php echo $this->translate('blacklist_is_updated', $this->Blacklist['BlacklistName']);?></div>
+<table>
+    <tr>
+        <td class="column-1">
+            <input type="checkbox" name="blacklist_list[]" value="<?php echo $this->Blacklist['BlacklistId']?>"/></p>
+        </td>
+        <td class="column-2">
+            <span><?php echo $this->Blacklist['BlacklistName']?></span>
+            <div class="manager">
+                <a class="manager-edit" href="<?php echo $baseUrl?>/update/BlacklistId/<?php echo $this->Blacklist['BlacklistId']?>">
+                    <?php echo $this->translate('application_handler_edit')?>
+                </a> | <a class="manager-delete" href="<?php echo $baseUrl?>/delete?BlacklistIds[]=<?php echo $this->Blacklist['BlacklistId']?>&BlacklistNames[]=<?php
+                    echo urlencode($this->Blacklist['BlacklistName'])?>"><?php echo $this->translate('application_handler_delete')?>
+                </a>
+            </div>
+        </td>
+        <td class="column-3" title="">
+            <span><?php echo 1;//$this->Blacklist['NumberCount']?></span>
+        </td>
+        <td class="column-4" title="">
+            <span><?php echo $this->Blacklist['DynamicDtmf']?></span>
+        </td>
+        <td class="column-5" title="">
+            <span><?php echo $this->Blacklist['CreationDatetime']?></span>
+        </td>
+        <td class="column-6" title="">
+            <span><?php echo $this->Blacklist['ModificationDatetime']?></span>
+        </td>
+        <td class="column-7" title="">
+            <span><?php echo $this->Blacklist['CustomerUserName']?></span>
+        </td>
+        <td class="column-0" title="">
+            <i class="resource_<?php echo ($this->Blacklist['ReferenceCounter']>0 ? 'in':'not')?>_use"><?php echo $this->Blacklist['ReferenceCounter']?></i>
+        </td>
+    </tr>
+</table>
+<?php
+/* EOF */

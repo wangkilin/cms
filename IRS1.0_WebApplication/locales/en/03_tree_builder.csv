@@ -1,0 +1,187 @@
+## tree builder translaton on this web application
+##----------------------------
+list_panel_tree;Routing Tree
+list_panel_tree_number_groups;Number Groups
+list_panel_tree_nodes;Avaliable Rounting Nodes
+##----------------------------
+contextmenu_origin;Origin
+contextmenu_calendar;Calendar
+contextmenu_prompt;Prompt
+contextmenu_distribution;Distribution
+contextmenu_menu;Ivr Menu
+contextmenu_destination;Destination
+contextmenu_link;Link
+contextmenu_blacklist;Blacklist
+contextmenu_hangup;Hang Up
+##----------------------------
+tree_node_type_origin;Origin
+tree_node_type_origin_description;Node Origin, Blah blah blah ...
+tree_node_type_calendar;Calendar
+tree_node_type_calendar_description;Node Calendar, Blah blah blah ...
+tree_node_type_prompt;Prompt
+tree_node_type_prompt_description;Node Prompt, Blah blah blah ...
+tree_node_type_distribution;Distribution
+tree_node_type_distribution_description;Node Distribution, Blah blah blah ...
+tree_node_type_menu;Ivr Menu
+tree_node_type_menu_description;Node Ivr Menu, Blah blah blah ...
+tree_node_type_destination;Destination
+tree_node_type_destination_description;Node Destination, Blah blah blah ...
+tree_node_type_link;Link
+tree_node_type_link_description;Node Link, Blah blah blah ...
+tree_node_type_blacklist;Blacklist
+tree_node_type_blacklist_description;Node Blacklist, Blah blah blah ...
+tree_node_type_hangup;Hung Up
+tree_node_type_hangup_description;Node Hang Up, Blah blah blah ...
+##----------------------------
+application_tree_start;Start
+application_tree_start_description_short;Define a rule
+##----------------------------
+dialog_form_node_label;%s Name
+dialog_form_node_label_default;Write a Name
+dialog_form_node_label_description;Write a Name for your Node %s
+##----------------------------
+dialog_heading_node_link;Link
+dialog_heading_node_link_description;Node Link Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_menu;Ivr Menu
+dialog_heading_node_menu_description;Node Ivr Menu Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_hangup;Hang Up
+dialog_heading_node_hangup_description;Node Hang Up Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_blacklist;Blacklist
+dialog_heading_node_blacklist_description;Node Blacklist Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_destination;Destination
+dialog_heading_node_destination_description;Node Destination Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_prompt;Prompt
+dialog_heading_node_prompt_description;Node Prompt Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_distribution;Distribution
+dialog_heading_node_distribution_description;Node Distribution Description, blah blah blah blah blah blah blah blah blah ...
+##----------------------------
+dialog_heading_node_active;On
+dialog_heading_node_deactive;Off
+##----------------------------
+dialog_form_node_link_is_internal;Internal Link
+dialog_form_node_link_is_external;External Link
+dialog_form_node_link_description_query_internals;Enter the description name of the nodes which you want to link to.
+dialog_form_node_link_description_query_externals;Select one sub tree from the following dropdown list which you want to link to.
+dialog_form_node_link_external_tree_list;LinkTo a Sub Tree:
+dialog_form_node_link_external_tree_list_option_default;Select a Sub Tree
+##----------------------------
+dialog_form_node_menu_prompt_optgroup_standard;Standard Prompt
+dialog_form_node_menu_prompt_optgroup_customer;Customer Prompt
+dialog_form_node_menu_prompt_greeting;Invite Prompt:
+dialog_form_node_menu_prompt_greeting_option_default;Select a prompt
+dialog_form_node_menu_prompt_wrong_dtmf_key;Wrong Key Prompt:
+dialog_form_node_menu_prompt_wrong_dtmf_key_option_default;Select a prompt
+dialog_form_node_menu_prompt_no_dtmf_key;No Key Prompt:
+dialog_form_node_menu_prompt_no_dtmf_key_option_default;Select a prompt
+dialog_form_node_menu_maximum_tries;Number of Tries: 
+dialog_form_node_menu_timeout_duration;Time Out Duration: 
+dialog_form_node_menu_detect_dtmf_on_prompt;Detect DTMF during prompt
+dialog_form_node_menu_detect_dtmf_on_prompt_option_no;No
+dialog_form_node_menu_detect_dtmf_on_prompt_option_yes;Yes
+dialog_form_node_menu_dtmf_keyboard;Choose the active outputs DTMF:
+dialog_form_node_menu_dtmf_keyboard_description;Will create outputs regarding the DTMF keys pressed
+dialog_form_node_menu_dtmf_key_locked;This key has been assigned a node, you cannot release it.
+dialog_form_node_menu_dtmf_key_assigned;Clickable to release it directly.
+dialog_form_node_menu_dtmf_key_required;This key is required for the current node.
+dialog_form_node_menu_dtmf_key_1;1
+dialog_form_node_menu_dtmf_key_2;2
+dialog_form_node_menu_dtmf_key_3;3
+dialog_form_node_menu_dtmf_key_4;4
+dialog_form_node_menu_dtmf_key_5;5
+dialog_form_node_menu_dtmf_key_6;6
+dialog_form_node_menu_dtmf_key_7;7
+dialog_form_node_menu_dtmf_key_8;8
+dialog_form_node_menu_dtmf_key_9;9
+dialog_form_node_menu_dtmf_key_star;*
+dialog_form_node_menu_dtmf_key_0;0
+dialog_form_node_menu_dtmf_key_pound;#
+dialog_form_node_menu_dtmf_key_error;Error Output
+dialog_form_node_menu_dtmf_key_error_description;Activate a specific output for time-out or exceed input error
+##----------------------------
+dialog_form_node_hangup_release_cause;Cause:
+dialog_form_node_hangup_release_cause_option_default;Select a release cause
+##----------------------------
+dialog_form_node_destination_type_simple_number;Phone Number
+dialog_form_node_destination_type_agent_group;Skill Groups
+dialog_form_node_destination_type_simplified_failover_group;Multiple Numbers
+dialog_form_node_destination_query_contact_by_number_or_name;Enter a Number or Name
+dialog_form_node_destination_parameter_ring_duration;Ring Duration
+dialog_form_node_destination_parameter_has_waiting_queue;Waiting Queue
+dialog_form_node_destination_parameter_waiting_queue_prompt_greeting;Greeting Prompt
+dialog_form_node_destination_parameter_waiting_queue_prompt_greeting_option_default;Choose a Prompt
+dialog_form_node_destination_parameter_waiting_queue_prompt_standard;Standard Prompt
+dialog_form_node_destination_parameter_waiting_queue_prompt_customer;Customer Prompt
+dialog_form_node_destination_parameter_waiting_queue_prompt_periodic;Periodic Prompt
+dialog_form_node_destination_parameter_waiting_queue_prompt_periodic_option_default;Choose a Prompt
+dialog_form_node_destination_parameter_waiting_queue_max_length;Maximum Length
+dialog_form_node_destination_parameter_waiting_queue_max_waiting_time;Maximum Waiting Time (in second)
+dialog_form_node_destination_parameter_has_position_prompt;Position Prompt
+dialog_form_node_destination_parameter_position_limit_length;Until Position:
+dialog_form_node_destination_parameter_position_limit_length_description;Enter a Number
+dialog_form_node_destination_parameter_has_simutaneous_calls;Simutaneous Calls
+dialog_form_node_destination_parameter_simutaneous_calls_max_length_description;Enter a Number
+dialog_form_node_destination_parameter_agentgroup_selection_option_default;Choose a Group
+dialog_form_node_destination_failover_contact_input_default;Enter a Number or Name
+dialog_form_node_destination_posiable_outputs;Output
+dialog_form_node_destination_output_no_answer;No Answer
+dialog_form_node_destination_output_busy;Occupied
+dialog_form_node_destination_output_unreachable;Not Reached
+dialog_form_node_destination_output_congestion;Overload
+dialog_form_node_destination_output_waiting_duration_exceed;Waiting Time Exceed
+dialog_form_node_destination_output_queue_is_full;Queue Length Exceed
+dialog_form_node_destination_output_successfully_ended;Successfully Ended
+dialog_form_node_destination_output_no_answer_description;The maximum ringing time was reached when trying to establish a call.
+dialog_form_node_destination_output_busy_description;An error was received in response.
+dialog_form_node_destination_output_unreachable_description;Another error occurred while trying to establish the call. 
+dialog_form_node_destination_output_congestion_description;Too many calls are simultaneously connected.
+dialog_form_node_destination_output_waiting_duration_exceed_description;The maximum waiting duration is reached for a call in a queue. 
+dialog_form_node_destination_output_queue_is_full_description;The maximum number of calls in the queue is reached. 
+dialog_form_node_destination_output_successfully_ended_description;The call was successfully established, and then the callee hung up the phone.
+##----------------------------
+dialog_form_node_distribution_type_proportional;Proportional Distribution
+dialog_form_node_distribution_type_cyclical;Cyclical Distribution
+dialog_form_node_distribution_label_random;Output %s
+dialog_form_node_distribution_percentage;%
+##----------------------------
+dialog_form_node_blacklist_has_payphone_filter;Block Phone booth Caller
+dialog_form_node_blacklist_payphone_rejection_prompt_option_default;Select Prompt
+dialog_form_node_blacklist_prompt_no;No Prompt
+dialog_form_node_blacklist_prompt_standard;Standard Prompt
+dialog_form_node_blacklist_prompt_customer;Customer Prompt
+dialog_form_node_blacklist_payphone_rejection_prompt_description;Select a prompt from resources. If you choose no prompt, user will be disconnect without notice.
+dialog_form_node_blacklist_is_blacklist_rejection;Disconnect Blacklisted Callers
+dialog_form_node_blacklist_selection_option_default;Select Blacklist
+dialog_form_node_blacklist_selection_no;No Blacklist
+dialog_form_node_blacklist_selection_description;
+dialog_form_node_blacklist_is_blacklist_rejection_prompt_option_default;Select Prompt
+dialog_form_node_blacklist_is_blacklist_rejection_prompt_description;
+##----------------------------
+dialog_form_node_prompt_is_standard;Standard
+dialog_form_node_prompt_is_customer;User Defined
+dialog_form_node_prompt_standard_option_default;Choose Prompt
+dialog_form_node_prompt_customer_option_default;Choose a Prompt
+dialog_form_node_prompt_output_is_active;Active Output
+##----------------------------
+node_create_success;Node %s is created
+node_update_success;Node %s is updated
+##----------------------------
+node_origin_resource_explain;You are using a parameter from your resources. Go to Your Resources for making modifications
+node_origin_list_explain;
+node_origin_type_user;User Defined list
+node_origin_type_custom;Custom list
+node_origin_type_system;Predefined list
+node_origin_type_prefix;Prefix
+node_origin_resource_list;User Defined List
+node_origin_resource_origins;my Resource 1
+node_origin_predefined_list;Predefined List
+node_origin_custom_list;My List
+node_origin_phone_prefix;Prefix
+node_cannot_delete_last_output;Can not delete the last output.
+##----------------------------
+## EOF

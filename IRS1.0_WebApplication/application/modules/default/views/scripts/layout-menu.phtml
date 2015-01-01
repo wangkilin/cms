@@ -1,0 +1,105 @@
+<?php
+/**
+ * $Rev: 2637 $
+ * $LastChangedDate: 2010-06-22 15:00:36 +0800 (Tue, 22 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: layout-menu.phtml 2637 2010-06-22 07:00:36Z junzhang $
+ */
+
+/**
+ * Global view menu container
+ */
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+// Session instance
+$sessionSpace = new Zend_Session_Namespace('SwIRS_Web');
+$session = $sessionSpace->getIterator();
+
+$isLogined = (bool)$session->count();
+$currentAction = $this->CurrentRequestUri ? 
+    $this->CurrentRequestUri : $this->getHelper('Action')->request->getControllerName();
+$currentAction = strtolower($currentAction);
+
+$menu = array();
+$location = array(null, null);
+
+if ($isLogined) {
+    $menu = $session->offsetExists('menu') ? $session->offsetGet('menu') : array();
+    $userInfo = $session->offsetExists('userInfo') ? $session->offsetGet('userInfo') : array('Name' => null);
+
+    if (array_key_exists($currentAction, $menu)) {
+        $location[0] = $currentAction;
+    } elseif (count($menu)) {
+        foreach($menu as $index => $item) {
+            if (in_array($currentAction, $item)) {
+                $location[0] = $index;
+                $location[1] = $currentAction;
+                break;
+            }
+        }
+    }
+}
+?>
+    <div class="status">
+        <?php if ($isLogined) : ?>
+        <span>
+            <?php echo $this->translate('application_msg_welcome'); ?>
+            <?php echo $userInfo['Name']; ?>
+        </span>
+        <span class="ui-icon ui-icon-triangle-1-s"></span> 
+        <dl>
+            <dd><a href="<?php echo $baseUrl; ?>/admin/account"><?php echo $this->translate('application_menu_dropdown_usermenu');?></a></dd>
+            <?php if($_SESSION['APPLICATION_ROLE'] == SwIRS_Web_Request::SUPER_ADMIN  && !SwIRS_Web_Request::isSuperAdmin($this->getHelper('Action')->request)) : ?>
+            <dd><a id="<?php echo SwIRS_Web_Request::SUPER_ADMIN_CUSTOMER_ACCOUNT_ID; ?>" class="go-back-super-admin" href="<?php echo $baseUrl, '/admin/sudo/AssignedCustomerAccountId/', SwIRS_Web_Request::SUPER_ADMIN_CUSTOMER_ACCOUNT_ID; ?>"><?php echo $this->translate('application_menu_dropdown_gobackadmin');?></a></dd>
+            <?php endif; ?>
+        </dl>     
+        <a href="<?php echo $baseUrl; ?>/index/logout">Logout</a>
+        <?php else : ?>
+        <span><?php echo $this->translate('application_msg_not_logged_in'); ?></span>
+        <?php endif; ?>
+    </div>
+
+<?php if (!empty($menu)) : ?>
+    <ul id="nav-main">
+        <?php 
+            foreach(array_keys($menu) as $main) : 
+            $content = str_replace('/', '_', $main);
+        ?>
+        <li <?php if ($location[0] == $main) : ?> class="on"<?php endif; ?>>
+            <a href="<?php echo $baseUrl, '/', (count($menu[$main]) ? $menu[$main][0] : $main); ?>">
+                <b><?php echo $this->translate('application_nav_main_' . $content); ?></b>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="clear"></div>
+    <?php if (null !== $location[1]) : ?>
+    <ul id="nav-sub">
+        <?php foreach($menu[$location[0]] as $sub) : 
+            $content = str_replace('/', '_', $sub);
+        ?>
+        <li <?php if ($location[1] == $sub) : ?> class="on"<?php endif; ?>>
+            <a href="<?php echo $baseUrl, '/', $sub; ?>">
+                <b><?php echo $this->translate('application_nav_sub_' . $content); ?></b>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="clear"></div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php
+
+// free memory
+$sessionSpace = null;
+unset($sessionSpace);
+
+/* EOF */

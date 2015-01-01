@@ -1,0 +1,68 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/customer';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->CustomerAccounts);
+?>
+<tfoot>
+    <tr>
+        <td colspan="6">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->CustomerAccounts as $customerAccount) {
+?>
+        <tr id="row-item-<?php echo $customerAccount['CustomerAccountId']?>" class="row-item <?php echo ($count++%2 ? 'leaper' : '') ;?>">
+            <td class="column-1"><input type="checkbox"/></td>
+            <td class="column-2" title="<?php echo $customerAccount['CustomerAccountName']?>">
+                <span><?php echo $customerAccount['CustomerAccountName']?></span>
+                <div class="manager">
+                    <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                    href="<?php echo $baseUrl?>/update/CustomerAccountId/<?php echo $customerAccount['CustomerAccountId']?>"><?php
+                        echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                        title="<?php echo $this->translate('application_handler_delete')?>"
+                    href="<?php echo $baseUrl?>/delete?CustomerAccountIds[]=<?php echo $customerAccount['CustomerAccountId']?>&CustomerAccountNames[]=<?php
+                        echo urlencode($customerAccount['CustomerAccountName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+                </div>
+            </td>
+            <td class="column-3" title="<?php echo $customerAccount['CustomerAccountBillingId']?>">
+                <span><?php echo $customerAccount['CustomerAccountBillingId']?></span>
+            </td>
+            <td class="column-4" title="<?php echo $customerAccount['ContactName']?>">
+                <span><?php echo $customerAccount['ContactName']?></span>
+            </td>
+            <td class="column-5" title="<?php echo $customerAccount['ContactEmail']?>">
+                <span><?php echo $customerAccount['ContactEmail']?></span>
+            </td>
+            <td class="column-0" title="<?php echo $customerAccount['ContactPhone']?>">
+                <span><?php echo $customerAccount['ContactPhone']?></span>
+            </td>
+        </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="6"><span><?php echo $this->translate('customer_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

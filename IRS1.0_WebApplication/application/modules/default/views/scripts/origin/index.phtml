@@ -1,0 +1,37 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/origin.css');
+$this->headScript()->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/origin.js');
+
+
+$translate = Streamwide_Web_Translate::functor();
+?>
+<div class="grid_2 prefix_1 oops-container">
+  <div id="left_menu" class="left_menu">
+    <a href="<?php echo $baseUrl?>/origin/list" class="sw-button on"><?php echo $translate('left_menu_origin')?></a>
+    <a href="<?php echo $baseUrl?>/origin/create" class="sw-button only-popup"><?php echo $translate('left_menu_add_origin')?></a>
+  </div>
+</div>
+
+<div class="grid_12 suffix_1 oops-container">
+<?php
+echo $this->render('origin/list.phtml');
+?>
+</div>
+<?php
+/* EOF */

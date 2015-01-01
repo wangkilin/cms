@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Content Section Archive</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This component shows a listing of items archived for a particular section</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="一个小图片，放在菜单项的左边或右边，图片必须在目录 images/stories/ 中" />
+		<param name="pageclass_sfx" type="text" size="20" default="" label="页面css后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="header" type="text" size="30" default="" label="页面标题" description="显示在页面顶部的文本" />
+		<param name="page_title" type="radio" default="1" label="页面标题" description="显示/隐藏页面标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="leading" type="text" size="3" default="1" label="顶部条目数" description="显示在顶部的条目数，条目占据中间区域的全部。设置为0的话，表示没有顶部的条目。" />
+		<param name="intro" type="text" size="3" default="4" label="介绍条目数" description="显示介绍文本的条目数。" />
+		<param name="columns" type="text" size="3" default="2" label="栏数" description="当显示介绍文本时，每行显示的栏目数。" />
+		<param name="link" type="text" size="3" default="4" label="列表条目数" description="显示条目的标题连接列表数" />
+		<param name="orderby_pri" type="list" default="" label="分类排序" description="根据分类来排序条目">
+			<option value="">不，只用整体排序</option>
+			<option value="alpha">标题顺序</option>
+			<option value="ralpha">标题反序</option>
+			<option value="order">条目次序</option>
+		</param>
+		<param name="orderby_sec" type="list" default="" label="整体排序" description="排序所有在此显示的条目。">
+			<option value="">默认</option>
+			<option value="date">日期顺序</option>
+			<option value="rdate">日期反序</option>
+			<option value="alpha">标题顺序</option>
+			<option value="ralpha">标题反序</option>
+			<option value="author">作者顺序</option>
+			<option value="rauthor">作者反序</option>
+			<option value="hits">点击从大到小</option>
+			<option value="rhits">点击从小到大</option>
+			<option value="order">条目次序</option>
+		</param>
+		<param name="pagination" type="list" default="2" label="分页" description="显示/隐藏分页支持">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+			<option value="2">自动</option>
+		</param>
+		<param name="pagination_results" type="radio" default="1" label="分页结果" description="显示/隐藏分页结果信息(如：1-4 / 4 )">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="image" type="radio" default="1" label="Mambo图片" description="显示/隐藏 {mosimages}.">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="category" type="radio" default="0" label="分类名称" description="显示/隐藏条目所属的分类">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="category_link" type="radio" default="0" label="分类名称可链接" description="使分类名称链接到其分类页面">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="item_title" type="radio" default="1" label="条目标题" description="显示/隐藏条目标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="link_titles" type="list" default="" label="链接标题" description="使条目标题可链接">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="readmore" type="list" default="" label="更多" description="显示/隐藏更多链接">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>	
+		<param name="rating" type="list" default="" label="条目评级" description="显示/隐藏条目评级 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="author" type="list" default="" label="作者名称" description="显示/隐藏作者名称 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="createdate" type="list" default="" label="创建日期时间" description="显示/隐藏创建日期时间 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="modifydate" type="list" default="" label="更改日期时间" description="显示/隐藏更改日期时间 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="pdf" type="list" default="" label="PDF图标" description="显示/隐藏PDF图标 - 只影响该页面">
+			<option value="">Use Global</option>
+			<option value="0">Hide</option>
+			<option value="1">Show</option>
+		</param>
+		<param name="print" type="list" default="" label="打印图标" description="显示/隐藏打印图标 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email" type="list" default="" label="Email图标" description="显示/隐藏Email图标 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+	</params>
+</mosinstall>

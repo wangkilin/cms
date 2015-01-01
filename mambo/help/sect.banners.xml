@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Banner Manager List</title>
+
+  <para>This page shows show a list of the Banners for your site.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Impressions Made</emphasis>: This is the number of times the banner has been shown on your site.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Impressions Left</emphasis>: This is the number of impressions left to display if a limit has been set while creating or editing a banner.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Clicks</emphasis>: This is the number of times that particular banner has been clicked on by a user of the site.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">% Clicks</emphasis>: This is the number of clicks as a percentage ratio to the number of impressions that have been made. 1% would mean for example, that 1 in every 100 people had clicked on the banner.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This displays whether the banner is currently Published for display or not.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>To Publish or Unpublish one or more banners, select the checkbox(es) next to the name of the banner(s) and click either the 'Publish' or 'Unpublish' icon.</para>
+
+  <para>Click the 'New' icon to add a new banner.</para>
+
+  <para>Click the name of the banner to Edit the details, or select the check box next to the name and click the 'Edit' icon.</para>
+
+  <para>To delete a client, select the check box next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the client or' No' to cancel.</para>
+
+  <para>You will not be able to edit an item if it is checked out by another user. The name of the user that is editing the item will be shown in the table.</para>
+</section>

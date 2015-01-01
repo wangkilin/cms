@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+.list-container table .column-1
+{
+width:2%;
+}
+.list-container table .column-2
+{
+width:20%;
+}
+.list-container table .column-0
+{
+}

@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/**
+ * StreaWIDE Icons Style Sheet
+ *
+ * $Rev: 2034 $
+ * $LastChangedDate: 2010-05-06 18:42:44 +0800 (Thu, 06 May 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: ui-icons.css 2034 2010-05-06 10:42:44Z junzhang $
+ */
+
+.sw-icon
+{
+text-align:left;
+display:inline-block;
+width:26px;
+height:26px;
+overflow:hidden;
+white-space:nowrap;
+text-indent:-20000em;
+background:url(../images/ui-icons.png) no-repeat -20000% -20000%;
+}
+.sw-icon-play
+{
+background-position:-2px -2px;
+}
+.sw-icon-play:hover
+{
+background-position:-32px -2px;
+}
+.sw-icon-play:active
+{
+background-position:-62px -2px;
+}
+.sw-icon-gift
+{
+background-position:-2px -32px;
+}
+.sw-icon-gift:hover
+{
+background-position:-32px -32px;
+}
+.sw-icon-gift:active
+{
+background-position:-62px -32px;
+}
+.sw-icon-info
+{
+background-position:-2px -62px;
+}
+.sw-icon-info:hover,
+.sw-icon-info.active
+{
+background-position:-32px -62px;
+}
+.sw-icon-info:active
+{
+background-position:-62px -62px;
+}
+.sw-icon-edit
+{
+background-position:-2px -92px;
+}
+.sw-icon-edit:hover
+{
+background-position:-32px -92px;
+}
+.sw-icon-edit:active
+{
+background-position:-62px -92px;
+}
+.sw-icon-purchase
+{
+background-position:-2px -122px;
+}
+.sw-icon-purchase:hover
+{
+background-position:-32px -122px;
+}
+.sw-icon-purchase:active
+{
+background-position:-62px -122px;
+}
+.sw-icon-edit
+{
+background-position:-2px -92px;
+}
+.sw-icon-default
+{
+background-position:-59px -209px;
+}
+.sw-icon-arrow-right,.sw-icon-arrow-left
+{
+width:28px;
+}
+.sw-icon-arrow-right
+{
+background-position:-32px -182px;
+}
+.sw-icon-arrow-right.unactive
+{
+background-position:-32px -152px;
+}
+.sw-icon-arrow-left
+{
+background-position:-2px -182px;
+}
+.sw-icon-arrow-left.unactive
+{
+background-position:-2px -152px;
+}
+/* EOF */

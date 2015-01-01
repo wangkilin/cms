@@ -1,0 +1,126 @@
+<?php
+/**
+ * $Rev: $
+ * $LastChangedDate: $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/admin.css')
+                 ->appendStylesheet($baseUrl . '/styles/jquery-tablesorter.css');
+$this->headScript()->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/admin.js')
+                   ->appendFile($baseUrl . '/js/jquery-plugin-uploadify.js')
+                   ->appendFile($baseUrl . '/js/jquery-swfobject.js')
+                   ->appendFile($baseUrl . '/js/jquery-metadata.js')
+                   ->appendFile($baseUrl . '/js/jquery-tablesorter.js');
+?>
+
+<div class="grid_2 prefix_1 oops-container">
+    <div id="left_menu" class="left_menu">
+        <a href="<?php echo $baseUrl?>/admin/list" class="list-refresh sw-button on">
+            <?php echo $this->translate('left_menu_admin')?>
+        </a>
+        <a href="<?php echo $baseUrl?>/admin/create" class="sw-button only-popup" id="create">
+            <?php echo $this->translate('left_menu_add_admin')?>
+        </a>
+        <a href="<?php echo $baseUrl?>/admin/import/Act/import" class="sw-button" id="import">
+            <?php echo $this->translate('left_menu_admin_import')?>
+        </a>
+        <a href="<?php echo $baseUrl?>/admin/export/Act/export" class="sw-button" id="export">
+            <?php echo $this->translate('left_menu_admin_export')?>
+        </a>
+    </div>
+</div>
+
+<div class="grid_12 suffix_1 oops-container">
+    <div id="admins" class="list-container">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                    <?php echo $this->translate('application_handler_batch_delete')?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/admin/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="UserNamePart" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                        <?php echo $this->translate('application_handler_ok')?></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="admin-list" class="list-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></th>
+                                            <th class="column-2" title="<?php echo $this->translate('admin_list_name')?>">
+                                                <span><?php echo $this->translate('admin_list_name')?></span>
+                                            </th>
+                                            <th class="column-3" title="<?php echo $this->translate('admin_list_customer_account')?>">
+                                                <span><?php echo $this->translate('admin_list_customer_account')?></span>
+                                            </th>
+                                            <th class="column-4" title="<?php echo $this->translate('admin_list_login')?>">
+                                                <span><?php echo $this->translate('admin_list_login')?></span>
+                                            </th>
+                                            <th class="column-5" title="<?php echo $this->translate('admin_list_profile')?>">
+                                                <span><?php echo $this->translate('admin_list_profile')?></span>
+                                            </th>
+                                            <th class="column-6" title="<?php echo $this->translate('admin_list_created_by')?>">
+                                                <span><?php echo $this->translate('admin_list_created_by')?></span>
+                                            </th>
+                                            <th class="column-7" title="<?php echo $this->translate('admin_list_last_login')?>">
+                                                <span><?php echo $this->translate('admin_list_last_login')?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('admin_list_locked')?>">
+                                                <span><?php echo $this->translate('admin_list_locked')?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        echo $this->render('admin/list.phtml');
+                                    ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/admin/'?>";
+</script>
+<?php
+/* EOF */

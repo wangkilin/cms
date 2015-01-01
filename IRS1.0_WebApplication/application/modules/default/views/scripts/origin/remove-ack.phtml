@@ -1,0 +1,19 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php printf($this->translate($this->IsBatch ? 'origin_batch_is_deleted':'origin_is_deleted', $this->OriginName));?></div>
+<?php
+/* EOF */

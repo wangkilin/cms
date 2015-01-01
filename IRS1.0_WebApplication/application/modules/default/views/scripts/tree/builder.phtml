@@ -1,0 +1,134 @@
+<?php
+/**
+ * $Rev: 2641 $
+ * $LastChangedDate: 2010-06-22 16:46:33 +0800 (Tue, 22 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: builder.phtml 2641 2010-06-22 08:46:33Z junzhang $
+ */
+
+// usage the tree layout for building the routing tree
+$baseUrl = rtrim($this->BaseUrl(), '/');
+$cssUrl = $baseUrl . '/styles/';
+$jsUrl = $baseUrl . '/js/';
+$this->headLink()
+    ->appendStylesheet($cssUrl . 'jquery-weekcalendar.css')
+    ->appendStylesheet($cssUrl . 'calendar.css')
+    ->appendStylesheet($cssUrl . 'tree-builder.css');
+$this->headScript()
+    ->appendFile($jsUrl . 'node-calendar.js')
+    ->appendFile($jsUrl . 'jquery-weekcalendar.js')
+    ->appendFile($jsUrl . 'tree-builder.js');
+
+$currentTreeId = $this->CurrentTreeId;
+$rootNodeId = $this->CurrentTreeInfo['RootNodeId'];
+$this->RenderedNodeIds = array();
+?>
+<div id="stage">
+
+    <table id="start">
+        <tbody>
+            <tr>
+                <td>
+                    <div id="TreeId-<?php echo $currentTreeId; ?>" class="tree type-start">
+                        <b><?php echo $this->translate('application_tree_start'); ?></b>
+                        <q><?php echo $this->translate('application_tree_start_description_short'); ?></q>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <?php if ($rootNodeId && array_key_exists($rootNodeId, $this->TreeNodes)) : ?>
+                    <div class="parent-to-child">
+                        <i>
+                            <a href="#" class="ui-icon ui-icon-minus"></a>
+                        </i>
+                    </div>
+                    <?php
+//                        $this->CurrentNodeId = $rootNodeId;
+                        echo $this->action('builder', 'tree', null, array(
+                            'IsBuilding' => true,
+                            'NodeId' => $rootNodeId,
+                            'TreeId' => $currentTreeId,
+                        ));
+                    ?>
+                    <?php else : ?>
+                    <div class="output-to-node contextmenu">
+                        <a id="create" class="trigger" href="#">
+                            <span class="ui-icon ui-icon-plus"></span>
+                        </a>
+                        <dl>
+                            <?php foreach($this->NodeTypes as $id => $type) : ?>
+                            <dt><a id="<?php echo $id; ?>" class="Type-<?php echo $type; ?>" href="#<?php echo $type; ?>"><?php echo $this->translate('contextmenu_' . $type); ?></a></dt>
+                            <?php endforeach; ?>
+                        </dl>
+                    </div>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/calendar/'?>";
+var CALENDAR_DATE = {};
+CALENDAR_DATE.shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+CALENDAR_DATE.shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+CALENDAR_DATE.calendarType =
+    ["<?php echo $this->translate("calendar_specific_date");?>",
+    "<?php echo $this->translate("calendar_date_range");?>",
+    "<?php echo $this->translate("calendar_week_view");?>"];
+CALENDAR_DATE.specificDateTemplate =
+    '<div class="template" id="specific-date-template">'+
+    '<div class="date-row"><input type="text" name="params[0][Date][]" class="input_date" readonly=""/>'+
+    '<span class="row-remove">-</span><span class="row-add">+</span></div></div>';
+CALENDAR_DATE.dateRangeTemplate =
+    '<div class="template" id="date-range-template">'+
+    '<div class="date-row"><div class="date-range">'+
+    '<table><tbody><tr><td rowspan="2"><div><span class="calendar-icon">&nbsp;</span>'+
+    '</div></td><td><div><span><?php echo $this->translate('calendar_from')?></span></div></td>'+
+    '<td><div><span><input type="text" name="params[0][StartDate][]" class="start-date" readonly=""/></span>'+
+    '</div></td></tr><tr><td><div><span><?php echo $this->translate('calendar_to')?></span></div></td>'+
+    '<td><div><span><input type="text" name="params[0][EndDate][]" class="end-date" readonly=""/></span></div>'+
+    '</td></tr></tbody></table></div>'+
+    '<span class="row-remove">-</span><span class="row-add">+</span>'+
+    '</div></div>';
+CALENDAR_DATE.weekViewTemplate =
+    '<div class="template" id="week-view-template">'+
+    '<div class="calendar-week-view" id="calendar-week-view"><div id="calendar-week-view-header" class="calendar-week-view-header">'+
+    '<div class="triangle"><div class="context-menu"><div class="first">&nbsp;</div>'+
+    '<div id="create-wv-calendar"><?php echo $this->translate('calendar_week_view_create')?></div>'+
+    '<div class="last">&nbsp</div></div>&nbsp;</div><span>Calendars</span></div></div>';
+CALENDAR_DATE.weekViewRowTemplate =
+    '<div class="wv-calendar-row"><div class="triangle"><div class="context-menu"><div class="first">&nbsp;</div>'+
+    '<div class="delete-wv-calendar"><?php echo $this->translate('calendar_week_view_delete')?></div>'+
+    '<div class="rename-wv-calendar"><?php echo $this->translate('calendar_week_view_rename')?></div>'+
+    '<div class="last">&nbsp</div></div>&nbsp;</div><span>Calendar</span></div>';
+CALENDAR_DATE.dateRangeCalendar =
+    '<div class="date-range-calendar"><table><tbody>'+
+    '<tr><td><div><span><?php echo $this->translate('calendar_start_date')?></span></div></td>'+
+    '<td><div><span><?php echo $this->translate('calendar_end_date')?></span></div></td></tr>'+
+    '<tr><td><div class="calendar-start-date"></div></td><td><div class="calendar-end-date"></div></td></tr>'+
+    '<tr><td colspan="2"><div class="date-range-calendar-button">'+
+    '<button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel')?></button>'+
+    '<button type="button" class="done"><?php echo $this->translate('application_handler_done')?></button></div></td></tr>'+
+    '</tbody></table></div>';
+CALENDAR_DATE.timeSlotUpdateTemplate =
+    '<div id="time-slot-update"><table><tbody>'+
+    '<tr><td><div><span><?php echo $this->translate('calendar_from')?></span><span><select class="start">'+
+    '</select></span></div></td><td><div><span><?php echo $this->translate('calendar_to')?></span><span><select class="end">'+
+    '</select></span></div></td></tr>'+
+    '<tr><td colspan="2"><div><span><button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel')?></button></span>'+
+    '<span><button type="button" class="done"><?php echo $this->translate('application_handler_done')?></button></span>'+
+    '<span><button type="button" class="delete"><?php echo $this->translate('application_handler_delete')?></button></span></div></td></tr>'+
+    '</tbody></table></div>';
+</script>
+<?php
+/* EOF */

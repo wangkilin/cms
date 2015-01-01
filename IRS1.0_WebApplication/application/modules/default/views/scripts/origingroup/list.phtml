@@ -1,0 +1,59 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/origingroup';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->OriginGroups);
+?>
+<div class="list-items" id="origingroup-list">
+    <table>
+        <tbody>
+            <?php
+                if ($this->CurrentCount > 0) {
+                    $count = 0;
+                    foreach($this->OriginGroups as $origingroup) {
+            ?>
+            <tr id="row-item-<?php echo $origingroup['OriginGroupId']?>" class="row-item <?php echo $count++%2 ? 'leaper' : ''?>">
+                <td class="column-1"><input type="checkbox"/></td>
+                <td class="column-2" title="<?php echo $origingroup['OriginGroupName']?>">
+                    <span><?php echo $origingroup['OriginGroupName']?></span>
+                    <div class="manager">
+                        <a href="<?php echo $baseUrl?>/update/OriginGroupId/<?php echo $origingroup['OriginGroupId']?>"
+                            class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>">
+                            <?php echo $this->translate('application_handler_edit')?></a>|
+                        <a href="<?php echo $baseUrl?>/delete?OriginGroupIds[]=<?php echo $origingroup['OriginGroupId']?>&OriginGroupLabels[]=
+                            <?php echo urlencode($origingroup['OriginGroupName'])?>" class="manager-delete"
+                            title="<?php echo $this->translate('application_handler_delete')?>">
+                            <?php echo $this->translate('application_handler_delete')?></a>
+                    </div>
+                </td>
+                <td class="column-3" title="<?php echo $origingroup['OriginGroupId']?>">
+                    <span><?php echo $origingroup['OriginGroupId']?></span>
+                </td>
+            </tr>
+            <?php
+                    }
+                } else {
+            ?>
+                <tr class="row-item-none">
+                    <td><span><?php echo $this->translate('origingroup_list_no_item')?></span></td>
+                </tr>
+            <?php
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
+<?php
+echo $this->render('pagination.phtml');
+/* EOF */

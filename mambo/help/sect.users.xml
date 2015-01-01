@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>User Manager List</title>
+
+  <para>This page shows show a list of the Users registered for your site.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Name</emphasis>: This is the real or display name of user. Click the name to edit the User's information.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">User ID</emphasis>: This is the login name of the user.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Logged In</emphasis>: This shows whether the user is logged in.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Group</emphasis>: This is the group that the user is associated with.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Email</emphasis>: This is the User's e-mail address.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Last Visit</emphasis>: This is the date and time that the user last visited a page on the site while logged in.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Enable</emphasis>: This shows whether the user is allowed to log in to the site. Click the icon to toggle the state of the user.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para><emphasis role="bold">Toolbar Actions</emphasis></para>
+
+  <para>You "select" items by clicking the checkbox at the start of each row.</para>
+
+  <para><emphasis role="bold">New</emphasis>: Click the 'New' to create a new User.</para>
+
+  <para><emphasis role="bold">Edit</emphasis>: Click the 'Edit' icon to edit a User's information. Clicking the linked name will also preform this function.</para>
+
+  <para><emphasis role="bold">Force Logout</emphasis>: Click the 'Force Logout' icon to log a user out.</para>
+
+  <para><emphasis role="bold">Delete</emphasis>: Clic the 'delete' icon to delete the user from the database. You can delete more than one user at a time.</para>
+</section>

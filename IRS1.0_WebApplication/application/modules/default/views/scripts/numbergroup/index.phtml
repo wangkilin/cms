@@ -1,0 +1,112 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/jquery-tablesorter.css')
+                 ->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/numbergroup.css');
+$this->headScript()->appendFile($baseUrl . '/js/jquery-metadata.js')
+                   ->appendFile($baseUrl . '/js/jquery-tablesorter.js')
+                   ->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/numbergroup.js');
+
+?>
+<div class="grid_12 prefix_2 oops-container">
+    <div id="numbergroups" class="list-container">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="list-header-batch-delete">
+                                                    <button type="button" id="delete" class="batch-delete">
+                                                    <?php echo $this->translate('application_handler_batch_delete')?>
+                                                    </button>
+                                                </div>
+                                                <div class="list-header-create-new">
+                                                    <button type="button" id="create">
+                                                    <?php echo $this->translate('numbergroup_create_new')?>
+                                                    </button>
+                                                </div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/numbergroup/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="BlacklistNamePart" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                        <?php echo $this->translate('application_handler_ok')?></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="numbergroup-list" class="list-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></th>
+                                            <th class="column-2" title="<?php echo $this->translate('numbergroup_list_name')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_name')?></span>
+                                            </th>
+                                            <th class="column-3" title="<?php echo $this->translate('numbergroup_list_profile')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_profile')?></span>
+                                            </th>
+                                            <th class="column-4" title="<?php echo $this->translate('numbergroup_list_templete_name')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_templete_name')?></span>
+                                            </th>
+                                            <th class="column-5" title="<?php echo $this->translate('numbergroup_list_created_date')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_created_date')?></span>
+                                            </th>
+                                            <th class="column-6" title="<?php echo $this->translate('numbergroup_list_modified_date')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_modified_date')?></span>
+                                            </th>
+                                            <th class="column-7" title="<?php echo $this->translate('numbergroup_list_created_by')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_created_by')?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('numbergroup_list_emergency')?>">
+                                                <span><?php echo $this->translate('numbergroup_list_emergency')?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        echo $this->render('numbergroup/list.phtml');
+                                    ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/numbergroup/'?>";
+</script>
+<?php
+/* EOF */

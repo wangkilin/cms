@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/12 06:47:53 $</date>
+  </sectioninfo>
+  <title>Add or Edit a Module</title>
+  <para>The first step is to define a display name for the module and if this title will be shown on the web site. </para>
+  <para>The second step is to decide on which pages (menu items) the module should be shown. The Administrator can choose any menu or submenu defined in the Menu Manager. The administrator has several options as to which position in the template they wish to place the module. Common positions for modules in the Core distribution are hardcoded and are as follows: </para>
+  <para>left: = left column of your design, e.g. menu (default) right:= right column of your design, e.g. news feeds top: = user defined position bottom: = user defined position inset: = user defined position user1: = user defined position user2: = user defined position </para>
+  <para>It is also possible to redefine your module positions and therefore be extremely adaptable with your website design. Such techniques are for the more advanced user and require extended knowledge of HTML and CSS techniques. </para>
+  <para>Beside the position it is also possible to define the order within one of the above groups. Access to modules and modifying their output, can also be restricted to registered users only as well as the 'special' user group.</para>
+  <para>The parameter section is very important to configure certain aspects of the module. Some of the modules offer change of presentation or detail configurations elements. Please refer to the description of the module for details about the available parameters. </para>
+  <para>Publish the module by selecting Yes or No from the dropdown box. </para>
+  <para>Once you are happy with the changes you have made, click Save on the toolbar.</para>
+</section>

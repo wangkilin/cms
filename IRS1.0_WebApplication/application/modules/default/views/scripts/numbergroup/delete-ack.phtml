@@ -1,0 +1,30 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('numbergroup_is_deleted', $this->PremiumNumberGroupNames);?></div>
+<table>
+<?php
+echo $this->Action('list', 'numbergroup', null, array(
+                'CustomerUserId' => $this->CustomerUserId,
+                'CustomerAccountId' => $this->CustomerAccountId,
+                'CurrentPage' => $this->Pagination['CurrentPage'],
+                'ItemsPerPage' => $this->Pagination['ItemsPerPage']
+            ));
+?>
+</table>
+<?php
+/* EOF */

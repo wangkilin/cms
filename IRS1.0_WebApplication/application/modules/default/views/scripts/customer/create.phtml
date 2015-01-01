@@ -1,0 +1,92 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div id="customer-create-dialog" class="dialog">
+	<div class="dialog-content">
+		<div id="customer-create-heading" class="dialog-heading">
+            <span class="heading-text"><?php echo $this->translate('customer_create_customer');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div id="customer-create-body" class="dialog-body">
+			<form action="" id="customer-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="tabs">
+                    <div id="account-info" class="tab-title active">
+                        <span><?php echo $this->translate('customer_accountInfo_tab')?></span>
+                    </div>
+                    <div id="quotas" class="tab-title">
+                        <span><?php echo $this->translate('customer_quotas_tab')?></span>
+                    </div>
+                </div>
+                <div id="customer-account-info" class="tab-panel active">
+                    <table class="content">
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_accountName')?></b><br />
+                            <input type="text" name="CustomerAccountName" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_billingId')?></b><br />
+                            <input type="text" name="CustomerAccountBillingId" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactName')?></b><br />
+                            <input type="text" name="ContactName" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactEmail')?></b><br />
+                            <input type="text" name="ContactEmail" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_accountInfo_contactPhone')?></b><br />
+                            <input type="text" name="ContactPhone" />
+                        </p>
+                    </table>
+                </div>
+                <div id="customer-quotas" class="tab-panel">
+                    <table class="content">
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxPrompt')?></b><br />
+                            <input type="text" name="MaxResPrompt" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxOrigin')?></b><br />
+                            <input type="text" name="MaxResOrigin" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxBlacklist')?></b><br />
+                            <input type="text" name="MaxResBlacklist" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxCalendar')?></b><br />
+                            <input type="text" name="MaxResCalendar" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxAgentgroup')?></b><br />
+                            <input type="text" name="MaxResAgentgroup" />
+                        </p>
+                        <p>
+                            <b><?php echo $this->translate('customer_quotas_maxUser')?></b><br />
+                            <input type="text" name="MaxResUser" />
+                        </p>
+                    </table>
+                </div>
+                <div class="dialog-button">
+                    <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                </div>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

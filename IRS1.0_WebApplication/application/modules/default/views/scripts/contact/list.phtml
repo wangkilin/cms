@@ -1,0 +1,71 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/contact';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->Contacts);
+?>
+<tfoot>
+    <tr>
+        <td colspan="7">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->Contacts as $contact) {
+?>
+        <tr id="row-item-<?php echo $contact['ContactId']?>" class="row-item <?php echo ($count++%2 ? 'leaper' : '') ;?>">
+            <td class="column-1"><input type="checkbox"/></td>
+            <td class="column-2" title="<?php echo $contact['ContactName']?>">
+                <span><?php echo $contact['ContactName']?></span>
+                <div class="manager">
+                    <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                    href="<?php echo $baseUrl?>/update/ContactId/<?php echo $contact['ContactId']?>"><?php
+                        echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                        title="<?php echo $this->translate('application_handler_delete')?>"
+                    href="<?php echo $baseUrl?>/delete?ContactIds[]=<?php echo $contact['ContactId']?>&ContactNames[]=<?php
+                        echo urlencode($contact['ContactName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+                </div>
+            </td>
+            <td class="column-3" title="<?php echo $contact['ContactPhone']?>">
+                <span><?php echo $contact['ContactPhone']?></span>
+            </td>
+            <td class="column-4" title="<?php echo $contact['CreationDatetime']?>">
+                <span><?php echo $contact['CreationDatetime']?></span>
+            </td>
+            <td class="column-5" title="<?php echo $contact['ModificationDatetime']?>">
+                <span><?php echo $contact['ModificationDatetime']?></span>
+            </td>
+            <td class="column-6" title="<?php echo $contact['CustomerUserName']?>">
+                <span><?php echo $contact['CustomerUserName']?></span>
+            </td>
+            <td class="column-0">
+                <span class="resource_<?php echo ($contact['ReferenceCounter'] > 0 ? 'in':'not')?>_use">&nbsp;</span>
+            </td>
+        </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="7"><span><?php echo $this->translate('contact_list_no_item')?></span></td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

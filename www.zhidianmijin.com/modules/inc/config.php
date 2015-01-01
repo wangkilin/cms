@@ -1,0 +1,22 @@
+<?php
+/********************************************************/
+/*****                 @!!@                          ****/
+/********************************************************/
+/**
+ *@FileName	: .php
+ *@Author	: WangKilin
+ *@Email	: wangkilin@126.com
+ *@Date		: 
+ *@Homepage	: http://www.yeaheasy.com
+ *@Version	: 0.1
+ */
+global $systemConfig;
+$systemConfig = array();
+$systemConfig['yeSiteCharset']	= 'gb2312';
+$systemConfig['yeSiteName']		= 'ºü´óÊ¦ÍøÉÏÏµÍ³';
+$systemConfig['yeMetaInfo']		= array();
+$systemConfig['yeMetaInfo'][]	= array('name'		=> 'keywords'
+                        , 'content'	=> 'Ãâ·ÑËãÃü,ÔÚÏßÕ¼²·,ËãÃüÍø,ÐÕÃû²âÊÔ,²âÃû£¬²â×Ö ÐÇ×ùÔË³Ì');
+$systemConfig['yeMetaInfo'][]	= array('name'		=> 'description'
+                        , 'content'	=> 'Ãâ·ÑËãÃü,ÔÚÏßÕ¼²·,ËãÃüÍø,ÐÕÃû²âÊÔ,²âÃû£¬²â×Ö ÐÇ×ùÔË³Ì');
+ ?>

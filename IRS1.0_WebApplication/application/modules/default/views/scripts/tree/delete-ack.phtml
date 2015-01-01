@@ -1,0 +1,38 @@
+<?php
+/**
+ * $Rev: 2605 $
+ * $LastChangedDate: 2010-06-21 10:39:20 +0800 (Mon, 21 Jun 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: delete-ack.phtml 2605 2010-06-21 02:39:20Z yaoli $
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+
+echo '<div class="notification">';
+
+foreach($this->TreeIds as $id => $label) {
+    $cssName = 'nok';
+    if (!strcasecmp('ok', $this->Result[$id])) {
+        $cssName = 'ok';
+    }
+    echo '<span class="', $cssName, '">',
+        $this->translate('default_form_delete_' . $cssName . '_tree', array($label)),
+        ' </span>';
+}
+
+echo '</div>' . PHP_EOL . '<table>';
+
+echo $this->Action('list', 'tree', null, array(
+        'CustomerUserId'    => $this->CustomerUserId,
+        'CustomerAccountId' => $this->CustomerAccountId,
+        'CurrentPage'       => $this->Pagination['CurrentPage'],
+        'ItemsPerPage'      => $this->Pagination['ItemsPerPage'],
+    )), '</table>';
+
+/* EOF */

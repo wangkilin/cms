@@ -1,0 +1,35 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div id="blacklist-delete" class="dialog"><div class="dialog-content">
+<form method="<?php echo Zend_Form::METHOD_POST;?>" enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+<div id="group-heading" class="dialog-heading dialog-delete">
+<b><?php echo $this->translate('application_handler_delete');?> </b>
+<b><?php echo $this->translate('agentgroup_agentgroup_name');?> </b>
+<em><?php echo $this->AgentGroupName;?> ?</em>
+<span class="heading-close">×</span>
+</div>
+<div class="dialog-button">
+<span><?php echo $this->formButton('cancel', '', array('content' => $this->translate('application_handler_cancel')));?></span>
+<span class="button-gap">&nbsp;</span>
+<span><?php echo $this->formButton('delete', '', array('content' => $this->translate('application_handler_delete'), 'type' => 'submit'));?></span>
+</div>
+<input type="hidden" name="AgentGroupId" value="<?php echo $this->AgentGroupId;?>"/>
+</form>
+</div>
+</div>
+<?php
+/* EOF */

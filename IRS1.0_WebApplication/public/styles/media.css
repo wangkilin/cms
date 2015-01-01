@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+
+p,i
+{
+color:#666666;
+font-style:italic;
+margin:0 0 0 20px;
+}
+#media_description_zone i
+{
+vertical-align:top;
+}
+#media_file_zone u
+{
+background:url("../images/ui-icons_222222_256x240.png") no-repeat scroll 0 -160px transparent;
+float:left;
+height:16px;
+text-indent:-2000em;
+width:16px;
+cursor:pointer;
+}
+.black_button
+{
+-moz-border-radius:5px 5px 5px 5px;
+background:-moz-linear-gradient(center top , #9A9A9A, #898989) repeat scroll 0 0 transparent;
+border:1px solid #ACACAC;
+color:#FFFFFF;
+display:inline-block;
+margin-left:15px;
+padding:3px 10px;
+text-shadow:0 0.02em 0.1em #000000;
+}
+#MediaFile
+{
+left:30px;
+opacity:50;
+position:absolute;
+filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+#upload-flashUploader object
+{
+margin-top:-25px;
+height:25px;
+left:35px;
+position:absolute;
+width:150px;
+opacity:0;
+*filter:Alpha(Opacity=0);
+}
+.player
+{
+text-align:left;
+display:block;
+padding:5px;
+position:absolute;
+z-index:2;
+white-space:nowrap;
+background-color:#FFF;
+}
+.player s
+{
+display:inline-block;
+width:16px;
+height:16px;
+margin:0px 5px 0;
+border:1px solid #CCC;
+text-indent:-20000em;
+overflow:hidden;
+cursor:pointer;
+}

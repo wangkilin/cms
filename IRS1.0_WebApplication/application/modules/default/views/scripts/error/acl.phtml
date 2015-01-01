@@ -1,0 +1,34 @@
+<?php
+/**
+ * $Rev: 2483 $
+ * $LastChangedDate: 2010-06-09 18:54:39 +0800 (Wed, 09 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_error
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: acl.phtml 2483 2010-06-09 10:54:39Z junzhang $
+ */
+
+
+$layout = $this->Layout();
+$isEnabled = $layout->isEnabled();
+
+if ($isEnabled) {
+    $layout->disableLayout();
+}
+
+echo '<h1>403 Error, access forbidden</h1>',
+    '<a href="',
+    $this->BaseUrl(),
+    '">',
+    $this->Translate('application_go_home'),
+    '</a>';
+
+if ($isEnabled) {
+    $layout->enableLayout();
+}
+
+/* EOF */

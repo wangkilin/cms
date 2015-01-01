@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Menu Manager</title>
+
+  <para>This page shows show a list of the Menu groups on your site depending on the number of modules that are based on the Main Menu module.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Menu Type</emphasis>: This is the menu type as defined in the module.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Module Name</emphasis>: This is the name of the Module displaying this menu type.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Module ID</emphasis>: This is the ID of the menu module.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Items</emphasis>: This is the number of items in the menu.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>Click the 'New' icon to add a new menu. This will be based on the Main Menu module without any of the menu items associated with the Main Menu.</para>
+
+  <para>To make a complete copy of a menu including all of it's menu items, click the radio button's name and click the 'Copy' icon. </para>
+
+  <para>To completely delete a menu and all it's menu items, select the radio button next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the menu or 'No' to cancel.</para>
+</section>

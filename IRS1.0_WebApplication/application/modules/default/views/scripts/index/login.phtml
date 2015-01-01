@@ -1,0 +1,88 @@
+<?php
+/**
+ * $Rev: 2496 $
+ * $LastChangedDate: 2010-06-10 15:55:46 +0800 (Thu, 10 Jun 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_index
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: login.phtml 2496 2010-06-10 07:55:46Z yaoli $
+ */
+
+// Get baseUrl
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headScript()
+    ->appendFile($baseUrl . '/js/login.js');
+?>
+<form id="form-login" name="form-login" class="grid_6 prefix_5 suffix_5" action="<?php echo $baseUrl, '/index/login'; ?>" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="form-container">
+        <div class="form-header">
+            <b><?php echo $this->translate('default_form_title_login'); ?></b>
+            <q><?php echo $this->translate('default_form_title_description_login'); ?></q>
+        </div>
+        <div class="form-content">
+            <table>
+                <tr>
+                    <td class="col01">
+                        <div>
+                            <label for="username">
+                                <?php echo $this->translate('default_form_label_login_username'); ?>
+                            </label>
+                            <input type="text" id="username" name="Username" class="" />
+                        </div>
+                        <div>
+                            <label for="password">
+                                <?php echo $this->translate('default_form_label_login_password'); ?>
+                            </label>
+                            <input type="password" id="password" name="Password" />
+                        </div>
+                    </td>
+                    <td class="form-button">
+                        <button type="submit"><?php echo $this->translate('default_form_label_button_sign_in'); ?></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <div>
+                            <a class="goReset" href="#form-reset"><?php echo $this->translate('default_form_label_forget_password'); ?></a>
+                        </div>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-footer"></div>
+    </div>
+</form>
+
+<form id="form-reset" name="form-reset" class="grid_6 prefix_5 suffix_5" style="display:none;" action="<?php echo $baseUrl, '/index/reset'; ?>" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="form-container">
+        <div class="form-header">
+            <b><?php echo $this->translate('default_form_title_reset'); ?></b>
+            <q><?php echo $this->translate('default_form_title_description_reset'); ?></q>
+        </div>
+        <div class="form-content">
+            <div>
+                <?php echo $this->translate('default_form_content_description_reset'); ?>
+            </div>
+            <div>
+                <label for="reset-username">
+                    <?php echo $this->translate('default_form_label_login_username'); ?>
+                </label>
+                <input type="text" id="reset-username" name="Username" class="input_default" />
+            </div>
+            <div>
+                <button type="submit"><?php echo $this->translate('default_form_label_button_password_recover'); ?></button>
+                <a class="goLogin" href="#form-login"><?php echo $this->translate('default_form_label_go_back_login'); ?></a>
+            </div>
+        </div>
+        <div class="form-footer"></div>
+    </div>
+</form>
+<?php
+
+/* EOF */

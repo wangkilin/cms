@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/**
+ * Common Style Sheet
+ *
+ * $Rev: 2462 $
+ * $LastChangedDate: 2010-06-08 18:04:51 +0800 (Tue, 08 Jun 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: ui-reset.css 2462 2010-06-08 10:04:51Z yaoli $
+ */
+
+html,
+body
+{
+height:100%;
+}
+body
+{
+font-size:13px;
+font-family:verdana,arial,sans-serif;
+background-color:#EFEFEF;
+color:#3B3B3B;
+line-height:1.5;
+}
+h1,h2,h3
+{
+font-size:16px;
+}
+h4,h5,h6
+{
+font-size:14px;
+}
+s,i,u
+{
+font-style:normal;
+text-decoration:none;
+}
+a
+{
+color:#3B3B3B;
+text-decoration:none;
+}
+a:hover
+{
+color:#000;
+}
+button,
+.sw-button,
+input[type="button"]
+{
+background:#9C9C9C url(../images/ui-button_bg_normal.png) repeat-x 50% 50%;
+color:#FFF;
+display:inline-block;
+padding:3px 10px;
+border:1px solid #DBDBDB;
+}
+button:hover,
+.sw-button:hover,
+input[type="button"]:hover
+{
+background:#B1B1B1 url(../images/ui-button_bg_hover.png) repeat-x 50% 50%;
+border:1px solid #E1E1E1;
+}
+button:active,
+.sw-button:active,
+input[type="button"]:active
+{
+background:#9C9C9C url(../images/ui-button_bg_onpress.png) repeat-x 50% 50%;
+border:1px solid #CCC;
+}
+.search-box
+{
+float:right;
+margin-right:10px;
+}
+.search-box .search-icon
+{
+background:url("../images/ui-icon-find.png") no-repeat #FFF;
+width:16px;
+height:16px;
+display:block;
+float:left;
+margin:3px 0 0 2px;
+}
+.search-box .search-box-input
+{
+border:1px solid #B4B4B4;
+margin-right:6px;
+background:#FFF;
+float:left;
+}
+.search-box .search-box-input input.keyword
+{
+width:auto;
+border:0;
+}
+.search-box .search
+{
+}
+
+/* EOF */

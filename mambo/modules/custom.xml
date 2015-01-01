@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>自定义模块</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>Custom Module</description>
+	<params>
+		<param name="rssurl" type="text" default="" label="RSS 网址" description="输入RSS/RDF新闻导入的网址" />
+		<param name="rssitems" type="text" default="3" label="条目数" description="输入显示的RSS条目数" />
+		<param name="rssdesc" type="radio" default="1" label="描述" description="显示 RSS 描述">
+			<option value="1">是</option>
+			<option value="0">否</option>
+		</param>
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

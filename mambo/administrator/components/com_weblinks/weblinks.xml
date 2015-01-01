@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Weblinks</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This component shows a listing of Weblinks</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="在菜单中显示的小图片，必须存放于 images/stories/ 文件夹中" />
+		<param name="pageclass_sfx" type="text" default="" label="页面CSS后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局设定值</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="page_title" type="radio" default="1" label="页面标题" description="显示/隐藏页面标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="header" type="text" size="30" default="" label="页面标题" description="自定页面标题。如果留空，将以菜单名为页面标题" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="headings" type="radio" default="1" label="表头" description="显示/隐藏 表头">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="hits" type="list" default="" label="点击数" description="显示/隐藏 点击数">
+			<option value="">使用全局设定值</option>
+			<option value="0">Hide</option>
+			<option value="1">Show</option>
+		</param>
+		<param name="item_description" type="radio" default="1" label="链接描述" description="显示/隐藏 链接的详细信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="other_cat" type="radio" default="1" label="其它分类" description="当浏览一个分类时, 显示/隐藏 其它分类列表">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="description" type="radio" default="1" label="描述" description="显示/隐藏 描述">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="description_text" type="textarea" default="" label="详细信息" rows="5" cols="30" description="本页详细信息，如果留空，将从你设定的语言文件中读取 _WEBLINKS_DESC 的设定"/>
+		<param name="image" type="imagelist" directory="/images/stories" hide_default="1" default="-1" label="图片" description="本页的图片, 必须存放于 /images/stories 文件夹中。缺省值为 web_links.jpg" />
+		<param name="image_align" type="radio" default="right" label="图片位置" description="图片的显示位置">
+			<option value="left">左</option>
+			<option value="right">右</option>
+		</param>
+		<param name="weblink_icons" type="imagelist" directory="/images/M_images" default="" label="图标" description="在链接左边显示的图标" />
+	</params>
+</mosinstall>

@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+/**
+ * Layout Style Sheet
+ *
+ * $Rev: 2519 $
+ * $LastChangedDate: 2010-06-11 15:28:04 +0800 (Fri, 11 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: ui-tree.css 2519 2010-06-11 07:28:04Z junzhang $
+ */
+html,
+body
+{
+overflow:hidden;
+}
+#main
+{
+margin-top:auto;
+-moz-box-shadow:none;
+-webkit-box-shadow:none;
+}
+.container-main
+{
+height:100%;
+overflow:hidden;
+position:relative;
+z-index:10;
+}
+#header
+{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+z-index:20;
+}
+.fix-header
+{
+clear:none;
+height:68px;
+}
+
+#panel
+{
+position:relative;
+float:right;
+height:100%;
+z-index:15;
+width:250px;
+background:#EBEBEB;
+}
+#panel .ui-resizable-w
+{
+left:-7px;
+width:5px;
+cursor:col-resize;
+border-style:solid;
+border-color:#C9C9C9;
+background:#E0E0E0;
+border-width:0 1px;
+overflow:hidden;
+z-index:50;
+}
+#panel .ui-resizable-w .ui-icon
+{
+cursor:pointer;
+position:absolute;
+display:block;
+width:16px;
+height:16px;
+background-image:url(../images/ui-icons_606060_256x240.png);
+top:50%;
+left:-6px;
+}
+#panel .items dt
+{
+color:#4E4E4E;
+overflow:hidden;
+white-space:nowrap;
+height:22px;
+border-left:none;
+border-right:none;
+margin-bottom:-1px;
+}
+#panel .items dt .ui-icon
+{
+margin-top:.15em;
+display:block;
+cursor:pointer;
+}
+#panel .items dt i.ui-icon
+{
+float:left;
+vertical-align:middle;
+}
+#panel .items dt a
+{
+background:#E8E8E8 url(../images/ui-bg_highlight-soft_100_e8e8e8_1x100.png) repeat-x 50% 50%;
+display:block;
+position:relative;
+z-index:10;
+padding:0 .15em;
+float:right;
+border-left:2px ridge #F1F1F1;
+height:100%;
+}
+#panel .items dd
+{
+margin-top:1px;
+height:100px;
+overflow-x:hidden;
+overflow-y:auto;
+}
+#panel .tree-lists li
+{
+white-space:nowrap;
+vertical-align:middle;
+margin:1px 0;
+padding:1px 0 1px 40px;
+}
+#panel .tree-lists li.root
+{
+padding-left:16px;
+}
+#panel .tree-lists li.highlight
+{
+background-color:#E3EEDB;
+border:1px solid #C7CAC5;
+border-width:1px 0;
+}
+#panel .tree-lists .ui-icon
+{
+float:left;
+cursor:pointer;
+width:10px;
+height:10px;
+margin:4px 3px 0 0;
+border:1px solid #B2B2B2;
+background-color:#E3E3E3;
+background-image:url(../images/ui-icons_606060_256x240.png);
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+#panel .tree-lists .ui-icon-minus
+{
+background-position:-51px -132px;
+}
+#panel .tree-lists .ui-icon-plus
+{
+background-position:-19px -132px;
+}
+#panel .items dd.detail-nodes
+{
+overflow:visible;
+}
+#panel .detail-nodes table
+{
+width:100%;
+text-align:center;
+}
+#panel .detail-nodes div
+{
+position:relative;
+text-align:center;
+display:inline-block;
+margin-left:auto;
+margin-right:auto;
+width:65px;
+}
+#panel .detail-nodes div > b
+{
+display:block;
+width:50px;
+height:50px;
+margin:5px auto;
+background:url(../images/ui-icons_000000_150x150.png) no-repeat 1000em 1000em;
+border:1px solid #BEBEBE;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+#panel .detail-nodes div.type-origin > b
+{
+background-color:#8F92C7;
+background-position:0 0;
+}
+#panel .detail-nodes div.type-calendar > b
+{
+background-color:#ACC4E6;
+background-position:-50px 0;
+}
+#panel .detail-nodes div.type-link > b
+{
+background-color:#DFCBE4;
+background-position:-100px 0;
+}
+#panel .detail-nodes div.type-menu > b
+{
+background-color:#FEFACB;
+background-position:0 -50px;
+}
+#panel .detail-nodes div.type-destination > b
+{
+background-color:#E0EED4;
+background-position:-50px -50px;
+}
+#panel .detail-nodes div.type-distribution > b
+{
+background-color:#BBE3E3;
+background-position:-100px -50px;
+}
+#panel .detail-nodes div.type-blacklist > b
+{
+background-color:#F69E99;
+background-position:0 -100px;
+}
+#panel .detail-nodes div.type-hangup > b
+{
+background-color:#FBD2C0;
+background-position:-50px -100px;
+}
+#panel .detail-nodes div.type-prompt > b
+{
+background-color:#FFE5CA;
+background-position:-100px -100px;
+}
+#panel .detail-nodes div > q
+{
+display:none;
+position:absolute;
+top:-1.5em;
+right:-10px;
+white-space:nowrap;
+padding:3px 5px;
+background-color:#F3F3F3;
+z-index:60;
+border:1px solid #858585;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+#panel .detail-nodes div > q i
+{
+display:block;
+font-size:0;
+width:0;
+height:0;
+position:absolute;
+border-style:solid dotted;
+border-color:transparent;
+}
+#panel .detail-nodes div > q > i
+{
+top:100%;
+right:15%;
+border-top-color:#858585;
+border-width:8px 7px 0;
+}
+#panel .detail-nodes div > q > i i
+{
+top:-8px;
+left:-5px;
+border-top-color:#F3F3F3;
+border-width:6px 5px 0;
+}
+#panel .detail-nodes div:hover > q
+{
+display:block;
+}
+
+#stage
+{
+position:absolute;
+margin-left:auto;
+margin-right:auto;
+z-index:10;
+cursor:-moz-grab;
+}
+
+#bottom
+{
+color:#FFF;
+clear:both;
+width:100%;
+position:absolute;
+bottom:0px;
+left:0px;
+height:30px;
+line-height:30px;
+white-space:nowrap;
+z-index:20;
+background:#676767 url(../images/ui-bg_nav_global_68x68.png) repeat-x 0 0;
+}
+#bottom a
+{
+float:right;
+border:1px solid #8B8B8B;
+display:inline-block;
+overflow:hidden;
+position:relative;
+line-height:18px;
+height:19px;
+margin:5px 8px 0;
+color:#FFF;
+background:#4E4E4E;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+#bottom a b
+{
+margin-left:7px;
+margin-right:7px;
+}
+#bottom .valign .ui-icon
+{
+position:absolute;
+background-image:url(../images/ui-icons_f6f6f6_256x240.png);
+}
+#bottom .valign b
+{
+text-indent:-20000em;
+overflow:hidden;
+display:block;
+margin-top:7px;
+width:10px;
+height:5px;
+background:#FFF;
+}
+#bottom .valign .ui-icon-triangle-1-e,
+#bottom .valign .ui-icon-triangle-1-w
+{
+top:1px;
+}
+#bottom .valign .ui-icon-triangle-1-s
+{
+left:4px;
+}
+#bottom .valign .ui-icon-triangle-1-n
+{
+left:5px;
+}
+#bottom .valign .ui-icon-triangle-1-e
+{
+left:-6px;
+}
+#bottom .valign .ui-icon-triangle-1-s
+{
+top:-5px;
+}
+#bottom .valign .ui-icon-triangle-1-w
+{
+right:-5px;
+}
+#bottom .valign .ui-icon-triangle-1-n
+{
+bottom:-5px;
+}
+
+#tips
+{
+margin:2px 250px 0 0;
+white-space:nowrap;
+height:26px;
+line-height:26px;
+padding:0 10px;
+border-right:2px ridge #606060;
+}
+#tips a,
+#tips b,
+#tips span
+{
+float:left;
+display:block;
+}
+#tips > span
+{
+padding:0 10px;
+}
+#tips a
+{
+background-color:transparent;
+border:none;
+margin:4px 0;
+}
+#tips a .ui-icon
+{
+background-image:url(../images/ui-icons_f6f6f6_256x240.png);
+margin-top:2px;
+text-indent:-20000em;
+overflow:hidden;
+}
+
+/* EOF */

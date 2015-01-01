@@ -1,0 +1,131 @@
+﻿<?php
+/**
+ * $Rev: 2653 $
+ * $LastChangedDate: 2010-06-23 12:06:53 +0800 (Wed, 23 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_node
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: prompt.phtml 2653 2010-06-23 04:06:53Z junzhang $
+ */
+
+/**
+ * Modal Window for Node Prompt in a HTML version
+ */
+
+$isUpdating = is_array($this->Node);
+$nodeName = $isUpdating ? $this->Node['Label'] : $this->translate('dialog_form_node_label_default');
+$assignedPromptId = $isUpdating ? $this->NodeParameter['PromptId'] : '';
+?>
+<div class="dialog" id="prompt-dialog">
+    <form id="form-node-prompt" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="dialog-content">
+            <div class="dialog-heading" id="prompt-heading">
+                <span class="heading-text"><?php echo $this->translate('dialog_heading_node_prompt'); ?></span>
+                <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+                <div class="heading-switcher">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="heading-switcher-on">
+                                    <input type="radio" name="IsActive" value="1"<?php echo (!$isUpdating || $this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_active'); ?>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="heading-switcher-spacer">&nbsp;</span>
+                            </td>
+                            <td>
+                                <div class="heading-switcher-off">
+                                    <input type="radio" name="IsActive" value="0"<?php echo ($isUpdating && !$this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_deactive'); ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog-body" id="prompt-body">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_prompt_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_prompt') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_prompt') )); ?>
+                    </span>
+                </div>
+                <table width="100%">
+                    <tr class="IsStandard-1">
+                        <td width="20%">
+                            <label for="IsStandard-1">
+                                <input type="radio" id="IsStandard-1" name="IsStandard" value="1"<?php echo (!$isUpdating || $this->NodeParameters['IsStandard']) ? ' checked="checked"' : ''; ?> />
+                                <?php echo $this->translate('dialog_form_node_prompt_is_standard'); ?>
+                            </label>
+                        </td>
+                        <td>
+                            <div class="IsStandard-1">
+                                <select id="StandardPromptId" name="PromptId">
+                                    <option value=""><?php echo $this->translate('dialog_form_node_prompt_standard_option_default'); ?></option>
+                                    <?php 
+                                        foreach($this->StandardPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedPromptId && $assignedPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="IsStandard-0">
+                        <td>
+                            <label for="IsStandard-0">
+                                <input type="radio" id="IsStandard-0" name="IsStandard" value="0"<?php echo ($isUpdating && !$this->NodeParameters['IsStandard']) ? ' checked="checked"' : ''; ?> />
+                                <?php echo $this->translate('dialog_form_node_prompt_is_customer'); ?>
+                            </label>
+                        </td>
+                        <td>
+                            <div class="IsStandard-0">
+                                <select id="CustomerPromptId" name="PromptId">
+                                    <option value=""><?php echo $this->translate('dialog_form_node_prompt_customer_option_default'); ?></option>
+                                    <?php 
+                                        foreach($this->CustomerPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedPromptId && $assignedPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <?php if ($isUpdating) : ?>
+                <input type="hidden" name="NodeParameterId" value="<?php echo $this->NodeParameter['NodeParameterId']; ?>" />
+                <input type="hidden" name="NodeOutput[NodeOutputId]" value="<?php echo $this->NodeOutput['NodeOutputId']; ?>" />
+                <?php endif; ?>
+                <div>
+                    <input type="hidden" name="NodeOutput[IsActive]" value="0" />
+                    <label for="NodeOutput-IsActive-1">
+                        <input type="checkbox" id="NodeOutput-IsActive-1" name="NodeOutput[IsActive]" value="1"<?php echo ($isUpdating && $this->NodeOutput['IsActive']) ? ' checked="checked"' : ''; ?> />
+                        <?php echo $this->translate('dialog_form_node_prompt_output_is_active'); ?>
+                    </label>
+                </div>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+/* EOF */

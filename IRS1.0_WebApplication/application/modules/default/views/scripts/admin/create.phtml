@@ -1,0 +1,128 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="admin-create-dialog">
+    <div class="dialog-content">
+        <div id="admin-create-heading" class="dialog-heading">
+            <span class="heading-text"><?php echo $this->translate('admin_create_admin')?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+        </div>
+        <div class="dialog-body" id="admin-create-body">
+            <form action="" id="admin-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                <table class="content">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('admin_create_profile')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <select name="AssignedProfileId" >
+                                        <?php foreach($this->Profiles as $profile) {?>
+                                        <option value="<?php echo $profile['ProfileId']?>"><?php echo $profile['Label']?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('admin_create_customer_account')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <input type="text" name="AssignedCustomerAccountId" value="" class="customer-account-search"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('admin_create_name')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <input type="text" name="Name"/>
+                                    <span class="tips"><?php echo $this->translate('admin_create_name_info')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="desc"><?php echo $this->translate('admin_create_email')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <input type="text" name="EmailAddress"/>
+                                    <span class="tips"><?php echo $this->translate('admin_create_email_info')?></span>
+                                <div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <span class="desc"><?php echo $this->translate('admin_create_password')?></span>
+                                            </td>
+                                            <td>
+                                                <input name="Password" type="password"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="desc"><?php echo $this->translate('admin_create_password_confirm')?></span>
+                                            </td>
+                                            <td>
+                                                <input name="Password-Confirm" type="password"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            <td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php
+/* EOF */

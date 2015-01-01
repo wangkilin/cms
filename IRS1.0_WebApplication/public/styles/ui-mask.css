@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/**
+ * Style Sheet for masker
+ *
+ * $Rev: 2034 $
+ * $LastChangedDate: 2010-05-06 18:42:44 +0800 (Thu, 06 May 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id: ui-mask.css 2034 2010-05-06 10:42:44Z junzhang $
+ */
+
+.mask
+{
+background:#000;
+left:0;
+position:absolute;
+top:0;
+z-index:199;
+opacity:0.4;
+}
+
+/* EOF */

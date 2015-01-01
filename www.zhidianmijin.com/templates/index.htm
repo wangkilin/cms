@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?$siteCharset?>" />
+<?section name=siteMeta loop=$siteMetas?>
+   <meta <?foreach key=key item=item from=$siteMetas[siteMeta]?> <?$key?>="<?$item?>"<?/foreach?> />
+<?/section?>
+<title><?$siteName?></title>
+<SCRIPT LANGUAGE="JavaScript" src="<? $siteTheme ?>/js/diary_book.js"></SCRIPT>
+<link href="<? $siteTheme ?>/css/diary_book.css" type=text/css rel=stylesheet>
+<link rel="shortcut icon" href="http://www.zhidianmijin.com/favicon.ico" />
+</head>
+
+<body>
+<div id="Layer1"><img src="<? $siteTheme ?>/images/logo.gif" alt="Logo" width="85" height="85" id="logo"/></div>
+<div id="Layer2">
+<div id="Menu">
+<ul>
+<?foreach key=key name=rootMenu item=subMenu from=$siteMenu?>
+<li class='rootMenu'><a href=?m=<?$key?>><?$subMenu.menuName?></a>
+<? if (count($subMenu.subModules)) ?>
+<ul>
+<?foreach  key=subKey name=subMenu item=subMenuName from=$subMenu.subModules?>
+ <? if ($subMenuName) ?>
+<li class='subMenu'><a href=?m=<?$key?>&sm=<?$subKey+1?>><?$subMenuName?></a></li>
+<? /if ?>
+<?/foreach?>
+</ul>
+<? /if ?>
+</li>
+<?/foreach?>
+</ul></div>
+<div id="Layer3" background="<? $siteTheme ?>/images/image55_r2_c1.gif"></div>
+<div id="Layer4" background="<? $siteTheme ?>/images/bookBodyBg.gif">
+<?include file="$includePage"?>
+</div>
+<div id="Layer5" background="<? $siteTheme ?>/images/image55_r2_c3.gif"></div>
+
+</div>
+
+<div id="Layer6">
+<div style="font-size:12px">
+<font color=red><b>免责声明</b></font>：<br> 1.本站算命系统来源于中国民俗学的一些测算方法，并非科学研究成果，仅供休闲娱乐，请勿迷信，按此操作一切后果自负！<br>2.任何人均不得将本算命系统用于任何非法用途，且必须自行承担因使用本系统带来的任何后果和责任。 
+<br>祝您在本站玩的愉快，且每日吉星高照！希望您把本站推荐给朋友，或者链接到您的网页和博客上，谢谢！
+<br><br>&nbsp;   &nbsp; 联系站长  &nbsp; Email:zhidianmijin@126.com   &nbsp; QQ:994640800   &nbsp; MSN:zhidianmijin@hotmail.com
+<br><center>京ICP备09076694号</center>
+</div>
+</div>
+<div id="left_top_ad">
+东方时尚驾校代约车
+<br>QQ:994640800
+</div>
+
+<!-- text add. 3 row X 3 column 
+<div id="bottom_ad">
+</div>-->
+<!-- <SCRIPT LANGUAGE="JavaScript" src="medias/<? $siteTheme ?>/js/ad_sender.php"></SCRIPT> -->
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+if (count($this->CustomerAccounts)) {
+?>
+<div class="search-result active">
+    <table>
+        <tbody>
+            <?php
+                foreach($this->CustomerAccounts as $customerAccount) {
+            ?>
+            <tr>
+                <td><?php echo '<b>', $customerAccount['CustomerAccountName'], '</b>';?></td>
+            </tr>
+            <?php
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
+<?php
+}
+/* EOF */

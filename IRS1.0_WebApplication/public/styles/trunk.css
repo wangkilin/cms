@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+#trunks table .column-1
+{
+width:2%;
+}
+#trunks table .column-2
+{
+width:12%;
+}
+#trunks table .column-3
+{
+width:12%;
+}
+#trunks table .column-0
+{
+}

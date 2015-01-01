@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>yeaheasy!</title>
+<!--
+<script language="JavaScript" src="/js/JSCookMenu.js"></script>
+<script language="JavaScript" src="/js/ThemeOffice/theme.js" type="text/javascript"></script>
+-->
+<script language="JavaScript" src="/js/yeaheasy.js" type="text/javascript"></script>
+<script language="JavaScript">
+<!--
+function YE_show_submenu(menuId, isShow)
+{
+	var element = document.getElementById(menuId);
+	if(element && element!=undefined)
+	{
+		element.style.display=(isShow?'block':'none');
+	}
+}
+
+function oneClickCheckAll(checkObj, targetName)
+{
+	var targetObjs;
+	var i=0;
+
+	if(checkObj.checked !=undefined)
+	{
+		targetObjs = document.getElementsByName(targetName);
+		while(targetObjs.length && i<targetObjs.length)
+		{
+			targetObjs[i].checked = checkObj.checked==true?true:false;
+			i++;
+		}
+	}
+} 
+
+function doChange(doAction, checkItem, targetName)
+{
+	var actionObj = document.getElementById('adminAttachAction');
+	if(actionObj)
+	{
+		actionObj.value=doAction;
+		if(checkItem==true && targetName!=undefined)
+		{
+			if(getCheckedStatus( targetName ) ==false)
+			{
+				alert('Please select item');
+				return false;
+			}
+		}
+		document.getElementById('admin_content').submit();
+		return true;
+	}
+	return false;
+}
+
+function getCheckedStatus( targetName ) 
+{
+	var targetObjs = document.getElementsByName(targetName);
+	var checkFlg = false;
+	var i = 0;
+	if(targetObjs==undefined || targetObjs.length==undefined)
+		return false;
+	for(;i<targetObjs.length;i++)
+	{
+		if (targetObjs[i].checked==true)
+		{
+			checkFlg = true;
+			break;
+		}
+	}
+	if(checkFlg == false)
+		return false;
+	return true;	 
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size: 13px;
+	color: #333333;
+}
+a{
+	font-size: 14px;
+	text-decoration: none;
+
+}
+#menu_link a{
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+
+}
+
+#link_style_1 a:link{
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+}
+#link_style_1 a:visited{
+	font-size: 14px;
+	color: #CC6633;
+	text-decoration: none;
+}
+#link_style_1 a:hover{
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+}
+#link_style_1 a:active{
+	font-size: 14px;
+	color: #CC6633;
+	text-decoration: none;
+}
+#admin_body_content  a:link{
+	font-size: 14px;
+	color: #CC6633;
+	text-decoration: none;
+}
+#admin_body_content  a:visited{
+	font-size: 14px;
+	color: #CC6633;
+	text-decoration: none;
+}
+#admin_body_content  a:hover{
+	font-size: 14px;
+	color: #333333;
+	text-decoration: none;
+}
+#admin_body_content  a:active{
+	font-size: 14px;
+	color: #CC6633;
+	text-decoration: none;
+}
+.border_1 {
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 8px;
+	padding-left: 8px;
+	border: 1px solid #CCC5B7;
+}
+.odd_row_style {
+	background-color: #E6DDc7;
+}
+.even_row_style {
+	background-color: #E6DDB7;
+}
+.admin_content_header {
+	background-color: #6A8FAE;
+	color : #E6EAEA;
+	font-weight: bold;	
+}
+.admin_content_foot {
+	background-color: #6A8FAE;
+	height:16px;
+}
+.admin_body_node
+{
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	border: 1px solid #CCC5B7;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="82" bgcolor="#82B584"  id='menu_zone' background='yeaheasy/web/images/logo_bg.png' valign='top'>
+		<img src="yeaheasy/web/images/admin_logo.jpg" border="0" alt="">	</td>
+  </tr>
+</table>
+<!-- start top -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td background="yeaheasy/web/images/bg_head_menu.gif" height="22" bgcolor="#FFCC00" id="menu_link">
+	<?$menuString?>	</td>
+  </tr>
+</table>
+<!-- end top -->
+
+<table width="100%" height="80" border="0" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7">
+  <tr>
+  <?if count($YE_LAYOUT[$logo])?>
+  <!-- start logo -->
+    <td><?$YE_LAYOUT[$logo][1][0]?></td>
+  <!-- end logo -->
+  <?/if?>
+  <?if count($YE_LAYOUT[$banner])?>
+  <!-- start banner -->
+    <td><?$YE_LAYOUT[$banner][0][0]?></td>
+  <!-- end banner -->
+  <?/if?>
+  <?if count($YE_LAYOUT[$banner_right])?>
+  <!--start banner right -->
+    <td><?$YE_LAYOUT[$banner_right][0][0]?></td>
+  <!-- end banner right -->
+  <?/if?>
+  </tr>
+</table>
+<!-- start header -->
+<table width="100%" height="18" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td background="/admin/themes/yeaheasy/images/silver_background.jpg" height="26">&nbsp;</td>
+  </tr>
+</table>
+<!-- end header -->
+<table width="100%"  border="0" cellspacing="12">
+  <tr>
+    <td>
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td id="link_style_1"><?$admin_tool_bar?></td>
+      </tr>
+    </table>
+
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7" class="border_1">
+      <tr>
+        <!-- start content -->
+        <td bgcolor="#EEEEEE"></td>
+        <!-- end content -->
+      </tr>
+      <tr>
+        <!-- start content -->
+        <td bgcolor="#EEEEEE" id='admin_body_content'><?$admin_body_content?></td>
+        <!-- end content -->
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<!-- start bottom -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="60" class="body_text"></td>
+  </tr>
+  <tr>
+    <td height="3" bgcolor="#EFCB81" class="body_text"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="4" cellpadding="0" bgcolor="#D7DDDB">
+  <tr>
+    <td class="body_text" align="center">
+    	Copyright 2000 - 2004 .  All rights reserved.<br>
+      YeahEasy! is Free Software released under the GNU/GPL License.<br>
+    </td>
+  </tr>
+</table>
+
+
+<!-- end bottom -->
+</body>
+</html>

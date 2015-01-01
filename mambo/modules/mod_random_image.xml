@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>随机图片</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This module display a random image from your chosen directory</description>
+	<files>
+	<filename module="mod_random_image">mod_random_image.php</filename>
+	</files>
+	<params>
+		<param name="type" type="text" default="jpg" label="图片类型" description="缺省为PNG，可选PNG,GIF,JPG等" />
+		<param name="folder" type="text" default="" label="图片文件夹" description="图片存在的文件夹" />
+		<param name="link" type="text" default="" label="链接" description="点击图片后跳转的网址" />
+		<param name="width" type="text" default="" label="宽度" description="图片宽度(单位：象素)" />
+		<param name="height" type="text" default="" label="高度" description="图片高度(单位：象素)" />
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+	</params>
+</mosinstall>

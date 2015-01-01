@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/09/22 20:35:54 $</date>
+  </sectioninfo>
+
+  <title>Search Engine Text</title>
+
+  <para>This page shows a list of the logged search text that visitors have used on your site. The list shows:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Search Text</emphasis>: This is the string or phrase entered.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Times Requested</emphasis>: This is the number of times this text has been entered.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Results Returned</emphasis>: This is the number search items that would be returned if you search 'now'.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>Some results to look at are words or phases that are commonly serached for, but return no results. You should assess whether you have content that is applicable. If necessary, add meta keywords to the content item to help in locating it.</para>
+
+  <para>Other results to look for are misspelt words or related words. For example, if a common search word is "dark" but it is commonly misspelt as "drak" then you may consider putting "drak" in the meta keywords of related content. You may also have content about a waste facility where you may consider adding common alternative terms in the meta keywords such as "tip" or "dump".</para>
+
+  <para>You must enable the "Log Search Strings" option in the "Statistics" tab of Global Configuration for this data to be collected.</para>
+</section>

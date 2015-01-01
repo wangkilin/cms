@@ -1,0 +1,47 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+?>
+<div class="notification"><?php echo $this->translate('blacklist_number_is_updated', $this->BlacklistNumber['PhoneNumber']);?></div>
+<table>
+    <tr>
+        <td class="column-1"><input type="checkbox"/></td>
+        <td class="column-2" title ="<?php echo $this->BlacklistNumber['PhoneNumber']?>">
+            <span><?php echo $this->BlacklistNumber['PhoneNumber']?></span>
+            <div class="manager">
+                <a class="manager-edit" title="<?php
+                    echo $this->translate('application_handler_edit')?>"
+                href="<?php echo $baseUrl?>/updatenumber/BlacklistNumberId/<?php
+                    echo $this->BlacklistNumber['BlacklistNumberId']?>"><?php
+                    echo $this->translate('application_handler_edit')?>
+                </a> | <a class="manager-delete" title="<?php
+                    echo $this->translate('application_handler_delete')?>"
+                href="<?php echo $baseUrl?>/deletenumber?BlacklistNumberIds[]=<?php
+                    echo $this->BlacklistNumber['BlacklistNumberId']?>&BlacklistNumberNames[]=<?php
+                    echo urlencode($this->BlacklistNumber['PhoneNumber'])?>"><?php echo $this->translate('application_handler_delete')?>
+                </a>
+            </div>
+        </td>
+        <td class="column-3" title="<?php echo $this->translate('blacklist_number_type_' . $this->BlacklistNumber['Dynamic'])?>">
+            <span><?php echo $this->translate('blacklist_number_type_' . $this->BlacklistNumber['Dynamic'])?></span>
+        </td>
+        <td class="column-4" title ="<?php echo $this->BlacklistNumber['EndDate']?>">
+            <span><?php echo $this->BlacklistNumber['EndDate']?></span>
+        </td>
+    </tr>
+</table>
+<?php
+/* EOF */

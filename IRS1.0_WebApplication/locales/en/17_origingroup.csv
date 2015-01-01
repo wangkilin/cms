@@ -1,0 +1,17 @@
+left_menu_origingroup;Origin Group List
+left_menu_add_origingroup;Add Origin Group
+origingroup_list_name;Origin Group Name
+origingroup_list_id;Origin Group Id
+origingroup_list_no_item;There's no origin group item!
+## edit origin group -----------------------
+origingroup_update_origingroup;Update Origin Group
+origingroup_is_updated;Origin Group: %s is updated!
+## create origin group ---------------------
+origingroup_create_origingroup;Add new Origin Group
+origingroup_name;Origin Group Name
+origingroup_is_created;Origin group: %s is created!
+## delete origin group ---------------------
+origingroup_delete_origingroup;origin group
+origingroup_is_deleted;Origin group %s is deleted!
+##----------------------------
+## EOF

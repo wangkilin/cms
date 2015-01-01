@@ -1,0 +1,27 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('trunk_is_created', $this->Label);?></div>
+<table>
+<?php
+echo $this->Action('list', 'trunk', null, array(
+                'CurrentPage' => $this->Pagination['CurrentPage'],
+                'ItemsPerPage' => $this->Pagination['ItemsPerPage']
+            ));
+?>
+</table>
+<?php
+/* EOF */

@@ -1,0 +1,54 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/numbergroup';
+?>
+<div class="notification"><?php echo $this->translate('numbergroup_is_updated', $this->PremiumNumberGroup['PremiumNumberGroupName']);?></div>
+<table>
+    <tr>
+        <td class="column-1"><input type="checkbox"/></td>
+        <td class="column-2" title="<?php echo $this->PremiumNumberGroup['PremiumNumberGroupName']?>">
+            <span><?php echo $this->PremiumNumberGroup['PremiumNumberGroupName']?></span>
+            <div class="manager">
+                <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit')?>"
+                href="<?php echo $baseUrl?>/update/PremiumNumberGroupId/<?php echo $this->PremiumNumberGroup['PremiumNumberGroupId']?>"><?php
+                    echo $this->translate('application_handler_edit')?></a>|<a class="manager-delete"
+                    title="<?php echo $this->translate('application_handler_delete')?>"
+                href="<?php echo $baseUrl?>/delete?PremiumNumberGroupIds[]=<?php echo $this->PremiumNumberGroup['PremiumNumberGroupId']?>&PremiumNumberGroupNames[]=<?php
+                    echo urlencode($this->PremiumNumberGroup['PremiumNumberGroupName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+            </div>
+        </td>
+        <td class="column-3" title="<?php echo $this->translate('solution_type_' . $this->PremiumNumberGroup['SolutionTypeId']);?>">
+            <span><?php echo $this->translate('solution_type_' . $this->PremiumNumberGroup['SolutionTypeId']);?></span>
+        </td>
+        <td class="column-4" title="<?php echo $this->PremiumNumberGroup['TemplateTreeLabel']?>">
+            <span><?php echo $this->PremiumNumberGroup['TemplateTreeLabel']?></span>
+        </td>
+        <td class="column-5" title="<?php echo $this->PremiumNumberGroup['CreationDatetime']?>">
+            <span><?php echo $this->PremiumNumberGroup['CreationDatetime']?></span>
+        </td>
+        <td class="column-6" title="<?php echo $this->PremiumNumberGroup['ModificationDatetime']?>">
+            <span><?php echo $this->PremiumNumberGroup['ModificationDatetime']?></span>
+        </td>
+        <td class="column-7" title="<?php echo $this->PremiumNumberGroup['CustomerUserName']?>">
+            <span><?php echo $this->PremiumNumberGroup['CustomerUserName']?></span>
+        </td>
+        <td class="column-0">
+            <span class="<?php echo ($this->PremiumNumberGroup['EmergencyActivated'] > 0 ? 'active':'unactive')?>">&nbsp;</span>
+        </td>
+    </tr>
+</table>
+<?php
+/* EOF */

@@ -1,0 +1,55 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Yao LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="number-update-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="number-update-heading">
+            <span class="heading-text"><?php echo $this->translate('number_update_number');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="number-update-body">
+			<form action="" id="number-update-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('number_update_max_call_duration');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="MaxCallDuration" value="<?php echo $this->PremiumNumber['MaxCallDuration'];?>"/>
+                                    </span>
+                                    <span><?php echo $this->translate('number_update_max_call_duration_minute');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

@@ -1,0 +1,20 @@
+<?php
+/**
+ * $Rev: 2597 $
+ * $LastChangedDate: 2010-06-18 18:50:10 +0800 (Fri, 18 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: account-ack.phtml 2597 2010-06-18 10:50:10Z junzhang $
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+echo '<div class="ok notification">',
+    $this->translate('default_form_updated_admin_account', array($this->User['Name'])),
+    '</div>';
+
+/* EOF */

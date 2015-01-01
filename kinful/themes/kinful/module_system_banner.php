@@ -1,0 +1,1 @@
+<IMG SRC="kinful/web/images/Banner.gif" BORDER="0" ALT="">

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/**
+ * $Rev: 2556 $
+ * $LastChangedDate: 2010-06-13 18:31:27 +0800 (Sun, 13 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   public
+ * @package    styles
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: tree.css 2556 2010-06-13 10:31:27Z junzhang $
+ */
+#tree-lists .list-title table td
+{
+white-space:nowrap;
+}
+#tree-lists table .column-1
+{
+width:2%;
+}
+#tree-lists table .column-2
+{
+white-space:nowrap;
+width:20%;
+}
+#tree-lists table .column-3
+{
+width:15%;
+}
+#tree-lists table .column-4
+{
+width:15%;
+}
+#tree-lists table .column-7
+{
+width:10%;
+}
+#tree-lists table .column-0
+{
+width:7%;
+}
+.node-constraints
+{
+margin:.75em 0;
+}
+.node-constraints .column-1
+{
+text-align:right;
+font-weight:bold;
+padding-right:.5em;
+padding-bottom:.5em;
+}
+/* EOF */

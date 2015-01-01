@@ -1,0 +1,117 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/agentgroup.css');
+$this->headScript()->appendFile($baseUrl . '/js/agentgroup.js');
+
+$baseUrl .= '/agentgroup';
+$translate = Streamwide_Web_Translate::functor();
+?>
+<div class="grid_2 prefix_1 oops-container">
+<div id="left_menu" class="left_menu">
+    <a href="<?php echo $baseUrl?>/index" class="sw-button on" id="list_agentgroup_menu"><?php echo $translate('left_menu_list_agent')?></a>
+    <a href="<?php echo $baseUrl?>/import" class="sw-button"><?php echo $translate('left_menu_import_agent')?></a>
+    <a href="<?php echo $baseUrl?>/export" class="sw-button"><?php echo $translate('left_menu_export_agent')?></a>
+</div>
+</div>
+
+<div class="grid_12 suffix_1 oops-container">
+<div id="main_content">
+  <div id="main_content_container">
+  <table cellspacing="5">
+    <thead>
+      <tr>
+          <td colspan="3" id="functional_bar">
+              <a id="add_agent" href="<?php echo $baseUrl?>/createagent" title="<?php echo $this->translate('agentgroup_add_agent')?>"><?php echo $this->translate('agentgroup_add_agent')?></a>
+              <a id="add_group" href="<?php echo $baseUrl?>/create" title="<?php echo $this->translate('agentgroup_add_group')?>"><?php echo $this->translate('agentgroup_add_group')?></a>
+              <form id="search_resource_form" action="<?php echo $baseUrl . '/list'?>">
+                  <input type="text" name="ResourceKeyWord" id="resource_key_word" value="<?php echo $this->translate('agentgroup_search_group_by_key')?>"/>
+                  <input id="search_resource_button" type="submit" value="<?php echo $translate('application_handler_ok')?>"/>
+              </form>
+          </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td id="agentgroup_list_zone" rowspan="2">
+          <?php
+              echo $this->render('agentgroup/list.phtml');
+              if(isset($this->AgentGroupList[0])) {
+                  $this->AgentGroupId = $this->AgentGroupList[0]['AgentGroupId'];
+                  $this->AgentGroupAgentsCount = $this->AgentGroupList[0]['AgentCount'];
+                  $this->AgentGroupName = $this->AgentGroupList[0]['AgentGroupName'];
+              }
+          ?>
+          </td>
+          <td id="agent_list_zone" rowspan="2">
+          <form id="agent_list_form">
+          <?php
+            if (isset($this->AgentGroupId)) {// has default agent group
+                echo $this->Action('listagent', 'agentgroup', null, array(
+                    'CustomerUserId' => $this->CustomerUserId,
+                    'CustomerAccountId' => $this->CustomerAccountId,
+                    'AgentGroupId'      => $this->AgentGroupId
+                ));
+            } else {// no agent group, list empty page
+            	echo $this->render('agentgroup/listagent.phtml');
+            }
+          ?>
+          </form>
+          </td>
+          <td id="operation_bar">
+            <table>
+              <tr>
+                <td id="modify_button_td"><div id="modify_button"><?php echo $this->translate('agentgroup_modify_button')?></div></td>
+                <td id="change_group_zone_td">
+                  <div id="change_group">
+                    <div class="dropdown_summary"><i><?php echo $this->translate('agentgroup_change_group_button')?></i><u>dropdown</u></div>
+                    <div id="bind_group">
+                    <div><?php echo $this->translate('agentgroup_to_associate')?></div>
+                    </div>
+                    <div id="unbind_group">
+                    <div><?php echo $this->translate('agentgroup_to_unassociate')?></div>
+                    </div>
+                  </div>
+                </td>
+                <td id="delete_group_td"><div id="delete_group"><?php echo $this->translate('agentgroup_delete_group_button')?></div></td>
+                <td id="delete_agent_td"><div id="delete_agent"><?php echo $this->translate('agentgroup_delete_agent_button')?></div></td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+      <tr>
+          <td id="agent_detail_zone">
+          <?php
+            if (isset($this->AgentGroupId)) { // has default agent group, show agents overview
+                echo $this->Action('overview', 'agentgroup', null, array(
+                    'CustomerUserId' => $this->CustomerUserId,
+                    'CustomerAccountId' => $this->CustomerAccountId,
+                    'AgentGroupId'      => $this->AgentGroupId
+                ));
+            } else {// show empty page
+                echo $this->render('agentgroup/overview.phtml');
+            }
+
+          ?>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+<?php
+/* EOF */

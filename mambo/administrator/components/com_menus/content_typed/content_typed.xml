@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Typed Content Page</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This shows a single content page</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="一个小图片，放在菜单项的左边或右边，图片必须在目录 images/stories/ 中" />
+	</params>
+</mosinstall>

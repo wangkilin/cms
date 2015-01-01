@@ -1,0 +1,39 @@
+left_menu_contactlist;Contact List
+left_menu_add_contact;New Contact
+left_menu_import_contact;Import Contact(csv)
+left_menu_export_contact;Export Contact(csv)
+
+contact_list_no_item;You don't have any Contacts.
+
+contact_list_name;Contact Name
+contact_list_number;Number
+contact_list_date_created;Date Created
+contact_list_date_modified;Modified Date
+contact_list_created_by;Created by
+contact_list_in_use;In use
+
+contact_list_name_sort;Sort by Contact Name
+contact_list_number_sort;Sort by # numbers
+contact_list_date_created_sort;Sort by Date Created
+contact_list_date_modified_sort;Sort by Modified Date
+contact_list_created_by_sort;Sort by Created by
+contact_list_in_use_sort;Sort by In use
+
+## edit contact
+contact_update_contact;Edit a contact
+contact_create_contact;Create a contact
+contact_name;Contact Name
+contact_number;Contact Number
+contact_custom_user_id;CustomUser Id
+contact_custom_account_id;CustomAccount Id
+
+contact_name_showinfo;Write a name for your Prompt
+contact_number_showinfo;Write a number for your Contact
+
+contact_is_deleted;contact %s is deleted
+contact_delete_contact; Contact(s): 
+contact_is_updated;Contact %s is updated
+contact_is_created;Cantact %s is created
+
+##----------------------------
+## EOF

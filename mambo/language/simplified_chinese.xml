@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall version="4.5.1" type="language">
+	<name>Simplified Chinese</name>
+	<version>4.5.1a pro</version>
+	<creationDate>2004-10-16</creationDate>
+	<author>Mambo China</author>
+	<authorEmail>http://www.mambochina.net</authorEmail>
+	<files>
+		<filename>simplified_chinese.php</filename>
+		<filename>simplified_chinese.ignore.php</filename>
+	</files>
+</mosinstall>

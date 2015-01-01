@@ -1,0 +1,52 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="contact-create-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="contact-create-heading">
+            <span class="heading-text"><?php echo $this->translate('contact_create_contact');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="contact-create-body">
+			<form action="" id="contact-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                 <table>
+                     <tr>
+                         <td colspan="2"><span class="desc"><?php echo $this->translate('contact_name')?></span></td>
+                     </tr>
+                     <tr>
+                         <td><span><input type="text" name="ContactName" value=""/></span></td>
+                         <td><span class="tips"><?php echo $this->translate('contact_name_showinfo')?></span></td>
+                     </tr>
+                     <tr>
+                         <td colspan="2"><span class="desc"><?php echo $this->translate('contact_number')?></span></td>
+                     </tr>
+                     <tr>
+                         <td><span><input type="text" name="ContactPhone" value=""/></span></td>
+                         <td><span class="tips"><?php echo $this->translate('contact_number_showinfo')?></span></td>
+                     </tr>
+                     <tr>
+                         <td colspan="2">
+                             <div class="dialog-button">
+                                 <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                             </div>
+                         </td>
+                     </tr>
+                </table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

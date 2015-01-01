@@ -1,0 +1,97 @@
+﻿<?php
+/**
+ * $Rev: 2339 $
+ * $LastChangedDate: 2010-05-31 15:00:03 +0800 (Mon, 31 May 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: distribution.phtml 2339 2010-05-31 07:00:03Z junzhang $
+ */
+
+/**
+ * Modal Window for Node Distribution in a HTML version
+ */
+$currentAction = strtolower($this->currentAction);
+$nodeName = 'edit' == $currentAction ? $this->nodeInfo['Label'] : $this->translate('dialog_form_node_label_default');
+?>
+<div class="dialog" id="distribution-dialog">
+    <div class="dialog-content">
+        <div class="dialog-heading" id="distribution-heading">
+            <span class="heading-text"><?php echo $this->translate('dialog_heading_node_distribution'); ?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+        </div>
+        <div class="dialog-body" id="distribution-body">
+            <form id="form-node-distribution" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_distribution_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_distribution') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_distribution') )); ?>
+                    </span>
+                </div>
+                <table width="100%">
+                    <tr>
+                        <td width="30%">
+                            <?php for($index = 0; $index < count($this->distributionTypes); $index++) : ?>
+                            <div>
+                                <label for="DistributionTypeId-<?php echo $this->distributionTypes[$index]['DistributionTypeId']; ?>">
+                                    <input type="radio" id="DistributionTypeId-<?php echo $this->distributionTypes[$index]['DistributionTypeId']; ?>" name="DistributionTypeId"<?php if (0 == $index) : ?> checked="checked"<?php endif; ?> value="<?php echo $this->distributionTypes[$index]['DistributionTypeId']; ?>" />
+                                    <?php echo $this->translate('dialog_form_node_distribution_type_' . $this->distributionTypes[$index]['Label']); ?>
+                                </label>
+                            </div>
+                            <?php endfor; ?>
+                        </td>
+                        <?php 
+                            for($index = 0; $index < 10; $index++) : 
+                                $outputId = 'new-' . $index;
+                                $isActive = false;
+                                $ratio = 10;
+                                $label = $this->translate('dialog_form_node_distribution_label_random', array($index + 1));
+                                if (is_array($this->nodeOutputs) && array_key_exists($index, $this->nodeOutputs)) {
+                                    $isActive = $this->nodeOutputs[$index]['IsActive'];
+                                    $outputId = 'exist-' . $this->nodeOutputs[$index]['NodeOutputId'];
+                                    $label = $this->nodeOutputs[$index]['Label'];
+                                    $ratio = $this->nodeOutputs[$index]['Percentage'];
+                                }
+                                $outputName = str_replace('-', '][', $outputId);
+                        ?>
+                        <?php if (0 === $index || 5 === $index) : ?>
+                        <td>
+                            <table class="outputs">
+                        <?php endif; ?>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="Output[<?php echo $outputName; ?>][IsActive]" value="0" />
+                                        <input type="checkbox" id="Output-<?php echo $outputId; ?>" name="Output[<?php echo $outputName; ?>][IsActive]"<?php if ($isActive) : ?> checked="checked"<?php endif; ?> value="1" />
+                                    </td>
+                                    <td class="label">
+                                        <input type="text" id="Output-label-<?php echo $outputId; ?>" name="Output[<?php echo $outputName; ?>][Label]"<?php if (!$isActive) : ?> disabled="disabled"<?php endif; ?> value="<?php echo $label; ?>" />
+                                    </td>
+                                    <td class="percentage">
+                                        <input type="text" id="Output-ratio-<?php echo $outputId; ?>" name="Output[<?php echo $outputName; ?>][Percentage]"<?php if (!$isActive) : ?> disabled="disabled"<?php endif; ?> value="<?php echo $ratio; ?>" />
+                                        <?php echo $this->translate('dialog_form_node_distribution_percentage'); ?>
+                                    </td>
+                                </tr>
+                        <?php if (4 === $index || 9 === $index) : ?>
+                            </table>
+                        </td>
+                        <?php endif; ?>
+                        <?php endfor; ?>
+                    </tr>
+                </table>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+/* EOF */

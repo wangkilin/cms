@@ -1,0 +1,57 @@
+left_menu_customer;Customer List
+left_menu_add_customer;New Customer
+
+##-----customer-list------
+customer_list_accountName;Account Name
+customer_list_billingId;Billing ID
+customer_list_customerName;Customer Name
+customer_list_customerEmail;Customer eMail
+customer_list_customerPhone;Customer Phone
+customer_list_dateCreated;Date Created
+customer_list_createdBy;Created by
+
+customer_list_no_item;You don't have any Customers.
+
+customer_list_accountName_sort;Sort by Account Name
+customer_list_billingID_sort;Sort by Billing ID
+customer_list_customerName_sort;Sort by Customer Name
+customer_list_customerEmail_sort;Sort by Customer eMail
+customer_list_customerPhone_sort;Sort by Customer Phone
+customer_list_dateCreated_sort;Sort by Date Created
+customer_list_createdBy_sort;Sort by Created by
+
+##-----------------------------
+#		customer tab
+##-----------------------------
+customer_accountInfo_tab;Account Info
+customer_quotas_tab;Quotas
+##-----------------------------
+#		create a customer
+##-----------------------------
+customer_is_created; Customer %s is created!
+customer_create_customer; Create a New Customer
+
+##-----------------------------
+#		update a customer
+##-----------------------------
+customer_is_updated; Customer %s is updated!
+customer_update_customer; Edit Customer
+
+customer_accountInfo_accountName; Account Name
+customer_accountInfo_billingId; Billing ID
+customer_accountInfo_contactName; Contact Name
+customer_accountInfo_contactEmail; Contact eMail
+customer_accountInfo_contactPhone; Contact Phone Number
+
+customer_quotas_maxPrompt; Max Total Prompt Size
+customer_quotas_maxOrigin; Max Total Origin
+customer_quotas_maxBlacklist; Max Total Blacklists
+customer_quotas_maxCalendar; Max Total Calendars
+customer_quotas_maxAgentgroup; Max Total Agent Groups
+customer_quotas_maxUser; Max Total Users
+
+##-----------------------------
+#		delete a customer
+##-----------------------------
+customer_is_deleted; Customer %s is deleted!
+customer_delete_customer; customer(s)

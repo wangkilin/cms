@@ -1,0 +1,103 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+$calendar = $this->Calendar;
+$periods = $this->Periods;
+?>
+<div class="dialog" id="calendar-update-dialog">
+	<div class="dialog-content">
+        <div class="dialog-heading" id="calendar-update-heading">
+            <span class="heading-text"><?php echo $this->translate('calendar_update_heading')?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+        </div>
+        <div class="dialog-body" id="calendar-update-body">
+            <form action="" id="calendar-update-form" method="post" enctype="application/x-www-form-urlencoded">
+                <table class="content">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div><span class="tips"><?php echo $this->translate('calendar_update_tip')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('calendar_update_name')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" class="" name="Label" value="<?php echo $calendar['Label']?>"/>
+                                    </span>
+                                    <span class="tips"><?php echo $this->translate('calendar_update_name_tip')?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('calendar_update_type')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <select name="CalendarTypeId" id="calendar-type">
+                                        <option value="10"><?php echo $this->translate('calendar_type_10')?></option>
+                                        <?php
+                                            foreach ($this->CalendarTypes as $calendarType) {
+                                                echo '<option value="' . $calendarType['CalendarTypeId'] . '"'
+                                                    . ($calendarType['CalendarTypeId'] == $calendar['CalendarTypeId'] ? 'selected="selected"' : '') . '>'
+                                                    . $this->translate('calendar_type_' . $calendarType['CalendarTypeId'])
+                                                    . '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table id="calendar-table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="200px"><div id="date"></div></td>
+                                                <td rowspan="2"><div id="week-calendar"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div id="tips"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" id="ok" name="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+	</div>
+    <?php echo '<script>var PERIODS = ' . Zend_Json::encode($periods) . ';</script>';?>
+</div>
+<?php
+
+/* EOF */

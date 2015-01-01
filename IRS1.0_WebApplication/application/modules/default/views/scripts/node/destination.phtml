@@ -1,0 +1,314 @@
+<?php
+/**
+ * $Rev: 2410 $
+ * $LastChangedDate: 2010-06-03 18:05:34 +0800 (Thu, 03 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: destination.phtml 2410 2010-06-03 10:05:34Z junzhang $
+ */
+
+/**
+ * Modal Window for Node Destination in a HTML version
+ */
+
+$possibleOutputs = array(
+    'No Answer',
+    'Busy',
+    'Unreachable',
+    'Congestion',
+    'Waiting Duration Exceed',
+    'Queue Is Full',
+    'Successfully Ended'
+);
+
+$typeMappingToParams = array(
+    1 => array(
+        'params-IsWaitingQueueAllowed',
+        'params-WaitingQueue-HasWaitingQueue',
+        'params-WaitingQueue-QueueGreetingPromptId',
+        'params-WaitingQueue-QueuePeriodicPromptId',
+        'params-WaitingQueue-QueueMaxLength',
+        'params-WaitingQueue-QueueMaxWaitingTime',
+        'params-WaitingQueue-QueueHasPositionPrompt',
+        'params-WaitingQueue-QueueMaxPositionPrompt',
+
+        'params-IsSimutaneousCallAllowed',
+        'params-SimutaneousCall-HasSimutaneousCalls',
+        'params-SimutaneousCall-MaxSimutaneousCalls',
+    ),
+    2 => array(
+        'params-IsWaitingQueueAllowed',
+        'params-WaitingQueue-HasWaitingQueue',
+        'params-WaitingQueue-QueueGreetingPromptId',
+        'params-WaitingQueue-QueuePeriodicPromptId',
+        'params-WaitingQueue-QueueMaxLength',
+        'params-WaitingQueue-QueueMaxWaitingTime',
+        'params-WaitingQueue-QueueHasPositionPrompt',
+        'params-WaitingQueue-QueueMaxPositionPrompt',
+    ),
+);
+
+$currentAction = strtolower($this->currentAction);
+$nodeName = 'edit' == $currentAction ? $this->nodeInfo['Label'] : $this->translate('dialog_form_node_label_default');
+
+$constraints = $this->defaultSettings;
+?>
+<div class="dialog" id="destination-dialog">
+    <div class="dialog-content">
+        <div class="dialog-heading" id="destination-heading">
+            <span class="heading-text"><?php echo $this->translate('dialog_heading_node_destination'); ?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+        </div>
+        <div class="dialog-body" id="destination-body">
+            <form id="form-node-destination" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_destination_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_destination') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_destination') )); ?>
+                    </span>
+                </div>
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <div class="destination-type">
+                                <label for="params-DestinationTypeId-1">
+                                    <input type="radio" id="params-DestinationTypeId-1" name="params[DestinationTypeId]" value="1" />
+                                    <?php echo $this->translate('dialog_form_node_destination_type_simple_number'); ?>
+                                </label>
+                                <label for="params-DestinationTypeId-2">
+                                    <input type="radio" id="params-DestinationTypeId-2" name="params[DestinationTypeId]" value="2" />
+                                    <?php echo $this->translate('dialog_form_node_destination_type_agent_group'); ?>
+                                </label>
+                                <label for="params-DestinationTypeId-3">
+                                    <input type="radio" id="params-DestinationTypeId-3" name="params[DestinationTypeId]" value="3" checked="checked" />
+                                    <?php echo $this->translate('dialog_form_node_destination_type_simplified_failover_group'); ?>
+                                </label>
+                            </div>
+                            <div class="destination-parameters">
+                                <div class="params-DestinationTypeId-1">
+                                    <div>
+                                        <input type="hidden" name="params[ContactId]" />
+                                        <input type="text" id="params-Query-Contact" class="input_default" value="<?php echo $this->translate('dialog_form_node_destination_query_contact_by_number_or_name'); ?>" />
+                                    </div>
+                                </div>
+                                <?php 
+                                    if ($constraints['IsAgentGroupAllowed']) : /* checking IsAgentGroupAllowed */ 
+                                    //////// abandon on params[SimutaneousCall] and params[SimutaneousCall][*]
+                                ?>
+                                <div class="params-DestinationTypeId-2">
+                                    <div>
+                                        <select id="params-AgentGroupId" name="params[AgentGroupId]">
+                                            <?php 
+                                                echo '<option value="0">', $this->translate('dialog_form_node_destination_parameter_agentgroup_selection_option_default'), '</option>';
+                                                foreach($this->agentGroups as $item) {
+                                                    echo '<option value="', $item['AgentgroupId'], '">', $item['AgentGroupName'], '</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <?php endif; /* IsAgentGroupAllowed end */ ?>
+                                <?php 
+                                    if ($constraints['IsFailoverAllowed']) : /* checking IsFailoverAllowed */ 
+                                    //////// abandon on params[RingDuration]
+                                    //////// abandon on params[WaitingQueue] and params[WaitingQueue][*]
+                                    //////// It looks only needs to CRUD numbers operations on this accordion
+                                    /////// The maximum number of phone numbers that can be defined in this way is 10.
+                                ?>
+                                <div class="params-DestinationTypeId-3">
+                                    <div class="destination-parameters-failover-contact">
+                                        <input type="text" name="FailoverContact[]" class="input_default" value="<?php echo $this->translate('dialog_form_node_destination_failover_contact_input_default'); ?>" />
+                                        <span class="ui-icon ui-icon-minus"></span>
+                                        <span class="ui-icon ui-icon-plus"></span>
+                                    </div>
+                                </div>
+                                <?php endif; /* IsFailoverAllowed end */ ?>
+                                <div class="params-DestinationTypeId-1 params-DestinationTypeId-2">
+                                    <label for="params-RingDuration" class="block">
+                                        <?php echo $this->translate('dialog_form_node_destination_parameter_ring_duration'); ?>
+                                    </label>
+                                    <select id="params-RingDuration" name="params[RingDuration]">
+                                        <?php 
+                                            for($index = 0; $index < 61; $index++) {
+                                                echo '<option value="', $index, '">', $index, '</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <?php if ($constraints['IsWaitingQueueAllowed']) : /* checking IsWaitingQueueAllowed */ ?>
+                                <dl class="params-DestinationTypeId-1 params-DestinationTypeId-2">
+                                    <dt>
+                                        <label for="params-WaitingQueue-HasWaitingQueue" class="block">
+                                            <input type="hidden" name="params[WaitingQueue][HasWaitingQueue]" value="0" />
+                                            <input type="checkbox" id="params-WaitingQueue-HasWaitingQueue" name="params[WaitingQueue][HasWaitingQueue]" value="1" checked="checked" />
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_has_waiting_queue'); ?>
+                                        </label>
+                                    </dt>
+                                    <dd>
+                                        <label for="params-WaitingQueue-QueueGreetingPromptId" class="block">
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_greeting'); ?>
+                                        </label>
+                                        <select id="params-WaitingQueue-QueueGreetingPromptId" name="params[WaitingQueue][QueueGreetingPromptId]">
+                                            <option value="0"><?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_greeting_option_default'); ?></option>
+                                            <optgroup label="<?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_standard'); ?>">
+                                            <?php 
+                                                foreach($this->standardPromptLists as $promptInfo) {
+                                                    echo '<option value="', $promptInfo['PromptId'], '"';
+                                                    echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                            </optgroup>
+                                            <optgroup label="<?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_customer'); ?>">
+                                            <?php 
+                                                foreach($this->customerPromptLists as $promptInfo) {
+                                                    echo '<option value="', $promptInfo['PromptId'], '"';
+                                                    echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                            </optgroup>
+                                        </select>
+                                    </dd>
+                                    <dd>
+                                        <label for="params-WaitingQueue-QueuePeriodicPromptId" class="block">
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_periodic'); ?>
+                                        </label>
+                                        <select id="params-WaitingQueue-QueuePeriodicPromptId" name="params[WaitingQueue][QueuePeriodicPromptId]">
+                                            <option value="0"><?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_periodic_option_default'); ?></option>
+                                            <optgroup label="<?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_standard'); ?>">
+                                            <?php 
+                                                foreach($this->standardPromptLists as $promptInfo) {
+                                                    echo '<option value="', $promptInfo['PromptId'], '"';
+                                                    //TODO: defaultSettings & nodeParameters
+                                                    echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                            </optgroup>
+                                            <optgroup label="<?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_prompt_customer'); ?>">
+                                            <?php 
+                                                foreach($this->customerPromptLists as $promptInfo) {
+                                                    echo '<option value="', $promptInfo['PromptId'], '"';
+                                                    //TODO: defaultSettings & nodeParameters
+                                                    echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                            </optgroup>
+                                        </select>
+                                    </dd>
+                                    <dd>
+                                        <label for="params-WaitingQueue-QueueMaxLength" class="block">
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_max_length'); ?>
+                                        </label>
+                                        <select id="params-WaitingQueue-QueueMaxLength" name="params[WaitingQueue][QueueMaxLength]">
+                                            <?php 
+                                                for($index = 0; $index < 61; $index++) {
+                                                    echo '<option value="', $index, '"';
+                                                    //TODO: defaultSettings & nodeParameters
+                                                    echo '>', $index, '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                        </select>
+                                    </dd>
+                                    <dd>
+                                        <label for="params-WaitingQueue-QueueMaxWaitingTime" class="block">
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_waiting_queue_max_waiting_time'); ?>
+                                        </label>
+                                        <select id="params-WaitingQueue-QueueMaxWaitingTime" name="params[WaitingQueue][QueueMaxWaitingTime]">
+                                            <?php 
+                                                for($index = 0; $index < 91; $index++) {
+                                                    echo '<option value="', $index, '"';
+                                                    //TODO: defaultSettings & nodeParameters
+                                                    echo '>', $index, '</option>', PHP_EOL;
+                                                } 
+                                            ?>
+                                        </select>
+                                    </dd>
+                                    <dd>
+                                        <dl>
+                                            <dt>
+                                                <label for="params-WaitingQueue-QueueHasPositionPrompt" class="block">
+                                                    <input type="hidden" name="params[WaitingQueue][QueueHasPositionPrompt]" value="0" />
+                                                    <input type="checkbox" id="params-WaitingQueue-QueueHasPositionPrompt" name="params[WaitingQueue][QueueHasPositionPrompt]" value="1" checked="checked" />
+                                                    <?php echo $this->translate('dialog_form_node_destination_parameter_has_position_prompt'); ?>
+                                                </label>
+                                            </dt>
+                                            <dd>
+                                                <dl>
+                                                    <dt>
+                                                        <input type="hidden" name="params[WaitingQueue][QueueMaxPositionPrompt]" value="<?php echo $constraints['WaitingQueue']['QueueMaxPositionPrompt']; ?>" />
+                                                        <label for="Customize-params-WaitingQueue-QueueMaxPositionPrompt" class="block">
+                                                            <input id="Customize-params-WaitingQueue-QueueMaxPositionPrompt" type="checkbox" checked="checked" />
+                                                            <?php echo $this->translate('dialog_form_node_destination_parameter_position_limit_length'); ?>
+                                                        </label>
+                                                    </dt>
+                                                    <dd>
+                                                        <input type="text" id="params-WaitingQueue-QueueMaxPositionPrompt" name="params[WaitingQueue][QueueMaxPositionPrompt]" />
+                                                        <span class="description tips">
+                                                            <?php echo $this->translate('dialog_form_node_destination_parameter_position_limit_length_description'); ?>
+                                                        </span>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                                <?php endif; /* IsWaitingQueueAllowed end */ ?>
+                                <?php if ($constraints['IsSimutaneousCallAllowed']) : /* checking IsSimutaneousCallAllowed */ ?>
+                                <dl class="params-DestinationTypeId-1">
+                                    <dt>
+                                        <label for="params-SimutaneousCall-HasSimutaneousCalls" class="block">
+                                            <input type="hidden" name="params[SimutaneousCall][HasSimutaneousCalls]" value="0" />
+                                            <input type="checkbox" id="params-SimutaneousCall-HasSimutaneousCalls" name="params[SimutaneousCall][HasSimutaneousCalls]" value="1" checked="checked" />
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_has_simutaneous_calls'); ?>
+                                        </label>
+                                    </dt>
+                                    <dd>
+                                        <input type="text" id="params-SimutaneousCall-MaxSimutaneousCalls" name="params[SimutaneousCall][MaxSimutaneousCalls]" />
+                                        <span class="description tips">
+                                            <?php echo $this->translate('dialog_form_node_destination_parameter_simutaneous_calls_max_length_description'); ?>
+                                        </span>
+                                    </dd>
+                                </dl>
+                                <?php endif; /* IsSimutaneousCallAllowed end */ ?>
+                            </div>
+                        </td>
+                        <td class="destination-outputs">
+                            <div class="ui-accordion-header ui-state-active ui-corner-top">
+                                <?php echo $this->translate('dialog_form_node_destination_posiable_outputs'); ?>
+                            </div>
+                            <div class="ui-accordion-content ui-widget-content ui-corner-bottom ui-accordion-content-active">
+                                <?php foreach($possibleOutputs as $output) : 
+                                    $outputKey = str_replace(' ', '', $output);
+                                    $translationKey = strtolower(str_replace(' ', '_', $output));
+                                ?>
+                                    <div class="destination-outputs-option">
+                                        <label class="ui-state-default">
+                                            <input type="hidden" name="Output[<?php echo $outputKey; ?>][IsActive]" value="1" disabled="disabled" />
+                                            <?php echo $this->translate('dialog_form_node_destination_output_' . $translationKey ); ?>
+                                        </label>
+                                        <q class="description tips">
+                                            <?php echo $this->translate('dialog_form_node_destination_output_' . $translationKey . '_description' ); ?>
+                                        <i><i></i></i></q>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+/* EOF */

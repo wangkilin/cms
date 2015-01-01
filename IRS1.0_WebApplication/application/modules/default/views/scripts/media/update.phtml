@@ -1,0 +1,92 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+
+$this->layout()->disableLayout();
+?>
+<div id="media-update-dialog" class="dialog">
+	<div class="dialog-content">
+		<div id="media-update-heading" class="dialog-heading">
+			<span class="heading-text"><?php echo $this->translate('media_update_media')?></span>
+			<span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+		</div>
+		<div id="media-update-body" class="dialog-body">
+			<form  id="media-update-form" action="" method="<?php echo Zend_Form::METHOD_POST;?>" enctype="<?php echo Zend_Form::ENCTYPE_URLENCODED;?>">
+                <table class="content">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('media_name')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class=""><input type = "text" name = "PromptName" value="<?php echo $this->Prompt['PromptName']?>"/></span>
+                                    <span class="tips"><?php echo $this->translate('media_name_description');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('media_description')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class=""><textarea name = "Description" rows = "5" cols = "10"><?php echo $this->Prompt['Description']?></textarea></span>
+                                    <span class="tips"><?php echo $this->translate('media_media_description');?></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="media_file_zone">
+                                    <label><?php echo $this->translate('media_file')?></label>
+                                    <br/>
+                                    <u media="<?php echo $this->baseUrl() . '/media/play/id/' . $this->Prompt['PromptId'];?>">play</u>
+                                    <b class="player" id="media-<?php echo $this->Prompt['PromptId']; ?>">
+                                    <s title="<?php echo $this->translate('application_handler_close');?>" class="ui-icon ui-icon-close">
+                                    <?php echo $this->translate('application_handler_close');?></s></b>
+
+                                    <span><?php echo $this->Prompt['FileName'] ?></span>
+                                    <i><?php echo $this->Prompt['FileSize'] . 'KB'?></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <input type = "button" class="upload-button" value = "<?php echo $this->translate('media_upload_button')?>" />
+                                    <span class="tips"><?php echo $this->translate('media_upload_description');?></span>
+                                    <i id="upload-flash"></i>
+                                    <input id="FileKey" name="FileKey" type="hidden" value="">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

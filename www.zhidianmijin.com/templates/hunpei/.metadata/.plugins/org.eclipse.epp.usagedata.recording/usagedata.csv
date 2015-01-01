@@ -1,0 +1,8 @@
+what,kind,bundleId,bundleVersion,description,time
+stopped,bundle,org.eclipse.wst.dtd.ui,1.0.301.v200808072012,org.eclipse.wst.dtd.ui,1247124071781
+stopped,bundle,org.eclipse.wst.wsdl.ui,1.2.102.v200809101946,org.eclipse.wst.wsdl.ui,1247124071812
+stopped,bundle,org.eclipse.wst.wsi.ui,1.0.400.v200805140300,org.eclipse.wst.wsi.ui,1247124071843
+stopped,bundle,org.eclipse.wst.jsdt.web.ui,1.0.1.v200807241900,org.eclipse.wst.jsdt.web.ui,1247124071875
+stopped,bundle,org.eclipse.wst.web.ui,1.1.200.v200805281530,org.eclipse.wst.web.ui,1247124071875
+stopped,bundle,org.eclipse.wst.html.ui,1.0.301.v200809120137,org.eclipse.wst.html.ui,1247124071875
+stopped,bundle,org.eclipse.wst.css.ui,1.0.301.v200807170605,org.eclipse.wst.css.ui,1247124071921

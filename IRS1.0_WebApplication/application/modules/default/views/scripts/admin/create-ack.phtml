@@ -1,0 +1,28 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('admin_is_created', $this->Name);?></div>
+<table>
+<?php
+echo $this->Action('list', 'admin', null, array(
+                'CustomerAccountId' => $this->CustomerAccountId,
+                'CurrentPage' => $this->Pagination['CurrentPage'],
+                'ItemsPerPage' => $this->Pagination['ItemsPerPage']
+            ));
+?>
+</table>
+<?php            
+/* EOF */

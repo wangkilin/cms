@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template">
+	<name>allm_classy</name>
+	<creationDate>08/19/2004</creationDate>
+	<author>allmambo Crew</author>
+	<copyright>(C) Released under GPL license</copyright>
+	<authorEmail>templates@allmambo.com</authorEmail>
+	<authorUrl>www.allmambo.com</authorUrl>
+	<version>1.0</version>
+	<description>varable width classy looking template</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>template_thumbnail.png</filename>
+	</files>
+	<images>
+		<filename>images/des_by.gif</filename>
+		<filename>images/footer_bck.gif</filename>
+		<filename>images/logo.gif</filename>
+		<filename>images/logo_left.gif</filename>
+		<filename>images/logo_right.gif</filename>
+		<filename>images/main_left.gif</filename>
+		<filename>images/main_right.gif</filename>
+		<filename>images/menu_bck.gif</filename>
+		<filename>images/menu_left.gif</filename>
+		<filename>images/mod_title.gif</filename>
+		<filename>images/path.gif</filename>
+		<filename>images/spacer.gif</filename>
+		<filename>images/welcome_bck.gif</filename>
+		<filename>images/welcome_img.gif</filename>
+		<filename>images/welcome_left.gif</filename>
+		<filename>images/welcome_right.gif</filename>
+	</images>
+	<css>
+		<filename>css/template_css.css</filename>
+	</css>
+</mosinstall>

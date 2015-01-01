@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/09/09 07:24:49 $</date>
+  </sectioninfo>
+
+  <title>Installed Languages List</title>
+
+  <para>This page shows show a list of the Languages for the translation or corrected or modified text on the Frontend of your site.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Language</emphasis>: This is the name of the language.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This column shows the acitve language.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Version</emphasis>: This is the version of the language file.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Author</emphasis>: This is the author of the language file.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Email</emphasis>: This is author's email address, if available.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>To Publish a language, select the radio button next to the name of the template and click the 'Publish' icon.</para>
+
+  <para>Click the 'New' icon to upload/install a new language to your site.</para>
+
+  <para>Click the name of the category to Edit the details, or select the radio button next to the name and click the 'Edit' icon.</para>
+
+  <para>To delete a language, select the radio button next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the client or 'No' to cancel. The language files will be deleted from the server.</para>
+</section>

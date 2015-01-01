@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Table - Contact Category</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This component shows a Table view of Contact items for a particular Category</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="一个小图片，放在菜单项的左边或右边，图片必须在目录 images/stories/ 中" />
+		<param name="pageclass_sfx" type="text" size="20" default="" label="页面css后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="page_title" type="radio" default="1" label="页面标题" description="显示/隐藏页面标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="header" type="text" size="30" default="" label="页面标题" description="显示在页面顶部的文本，如果留空，将使用菜单名称" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="other_cat" type="radio" default="1" label="其它分类" description="当浏览分类页面时，显示/隐藏其它分类列表">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="cat_description" type="radio" default="1" label="分类描述" description="显示/隐藏其它分类列表的描述">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="cat_items" type="radio" default="1" label="分类条目数" description="显示/隐藏每个分类的条目数">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="headings" type="radio" default="1" label="表头" description="显示/隐藏表头">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="position" type="radio" default="1" label="职务栏" description="显示/隐藏职务栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email" type="radio" default="1" label="Email栏" description="显示/隐藏Email栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="telephone" type="radio" default="1" label="电话栏" description="显示/隐藏电话栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="fax" type="radio" default="1" label="传真栏" description="显示/隐藏传真栏">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+	</params>
+</mosinstall>

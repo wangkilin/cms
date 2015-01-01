@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Menu Items List</title>
+
+  <para>This page shows show a list of the Menu Items for your the munu you have just choosen.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Menu Item</emphasis>: This is the name of the menu item. Click the name to edit the menu item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Section</emphasis>: This is the type of menu item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This is whether the item is published. See the legend below the list for an explanation of icon types.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Checked Out</emphasis>: This is the name of a user if this menu item is checked out. You will not be able to edit an item if it is checked out by another user. This is to prevent accidently editing an item while another User is editing it.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Access</emphasis>: This is the User access level.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Menu id</emphasis>: This is the internal id number of the menu</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Reorder</emphasis>: Click the icons to move the item up or down in the list.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>These are some other choices you can make::</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Max Levels</emphasis>: You may select the maximum number of levels deep that the menu tree is displayed.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Display #</emphasis>: You may alter the number of rows displayed in the list. </para>
+
+      <para>NOTE: This setting will be held for all lists while you are in the Administator. A default value for the list length is also configurable in Global Configuration.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Search</emphasis>: You may search for text in a Menu name.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>To Publish or Unpublish one or more Menu Items, select the checkbox(es) next to the name of the item and click either the Publish or Unpublish icon.</para>
+
+  <para>Click the 'New' icon to add a new category.</para>
+
+  <para>Click the name of the Menu item to Edit the details, or select the check box next to the name and click the 'Edit' icon.</para>
+
+  <para>To delete a Menu item, select the check box next to the name and click the 'Delete' icon. You will be asked to confirm the delete operation. Select 'Yes' to delete the menu item or 'No' to cancel.</para>
+
+  <section id="adding">
+    <title>Adding Menus</title>
+
+    <para><emphasis role="bold">How do I add a new menu?</emphasis></para>
+
+    <para>The number of menus available is related to the number of instances of the Main Menu module. There are two menus provided by default: Main Menu and the User Menu, but you may have many more menus on your site if you so desire.</para>
+
+    <para><emphasis role="bold">The easiest way to add new menus is to use the Menu Manager.</emphasis></para>
+
+    <para>Alternatively, to add a new menu manually, select Modules -&gt; Manage Modules from the Administator menu.</para>
+
+    <para>Click the checkbox for one of the existing modules based on mod_mainmenu (either Main Menu or User Menu).</para>
+
+    <para>Click the 'Copy' icon in the toolbar.</para>
+
+    <para>You will see a new module in the list named "Copy of 'something'". Click on the name of this module to edit it. In the edit form, change the title of the menu (eg, to "Privacy Menu") and change the Menu Type in the Parameters group (eg, "privacy"). Click the Save icon when you are finished.</para>
+
+    <para>Now, hover over Menus and you should see that in the Menus dropdown you have a new menu called "Privacy Menu". You may repeat this procedure as many times as you like. There is no limit to the number of menus that you can have and to which menu items they are associated with.</para>
+  </section>
+</section>

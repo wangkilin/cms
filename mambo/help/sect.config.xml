@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/09/05 13:59:32 $</date>
+  </sectioninfo>
+  <title>Global Configuration</title>
+  <section>
+    <title>Site Tab</title>
+    <para><emphasis role="bold">Site Offline</emphasis>: With this you can effectively switch on and off your website front-end. You will most likely use this option if you are extensively updating your web site, and data, and do not wish to have users view the site until you have finished. Remember to turn this option back on again once you're done.</para>
+    <para><emphasis role="bold">Offline Message</emphasis>: This is an offline message that users will see on the front-end. When the Site Offline switch is in the 'YES' position. It will display this.</para>
+    <para><emphasis role="bold">System Error Message</emphasis>: This is message that is displayed when an error has occurred in Mambo (for example, it could not connect to the database). You should include a notice to contact the Web Master or System Administrator so that they can attend to the problem. This will distinguish this screen from the site being simply offline.</para>
+    <para><emphasis role="bold">Site Name</emphasis>: This is the text that will be shown in the browser's title bar for your site. It can also be displayed in your template by inserting the following code statement into your template file [index.php] where you wish your Site Name to appear:</para>
+    <para><programlisting>&lt;?php echo $mosConfig_sitename; ?&gt;</programlisting></para>
+    <para><emphasis role="bold">Search Engine Friendly URLs</emphasis>: This option allows for the generation of Search Engine Friendly URLs if supported by the web server. Generally you will need an Apache web server with mod_rewrite enabled. Your webhost should be able to help you with this.</para>
+    <para><emphasis role="bold">Show Unauthorised Links</emphasis>: If Yes, allows anonymous site visitors to see links to registered content. It will not allow the user to see the content item until they are logged in. It is useful if you want visitors to know that an item exists but require them to register to see it.</para>
+    <para><emphasis role="bold">Allow User Registration</emphasis>: Allows you to globally set whether anonymous users can register for a user account. If No, the link to the Registration page will not be displayed.</para>
+    <para><emphasis role="bold">Use New Account Activation</emphasis>: If Yes, an activation link will be sent to user's e-mail address. User can not login until he has clicked on the activation link. If No, user will be able to login right away without activation.</para>
+    <para><emphasis role="bold">Require Unique Email</emphasis>: Select whether you want to prevent registration with duplicate e-mail address. In combination with user activation this option prevents users to sign up several times using the same e-mail address.</para>
+    <para><emphasis role="bold">Debug Site</emphasis>: Allows you to view the error messages that are created by your site's php installation. It can be a useful tool for debugging, if you are having some problems, and also for reporting errors to your System Administrator or Webhost.</para>
+    <para><emphasis role="bold">WYSIWYG Editor</emphasis>: You may select from the installed WYSIWYG editors or choose not to have an editor. Selecting 'None' may be useful to administer low bandwidth sites.</para>
+    <para><emphasis role="bold">List Length</emphasis>: Sets the default length for lists in the Administrator. Please note that if you have previously visited a page with a list, changing this setting in Global Configuration will not be immediately visible. However, the setting you specify will be honoured as a default upon your next login.</para>
+  </section>
+  <section>
+    <title>Locale Tab</title>
+    <para><emphasis role="bold">Language</emphasis>: Define the default language you would like to use on your site.</para>
+    <para><emphasis role="bold">Time Offset</emphasis>: Define the time offset of the site, against GMT [Greenwich Mean Time, or UK time].</para>
+    <para><emphasis role="bold">Country Locale</emphasis>: Define your country settings, depending on what country you are from, or based on your preference.</para>
+  </section>
+  <section>
+    <title>Content Tab</title>
+    <para><emphasis role="bold">Linked Titles</emphasis>: In a Blog style list, the title of a content item will be hyperlinked rather than having a 'Read On..." link only.</para>
+    <para><emphasis role="bold">Item Rating/Voting</emphasis>: This option allows the rating of content items. If set to Yes, a 'Star Bar' will be shown on each content item as well as a form for submitting your rating (the rating form is not shown for articles in 'Blog' lists and the Star Bar is only shown for those items with Intro text).</para>
+    <para><emphasis role="bold">Author Names</emphasis>: This option allows the Author's name to be hidden when a content item is displayed [top position].</para>
+    <para><emphasis role="bold">Created Date and Time</emphasis>: This option allows the creation date and time to be hidden when a content item is displayed [top position].</para>
+    <para><emphasis role="bold">Modified Date and Time</emphasis>: This option allows the last modified date and time to be hidden when a content item is displayed [bottom position].</para>
+    <para><emphasis role="bold">PDF Icon</emphasis>: This option allows you to hide the PDF maker icon that is displayed when viewing a content item. NOTE, this will not display at all if your /media directory is not writeable.</para>
+    <para><emphasis role="bold">Print Icon</emphasis>: This option allows you to hide the Printer Friendly Version icon that is displayed when viewing a content item.</para>
+    <para><emphasis role="bold">Email Icon</emphasis>: This option allows you to hide the Email Page to Friend icon that is displayed when viewing a content item.</para>
+    <para><emphasis role="bold">Table of Contents on multi-page items</emphasis>: This option will allow the generation of a Table of Content for multi-page content items (that is, those broken by page break mambots, for example, {mospagebreak} in the htmlarea editor).</para>
+    <para><emphasis role="bold">Back Button</emphasis>: Hide or show a back button.</para>
+    <para><emphasis role="bold">Content Item Navigation</emphasis>: Shows "Next" and "Previous" links when viewing content items in a category.</para>
+  </section>
+  <section>
+    <title>Database Tab</title>
+    <para>Warning: Very important settings. If your mambo website has been installed on your behalf do not alter these settings.</para>
+    <para><emphasis role="bold">Hostname</emphasis>: Typically set to 'localhost'.</para>
+    <para><emphasis role="bold">My SQL Username</emphasis>: The username used to access your Mambo database.</para>
+    <para><emphasis role="bold">My SQL Password</emphasis>: The password used to access your Mambo database.</para>
+    <para><emphasis role="bold">My SQL Database</emphasis>: The name of the database your Mambo installation uses.</para>
+    <para><emphasis role="bold">My SQL Database Prefix</emphasis>: The prefix used for records in your Mambo database. Typically _mos by default.</para>
+  </section>
+  <section>
+    <title>Server Tab</title>
+    <para>The Absolute Path and Live Site variables are predefined during the installation and are not configurable through this tab. However, they are shown for reference.</para>
+    <para><emphasis role="bold">Absolute Path</emphasis>: The Absolute Path is the directory information used by Mambo on the server that orientates it to it's surrounding system.</para>
+    <para><emphasis role="bold">Live Site</emphasis>: This is the absolute URL (web address) for your installation of Mambo.</para>
+    <para><emphasis role="bold">Secret Word</emphasis>: Unique word for every Mambo installation. Used for security functions.</para>
+    <para><emphasis role="bold">GZIP Page Compression</emphasis>: This option allows your web server to send compressed data if supported by the server itself and the client web browser. If enabled, this could significantly decrease the load time of your site for your visitors. Show Unauthorized Links: With this option turned on, it will allow the public or unregistered users to see the links that registered users would normally see. But with this option off it will only show links that are viewable by the public.</para>
+    <para><emphasis role="bold">Login Session Lifetime</emphasis>: The default value is 43200 seconds; this is equivalent to 12 hours. Change this value as necessary.</para>
+    <para><emphasis role="bold">Error Reporting</emphasis>: This has four options:</para>
+    <itemizedlist>
+      <listitem>
+        <para>System Default - Turns Error reporting to the system default according to php.ini on the server.</para>
+      </listitem>
+      <listitem>
+        <para>None - Turns off error reporting.</para>
+      </listitem>
+      <listitem>
+        <para>Simple - This turns error reporting to simple options using the following options: error_reporting (E_ERROR|E_WARNING|E_PARSE)</para>
+      </listitem>
+      <listitem>
+        <para>Maximum - This turns error reporting to the Maximum level using the followingoptions: error_reporting (E_ALL) WYSIWYG Editor: You can define what type of Text Editor you want to use, the default editor supplied with Mambo is htmlarea2.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>Metadata Tab</title>
+    <para><emphasis role="bold">Meta Description</emphasis>: This is a description of your website. You may want to limit your description to maybe twenty words or so, depending on the Search Engine your are targeting.</para>
+    <para>Make it concise and pertinent to your site's contents. You can include some of your keywords and key phrases here too. As some search engines read more than 20 words you can add one or two sentences. Please make sure that the most important part of your description is in the first 20 words.</para>
+    <para><emphasis role="bold">Meta Keywords</emphasis>: The optimal number of characters for a keyword description is said to be between 300 and 500. Do not repeat words too often and either separate your keywords with a comma or a space, or group two or three words together. 'Mambo' would be an example of this.</para>
+    <para>The Description and Keyword Meta tags, may have a bearing on how Search Engines will index your site. Some Search Engines completely ignore Metadata altogether. You should do some research on Search Engine Optimisation if high rankings and Search Engine traffic are important to you.</para>
+  </section>
+  <section>
+    <title>Mail Tab</title>
+    <para><emphasis role="bold">Mailer</emphasis>: Allows you to select the mail method for Mambo to use.</para>
+    <para><emphasis role="bold">Mail From</emphasis>: todo</para>
+    <para><emphasis role="bold">From Name</emphasis>: todo</para>
+    <para><emphasis role="bold">SMTP Auth</emphasis>: Allows for authenication with a SMTP server.</para>
+    <para><emphasis role="bold">SMTP User:</emphasis> The user name for the SMTP server.</para>
+    <para><emphasis role="bold">SMTP Pass</emphasis>: The password for the user. Note, this password is not encrytped before it is stored.</para>
+    <para><emphasis role="bold">SMTP Host</emphasis>: The name of the SMTP server.</para>
+  </section>
+  <section>
+    <title>Cache Tab</title>
+    <para><emphasis role="bold">Caching</emphasis>: Allows for caching of certain elements within Mambo. This will generally improve the performance of your site.</para>
+    <para><emphasis role="bold">Cache Folder</emphasis>: The fodler or directory to store the cache files. This must be writable for this caching to be successfully implemented. Contact your Web Master if you have any difficulties.</para>
+    <para><emphasis role="bold">Cache Time</emphasis>: The maximum length of time, in seconds, for a cache file to be stored before it is refreshed.</para>
+  </section>
+  <section>
+    <title>Statistics Tab</title>
+    <para><emphasis role="bold">Statistics</emphasis>: If Yes, browser and visitor domain statistics will be collected on the basis of settings ing the Content Tab. If No, browser and visitor statistics will not be collected. If your site experiences a slight 'delay' the first time a user visits the site you should set this to No.</para>
+    <para><emphasis role="bold">Log Content Hits by Date</emphasis>: This option enables logging of the hits on content items, on a daily basis. There are currently no in-built analysis routines, to complement this logging feature. Be warned that this will tend to collect masses of data over time.</para>
+    <para><emphasis role="bold">Log Search Strings</emphasis>: This option enables logging of the search text, entered by a user. Such logging facilitates the 'tuning' of your web site, giving you an insight into how your visitors are trying to find the information they seek. Analysis reporting is provided under Site&gt;Statistics&gt;Search Text.</para>
+  </section>
+</section>

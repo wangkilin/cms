@@ -1,0 +1,87 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/number';
+$this->ListUrl = $baseUrl . '/list/';
+$this->CurrentCount = count($this->PremiumNumbers);
+?>
+<tfoot>
+    <tr>
+        <td colspan="<?php echo $this->IsSuperAdmin ? '7' : '5';?>">
+            <?php
+            echo $this->render('pagination.phtml');
+            ?>
+        </td>
+    </tr>
+</tfoot>
+<tbody>
+<?php
+    if ($this->CurrentCount) {
+        $count = 0;
+        foreach ($this->PremiumNumbers as $number) {
+?>
+            <tr id="row-item-<?php echo $number['PremiumNumberId'];?>" class="row-item<?php echo ($count++%2 ? ' leaper' : '') ;?>">
+                <?php if ($this->IsSuperAdmin) { ?>
+                    <td class="column-1"><input type="checkbox"/></td>
+                <?php } ?>
+                <td class="column-2" title="<?php echo $number['PremiumNumberUi'];?>">
+                    <span><?php echo $number['PremiumNumberUi'];?></span>
+                    <div class="manager">
+                        <?php if ($this->IsSuperAdmin || 1 == $number['SolutionTypeId']) { ?>
+                        <a class="manager-edit" title="<?php echo $this->translate('application_handler_edit');?>"
+                        href="<?php echo $baseUrl?>/update/PremiumNumberId/<?php echo $number['PremiumNumberId'];?>"><?php
+                            echo $this->translate('application_handler_edit');?></a><?php } if ($this->IsSuperAdmin) { ?>|<a class="manager-delete"
+                            title="<?php echo $this->translate('application_handler_delete');?>"
+                        href="<?php echo $baseUrl?>/delete?PremiumNumberIds[]=<?php echo $number['PremiumNumberId'];?>&PremiumNumberUis[]=<?php
+                            echo urlencode($number['PremiumNumberUi']);?>"><?php echo $this->translate('application_handler_delete');?></a>
+                        <?php } ?>
+                    </div>
+                </td>
+                <?php if ($this->IsSuperAdmin) { ?>
+                    <td class="column-3" title="<?php echo $number['CustomerAccountName'];?>">
+                        <span><?php echo $number['CustomerAccountName'];?></span>
+                    </td>
+                    <td class="column-4" title="<?php echo $number['PremiumNumber'];?>">
+                        <span><?php echo $number['PremiumNumber'];?></span>
+                    </td>
+                    <td class="column-5" title="<?php echo $number['MaxCallDuration'];?>">
+                        <span><?php echo $number['MaxCallDuration'];?></span>
+                    </td>
+                <?php } ?>
+                <td class="column-6" title="<?php echo $this->translate('solution_type_' . $number['SolutionTypeId']);?>">
+                    <span><?php echo $this->translate('solution_type_' . $number['SolutionTypeId']);?></span>
+                </td>
+                <td class="column-0" title="<?php echo $number['TemplateTreeLabel'];?>">
+                    <span><?php echo $number['TemplateTreeLabel'];?></span>
+                </td>
+                <?php if (! $this->IsSuperAdmin) { ?>
+                    <td class="column-7" title="<?php echo $number['PremiumNumberGroupName'];?>">
+                        <span><?php echo $number['PremiumNumberGroupName'];?></span>
+                    </td>
+                    <td class="column-8" title="<?php echo $number['CreationDatetime'];?>">
+                        <span><?php echo $number['CreationDatetime'];?></span>
+                    </td>
+                <?php } ?>
+            </tr>
+<?php
+        }
+    } else {
+?>
+        <tr class="row-item-none">
+            <td colspan="<?php echo $this->IsSuperAdmin ? '7' : '5';?>">
+                <span><?php echo $this->translate('number_list_no_item');?></span>
+            </td>
+        </tr>
+<?php } ?>
+</tbody>
+<?php
+/* EOF */

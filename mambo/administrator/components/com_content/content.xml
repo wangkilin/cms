@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Content Page</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>This shows a single content page</description>
+	<params>
+		<param name="pageclass_sfx" type="text" size="20" default="" label="页面css后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="item_title" type="radio" default="1" label="条目标题" description="显示/隐藏条目标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="link_titles" type="list" default="" label="链接标题" description="使条目标题可链接">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="introtext" type="radio" default="1" label="摘要" description="显示/隐藏摘要">
+			<option value="0">Hide</option>
+			<option value="1">Show</option>
+		</param>
+		<param name="section" type="radio" default="0" label="单元名称" description="显示/隐藏条目所属的单元">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="section_link" type="list" default="0" label="单元名称可链接" description="使单元名称链接到其单元页面">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="category" type="radio" default="0" label="分类名称" description="显示/隐藏条目所属的分类">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="category_link" type="radio" default="0" label="分类名称可链接" description="使分类名称链接到其分类页面">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="rating" type="list" default="" label="条目评级" description="显示/隐藏条目评级 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="author" type="list" default="" label="作者名称" description="显示/隐藏作者名称 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="createdate" type="list" default="" label="创建日期时间" description="显示/隐藏创建日期时间 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="modifydate" type="list" default="" label="更改日期时间" description="显示/隐藏更改日期时间 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="pdf" type="list" default="" label="PDF图标" description="显示/隐藏PDF图标 - 只影响该页面">
+			<option value="">Use Global</option>
+			<option value="0">Hide</option>
+			<option value="1">Show</option>
+		</param>
+		<param name="print" type="list" default="" label="打印图标" description="显示/隐藏打印图标 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="email" type="list" default="" label="Email图标" description="显示/隐藏Email图标 - 只影响该页面">
+			<option value="">使用全局配置</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+	</params>
+</mosinstall>

@@ -1,0 +1,45 @@
+<?php
+/**
+ * $Rev: 2544 $
+ * $LastChangedDate: 2010-06-12 18:29:57 +0800 (Sat, 12 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_tree
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: delete.phtml 2544 2010-06-12 10:29:57Z junzhang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->layout()->disableLayout();
+$treeIds = $this->TreeIds;
+$isBatch = (count($treeIds) > 1);
+?>
+<div id="tree-delete" class="dialog">
+    <div class="dialog-content">
+        <form action="<?php echo $baseUrl , '/tree/delete'; ?>" method="post" enctype="application/x-www-form-urlencoded">
+            <div id="tree-heading" class="dialog-heading dialog-delete">
+                <b><?php echo $this->translate('application_handler_delete'); ?> </b>
+                <b><?php echo $this->translate('default_form_title_delete_tree' . ($isBatch ? '_batch' : '')); ?> ? </b>
+                <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+                <ol>
+                    <?php foreach($treeIds as $id => $label) : ?>
+                    <li>
+                        <em><?php echo $label; ?></em>
+                    </li>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+            <div class="dialog-button">
+                <span><button type="button" class="cancel"><?php echo $this->translate('application_handler_cancel');?></button></span>
+                <span class="button-gap">&nbsp;</span>
+                <span><button type="submit" class="delete"><?php echo $this->translate('application_handler_delete');?></span>
+            </div>
+        </form>
+    </div>
+</div>
+<?php
+/* EOF */

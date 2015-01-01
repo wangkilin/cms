@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/26 06:54:54 $</date>
+  </sectioninfo>
+
+  <title>Content List</title>
+
+  <para>This page shows show a list of the Content items on your site for a particular Content Section.</para>
+
+  <para>You may enter text in the "Filter" box to refine the list based on whether the text is found in the title of any item. Type in any text and press Enter. You may also limit the list to a particular category by select one from the list.</para>
+
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Title</emphasis>: This is the title of the Content item.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Category</emphasis>: This is the Category that the Content item is in.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Published</emphasis>: This shows whether the item is published. Hover over this icon to see a summary of the publishing information.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Checked Out</emphasis>: The name of a user if this Content item is 'checked out'. You will not be able to edit an item if it is checked out by another user. It must be checked back by an administrator by going to Systems in the Menu bar--&gt;Global Checkin. It can also be checked back in by the User who has checked the item out by clicking the 'Edit' icon of the category item and then clicking the the 'Save' or 'Cancel' icon.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Access</emphasis>: This is the user access level.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Frontpage</emphasis>: This is whether this item is to be published or is published on the Frontpage.</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="bold">Reorder</emphasis>: Click the icons to move the Content item up or down in the list.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para><emphasis role="bold">Toolbar Actions</emphasis></para>
+
+  <para>You "select" items by clicking the checkbox at the start of each row.</para>
+
+  <para><emphasis role="bold">Publish and Unpublish</emphasis>: Click the 'Publish' or 'Unpublish' icon to publish or unpublish any number of selected Content items.</para>
+
+  <para><emphasis role="bold">New</emphasis>: Click the 'New' icon to create a new Content item.</para>
+
+  <para><emphasis role="bold">Edit</emphasis>: Click the 'Edit' icon to edit the Content item. Clicking the linked name will also preform this function.</para>
+
+  <para><emphasis role="bold">Move</emphasis>: Click the 'Move' icon to move Content items to another Content Section or Cateory.</para>
+
+  <para><emphasis role="bold">Copy:</emphasis> Click the 'Copy' icon to copy Content items into a Content Section or Content Category.</para>
+
+  <para><emphasis role="bold">Archive</emphasis>: Click the 'Archive' icon to put Content items into an archvied state. They are still accessible to the Frontend of your site if in published mode.</para>
+
+  <para><emphasis role="bold">Trash</emphasis>: Click the 'Trash' icon to put Content items in the trash bin. They are not completely removed but are not accessible from your site. You can restore this Content items in the Trash Manager.</para>
+</section>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="css/docbook.css" type="text/css"?>
+<section>
+  <sectioninfo>
+    <date>$Date: 2004/08/11 04:57:31 $</date>
+  </sectioninfo>
+  <title>Mass Mail Users</title>
+  <para>This page allow you to send a mail a message to one or more groups of Users.</para>
+  <itemizedlist>
+    <listitem>
+      <para><emphasis role="bold">Group</emphasis>: Make a selection from the list. Select "All User Groups" to mail the message to all users. Only one selection can be made from this list.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Mail to Child Groups</emphasis>: Check this box to automatically include all of the child groups of the selected group. For example, if you select the "Editor" group and check this box, all users in the Publisher group will also be included in the mass mail.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Subject</emphasis>: Type a subject for the message.</para>
+    </listitem>
+    <listitem>
+      <para><emphasis role="bold">Message</emphasis>: Type the body of the message</para>
+    </listitem>
+  </itemizedlist>
+  <para>When you are finished, click the Publish icon to mail the message or Cancel to abort the mail.</para>
+  <para><emphasis role="bold">NOTE</emphasis>: Only a user in the Super Administrator group is permitted to use this feature.</para>
+</section>

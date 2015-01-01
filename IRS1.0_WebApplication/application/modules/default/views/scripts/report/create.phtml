@@ -1,0 +1,239 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="report-create-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="report-create-heading">
+            <span class="heading-text"><?php echo $this->translate('report_create_report');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="report-create-body">
+			<form action="" id="report-create-form" method="post" enctype="application/x-www-form-urlencoded">
+                 <table class="content">
+                     <tr>
+                         <td><div><span class="desc"><?php echo $this->translate('report_name');?></span></div></td>
+                     </tr>
+                     <tr>
+                         <td><div><span><input type="text" name="ReportName" value=""/></span></div></td>
+                     </tr>
+                     <tr>
+                         <td><div><span class="desc"><?php echo $this->translate('report_export_format');?></span></div></td>
+                     </tr>
+                     <tr>
+                         <td>
+                            <div>
+                            <select name="ReportFormat" id="report-format">
+                                <?php
+                                    foreach ($this->ReportFormats as $key => $value) {
+                                        echo '<option value="' . $key . '">' . $this->translate('report_export_format_' . $value) . '</option>';
+                                    }
+                                ?>
+                            </select>
+                            </div>
+                        </td>
+                     </tr>
+                     <tr>
+                         <td><div><span class="desc"><?php echo $this->translate('report_data_type');?></span></div></td>
+                     </tr>
+                     <tr>
+                         <td>
+                            <div>
+                            <select name="ReportType" id="report-type">
+                                <?php
+                                    foreach ($this->ReportTypes as $key => $value) {
+                                        echo '<option value="' . $key . '">' . $this->translate('report_data_type_' . $value) . '</option>';
+                                    }
+                                ?>
+                            </select>
+                            </div>
+                         </td>
+                     </tr>
+                     <tr class="group-by">
+                         <td><div><span class="desc"><?php echo $this->translate('report_group_by');?></span></div></td>
+                     </tr>
+                     <tr class="group-by">
+                         <td><div>
+                            <select name="OriginGroupId">
+                                <option value="-1"><?php echo $this->translate('report_group_by_select');?></option>
+                            <?php
+                                foreach ($this->OriginGroups as $originGroup) {
+                                    echo '<option value="' . $originGroup['OriginGroupId'] . '">' . $originGroup['OriginGroupName'] . '</option>';
+                                }
+                            ?>
+                            </select>
+                         </div></td>
+                     </tr>
+                     <tr class="destination">
+                         <td><div><span class="desc"><?php echo $this->translate('report_destination');?></span></div></td>
+                     </tr>
+                     <tr class="destination">
+                         <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="t1">
+                                            <div>
+                                                <input id="phone-number-type-one" type="radio" name="PhoneNumberType" checked=""/>
+                                                <span>
+                                                    <label for="phone-number-type-one"><?php echo $this->translate('report_phone_number_type_one');?></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input class="phone-one" type="text" name="PhoneNumberFrom"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">
+                                            <div>
+                                                <input id="phone-number-type-range" type="radio" name="PhoneNumberType"/>
+                                                <span>
+                                                    <label for="phone-number-type-range"><?php echo $this->translate('report_phone_number_type_range');?></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span><?php echo $this->translate('report_phone_number_type_range_from');?></span>
+                                                <input class="phone-range" type="text" name="PhoneNumberFrom"/>
+                                                <span><?php echo $this->translate('report_phone_number_type_range_to');?></span>
+                                                <input class="phone-range" type="text" name="PhoneNumberTo"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">
+                                            <div>
+                                                <input id="phone-number-type-all" type="radio" name="PhoneNumberType"/>
+                                                <span>
+                                                    <label for="phone-number-type-all"><?php echo $this->translate('report_phone_number_type_all');?></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </td>
+                     </tr>
+                     <tr class="time-period">
+                         <td><div><span class="desc"><?php echo $this->translate('report_time_period');?></span></div></td>
+                     </tr>
+                     <tr class="time-period">
+                         <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="t1">
+                                            <div><span class=""><?php echo $this->translate('report_stats_type');?></span></div>
+                                        </td>
+                                        <td>
+                                            <select id="timeframe" name="ReportTimeframeId">
+                                                <option value="-1"><?php echo $this->translate('report_stats_type_by');?></option>
+                                                <option value="0"><?php echo $this->translate('report_timeframe_0');?></option>
+                                                <?php
+                                                    foreach ($this->ReportTimeframes as $timeframe) {
+                                                        echo '<option max="' . $timeframe['TimeframeMax'] . '" value="' . $timeframe['ReportTimeframeId'] . '">'
+                                                            . $this->translate('report_timeframe_' . $timeframe['ReportTimeframeId']). '</option>';
+                                                    }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr id="date-period">
+                                        <td class="t1">
+                                            <div><span class=""><?php echo $this->translate('report_date_period');?></span></div>
+                                        </td>
+                                        <td>
+                                            <div id="date-period-date-range">
+                                                <span><?php echo $this->translate('report_phone_number_type_range_from');?></span>
+                                                <input class="date-range-from" type="text" name="ReportStartDate"/>
+                                                <span><?php echo $this->translate('report_phone_number_type_range_to');?></span>
+                                                <input class="date-range-to" type="text" name="ReportEndDate"/>
+                                            </div>
+                                            <div id="date-period-value">
+                                                <span><?php echo $this->translate('report_date_period_at_last');?></span>
+                                                <select id="timeframe-value" name="ReportTimeframeValue">
+                                                    <option></option>
+                                                </select>
+                                                <span class="date-period-values" id="date-period-days"><?php echo $this->translate('report_date_period_days');?></span>
+                                                <span class="date-period-values" id="date-period-weeks"><?php echo $this->translate('report_date_period_weeks');?></span>
+                                                <span class="date-period-values" id="date-period-months"><?php echo $this->translate('report_date_period_months');?></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </td>
+                     </tr>
+                     <tr class="email-scheduling">
+                         <td><div><span class="desc"><?php echo $this->translate('report_email_scheduling');?></span></div></td>
+                     </tr>
+                     <tr class="email-scheduling">
+                         <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="t1">
+                                            <div><span class=""><?php echo $this->translate('report_email_scheduling_frequency');?></span></div>
+                                        </td>
+                                        <td>
+                                            <select name="EmailFrequency">
+                                            <?php
+                                                foreach ($this->EmailFrequencies as $key => $value) {
+                                                    echo '<option value="' . $key . '">' . $this->translate('report_email_scheduling_frequency_' . $value) . '</option>';
+                                                }
+                                            ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">
+                                            <div><span class=""><?php echo $this->translate('report_email_scheduling_to');?></span></div>
+                                        </td>
+                                        <td>
+                                            <select name="CustomerUserId">
+                                                <option value="-1"><?php echo $this->translate('report_email_scheduling_to_select');?></option>
+                                                <?php
+                                                    foreach ($this->Users as $user) {
+                                                        echo '<option value="' . $user['UserId'] . '">' . $user['Name'] . '</option>';
+                                                    }
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             <div class="dialog-button">
+                                 <span><button type="submit" class="create-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                             </div>
+                         </td>
+                     </tr>
+                </table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

@@ -1,0 +1,39 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/origingroup';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div id="origingroup-update-dialog" class="dialog">
+    <div class="dialog-content">
+        <div class="dialog-heading" id="origingroup-update-heading">
+            <span class="heading-text"><?php echo $this->translate('origingroup_update_origingroup')?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close')?></span>
+        </div>
+        <div class="dialog-body" id="origingroup-update-body">
+            <form id="origingroup-update-form" method="post" enctype="application/x-www-form-urlencoded">
+                <span class="desc"><?php echo $this->translate('origingroup_name')?></span>
+                <div>
+                    <input type="text" name="Label" value="<?php echo $this->OriginGroup['OriginGroupName']?>"/>
+                </div>
+                <br/>
+                <div class="dialog-button">
+                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php
+/* EOF */

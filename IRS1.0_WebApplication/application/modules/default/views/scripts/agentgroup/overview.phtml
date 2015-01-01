@@ -1,0 +1,128 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+?>
+      <table id="agent_info_table">
+        <thead>
+          <tr>
+            <td colspan="2"><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <?php echo $this->translate('agentgroup_agent_name')?>
+            </td>
+            <td id="agent_name_td">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="agents_info_table">
+        <thead>
+          <tr>
+            <td><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+              <?php echo $this->translate('agentgroup_have_selected')?>
+              <i id="count_selected_agents">0</i>
+              <?php echo $this->translate('agentgroup_agents')?>
+              </td>
+          </tr>
+          <tr>
+              <td>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="group_info_table">
+        <thead>
+          <tr>
+            <td><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+              <i id="group_info_name">
+                  <?php if($this->AgentGroupId>0) {
+                  	        echo $this->AgentGroupName;
+                        } else if($this->AgentGroupId==0) {
+                        	echo $this->translate('agentgroup_unaffected_agents');
+                        } else if($this->AgentGroupId==-1) {
+                        	echo $this->translate('agentgroup_all_agents');
+                        }
+                  ?>
+              </i>
+              <br/>
+              <i id="group_agents_count"><?php echo isset($this->AgentGroupAgentsCount)?$this->AgentGroupAgentsCount : $this->CountUnaffectedAgents ?></i>
+              <?php echo $this->translate('agentgroup_agent');?>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="agentgroup_usage_table">
+        <thead>
+          <tr>
+            <td><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+              <?php
+                    echo $this->translate('agentgroup_usage_description');
+              ?>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form id="edit_agent_form" action="">
+      <table id="edit_agent_table">
+        <thead>
+          <tr>
+            <td><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+
+      <form id="edit_group_form" action="">
+      <table id="edit_group_table">
+        <thead>
+          <tr>
+            <td><?php echo $this->translate('agentgroup_agent_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+<?php
+/* EOF */

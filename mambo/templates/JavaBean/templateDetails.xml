@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="template" version="4.5.1">
+  <name>JavaBean</name>
+  <creationDate>29/07/2004</creationDate>
+  <author>Firsta Yudith</author>
+  <copyright>This template is released under GNU/GPL License.</copyright>
+  <authorEmail>dr_first@yahoo.com</authorEmail>
+  <authorUrl>www.doengs.com</authorUrl>
+  <version>1.0</version>
+  <description>A fresh clean style, shows spirit of the company.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>template_thumbnail.png</filename>
+  </files>
+  <images>
+    <filename>images/image_01.jpg</filename>
+    <filename>images/bgr.png</filename>
+    <filename>images/search_01.png</filename>
+	<filename>images/search_02.png</filename>
+    <filename>images/menu_bgr.png</filename>
+	<filename>images/vmenu_bgr.png</filename>
+    <filename>images/lineborder.png</filename>
+	<filename>images/pixel.png</filename>
+  </images>
+  <css>
+    <filename>css/template_css.css</filename>
+  </css>
+</mosinstall>

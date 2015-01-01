@@ -1,0 +1,33 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate($this->IsBatch ? 'agentgroup_agent_batch_is_deleted' : 'agentgroup_is_deleted', $this->AgentName);?></div>
+<div id="query_result"
+<?php
+    echo $this->AgentGroupId?(' groupId="'.$this->AgentGroupId.'"'):'';
+    echo ' groupCount="' . $this->AgentGroupAgentsCount . '"';
+?>
+>
+  <?php
+  if($this->MinusAgentGroupList) {
+    foreach($this->MinusAgentGroupList as $this->MinusAgentGroupId) {
+        echo '<i class="minusGroup" id="' . $this->MinusAgentGroupId . '">';
+    }
+  }
+  ?>
+</div>
+<?php
+/* EOF */

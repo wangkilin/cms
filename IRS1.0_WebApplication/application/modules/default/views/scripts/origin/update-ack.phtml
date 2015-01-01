@@ -1,0 +1,39 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/origin';
+?>
+
+<div class="notification"><?php printf($this->translate('origin_is_updated'));?></div>
+
+<table>
+          <tr>
+            <td class="column_0"><input type="checkbox"  bind="action_list" name="action_list[]" value="<?php echo $this->Origin['OriginId']?>"/></p>
+            <td class="column_1">
+              <span><?php echo $this->Origin['OriginName']?></span>
+              <q>
+                  <a class="list_edit" href="<?php echo $baseUrl?>/update/id/<?php echo $this->Origin['OriginId']?>"><?php echo $this->translate('application_handler_edit')?></a>
+                  |
+                  <a class="list_delete" href="<?php echo $baseUrl?>/remove/id/<?php echo $this->Origin['OriginId']?>/OriginName/<?php echo urlencode($this->Origin['OriginName'])?>"><?php echo $this->translate('application_handler_delete')?></a>
+              </q>
+            </td>
+            <td class="column_2" title=""><?php echo date('Y-m-d H:i:s', strtotime($this->Origin['CreationDatetime']))?></td>
+            <td class="column_3" title=""><?php echo date('Y-m-d H:i:s', strtotime($this->Origin['ModificationDatetime']))?></td>
+            <td class="column_4" title=""><?php echo $this->Origin['CustomerUserName']?></td>
+            <td class="column_5" title=""><?php echo $this->Origin['ReferenceCounter']?></td>
+          </tr>
+</table>
+<?php
+/* EOF */

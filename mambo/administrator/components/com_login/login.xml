@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="component" version="4.5.1">
+	<name>Contact Items</name>
+	<author>Mambo Project</author>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>Parameters for individual Contact Items</description>
+	<params>
+		<param name="menu_image" type="imagelist" directory="/images/stories" hide_default="1" default="" label="菜单图片" description="在菜单中显示的小图片，必须存放于 images/stories/ 文件夹中" />
+		<param name="pageclass_sfx" type="text" default="" label="页面CSS后缀" description="用来定义页面的css类型的后缀，这样允许页面使用单独的css风格" />
+		<param name="back_button" type="list" default="" label="返回按钮" description="显示/隐藏返回按钮，允许返回上一个页面">
+			<option value="">使用全局设定值</option>
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="page_title" type="radio" default="1" label="页面标题" description="显示/隐藏页面标题">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="header_login" type="text" size="30" default="" label="登录页面标题" description="自定页面标题。如果留空，将以菜单名为页面标题" />
+		<param name="login" type="text" size="30"  default="" label="登录后跳转 URL" description="设置登录后自动跳转的页面, 如果留空，将直接返回到首页" />
+		<param name="login_message" type="radio" default="0" label="登录后的 JS 信息" description="显示/隐藏 登录完成后的弹出窗口信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="description_login" type="radio" default="0" label="登录描述" description="显示/隐藏 登录后的描述信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="description_login_text" type="textarea" cols="30" rows="5" default="" label="登录提示文本" description="设置登录提示的文本, 如果留空，则直接读取你设置的语言文件中的 _LOGIN_DESCRIPTION 的设定值" />
+		<param name="image_login" type="imagelist" directory="/images/stories" default="" label="图片" description="登录页面的图片" />
+		<param name="image_login_align" type="radio" default="right" label="图片位置" description="登录页面的图片位置">
+			<option value="left">左</option>
+			<option value="right">右</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="header_logout" type="text" size="30" default="" label="注销页面标题" description="" />
+		<param name="logout" type="text" size="30"  default="" label="注销后跳转 URL" description="设置注销后自动跳转的页面，如果留空，则直接返回到当前页" />
+		<param name="logout_message" type="radio" default="1" label="注销后的 JS 信息" description="显示/隐藏 注销后的弹出窗口信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="description_logout" type="radio" default="1" label="注销描述" description="显示/隐藏 注销后的描述信息">
+			<option value="0">隐藏</option>
+			<option value="1">显示</option>
+		</param>
+		<param name="description_logout_text" type="textarea" cols="30" rows="5" default="" label="注销提示文本" description="设置注销提示的文本, 如果留空，则直接读取你设置的语言文件中的 _LOGOUT_DESCRIPTION 的设定值" />
+		<param name="image_logout" type="imagelist" directory="/images/stories" default="" label="图片" description="注销页面图片" />
+		<param name="image_logout_align" type="radio" default="1" label="图片位置" description="注销页面的图片位置">
+			<option value="left">左</option>
+			<option value="right">右</option>
+		</param>
+	</params>
+</mosinstall>

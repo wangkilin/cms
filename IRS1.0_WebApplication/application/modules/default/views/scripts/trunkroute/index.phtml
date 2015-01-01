@@ -1,0 +1,87 @@
+<?php
+/**
+ * $Rev: 1746 $
+ * $LastChangedDate: 2010-03-23 18:46:26 +0800 (Tue, 23 Mar 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: index.phtml 1746 2010-03-23 10:46:26Z zwang $
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$this->headLink()->appendStylesheet($baseUrl . '/styles/resource.css')
+                 ->appendStylesheet($baseUrl . '/styles/trunkroute.css');
+$this->headScript()->appendFile($baseUrl . '/js/resource.js')
+                   ->appendFile($baseUrl . '/js/trunkroute.js');
+
+?>
+
+<div class="grid_12 suffix_1 oops-container">
+    <div id="trunkroutes" class="list-container">
+        <div class="list-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="list-header">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                <div class="search-box" >
+                                                    <form action="<?php echo $baseUrl, '/trunkroute/list'?>">
+                                                        <div class="search-box-input">
+                                                            <div class="search-icon">&nbsp;</div>
+                                                            <input type="text" name="ResourceKeyWord" class="keyword input_default"
+                                                            value="<?php echo $this->translate('application_handler_search_input')?>"/>
+                                                        </div>
+                                                        <button class="search" type="submit">
+                                                        <?php echo $this->translate('application_handler_ok')?></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="trunkroute-list" class="list-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="column-1" title="<?php echo $this->translate('trunkroute_list_routename')?>">
+                                                <span><?php echo $this->translate('trunkroute_list_routename')?></span>
+                                            </th>
+                                            <th class="column-2" title="<?php echo $this->translate('trunkroute_list_primarygroupname')?>">
+                                                <span><?php echo $this->translate('trunkroute_list_primarygroupname')?></span>
+                                            </th>
+                                            <th class="column-0" title="<?php echo $this->translate('trunkroute_list_secondarygroupname')?>">
+                                                <span><?php echo $this->translate('trunkroute_list_secondarygroupname')?></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    echo $this->render('trunkroute/list.phtml');
+                                   ?>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+var LOCAL = "<?php echo $baseUrl, '/trunkroute/'?>";
+</script>
+<?php
+/* EOF */

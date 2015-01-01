@@ -1,0 +1,49 @@
+<?php
+/**
+ * $Rev: 2464 $
+ * $LastChangedDate: 2010-06-08 18:41:47 +0800 (Tue, 08 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_error
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: error.phtml 2464 2010-06-08 10:41:47Z junzhang $
+ */
+
+
+$layout = $this->Layout();
+$isEnabled = $layout->isEnabled();
+$isXmlHttpRequest = $this->getHelper('action')->request->isXmlHttpRequest();
+
+if ($isEnabled || $isXmlHttpRequest) {
+    $layout->disableLayout();
+}
+?>
+
+<h1>An error occurred</h1>
+<h2><?php echo $this->message ?></h2>
+
+<?php if ('development' == APPLICATION_ENV): ?>
+
+<h3>Exception information:</h3>
+<p>
+  <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+</p>
+
+<h3>Stack trace:</h3>
+<pre><?php echo $this->exception->getTraceAsString() ?>
+</pre>
+
+<h3>Request Parameters:</h3>
+<pre><?php var_export($this->request->getParams()) ?>
+</pre>
+<?php endif ?>
+
+<?php
+if ($isEnabled || !$isXmlHttpRequest) {
+    $layout->enableLayout();
+}
+
+/* EOF */

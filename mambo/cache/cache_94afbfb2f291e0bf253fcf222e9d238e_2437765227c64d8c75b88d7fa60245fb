@@ -1,0 +1,48 @@
+                      1627507531a:2:{s:6:"output";s:2627:"			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+				Mambo适合我吗？								</td>
+							<td align="right" width="100%" class="buttonheading">
+			<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;do_pdf=1&amp;id=2', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" title="输出PDF">
+			<img src="http://localhost/cms/mambo/images/M_images/pdf_button.png" alt="输出PDF" align="middle" name="image" border="0" />			</a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;task=view&amp;id=2&amp;Itemid=39&amp;pop=1&amp;page=0', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no');" title="打印">
+				<img src="http://localhost/cms/mambo/images/M_images/printButton.png" alt="打印" align="middle" name="image" border="0" />				</a>
+				</td>
+							<td align="right" width="100%" class="buttonheading">
+			<a href="javascript:void window.open('http://localhost/cms/mambo/index2.php?option=com_content&amp;task=emailform&amp;id=2', 'win2', 'status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no');" title="E-mail">
+			<img src="http://localhost/cms/mambo/images/M_images/emailButton.png" alt="E-mail" align="middle" name="image" border="0" />			</a>
+			</td>
+						</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td width="70%" align="left" valign="top" colspan="2">
+			<span class="small">
+			 作者： Administrator			</span>
+			&nbsp;&nbsp;
+			</td>
+		</tr>
+					<tr>
+				<td valign="top" colspan="2" class="createdate">
+				2004-09-25				</td>
+			</tr>
+					<tr>
+			<td valign="top" colspan="2">
+			　　翻译：zhous　Mambo中国<br />　　原文：Is Mambo for me? 来自Mambo官方网站<br /><br />　　这里我们提供一些精短的意见作为您评价Mambo前的参考，帮助您挑选到最适合于您的内容管理系统（CMS）。<br />　　当您看到这篇内容时，也许您为了找到最好的内容管理系统（CMS）而已经在网上寻觅了几个小时甚至几天。如果是这样，那么您其实可能还仅仅是刚开始您的掘宝之旅。			</td>
+		</tr>
+					<tr>
+				<td colspan="2" align="left" class="modifydate">
+				最近更新 ( 2004-09-25 )
+				</td>
+			</tr>
+							<tr>
+					<td align="left" colspan="2">
+					<a href="http://localhost/cms/mambo/content/view/2/2/" class="readon">
+					阅读全文...					</a>
+					</td>
+				</tr>
+						</table>
+		";s:6:"result";N;}

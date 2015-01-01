@@ -1,0 +1,50 @@
+<?php
+/**
+ * $Rev: 2032 $
+ * $LastChangedDate: 2010-05-06 17:46:09 +0800 (Thu, 06 May 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_index
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kai WU <kwu@streamwide.cn>
+ * @version    $Id: sitemap.phtml 2032 2010-05-06 09:46:09Z junzhang $
+ */
+
+$this->headTitle()->append($this->translate('application_title_sitemap'));
+
+$this->headScript()->appendFile($this->BaseUrl() . '/js/sitemap.js');
+
+echo $this->navigation($this->sitemap);
+
+echo $this->Form(
+    'parameters', 
+    array(
+        'method' => Zend_Form::METHOD_POST, 
+        'enctype' => Zend_Form::ENCTYPE_URLENCODED
+    ), 
+    $this->FormHidden('mca', null, array())
+        . $this->Fieldset(
+            '',
+            '<ol><li class="group">'
+                . $this->FormButton('remove', 'remove', array('content' => '-'))
+                . ' '
+                . $this->FormText('key[]', null, array('class' => 'key', 'size' => 10))
+                . ' '
+                . $this->FormText('value[]', null, array('class' => 'value', 'size' => 60))
+                . ' '
+                . $this->FormButton('reset', 'reset', array('type' => 'reset'))
+                . '</li></ol>',
+            array(
+                'legend' => ' '
+                    . $this->FormButton('add', null, array('content' => '+'))
+                    . ' &nbsp; '
+                    . $this->FormButton('submit', 'test', array('type' => 'submit')) , 
+                'class'  => 'field',
+                'escape' => false
+            )
+        )
+);
+
+/* EOF */

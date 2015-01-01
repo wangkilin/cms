@@ -1,0 +1,168 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/origin';
+// Disabled layout
+$this->layout()->disableLayout();
+$heading = '<div id="origin-heading" class="dialog-heading"><span class="heading-text">'
+    . $this->translate('origin_edit_origin') . '</span><span class="heading-close">×</span></div>';
+
+// prepare origins by group
+$count = 0;
+var_dump($this->SystemOrigins);
+foreach($this->SystemOrigins as $systemOrigin) {
+	$_tmpGroupName = '___' . $systemOrigin['OriginGroupId'] . '_' . $systemOrigin['OriginGroupName'];
+	if (!isset($$_tmpGroupName)) {
+		$$_tmpGroupName = '';
+	}
+
+	$$_tmpGroupName .= '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $systemOrigin['OriginName']
+	                       . '<input type="hidden" class="origin_item" name="SysOriginIds[]" value="' . $systemOrigin['OriginId'] . '">'
+	                 . '</dd>';
+
+}
+
+// prepare user defined origins
+$count = 0;
+$userOrigins = array();
+foreach($this->UserOrigins as $origin) {
+    $_tmpKeyName = $origin['OriginGroupId'] . '_' . $origin['OriginGroupName'];
+    if (! isset($userOrigins[$_tmpKeyName])) {
+        $userOrigins[$_tmpKeyName] = '';
+    }
+    $userOrigins[$_tmpKeyName] .=
+                       '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $origin['OriginName']
+                           . '<input type="hidden" class="origin_item" name="OriginIds[]" value="' . $origin['OriginId'] . '">'
+                     . '</dd>';
+}
+
+// prepare user defined prefixes
+$count = 0;
+$userPrefixes = '';
+foreach($this->Prefixes as $prefix) {
+    $userPrefixes .=
+                       '<dd class="' . ($count++%2 ? 'leaper' : '') . '">' . $prefix['PrefixNumber']
+                           . '<input type="hidden" class="origin_item" name="Prefixes[]" value="' . $prefix['PrefixId'] . '">'
+                     . '</dd>';
+}
+
+// prepare origin groups
+$originGroups = $originGroupOptions = '';
+$userGroups = '';
+foreach($this->OriginGroups as $group) {
+	$originGroups .= '<dl id="group_' . $group['OriginGroupId'] . '" class="collapse">'
+	               . '<dt><i>icon</i><u>' . $group['OriginGroupName'] . '</u></dt>';
+	$_tmpGroupName = '___' .$group['OriginGroupId'] . '_' .  $group['OriginGroupName'];
+	if (isset($$_tmpGroupName)) {
+		$originGroups .= $$_tmpGroupName;
+	}
+
+	$originGroups .= '</dl>';
+
+    $_tmpKeyName = $group['OriginGroupId'] . '_' . $group['OriginGroupName'];
+	if (isset($userOrigins[$_tmpKeyName])) {
+		$userGroups .= '<dl id="group_' . $group['OriginGroupId'] . '" class="collapse">'
+                   . '<dt><i>icon</i><u>' . $group['OriginGroupName'] . '</u></dt>';
+        $userGroups .= $userOrigins[$_tmpKeyName];
+        $userGroups .= '</dl>';
+	}
+
+	$originGroupOptions .= '<option value="' . $group['OriginGroupId'] .'" '.($group['OriginGroupId']==$this->Origin['OriginId']?'selected="selected"':'').'>' . $group['OriginGroupName'] . '</option>';
+}
+
+$body = '<p id="zone_origin_label">'
+           . '<label>' . $this->translate('origin_input_name') . '</label>'
+           . '<br>'
+           . '<input type="text" name="Label" value="' . $this->Origin['OriginName'] . '"/>'
+           . '<i>' . $this->translate('origin_name_description') . '</i>'
+      . '</p>'
+
+      .(
+       $this->CustomerAccountId?
+       '':('<p id="zone_origin_group">'
+           . '<label>' . $this->translate('origin_origin_group') . '</label>'
+           . '<br>'
+           . '<select name="OriginGroupId">'
+           //. '<option value="">' . $this->translate('origin_select_origin_group') . '</option>'
+           . $originGroupOptions
+           . '</select>'
+      . '</p>')
+      )
+
+      . '<p id="zone_origin_list_explain">'
+           . '<i>' . $this->translate('origin_list_explain') . '</i>'
+      . '</p>'
+
+      . '<table>'
+      . '<tr>'
+      . '<td id="zone_system_origin_list">'
+      . '<label>' . $this->translate('origin_predefined_list') . '</label>'
+      . '<div id="system_origin_list">'
+           . $originGroups
+      . '</div>'
+      . '<p id="zone_phone_prefix">'
+           . '<label>' . $this->translate('origin_type_prefix') . '</label>'
+           . '<br>'
+           . '<input type="text" id="phone_prefix" name="prefix" value=""/>'
+      . '</p>'
+      . '</td>'
+
+      . '<td id="zone_button_container">'
+      . '<button class="right_arrow" id="go_right" action="' . $baseUrl . '">-&gt;</button>'
+      . '<button class="left_arrow" id="go_left" action="' . $baseUrl . '">&lt;-</button>'
+      . '<button class="right_arrow" id="add_prefix" action="' . $baseUrl . '/addprefix">-&gt;</button>'
+      . '</td>'
+
+      . '<td id="zone_user_origin_list">'
+      . '<label>' . $this->translate('origin_defined_list') . '</label>'
+      . '<div id="user_origin_list">'
+           . $userGroups
+           . '<dl id="user_prefix_list">'
+           . '<dt>'
+           .   '<i>icon</i>'
+           .   '<u>' . $this->translate('origin_phone_prefix') . '</u>'
+           . '</dt>'
+           . $userPrefixes
+           . '</dl>'
+      . '</div>'
+      . '</td>'
+
+      . '</tr>'
+
+      . '</table>'
+
+      . '<div class="clear"/>'
+
+      . '<input type="hidden" name="OriginId" id="OriginId" value="'.$this->Origin['OriginId'].'">'
+      . '<input type="hidden" name="id" id="id" value="'.$this->Origin['OriginId'].'">'
+
+      . '<div class="middle_button_zone">'
+      .    '<span>'
+      .        '<button id="edit_button" itemId="'.$this->Origin['OriginId'].'">' . $this->translate('application_handler_ok') . '</button>'
+      .    '</span>'
+      . '</div>'
+
+        ;
+
+echo '<div class="dialog"><div class="dialog-content">' . $heading . '<div id="origin-body" class="dialog-body">' .
+    $this->Form('edit-origin-form',
+        array(
+            'method' => Zend_Form::METHOD_POST,
+            'enctype' => Zend_Form::ENCTYPE_URLENCODED,
+            'action'  => $baseUrl . '/update',
+            'class'   => 'edit-origin-form'
+        ), $body)
+    . '</div></div></div>'
+    ;
+
+/* EOF */

@@ -1,0 +1,29 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_account
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI<yaoli@streamwide.com>
+ * @version    $Id$
+ */
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="notification"><?php echo $this->translate('contact_is_deleted', $this->DeletedContactNames);?></div>
+<table>
+<?php
+echo $this->Action('list', 'contact', null, array(
+                'CustomerUserId' => $this->CustomerUserId,
+                'CustomerAccountId' => $this->CustomerAccountId,
+                'CurrentPage' => $this->Pagination['CurrentPage'],
+                'ItemsPerPage' => $this->Pagination['ItemsPerPage']
+            ));
+?>
+</table>
+<?php
+/* EOF */

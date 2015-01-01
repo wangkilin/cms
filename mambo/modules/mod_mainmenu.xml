@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="gb2312"?>
+<mosinstall type="module" version="4.5.1">
+	<name>主菜单</name>
+	<author>Mambo Project</author>
+	<creationDate>July 2004</creationDate>
+	<copyright>(C) 2000 - 2004 Miro International Pty Ltd</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>admin@mamboserver.com</authorEmail>
+	<authorUrl>www.mamboserver.com</authorUrl>
+	<version>4.5.1</version>
+	<description>Displays a menu.</description>
+	<files>
+		<filename module="mod_mainmenu">mod_mainmenu.php</filename>
+	</files>
+		<params>
+		<param name="menutype" type="mos_menu" default="" label="菜单类型" description="菜单名称(默认为 mainmenu)" />
+		<param name="menu_style" type="list" default="vert_indent" label="菜单风格" description="菜单显示风格">
+			<option value="vert_indent">纵向</option>
+			<option value="horiz_flat">横向</option>
+			<option value="list_flat">纵向列表</option>
+		</param>
+		<param name="cache" type="radio" default="0" label="启用缓存" description="是否为本模块的内容使用缓存">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="模块css后缀" description="用来定义模块的css类型(table.moduletable)的后缀，这样允许模块使用单独的css风格" />
+		<param name="menu_images" type="radio" default="0" label="菜单图标" description="显示你已经设定的菜单图标">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="menu_images_align" type="radio" default="0" label="图标位置" description="菜单图标在菜单中的显示位置">
+			<option value="0">左</option>
+			<option value="1">右</option>
+		</param>
+		<param name="expand_menu" type="radio" default="0" label="展开菜单" description="展开所有子菜单">
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</param>
+		<param name="class_sfx" type="text" default="" label="菜单css后缀" description="设置菜单项的显示风格" />
+		<param name="indent_image" type="list" default="0" label="图标缩进" description="设置图标缩进的单位">
+			<option value="0">由模板定</option>
+			<option value="1">Mambo默认</option>
+			<option value="2">用户指定</option>
+			<option value="3">无</option>
+		</param>
+		<param name="indent_image1" type="imagelist" directory="/images/M_images" default="" label="图标缩进 1" description="第一级子菜单图标" />
+		<param name="indent_image2" type="imagelist" directory="/images/M_images" default="" label="图标缩进 2" description="第二级子菜单图标" />
+		<param name="indent_image3" type="imagelist" directory="/images/M_images" default="" label="图标缩进 3" description="第三级子菜单图标" />
+		<param name="indent_image4" type="imagelist" directory="/images/M_images" default="" label="图标缩进 4" description="第四级子菜单图标" />
+		<param name="indent_image5" type="imagelist" directory="/images/M_images" default="" label="图标缩进 5" description="第五级子菜单图标" />
+		<param name="indent_image6" type="imagelist" directory="/images/M_images" default="" label="图标缩进 6" description="第六级子菜单图标" />
+	</params>
+</mosinstall>

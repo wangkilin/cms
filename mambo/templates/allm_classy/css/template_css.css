@@ -1,0 +1,459 @@
+body, html {
+	margin:0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #001C32;
+	background-color: #001C32;
+} 
+
+tbody { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #001C32;
+}
+
+td.date {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #8BB3D3;
+	padding-bottom: 50px;
+	padding-left: 30px;
+}
+
+td.welcome {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+}
+
+table.main {
+	border-right-width: 5px;
+	border-left-width: 5px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+}
+
+/* Default MOS Class Settings
+
+**********************************************************************************************************/
+td.pathway {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	padding-top: 1px;
+	padding-left: 170px;
+}
+
+a.pathway:link, a.pathway:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+a.pathway:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #D6E2EF;
+}
+
+
+
+/* Main Menu Styles
+
+**********************************************************************************************************/
+a.mainlevel:link, a.mainlevel:visited {
+	color: #001C32;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	height: 16px;
+	width: 100%;
+}
+
+a.mainlevel:hover {
+	color: #001C32;
+	text-align: left;
+	width: 100%;
+	height: 16px;
+	padding-left: 5px;
+	background-color: #C2D5E5;
+}
+
+a.mainmenu:link, a.mainmenu:visited {
+
+	color: #000000; 
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: bold;
+
+}
+
+
+
+a.mainmenu:hover, {
+
+	color: #666666;
+
+	text-align: left;
+
+}
+
+
+
+a.sublevel:link, a.sublevel:visited {
+
+	color: #000000; 
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: normal;
+
+}
+
+
+
+a.sublevel:hover {
+
+	color: #666666;
+
+	text-align: left;
+
+}
+
+/* Module Styles
+**********************************************************************************************************/
+table.moduletable {
+	width: 157px;
+	text-align: center;
+}
+
+table.moduletable th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : #143753;
+	text-align : center;
+	background-image: url(../images/mod_title.gif);
+	height: 20px;
+	padding-top: 2px;
+	background-repeat: repeat-x;
+}
+
+table.moduletable td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	text-align: left;
+
+}
+
+/* Polls Style
+**********************************************************************************************************/
+.poll {
+	color : #001C32;
+	line-height : 12px;
+	font-weight: bold;
+}
+
+/* Sections Style
+**********************************************************************************************************/
+.sectiontableheader {
+	background-color : #CADAE9;
+	color : #000000;
+	font-weight : bold;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.sectiontableentry1 {
+	font-size: 11px;
+	background-color : #B0C8DB;
+}
+
+.sectiontableentry2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	background-color : #C6D7E7;
+}
+
+.pagenav {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+
+a.pagenav:link, a.pagenav:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #336187;
+}
+
+a.pagenav:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color            : #000000;
+	text-decoration  : none;
+	background-color: #4C93CD;
+}
+
+/*****************************************************************************************************/
+.small {
+	font-size : 11px;
+	color : #336187;
+}
+
+.smalldark {
+	font-size : 11px;
+	color : #336187;
+	text-decoration : none;
+}
+
+.createdate {
+	font-size : 10px;
+	color : #336187;
+	text-decoration : none;
+	font-weight : medium;
+}
+
+.modifydate  {
+	font-size : 10px;
+	color : #336187;
+	text-decoration : none;
+	font-weight : medium;
+}
+
+/* Content Styles
+**********************************************************************************************************/
+.contentpane {
+	font-size: 11px;
+	color: #000000;
+}
+
+.contentpaneopen {
+	font-size: 11px;
+	color: #000000;
+}
+
+.contentheading, .componentheading {
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 13px;
+	font-weight : bold;
+	color : #557E9A;
+	text-align : left;
+	padding-left: 20px;
+	height: 20px;
+	padding-top: 4px;
+
+}
+
+.category {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #336187;
+
+}
+
+a.category:link, a.category:visited {
+  color            : #336187;
+  font-weight      : bold;
+}
+
+a.category:hover {
+	color            : #000000;
+	text-decoration  : none;
+	background-color: #4C93CD;
+}
+
+/* Form Styles
+**********************************************************************************************************/
+
+form { /* borrowed from mambosolutions.com -- to fix empty space issues */
+	display:inline; 
+	margin: 0px; 
+	padding: 0px; 
+} 
+
+.button {
+  font-family      : Arial, Helvetica, sans-serif;
+  font-style       : normal;
+  font-size        : 10px;
+  font-weight      : bold;
+  background-color : #DBE7F2;
+  color            : #000000;
+  border           : 1px solid #000000;
+}
+
+.inputbox {
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+  font-size        : 10px;
+  color            : #000000;
+  background-color : #DBE7F2;
+  border           : 1px solid #000000;
+}
+
+/* Links
+**********************************************************************************************************/
+a:link, a:visited {
+  font-size        : 11px;
+  color            : #336187;
+  text-decoration  : none;
+}
+
+a:hover {
+	color            : #000000;
+	text-decoration  : none;
+	background-color: #4C93CD;
+}
+
+/* For content item titles that are hyperlink instead of Read On
+
+**********************************************************************************************************/
+a.contentpagetitle:link, a.contentpagetitle:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+ 	color: #000000;
+	text-align:left;
+	}
+
+a.contentpagetitle:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	text-align:left;
+	color            : #000000;
+	text-decoration  : underline;
+	}
+
+.description {
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+/* Styles for dhtml tabbed-pages */
+
+.ontab {
+
+	background-color: #ffae00;
+
+	border-left: outset 2px #ff9900;
+
+	border-right: outset 2px #808080;
+
+	border-top: outset 2px #ff9900;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+.offtab {
+
+	background-color : #e5e5e5;
+
+	border-left: outset 2px #E0E0E0;
+
+	border-right: outset 2px #E0E0E0;
+
+	border-top: outset 2px #E0E0E0;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #000000;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.tabheading {
+
+	background-color: #ffae00;
+
+	text-align: left;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.pagetext {
+
+	visibility: hidden;
+
+	display: none;
+
+	position: relative;
+
+	top: 0;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #000000;
+
+}
+
+
+
+/* for modifying {moscode} output.  Don't set the colour! */
+
+.moscode {
+
+	background-color: #f0f0f0;
+
+}
+
+
+
+/* Text passed with mosmsg url parameter */
+
+.message {
+
+	font-weight: bold;
+
+	font-size : 10pt;
+
+	color : #ff6600;
+
+	text-align: center;
+
+}

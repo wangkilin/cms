@@ -1,0 +1,202 @@
+<?php
+/**
+ * $Rev: 2554 $
+ * $LastChangedDate: 2010-06-13 15:55:57 +0800 (Sun, 13 Jun 2010) $
+ * $LastChangedBy: zwang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: calendar.phtml 2554 2010-06-13 07:55:57Z zwang $
+ */
+$baseUrl = rtrim($this->BaseUrl(), '/');
+
+$calendar = $this->Calendar;
+$periods = $this->Periods;
+// prepare outputs
+$_newOutputs = array();
+foreach($this->NodeOutputs as $output) {
+    if (!isset($_newOutputs[$output['CalendarId']])) {
+        $_newOutputs[$output['CalendarId']] = array('Type'=>$output['CalendarTypeId']);
+    }
+    if (!isset($_newOutputs[$output['CalendarId']]['Info'])) {
+        $_newOutputs[$output['CalendarId']]['Info'] = array();
+    }
+    $_newOutputs[$output['CalendarId']]['Info'][] = $output;
+}
+$outputs = '';
+$count = 1;
+foreach($_newOutputs as $output) {
+    $firstOutput = isset($firstOutput) ? '':'on';
+    $outputs .=
+             '<div class="node_output ' . $firstOutput . '" itemId="' . $count++ .'" calendarId="' . $output['Info'][0]['CalendarId'] . '" isEdit="1" calendarType="'.$output['Type'].'">'
+      .           '<input class="node_output_isactive" type="checkbox" name="params[' . $count . '][IsActive][]"'.(intval($output['Info'][0]['IsActive'])==1?' checked="checked"' : '').' value="1"/>'
+      .           '<i>'
+      .             (3==$output['Type']?$this->translate('Multi_Output') :$output['Info'][0]['NodeOutputName'])
+      .           '</i>'
+      .           '<b>'
+      .            $this->translate('calendar_type_' .$output['Type'])
+      .           '</b>'
+      .               '<input class="calendar_id" type="hidden" name="params[' . $count . '][OutputId][]" value="'.$output['CalendarId'].'"/>'
+      .               '<input class="calendar_type_id" type="hidden" name="params[' . $count . '][CalendarTypeId][]" value="'.$output['Type'].'"/>'
+      .               '<input class="node_output_name" type="hidden" name="params[' . $count . '][OutputName][]" value="'.$output['Info'][0]['NodeOutputName'].'"/>'
+      .           '<div class="output_menu">'
+      .              '<div>'
+      .               '<u>dropdown</u>'
+      .               '<div class="output_menu_item rename">Rename</div>'
+      .               '<div class="output_menu_item active">Active</div>'
+      .               '<div class="output_menu_item deactive">De-Active</div>'
+      .               '<div class="output_menu_item delete">Delete</div>'
+      .              '</div>'
+      .           '</div>'
+      .       '</div>';
+}
+if (''==$outputs) {
+    $outputs =
+             '<div class="node_output on" itemId="1" calendarId="" isEdit="1">'
+      .           '<input class="node_output_isactive" type="checkbox" name="params[1][IsActive][]" checked="checked" value="1"/>'
+      .           '<i>'
+      .               'Output 1'
+      .           '</i>'
+      .               '<input class="node_output_name" type="hidden" name="params[1][OutputName][]" value="Output"/>'
+      .           '<div class="output_menu">'
+      .              '<div>'
+      .               '<u>dropdown</u>'
+      .               '<div class="output_menu_item rename">Rename</div>'
+      .               '<div class="output_menu_item active">Active</div>'
+      .               '<div class="output_menu_item deactive">De-Active</div>'
+      .               '<div class="output_menu_item delete">Delete</div>'
+      .              '</div>'
+      .           '</div>'
+      .       '</div>';
+}
+
+// prepare calendar resource
+$_calendarsByType = array();
+foreach($this->ResourceCalendar as $_calendar) {
+    if(!isset($_calendarsByType[$_calendar['CalendarTypeId']])) {
+        $_calendarsByType[$_calendar['CalendarTypeId']] = array();
+    }
+    $_calendarsByType[$_calendar['CalendarTypeId']][] = '<div calendarId="' . $_calendar['CalendarId'] . '">'
+                                         .  '<u>' . $_calendar['Label'] . '</u>'
+                                         .  '</div>';
+}
+
+?>
+<div class="dialog" id="calendar-<?php echo $this->ActionName ?>-dialog">
+    <div class="dialog-content">
+        <div class="dialog-heading" id="calendar-<?php echo $this->ActionName ?>-heading">
+            <span class="heading-text"><?php echo $this->translate('calendar_eidt_heading')?></span>
+            <span class="heading-close"><?php echo $this->translate('close')?></span>
+        </div>
+        <div class="dialog-body" id="calendar-<?php echo $this->ActionName ?>-body">
+            <form action="" id="calendar-<?php echo $this->ActionName ?>-form"  class="calendar-<?php echo $this->ActionName ?>-form" method="post" enctype="application/x-www-form-urlencoded">
+              <p id="zone_resource_label">
+                <label><?php echo $this->translate('node_calendar_input_name'); ?></label>
+                <input type="text" name="Label" value=""/>
+              </p>
+              <input type="hidden" name="TreeId" value="<?php echo $this->TreeId ;?>"/>
+              <?php echo ($this->NodeId?('<input type="hidden" name="NodeId" value="' . $this->NodeId . '"/>'):'') ?>
+
+              <table id="table_origin_node">
+               <tr>
+                <td id="output_zone" action="<?php echo $baseUrl?>/node" deleteWarning="<?php echo $this->translate('node_cannot_delete_last_output')?>">
+                  <?php echo $outputs;?>
+                  <div id="add_calendar_output_button">
+                   Add output
+                  </div>
+                  <div id="output_template" class="" itemId="" calendarId="" isEdit="">
+                    <i>Output</i>
+                    <div class="output_menu">
+                     <div>
+                      <u>dropdown</u>
+                      <div class="output_menu_item rename">Rename</div>
+                      <div class="output_menu_item active">Active</div>
+                      <div class="output_menu_item deactive">De-Active</div>
+                      <div class="output_menu_item delete">Delete</div>
+                    </div>
+                   </div>
+                </div>
+              </td>
+              <td id="td_resource_zone">
+                <table class="content resource_zone" itemId="1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div><span class="tips"><?php echo $this->translate('calendar_eidt_tip')?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="calendar_type_zone">
+                                <div class="multi_one_level_menu">
+                                <u>Select the type of Calendar</u>
+                                <i>icon</i>
+                                <?php
+                                foreach ($this->CalendarTypes as $calendarType) {
+                                    echo '<div calendarType="' . $calendarType['CalendarTypeId'] . '" class="'
+                                       . (isset($calendar['CalendarTypeId']) && $calendarType['CalendarTypeId'] == $calendar['CalendarTypeId'] ? 'selected' : '') . '">'
+                                       . '<u>' . $this->translate('calendar_type_' . $calendarType['CalendarTypeId']) . '</u>'
+                                       . '<i>icon</i>';
+                                    echo   '<div resourceType="0">'
+                                         .  '<u>From Resource</u>'
+                                         .  '<i>icon</i>';
+                                    echo join('', $_calendarsByType[$calendarType['CalendarTypeId']]);
+                                    echo    '<span>'
+                                         .  '<i>icon</i>'
+                                         .  '<u>Back</u>'
+                                         .  '</span>'
+                                         .  '</div>';
+                                    echo   '<div resourceType="1">'
+                                         .  '<u>Custom Calendar</u>'
+                                         . '</div>';
+                                    echo   '<span>'
+                                         .  '<i>icon</i>'
+                                         .  '<u>Back</u>'
+                                         . '</span>';
+                                    echo '</div>';
+                                }
+                                ?>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table id="calendar-table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="200px"><div id="date" class="date"></div></td>
+                                                <td rowspan="2"><div id="week-calendar" class="week-calendar"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><div id="tips"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+              </td>
+              </tr>
+             </table>
+
+             <div class="clear"/>
+
+             <div class="middle_button_zone">
+              <span>
+                <button id="edit_button" ><?php echo $this->translate('application_handler_ok') ?></button>
+              </span>
+             </div>
+            </form>
+        </div>
+    </div>
+    <?php echo '<script>var PERIODS = ' . Zend_Json::encode($periods) . ';</script>';?>
+</div>
+<?php
+
+/* EOF */

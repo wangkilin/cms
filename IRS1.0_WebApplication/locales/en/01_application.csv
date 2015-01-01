@@ -1,0 +1,125 @@
+## global translaton on this web application
+##----------------------------
+application_title_product;StreamWIDE SIR
+application_title_routing;Routing Plan
+application_title_tree;Routing Tree
+application_title_sitemap;Sitemap
+application_title_admin_account;Configuration
+##----------------------------
+application_handler_detail;Detail
+application_handler_edit;Edit
+application_handler_delete;Delete
+application_handler_deactive;Deactive
+application_handler_active;Active
+application_handler_copy;Copy
+application_handler_paste;Paste
+application_handler_close;Close
+application_handler_save;Save
+application_handler_cancel;Cancel
+application_handler_ok;OK
+application_handler_delete;Delete
+application_handler_next;Next
+application_handler_previous;Previous
+application_handler_done;Done
+application_handler_batch_delete;Delete Selected
+application_handler_add;Add
+application_handler_confirm;Confirm
+application_handler_search;search
+application_handler_search_input;Search...
+application_handler_program;Program
+##----------------------------
+application_msg_welcome;Welcome
+application_msg_loading;Loading
+application_msg_not_logged_in;Please Sign in
+application_msg_welcome_login;Welcome %s sign in
+application_menu_dropdown_usermenu;User Menu
+application_menu_dropdown_gobackadmin;Go Back as Super Admin
+application_msg_user_is_reset_ok;Password recovered
+application_go_home;Back home
+##----------------------------
+application_nav_main_routing;Routing Plan
+application_nav_main_resource;Resources
+application_nav_main_user;User
+application_nav_main_equipment;Trunk
+application_nav_main_admin_account;Configuration
+application_nav_main_report;Statistics
+##----------------------------
+application_nav_sub_tree;Routing Tree
+application_nav_sub_number;Numbers
+application_nav_sub_numbergroup;Number Groups
+application_nav_sub_blacklist;Blacklist
+application_nav_sub_origin;Origin
+application_nav_sub_origingroup;Origin Groups
+application_nav_sub_calendar;Calendar
+application_nav_sub_media;Prompt
+application_nav_sub_contact;Contacts
+application_nav_sub_agentgroup;Agent Groups
+application_nav_sub_customer;Customer
+application_nav_sub_admin;User
+application_nav_sub_trunk;Trunk
+application_nav_sub_trunkgroup;Trunk Groups
+application_nav_sub_trunkroute;Trunk Route
+##----------------------------
+##resource page link
+##----------------------------
+application_handler_page_items;Show per page:
+application_handler_page_items_all;All
+application_handler_pages;Showing %d-%d of %d
+##----------------------------
+default_form_title_login;SIR 1.0
+default_form_title_description_login;Hi, please sign in.
+default_form_label_login_username;E-mail
+default_form_label_login_password;Password
+default_form_label_button_sign_in;Sign In
+default_form_label_forget_password;Forget your password?
+##----------------------------
+default_form_title_reset;SIR 1.0
+default_form_title_description_reset;Enter your email address to recover password.
+default_form_content_description_reset;A temporary password will been sent to the address. If you receive nothing in the next 15 min. you can check also your spam folder or contact the administrator.
+default_form_label_button_password_recover;Send me a new password
+default_form_label_go_back_login;Sign in
+##----------------------------
+default_form_title_dashboard;SIR
+default_form_title_description_dashboard;Welcome back %s, what do you want to do?
+default_form_content_dashboard_sudo_account;Connection Profile
+default_form_content_dashboard_sudo_customer;Connection as Admin for account
+default_form_content_dashboard_sudo_successful;Account connected!
+default_form_content_dashboard_tree_template;Manage Routing Tree Templates
+default_form_content_dashboard_global_resource;Manage Global Resources
+default_form_content_dashboard_trunk;Manage Trunks
+default_form_content_dashboard_account;Configuration
+default_form_content_dashboard_new_rounting_tree;Create a New Routing Tree
+default_form_content_dashboard_edit_rounting_tree;Edition an existing Routing Tree
+default_form_content_dashboard_last_opened_rounting_tree;Last opened Routing Tree
+default_form_content_dashboard_numbergroup;Manage Number Groups
+default_form_content_dashboard_number;Manage Your Numbers
+default_form_content_dashboard_resource;Go to your Resources
+default_form_content_dashboard_report;View your Statistics
+default_form_content_dashboard_user;Do some administation stuff
+##----------------------------
+default_form_title_admin_account;Hi %s, do you want to update your information?
+default_form_description_admin_account;Here is your professinal information, you can change your name or enter a new password.
+default_form_label_admin_account_name;Name
+default_form_description_admin_account_name;Write a full name here
+default_form_label_admin_account_password;New Password
+default_form_description_admin_account_password;Keep empty shouldn't updation.
+default_form_label_admin_account_password_confirm;Re-enter New Password
+default_form_description_admin_account_password_confirm;Confirm your new Password.
+default_form_description_admin_account_password_confirm_failed;Please re-enter your new Password again.
+default_form_label_admin_account_email_address;Email
+default_form_description_admin_account_email_address;Your Email is the login, be carefully changed.
+default_form_updated_admin_account;%s is updated.
+##----------------------------
+## solution type
+##----------------------------
+solution_type_1;Static
+solution_type_2;Restricted
+solution_type_3;Full
+##----------------------------
+## calendar type
+##----------------------------
+calendar_type_1;Specific Date
+calendar_type_2;Date Range
+calendar_type_3;Multi-View
+##----------------------------
+## EOF

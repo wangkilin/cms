@@ -1,0 +1,62 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+?>
+      <table id="edit_group_table">
+
+        <thead>
+          <tr>
+            <td colspan="2"><?php echo $this->translate('agentgroup_group_info');?></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <label for="AgentGroupName">
+                <?php echo $this->translate('agentgroup_group_name')?>
+                </label>
+            </td>
+            <td>
+                <input type="text" id="AgentGroupName" name="AgentGroupName" value="<?php echo $this->AgentGroupName?>"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <label for="PostProcessingDuration">
+                <?php echo $this->translate('agentgroup_group_duration')?>
+                </label>
+            </td>
+            <td>
+                <select name="PostProcessingDuration" id="PostProcessingDuration">
+                <?php
+                //foreach($this->PostProcessingDurationList as $PostProcessingDuration) {
+                //    echo '<option value=""></option>';
+                //}
+                 ?>
+                 <option value="3">3</option>
+                 <option value="5">5</option>
+                 <option value="10">10</option>
+                </select>
+                <?php echo $this->translate('agentgroup_group_duration_interval')?>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <a class="form_cancel sw-button"><?php echo $this->translate('application_handler_cancel')?></a>
+                <a id="create_group_button" class="sw-button"><?php echo $this->translate('application_handler_save')?></a>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+<?php
+/* EOF */

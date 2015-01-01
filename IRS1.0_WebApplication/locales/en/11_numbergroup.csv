@@ -1,0 +1,79 @@
+
+numbergroup_list_no_item;You don't have any NumberGroups.
+
+numbergroup_list_name;Number Group Name
+numbergroup_list_profile;Profile
+numbergroup_list_templete_name;Templete Name
+numbergroup_list_routingtree_name;Routing Tree Name
+numbergroup_list_created_date;Date Created
+numbergroup_list_modified_date;Modified Date
+numbergroup_list_created_by;Created by
+numbergroup_list_emergency;Emergency
+
+numbergroup_create_new;New Number Group
+
+##----------------------------
+## create modal window
+##----------------------------
+numbergroup_create_heading;Number Group
+numbergroup_create_name;Number Group Name
+numbergroup_create_name_default;Write a name...
+numbergroup_create_name_tip;Write a name for your Number Group
+numbergroup_create_solution;Solution
+numbergroup_create_solution_default;Select a Solution
+numbergroup_create_assign_number_tip;Drag and drop to move parts or entire group from the left side to right side.
+numbergroup_create_assign_available_number_title;Available Number
+numbergroup_create_assign_group_number_title;Your Number Group
+numbergroup_create_assign_routing_tree;Routing Tree Assignment
+numbergroup_create_assign_routing_tree_tip;Template name
+numbergroup_create_select_emergency_routing_tree;Select an Emergency Routing Tree
+numbergroup_create_select_routing_tree;Select an Routing Tree
+numbergroup_create_assigned_dates;Assigned Dates
+numbergroup_create_assigned_dates_start_date;Start Date
+numbergroup_create_assigned_dates_end_date;End Date
+numbergroup_create_assigned_dates_start_time;Start Time
+numbergroup_create_assigned_dates_end_time;End Time
+
+##----------------------------
+## update modal window
+##----------------------------
+numbergroup_update_heading;Number Group
+numbergroup_update_name;Number Group Name
+numbergroup_update_name_default;Write a name...
+numbergroup_update_name_tip;Write a name for your Number Group
+numbergroup_update_assign_number_tip;Drag and drop to move parts or entire group from the left side to right side.
+numbergroup_update_assign_available_number_title;Available Number
+numbergroup_update_assign_group_number_title;Your Number Group
+numbergroup_update_assign_routing_tree;Routing Tree Assignment
+numbergroup_update_assign_routing_tree_tip;Template name
+numbergroup_update_select_emergency_routing_tree;Select an Emergency Routing Tree
+numbergroup_update_select_routing_tree;Select an Routing Tree
+numbergroup_update_assigned_dates;Assigned Dates
+numbergroup_update_assigned_dates_start_date;Start Date
+numbergroup_update_assigned_dates_end_date;End Date
+numbergroup_update_assigned_dates_start_time;Start Time
+numbergroup_update_assigned_dates_end_time;End Time
+
+##----------------------------
+## create numbergroup
+##----------------------------
+numbergroup_is_created;Number Group(s) %s is created!
+##----------------------------
+## update numbergroup
+##----------------------------
+numbergroup_is_updated;Number Group %s is updated!
+##----------------------------
+##----------------------------
+## delete numbergroup(s)
+##----------------------------
+numbergroup_delete_numbergroup; number group(s) :
+numbergroup_is_deleted;Number Group(s) %s is deleted!
+##----------------------------
+## assign number to numbergroup(s)
+##----------------------------
+numbergroup_number_is_added;Number(s) %s is added!
+numbergroup_number_is_removed;Number(s) %s is removed!
+
+allocatedtree_is_created;Routing plan is created!
+allocatedtree_is_udpated;Routing plan is udpated!
+allocatedtree_is_deleted;Routing plan is deleted!

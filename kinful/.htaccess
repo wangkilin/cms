@@ -1,0 +1,51 @@
+#### set php configuration ####
+
+## variables order: make sure POST overwrite GET.
+## because PHP will use REQUEST variables
+php_value variables_order "EGPCS"
+
+## make GET, POST, COOKIE variables quote off.
+## because SQL will do the same things
+php_flag magic_quotes_gpc off
+
+
+Options -Indexes
+
+#### set Rewrite engine on ####
+RewriteEngine  on
+
+## Request uploaded images in Admin folder
+##
+RewriteCond %{REQUEST_URI} admin/upload/([^/]*)/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$
+RewriteRule upload/([^/]*)/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ upload/$1/$2.$3 [L]
+
+## Request admin images, rewrite images url
+##
+#RewriteCond %{REQUEST_URI} admin/([^/]*)/([^/]*)/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$
+#RewriteRule admin/([^/]*)/([^/]*)/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ admin/themes/$2/$1/$1/$2/$3.$4 [L]
+
+## Request front images, rewrite images url
+##
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ([^/]*)/([^/]*)/([^/]*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ themes/kinful/$2/$3.$4
+#RewriteRule common\$/([^/]*)/(.*)\.(html|php|htm)$ /kinful/themes/$1/common\$/common\$/$1/$2.$3
+
+
+#ErrorDocument 404 /error.php
+#RewriteEngine On
+#RewriteBase /
+#RewriteRule ^news_([0-9]+)\.html$ news.php?id=$1
+#RewriteRule ^news_([0-9]+)_([0-9]+)\.html$ news.php?id=$1&page=$2
+#RewriteRule ^download_([0-9]+)\.html$ download.php?id=$1&page=$2
+#RewriteRule ^product_([0-9]+)\.html$ product.php?id=$1&page=$2
+#RewriteRule ^channel_([0-9]+)_([0-9]+)\.html$ index.php?id=$1&page=$2
+#RewriteRule ^channel_([0-9]+)\.html$ index.php?id=$1
+#RewriteRule ^photo_([0-9]+)\.html$ photo.php?id=$1&page=$2
+#RewriteRule ^supply_([0-9]+)\.html$ supply.php?id=$1&page=$2
+#RewriteRule ^company_([0-9]+)\.html$ company.php?id=$1&page=$2
+#RewriteRule ^board_([0-9]+)_([0-9]+)\.html$ board.php?classid=$1&page=$2
+#RewriteRule ^thread_([0-9]+)_([0-9]+)_([0-9]+)\.html$ thread.php?classid=$1&id=$2&page=$3
+#RewriteRule ^category_([a-z]+)_([0-9]+)_([0-9]+)\.html$ $1.php?classid=$2&pagestart=$3
+#RewriteRule ^forums.html$ forums.php
+#RewriteRule ^announcements_([0-9]+)\.html$ announcements.php?id=$1

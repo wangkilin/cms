@@ -1,0 +1,315 @@
+﻿<?php
+/**
+ * $Rev: 2671 $
+ * $LastChangedDate: 2010-06-24 09:45:18 +0800 (Thu, 24 Jun 2010) $
+ * $LastChangedBy: kwu $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage view_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     James ZHANG <junzhang@streamwide.com>
+ * @version    $Id: menu.phtml 2671 2010-06-24 01:45:18Z kwu $
+ */
+
+/**
+ * Modal Window for Node Menu in a HTML version
+ */
+global $isUpdating;
+global $allowedDtmfKeys;
+global $view;
+
+$isUpdating = is_array($this->Node);
+$nodeName = $isUpdating ? $this->Node['Label'] : $this->translate('dialog_form_node_label_default');
+$assignedGreetingPromptId = $isUpdating ? $this->NodeParameter['GreetingPromptId'] : '';
+$assignedWrongKeyPromptId = $isUpdating ? $this->NodeParameter['WrongKeyPromptId'] : '';
+$assignedNoInputPromptId = $isUpdating ? $this->NodeParameter['NoInputPromptId'] : '';
+$assignedMaxTries = $isUpdating ? $this->NodeParameter['MaxTries'] : 3;
+$assignedNoInputTimeout = $isUpdating ? $this->NodeParameter['NoInputTimeout'] : 15;
+
+$allowedDtmfKeys = SwIRS_Web_Node_Menu::getDtmfKeys();
+$view = $this;
+
+function _renderKeyBoard($index)
+{
+    global $isUpdating, $allowedDtmfKeys, $view;
+    $cssName = 'ui-state-default';
+    $lockedIcon = '';
+    $inputValue = '';
+    $label = 'Error' === $index ? 'Error' : $allowedDtmfKeys[$index];
+
+    if ( $view->NodeOutputs && array_key_exists($label, $allowedDtmfKeys) ) {
+        $cssName .= ' assigned ui-state-active';
+
+        // for delete
+        $inputValue = $view->nodeOutputs[$label]['NodeOutputId'];
+
+        $lockedIcon = '<span class="keyboard-state" title="'
+            . $view->translate('dialog_form_node_menu_dtmf_key_assigned')
+            . '"><span class="ui-icon ui-icon-info"></span></span>';
+        if (array_key_exists('NextNodeId', $view->NodeOutputs[$label]) && $view->NodeOutputs[$label]['NextNodeId']) {
+            $cssName .= ' locked';
+            $lockedIcon = '<span class="keyboard-state" title="' 
+                . $view->translate('dialog_form_node_menu_dtmf_key_locked') 
+                . '"><span class="ui-icon ui-icon-locked"></span></span>';
+            $inputValue = $view->NodeOutputs[$label]['NextNodeId'];
+        }
+    } else {
+        $cssName .= ' optional';
+    }
+
+    if ('Error' == $index) {
+        $cssName = 'ui-state-default ui-state-active locked required';
+        $lockedIcon = '<span class="keyboard-state"><span class="ui-icon ui-icon-alert" title="' 
+            . $view->translate('dialog_form_node_menu_dtmf_key_required') 
+            . '"></span></span>';
+    }
+
+    $html = '<div class="keyboard">'
+        . $lockedIcon
+        . '<label for="output-' . $index . '" class="' . $cssName . '">'
+        . $view->translate('dialog_form_node_menu_dtmf_key_'. $index)
+        . '<input type="hidden" id="output-' . $index . '" name="NodeOutputs[' . $index . ']"'
+        . (!$isUpdating && 'Error' == $index ? '' : ' disabled="disabled"')
+        . 'value="' . $inputValue . '" />'
+        . '</label>'
+        . '</div>';
+    return $html;
+}
+//print_r($this->getVars());
+?>
+<div class="dialog" id="menu-dialog">
+    <form id="form-node-menu" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="dialog-content">
+            <div class="dialog-heading" id="menu-heading">
+                <span class="heading-text"><?php echo $this->translate('dialog_heading_node_menu'); ?></span>
+                <span class="heading-close"><?php echo $this->translate('application_handler_close'); ?></span>
+                <div class="heading-switcher">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="heading-switcher-on">
+                                    <input type="radio" name="IsActive" value="1"<?php echo (!$isUpdating || $this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_active'); ?>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="heading-switcher-spacer">&nbsp;</span>
+                            </td>
+                            <td>
+                                <div class="heading-switcher-off">
+                                    <input type="radio" name="IsActive" value="0"<?php echo ($isUpdating && !$this->Node['IsActive']) ? ' checked="checked"' : ''; ?> />
+                                    <?php echo $this->translate('dialog_heading_node_deactive'); ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="dialog-body" id="menu-body">
+                <div class="description tips"><?php echo $this->translate('dialog_heading_node_menu_description'); ?></div>
+                <div>
+                    <label for="Label" class="block">
+                        <?php echo $this->translate('dialog_form_node_label', array( $this->translate('tree_node_type_menu') )); ?>
+                    </label>
+                    <input type="text" class="input_default" id="Label" name="Label" value="<?php echo $nodeName; ?>" />
+                    <span class="tips"> 
+                        <?php echo $this->translate('dialog_form_node_label_description', array( $this->translate('tree_node_type_menu') )); ?>
+                    </span>
+                </div>
+                <table width="100%">
+                    <tr>
+                        <td width="30%" class="node-menu-params">
+                            <div>
+                                <label for="GreetingPromptId" class="block"><?php echo $this->translate('dialog_form_node_menu_prompt_greeting'); ?></label>
+                                <select id="GreetingPromptId" name="GreetingPromptId">
+                                    <option value=""><?php echo $this->translate('dialog_form_node_menu_prompt_greeting_option_default'); ?></option>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_standard'); ?>">
+                                    <?php 
+                                        foreach($this->StandardPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedGreetingPromptId && $assignedGreetingPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_customer'); ?>">
+                                    <?php 
+                                        foreach($this->CustomerPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedGreetingPromptId && $assignedGreetingPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="WrongKeyPromptId" class="block"><?php echo $this->translate('dialog_form_node_menu_prompt_wrong_dtmf_key'); ?></label>
+                                <select id="WrongKeyPromptId" name="WrongKeyPromptId">
+                                    <option value=""><?php echo $this->translate('dialog_form_node_menu_prompt_wrong_dtmf_key_option_default'); ?></option>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_standard'); ?>">
+                                    <?php 
+                                        foreach($this->StandardPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedWrongKeyPromptId && $assignedWrongKeyPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_customer'); ?>">
+                                    <?php 
+                                        foreach($this->CustomerPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedWrongKeyPromptId && $assignedWrongKeyPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="NoInputPromptId" class="block"><?php echo $this->translate('dialog_form_node_menu_prompt_no_dtmf_key'); ?></label>
+                                <select id="NoInputPromptId" name="NoInputPromptId">
+                                    <option value=""><?php echo $this->translate('dialog_form_node_menu_prompt_no_dtmf_key_option_default'); ?></option>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_standard'); ?>">
+                                    <?php 
+                                        foreach($this->StandardPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedNoInputPromptId && $assignedNoInputPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                    <optgroup label="<?php echo $this->translate('dialog_form_node_menu_prompt_optgroup_customer'); ?>">
+                                    <?php 
+                                        foreach($this->CustomerPrompts as $promptInfo) {
+                                            echo '<option value="', $promptInfo['PromptId'], '"';
+                                            if ($assignedNoInputPromptId && $assignedNoInputPromptId == $promptInfo['PromptId']) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $promptInfo['PromptName'], '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="MaxTries" class="block"><?php echo $this->translate('dialog_form_node_menu_maximum_tries'); ?></label>
+                                <select id="MaxTries" name="MaxTries">
+                                    <?php 
+                                        // Question Here: How to get the maximum number?
+                                        for ($index = 0; $index < 6; $index++) {
+                                            echo '<option value="', $index, '"';
+                                            if ($index == $assignedMaxTries) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $index, '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="NoInputTimeout" class="block"><?php echo $this->translate('dialog_form_node_menu_timeout_duration'); ?></label>
+                                <select id="NoInputTimeout" name="NoInputTimeout">
+                                    <?php 
+                                        // Question Here: How to get the maximum number of timeout?
+                                        for ($index = 0; $index < 61; $index++) {
+                                            echo '<option value="', $index, '"';
+                                            if ($index == $assignedNoInputTimeout) {
+                                                echo ' selected="selected"';
+                                            }
+                                            echo '>', $index, '</option>', PHP_EOL;
+                                        } 
+                                    ?>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block">
+                                    <?php echo $this->translate('dialog_form_node_menu_detect_dtmf_on_prompt'); ?>
+                                </label>
+                                <label for="DetectDtmfOnPrompt-0">
+                                    <input type="radio" id="DetectDtmfOnPrompt-0" name="DetectDtmfOnPrompt" value="0" />
+                                    <?php echo $this->translate('dialog_form_node_menu_detect_dtmf_on_prompt_option_no'); ?>
+                                </label>
+                                <label for="DetectDtmfOnPrompt-1">
+                                    <input type="radio" id="DetectDtmfOnPrompt-1" name="DetectDtmfOnPrompt" value="1" checked="checked" />
+                                    <?php echo $this->translate('dialog_form_node_menu_detect_dtmf_on_prompt_option_yes'); ?>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="node-menu-outputs">
+                            <div>
+                                <label class="block">
+                                    <?php echo $this->translate('dialog_form_node_menu_dtmf_keyboard'); ?>
+                                </label>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="33%">
+                                            <table>
+                                                <tr>
+                                                    <td><?php echo _renderKeyBoard(1); ?></td>
+                                                    <td><?php echo _renderKeyBoard(2); ?></td>
+                                                    <td><?php echo _renderKeyBoard(3); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo _renderKeyBoard(4); ?></td>
+                                                    <td><?php echo _renderKeyBoard(5); ?></td>
+                                                    <td><?php echo _renderKeyBoard(6); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo _renderKeyBoard(7); ?></td>
+                                                    <td><?php echo _renderKeyBoard(8); ?></td>
+                                                    <td><?php echo _renderKeyBoard(9); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><?php echo _renderKeyBoard('Star'); ?></td>
+                                                    <td><?php echo _renderKeyBoard('0'); ?></td>
+                                                    <td><?php echo _renderKeyBoard('Hash'); ?></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <div class="description tips">
+                                                <?php echo $this->translate('dialog_form_node_menu_dtmf_keyboard_description'); ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td><?php echo _renderKeyBoard('Error'); ?></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <div class="description tips">
+                                                <?php echo $this->translate('dialog_form_node_menu_dtmf_key_error_description'); ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="dialog-button">
+                    <span><button type="submit" id="ok"><?php echo $this->translate('application_handler_ok')?></button></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+/* EOF */

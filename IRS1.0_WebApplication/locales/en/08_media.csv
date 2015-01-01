@@ -1,0 +1,54 @@
+left_menu_media;Media List
+left_menu_add_media;New Media
+##-------------------------
+#		list medias
+##-------------------------
+
+media_list_no_item;You don't have any Medias.
+
+media_list_name;Media Name
+media_list_listen;Listen
+media_list_size;Size
+media_list_date_created;Date Created
+media_list_date_modified;Modified Date
+media_list_created_by;Created by
+media_list_in_use;In use
+
+media_list_name_sort;Sort by Media Name
+media_list_listen_sort;Sort by Listen
+media_list_size_sort;Sort by Size
+media_list_date_created_sort;Sort by Date Created
+media_list_date_modified_sort;Sort by Modified Date
+media_list_created_by_sort;Sort by Created by
+media_list_in_use_sort;Sort by In use
+
+##-------------------------
+#		create a media
+##-------------------------
+media_create_media;Create a New Media
+media_name;Media Name
+media_is_created;Media %s is created!
+
+##-------------------------
+#		update media
+##-------------------------
+media_is_updated;Media %s is updated!
+media_update_media; Edit Media file
+media_name_description; Write a name for your Prompt
+media_description; Media Description
+media_media_description; Write a description for your Media
+media_file; File
+media_upload_button; Upload a New Media
+media_upload_description; Choose a sound file for this media(.al, .wav)
+
+##-------------------------
+#		delete a media
+##-------------------------
+media_is_deleted;Media %s is deleted!
+media_delete_media; medis(s)
+
+##-------------------------
+#		upload file
+##-------------------------
+media_upload; File %s is uploaded!
+

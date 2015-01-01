@@ -1,0 +1,213 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/blacklist';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div class="dialog" id="blacklist-update-dialog">
+	<div class="dialog-content">
+		<div class="dialog-heading" id="blacklist-update-heading">
+            <span class="heading-text"><?php echo $this->translate('blacklist_update_blacklist');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div class="dialog-body" id="blacklist-update-body">
+			<form action="" id="blacklist-update-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<tr>
+							<td>
+                                <div><span class="desc"><?php echo $this->translate('blacklist_name');?></span></div>
+							</td>
+						</tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <span class="">
+                                                            <input type="text" name="BlacklistName" value="<?php echo $this->Blacklist['BlacklistName'];?>"/>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div id="dynamic-container">
+                                                        <span class="gap"></span>
+                                                        <span class="">
+                                                            <input type="checkbox" name="DynamicBlacklist"
+                                                            value="1" <?php echo $this->Blacklist['DynamicBlacklist'] ? 'checked="checked"' : '';?>/>
+                                                            <?php echo $this->translate('blacklist_is_dynamic');?>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <div id="dtmf-container" class="<?php echo $this->Blacklist['DynamicBlacklist'] ? '' : 'unactive';?>">
+                                                        <span class=""><?php echo $this->translate('blacklist_dtmf');?></span>
+                                                        <select name="DynamicDtmf"<?php echo $this->Blacklist['DynamicBlacklist'] ? '' : ' disabled="disabled"';?>>
+                                                            <?php
+                                                                foreach (array('*', '#') as $value) {
+                                                                    for ($i = 0; $i < 10; $i++) {
+                                                                            $v = $value . $i;
+                                                                            echo '<option value="' . $v . '" '
+                                                                                . ($this->Blacklist['DynamicDtmf'] == $v ? 'selected="selected"' : '')
+                                                                                . '>' . $v . '</option>';
+                                                                    }
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                        <span class="gap"></span>
+                                                        <span class=""><?php echo $this->translate('blacklist_expiration');?></span>
+                                                        <select name="DynamicDuration"<?php echo $this->Blacklist['DynamicBlacklist'] ? '"' : ' disabled="disabled"';?>>
+                                                            <?php
+                                                                for ($i = 1; $i < 25; $i++) {
+                                                                    echo '<option value="' . $i . '" '
+                                                                        . ($this->Blacklist['DynamicDuration'] == $i ? 'selected="selected"' : '')
+                                                                        . '>' . $i . "</option>";
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                        <span class=""><?php echo $this->translate('blacklist_expiration_time_hours');?></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div><span class="desc"><?php echo $this->translate('blacklist_add_number');?></span></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <span class="">
+                                        <input type="text" name="PhoneNumber" value=""/>
+                                        <input type="hidden" name="BlacklistId" value="<?php echo $this->Blacklist['BlacklistId'];?>"/>
+                                    </span>
+                                    <span class="gap"></span>
+                                    <button type="button" id="add-phone-number"><?php echo $this->translate('application_handler_add');?></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    <div id="blacklist-numbers" class="list-container">
+                                        <div class="list-content">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="list-header">
+                                                                <table>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="list-header-below"><span class="icon-below">&nbsp;</span></div>
+                                                                                <div class="list-header-batch-delete">
+                                                                                    <button type="button" id="deletenumber" class="batch-delete">
+                                                                                    <?php echo $this->translate('application_handler_batch_delete');?>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="search-box">
+                                                                                    <div class="search-box-input">
+                                                                                        <div class="search-icon">&nbsp;</div>
+                                                                                        <input type="text" name="BlasclistNumberPart" class="keyword input_default"
+                                                                                        value="<?php echo $this->translate('application_handler_search_input');?>"/>
+                                                                                    </div>
+                                                                                    <button class="search" type="button">
+                                                                                    <?php echo $this->translate('application_handler_ok');?></button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="list-title">
+                                                                <table>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="column-1"><div><input type="checkbox" class="checkbox-switch"/></div></td>
+                                                                            <td class="column-2">
+                                                                                <div>
+                                                                                    <span title="<?php echo $this->translate('blacklist_numberlist_numbers');?>">
+                                                                                        <?php echo $this->translate('blacklist_numberlist_numbers');?>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="column-3">
+                                                                                <div>
+                                                                                    <span title="<?php echo $this->translate('blacklist_numberlist_type');?>">
+                                                                                        <?php echo $this->translate('blacklist_numberlist_type');?>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="column-4">
+                                                                                <div>
+                                                                                    <span title="<?php echo $this->translate('blacklist_numberlist_expiration');?>">
+                                                                                        <?php echo $this->translate('blacklist_numberlist_expiration');?>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div  class="list-body">
+                                                                <?php
+                                                                    echo $this->Action('listnumber', 'blacklist', null, array(
+                                                                        'BlacklistId' => $this->Blacklist['BlacklistId']
+                                                                    ));
+                                                                ?>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dialog-button">
+                                    <span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

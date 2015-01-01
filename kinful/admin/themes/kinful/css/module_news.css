@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.news_basic_information p
+{
+margin:15px 0;
+}
+#news_title, #reference_url
+{
+width:400px;
+}
+#intro_text_parent,
+#full_text_parent
+{
+display:inline-table;
+}

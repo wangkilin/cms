@@ -1,0 +1,104 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+$baseUrl = rtrim($this->BaseUrl(), '/') . '/trunkgroup';
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+<div  id="trunkgroup-update-dialog" class="dialog">
+	<div class="dialog-content">
+		<div id="trunkgroup-update-heading" class="dialog-heading">
+            <span class="heading-text"><?php echo $this->translate('trunkgroup_update_trunkgroup');?></span>
+            <span class="heading-close"><?php echo $this->translate('application_handler_close');?></span>
+        </div>
+		<div id="trunkgroup-update-body" class="dialog-body">
+			<form action="" id="trunkgroup-update-form" method="post" enctype="application/x-www-form-urlencoded">
+				<table class="content">
+					<tbody>
+						<p>
+							<tr>
+								<td>
+									<div>
+										<span class="desc"><?php echo $this->translate('trunkgroup_update_name')?></span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<span class=""><?php echo $this->TrunkGroup['Label']?></span>
+									</div>
+								</td>
+							</tr>
+						</p>
+						<span class="tips">Drag and drop to move parts or entire group from the left side to the right side</span>
+						<p>
+							<tr>
+								<td>
+									<div id="assign-trunks">
+										<table>
+											<tbody>
+												<tr>
+													<td>
+														<div>
+															<span id="trunkgroup-unassigned-title"><?php echo $this->translate('trunkgroup_alltrunks')?></span>
+														</div>
+													</td>
+													<td>&nbsp;</td>
+													<td>
+														<div>
+															<span id="trunkgroup-assigned-title"><?php echo $this->translate('trunkgroup_trunks')?></span>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div id="trunks" class="trunks">
+															<ul class="connectedSortable"></ul>
+														</div>
+													</td>
+													<td>
+														<div id="trunkgroup-gap">
+															<br>
+															<a id="ass" class="sw-icon sw-icon-arrow-right" href="#">&gt;</a>
+															<br>
+															<a id="unass" class="sw-icon sw-icon-arrow-left unactive" href="#">&lt;</a>
+														</div>
+													</td>
+													<td>
+														<div id="trunks-assigned" class="trunks">
+															<ul></ul>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="dialog-button">
+                    					<span><button type="submit" class="update-button"><?php echo $this->translate('application_handler_ok');?></button></span>
+                					</div>
+								</td>
+							</tr>
+						</p>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<?php
+/* EOF */

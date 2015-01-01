@@ -1,0 +1,69 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+if (count($this->Contacts)) {
+?>
+<pre class="search-result active">
+    <?php   
+    $searchKeywords = array();
+    // demo data
+    $demoData = array(
+        array(
+            'CustomerAccountId' => 1,
+            'CustomerAccountName' => 'Administrator account',
+            'CustomerAccountBillingId' => '0',
+            'ContactName' => 'Admin Support',
+            'ContactEmail' => 'supervision@streamwide.com',
+            'ContactPhone' => '0123456789',
+            'CreationDatetime' => '-001-11-30T00:00:00+07:06',
+            'Quotas' => array(
+                'MaxResPrompt' => 500,
+                'MaxResOrigin' => 500,
+                'MaxResBlacklist' => 500,
+                'MaxResCalendar' => 500,
+                'MaxResAgentgroup' => 500,
+                'MaxResContact' => 5,
+                'MaxResUser' => 500
+            )
+        ),
+        array(
+            'CustomerAccountId' => 2,
+            'CustomerAccountName' => 'Test acount',
+            'CustomerAccountBillingId' => '1',
+            'ContactName' => 'Testing account',
+            'ContactEmail' => 'test@streamwide.com',
+            'ContactPhone' => '001231452',
+            'CreationDatetime' => '-001-11-30T00:00:00+07:06',
+            'Quotas' => array(
+                'MaxResPrompt' => 500,
+                'MaxResOrigin' => 500,
+                'MaxResBlacklist' => 500,
+                'MaxResCalendar' => 500,
+                'MaxResAgentgroup' => 500,
+                'MaxResContact' => 5,
+                'MaxResUser' => 500
+            )
+        )
+    );              
+
+        /**/ 
+    foreach($this->Contacts as $contact) {
+            $searchKeywords[] = (String)$contact['CustomerAccountId'];
+            $searchKeywords[] = $contact['CustomerAccountName'];
+            $searchKeywords[] = $contact['ContactName'];
+        
+    }
+    echo Zend_Json::encode($searchKeywords); ?>
+</pre>
+<?php
+}
+/* EOF */

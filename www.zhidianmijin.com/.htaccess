@@ -1,0 +1,15 @@
+RewriteEngine  on
+
+#RewriteCond  %{REQUEST_URI}  ^/error\.htm$
+#RewriteRule  ^error\.htm$ error.php                 
+#RewriteRule ^error\.htm$ error.php
+#RewriteCond  %{REQUEST_URI} !^/error\.htm$
+
+#RewriteRule !\.(html|js|ico|gif|jpg|png|css)$ index.php
+#RewriteRule ([^/]+)/(images|js|css|flash|swf)/([^/]+)\.(html|js|ico|gif|jpg|png|css|swf)$ /suan/k3kk/php/www.zhidianmijin.com/medias/$1/$2/$3.$4
+RewriteRule (.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ /www.zhidianmijin.com/medias/$1.$2
+RewriteRule \.(asp|rar|zip|mdb)$ /suan/rewrite.php
+
+
+
+#RewriteRule (.*)\.(html|js|ico|gif|jpg|png|css|swf|jar|class)$ %{DOCUMENT_ROOT}/medias/$1.$2

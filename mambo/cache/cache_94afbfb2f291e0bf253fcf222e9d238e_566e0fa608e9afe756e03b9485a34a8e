@@ -1,0 +1,31 @@
+                      1564146266a:2:{s:6:"output";s:874:"		<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" class="contentpane">
+					<tr>
+				<td colspan="2" class="componentheading" width="100%">
+				新闻				</td>
+			</tr>
+					<tr>
+			<td width="60%" valign="top" class="contentdescription" colspan="2">
+							<img src="http://localhost/cms/mambo/images/stories/articles.jpg" align="right" hspace="6" alt="articles.jpg" />
+				从下面列表选择一个分类，然后选择一篇文章阅读。			</td>
+		</tr>
+		<tr>
+			<td>
+						</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+					<ul>
+							<li>
+					<a href="http://localhost/cms/mambo/content/category/1/1/2/" class="category">
+					最新消息					</a>
+											&nbsp;<i>( 1 条目 )</i>
+						<br />本站最新动态					</li>
+						</ul>
+					</td>
+		</tr>
+		</table>
+					<div class="back_button">
+			<a href='javascript:history.go(-1)'>
+			返回			</a>
+			</div>
+					";s:6:"result";N;}

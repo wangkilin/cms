@@ -1,0 +1,67 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Lance LI <yaoli@streamwide.com>
+ * @version    $Id$
+ */
+/**
+ * pagination
+ */
+function pagination(array $pageInfo, $currentCount, $view, $listUrl='')
+{
+    $pages = '<div>'
+        . $view->translate('application_handler_page_items')
+        . '<a href="' . $listUrl . 'ItemsPerPage/25" class="'
+        . ( 25 == $pageInfo['ItemsPerPage'] ? 'selected ' : '')
+        . '25">25</a> | '
+        . '<a href="' . $listUrl . 'ItemsPerPage/50" class="'
+        . (50 == $pageInfo['ItemsPerPage'] ? 'selected ' : '')
+        . '50">50</a> | '
+        . '<a href="' . $listUrl . 'ItemsPerPage/100" class="'
+        . (100 == $pageInfo['ItemsPerPage'] ? 'selected ' : '')
+        . '100">100</a> | '
+        . '<a href="' . $listUrl . 'ItemsPerPage/-1" class="'
+        . (-1 == $pageInfo['ItemsPerPage'] ? 'selected ' : '')
+        . 'all">'
+        . $view->translate('application_handler_page_items_all')
+        . '</a>'
+        . '</div>'
+        . $view->translate(
+            'application_handler_pages',
+            array(
+                1 == $pageInfo['CurrentPage'] ? 1 : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + 1,
+                1 == $pageInfo['CurrentPage'] ? $currentCount : $pageInfo['ItemsPerPage']  * ($pageInfo['CurrentPage'] - 1) + $currentCount,
+                $pageInfo['ItemsTotal']
+            )
+        )
+        . (1 != $pageInfo['CurrentPage']
+            ? ' &lt;<a href="' . $listUrl . 'ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] - 1) . '" class="page-previous">'
+            . $view->translate('application_handler_previous')
+            . '</a>' : '')
+            . '<span class="current-page">' . $pageInfo['CurrentPage']
+            . '</span>'
+        . (-1 != $pageInfo['ItemsPerPage'] && $pageInfo['ItemsTotal'] > $pageInfo['ItemsPerPage'] * $pageInfo['CurrentPage']
+            ? '<a href="' . $listUrl . 'ItemsPerPage/' . $pageInfo['ItemsPerPage'] . '/CurrentPage/' . ($pageInfo['CurrentPage'] + 1) . '" class="page-next">'
+            . $view->translate('application_handler_next')
+            . '</a>&gt;' : '');
+
+    return $pages;
+}
+?>
+<div class="list-footer">
+    <div class="pagination">
+    <?php
+        if($this->CurrentCount) {
+            echo pagination($this->Pagination, $this->CurrentCount, $this, $this->ListUrl);
+        }
+    ?>
+    </div>
+</div>
+<?php
+/* EOF */

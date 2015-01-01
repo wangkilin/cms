@@ -1,0 +1,25 @@
+<?php
+/**
+ * $Rev$
+ * $LastChangedDate$
+ * $LastChangedBy$
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id$
+ */
+
+// Disabled layout
+$this->layout()->disableLayout();
+?>
+
+<div class="notification"><?php printf($this->translate('origin_is_created'));?></div>
+
+<?php
+echo $this->Action('list', 'origin', null, array(
+                'CustomerUserId' => $this->CustomerUserId,
+                'CustomerAccountId' => $this->CustomerAccountId
+            ));
+/* EOF */

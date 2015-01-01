@@ -1,0 +1,64 @@
+left_menu_list_agent;Agent List
+left_menu_import_agent;Import Agent
+left_menu_export_agent;Export Agent
+## index ---------------------------
+agentgroup_to_unassociate;Remove from:
+agentgroup_to_associate;Add into:
+## create agent --------------------
+agentgroup_add_agent;Add agent
+agentgroup_add_group;Add group
+agentgroup_agent_group;AGENT GROUP
+agentgroup_unaffected_agents;Unaffected Agents
+agentgroup_all_agents;All Agents    
+agentgroup_agent_name;AGENT NAME
+agentgroup_agent_password;Password
+agentgroup_agent_info;DETAILS
+agentgroup_agent_name;Name
+agentgroup_agent_login;Login
+agentgroup_agent_phone;Phone Number
+agentgroup_agent_email;Email
+agentgroup_agent_affected_group;Affected Group     
+agentgroup_agent_is_supervisor;Is supervisor?
+agentgroup_agent_status;Status
+agentgroup_supervisor_available;Available
+agentgroup_supervisor_unavailable;Unavailable
+agentgroup_modify_button;Modify
+agentgroup_change_group_button;ChangeGroup
+agentgroup_delete_group_button;Delete Group
+agentgroup_delete_agent_button;Delete Agent
+## create agent group --------------------
+agentgroup_group_info;Add New Group
+agentgroup_group_name;Name
+agentgroup_group_duration;Post process time
+agentgroup_group_duration_interval;Min.
+agentgroup_have_selected;Selected
+agentgroup_agents;agents
+agentgroup_agent;agent
+## edit agent group-----------------------
+agentgroup_group_edit;Update Agent Group
+agentgroup_group_is_updated;Agent group : %s is updated!
+## delete agent group --------------------
+agentgroup_agentgroup_name; agent group :
+agentgroup_group_is_deleted;Agent group : %s is deleted!
+## delete agent---------------------------
+agentgroup_delete_selected_agent;Delete the selected agent?
+agentgroup_agent_is_removed;The selected agent deleted!
+agentgroup_usage_description;Here is the usage description.
+agentgroup_agent_DisponibilityTime;Disponibility Time
+agentgroup_agent_UnlimitedDisponibility;Unlimited Disponibility
+agentgroup_unlimited_disponibility_1;Yes
+agentgroup_unlimited_disponibility_0;No
+agentgroup_agent_list;AGENT LIST
+agentgroup_delete_agent_batch;the selected agents
+agentgroup_delete_agent;agent :
+agentgroup_is_online;Online
+agentgroup_is_not_online;Offline
+agentgroup_is_supervisor;Supervisor
+agentgroup_is_not_supervisor;Not supervisor
+agentgroup_agent_is_created;Agent: %s is created!
+agentgroup_agent_is_updated;Agent: %s is updated!
+agentgroup_group_list;Group List
+agentgroup_search_group_by_key;Search Group
+agentgroup_agent_is_binded;Add into group successfully!
+##----------------------------
+## EOF

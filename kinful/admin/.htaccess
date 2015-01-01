@@ -1,0 +1,7 @@
+#RewriteEngine  on
+
+#RewriteRule upload/images/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ /kinful/upload/images/$1.$2 [L]
+
+#RewriteRule ([^/]*)/([^/]*)/(.*)\.(js|ico|gif|jpg|png|css|swf|jar|class)$ /kinful/admin/themes/$2/$1/$1/$2/$3.$4
+
+#RewriteRule common\$/([^/]*)/(.*)\.(html|php|htm)$ /kinful/admin/themes/$1/common\$/common\$/$1/$2.$3

@@ -1,0 +1,45 @@
+## Routing Tree management page translation
+##----------------------------
+application_msg_tree_is_created_ok;Routing Tree <em>%s</em> is created.
+##----------------------------
+tree_list_name;Routing Tree Name
+tree_list_solution_type;Solution Types
+tree_list_templete_name;Templete Name
+tree_list_created_date;Date Created
+tree_list_modified_date;Modified Date
+tree_list_created_by;Created By
+tree_list_status;State
+tree_list_no_item;No Routing Tree!
+##----------------------------
+default_form_label_button_new_tree;New Routing Tree
+default_form_title_create_tree;New Routing Tree
+default_form_label_tree_name;Routing Tree Name
+default_form_label_tree_parent_tree;Parent Tree
+default_form_label_option_default_tree_parent_tree;Select Parent Tree
+default_form_label_tree_solution_type_restricted;Solution Restricted
+default_form_label_tree_solution_type_full;Solution Full
+default_form_label_option_default_solution;Select Solution
+default_form_label_tree_node_constraints;Node Constraints
+default_form_label_tree_node_constraint;Node %s
+default_form_label_option_default_tree_node_constraint;Unlimitted
+default_form_label_option_item_tree_node_constraint; %d
+default_form_value_default_tree_name;Write a name here
+default_form_description_tree_name;Input a name for the tree
+default_form_description_tree_parent_tree;
+default_form_description_tree_solution;
+default_form_description_tree_node_constraints;Defination each of nodes maximum number for your Routing Tree.
+##----------------------------
+tree_edit_tree;Edit Tree
+tree_root_node;Root Name
+tree_select_root_node;Select Root Name
+tree_status_select;Status
+tree_select_status;Select Status
+##----------------------------
+default_form_clone_tree_ok;Routing Tree is copied.
+##----------------------------
+default_form_title_delete_tree;Routing Tree
+default_form_title_delete_tree_batch;Routing Trees
+default_form_delete_ok_tree;<em>%s</em> is deleted.
+default_form_delete_nok_tree;<strong>%s</strong> isn't deleted.
+##----------------------------
+## EOF

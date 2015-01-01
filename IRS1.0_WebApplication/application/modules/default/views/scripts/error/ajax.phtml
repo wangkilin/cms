@@ -1,0 +1,22 @@
+<?php
+/**
+ * $Rev: 2475 $
+ * $LastChangedDate: 2010-06-09 17:00:07 +0800 (Wed, 09 Jun 2010) $
+ * $LastChangedBy: junzhang $
+ *
+ * @category   application
+ * @package    modules_default
+ * @subpackage views_scripts_error
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kai WU <kwu@streamwide.cn>
+ * @version    $Id: ajax.phtml 2475 2010-06-09 09:00:07Z junzhang $
+ */
+
+// Always disabled layout
+$this->layout()->disableLayout();
+$code = $this->exception->getCode();
+$codelabel = "error_" . $code;
+$translate = Streamwide_Web_Translate::getTranslate();
+$message =  $translate->isTranslated($codelabel) ? $this->translate($codelabel) : $this->exception->getMessage();
+?>
+<div class="error <?php echo $this->exception->getCode();?>"> <?php echo $message;?></div>

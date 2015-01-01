@@ -1,0 +1,60 @@
+<?php
+/**
+ * $Rev: 1974 $
+ * $LastChangedDate: 2010-04-08 12:50:29 +0800 (Thu, 08 Apr 2010) $
+ * $LastChangedBy: yaoli $
+ *
+ * @category   application
+ * @package    layouts_scripts
+ * @copyright  Copyright (c) 2010 Streamwide SAS
+ * @author     Kilin WANG <zwang@streamwide.com>
+ * @version    $Id: list.phtml 1974 2010-04-08 04:50:29Z yaoli $
+ */
+
+$translate = Streamwide_Web_Translate::functor();
+
+$baseUrl = rtrim($this->BaseUrl(), '/');
+?>
+      <table id="agent_group_list" url="<?php echo $baseUrl?>/agentgroup">
+
+        <thead>
+          <tr>
+            <td colspan="2"><?php echo $translate('agentgroup_agent_group');?></td>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+        // list agent groups
+        foreach((array)$this->AgentGroupList as $agentGroup) {
+        ?>
+          <tr class="list_item <?php echo isset($_tmpClass)?'':($_tmpClass=' on')?>" itemId="<?php echo $agentGroup['AgentGroupId']?>">
+            <td class="agent_group_name" groupId="<?php echo $agentGroup['AgentGroupId']?>">
+              <?php echo $agentGroup['AgentGroupName']?>
+            </td>
+            <td class="agent_count"><?php echo $agentGroup['AgentCount']?></td>
+          </tr>
+        <?php
+        }// end foreach
+        ?>
+          <tr>
+            <td colspan="2">
+              <hr/>
+            </td>
+          </tr>
+          <tr class="list_item" itemId="0">
+            <td class="agent_group_name" groupId="0">
+              <?php echo $this->translate('agentgroup_unaffected_agents')?>
+            </td>
+            <td class="agent_count"><?php echo $this->CountUnaffectedAgents?></td>
+          </tr>
+          <tr class="list_item" itemId="-1">
+            <td class="agent_group_name" groupId="-1">
+              <?php echo $this->translate('agentgroup_all_agents')?>
+            </td>
+            <td class="agent_count"><?php echo $this->CountAllAgents?></td>
+          </tr>
+        </tbody>
+
+      </table>
+<?php
+/* EOF */

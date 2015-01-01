@@ -1,0 +1,143 @@
+/* CSS Document */
+
+BODY {
+	MARGIN: 0px
+}
+
+FORM {
+	MARGIN: 0px
+}
+.button {MARGIN-TOP: 4px;  FONT-SIZE: 14px;CURSOR: hand;width:90px;height:25px;BORDER-top: #5391EE 1px solid;BORDER-right: #5391EE 2px solid;BORDER-bottom: #5391EE 2px solid;BORDER-left: #5391EE 1px solid; BACKGROUND: #f3f3f3;padding-top:2px;FONT-FAMILY: "Arial", "Helvetica", "sans-serif"}
+IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px
+}
+DIV {
+	FONT-SIZE: 12px; LINE-HEIGHT: 18px
+}
+A:link {
+	COLOR: #000000
+}
+A:visited {
+	COLOR: #000000
+}
+#wtop {
+	PADDING-RIGHT: 10px; MARGIN-TOP: 4px; FONT-SIZE: 12px; COLOR: #7e7e7e;LINE-HEIGHT: 19px; FONT-FAMILY: Arial; HEIGHT: 19px; TEXT-ALIGN: right
+}
+
+#hd {
+	MARGIN-BOTTOM: 8px; WIDTH: 98%
+}
+#hd IMG.lg {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; MARGIN-RIGHT: 9px; BORDER-BOTTOM: 0px
+}
+#hd DIV.dh {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 14px; FONT-FAMILY: Arial; HEIGHT: 30px
+}
+
+#ft {
+	CLEAR: both; PADDING-RIGHT: 0px; MARGIN-TOP: 5px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; COLOR: #666; PADDING-TOP: 2px; FONT-FAMILY: Arial; TEXT-ALIGN: center
+}
+#ft A:link {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#ft A:hover {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#ft A:visited {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#link {
+	CLEAR: both; PADDING-RIGHT: 0px; MARGIN-TOP: 5px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; COLOR: #666; PADDING-TOP: 2px; FONT-FAMILY: Arial; TEXT-ALIGN: default
+}
+#link A:link {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#link A:hover {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#link A:visited {
+	FONT-SIZE: 12px; COLOR: #7777cc; FONT-FAMILY: Arial
+}
+#main {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; min-width: 756px; max-width: 979px
+}
+#left {
+	CLEAR: left; MARGIN-RIGHT: 210px
+}
+#right {
+	CLEAR: left; FLOAT: right; WIDTH: 200px
+}
+
+.t1 {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 14px; LINE-HEIGHT: 24px; HEIGHT: 24px
+}
+
+.t1 {
+	BORDER-TOP: #5391EE 1px solid; BACKGROUND: #C2DAFF
+}
+
+.t1 {
+	BORDER-RIGHT: #5391EE 1px solid; BORDER-LEFT: #5391EE 1px solid
+}
+
+.b1 {
+	BORDER-RIGHT: #5391EE 1px solid; BORDER-LEFT: #5391EE 1px solid
+}
+.b1 {
+	MARGIN-BOTTOM: 10px; WIDTH: 100%; BORDER-TOP: #5391EE 1px solid;BORDER-BOTTOM: #5391EE 1px solid
+}
+
+.ttop {
+	BORDER-TOP: #fff 2px solid;BORDER-LEFT: #fff 2px solid; BORDER-RIGHT: #fff 2px solid;BACKGROUND: #5391EE;PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 14px;COLOR: #fff; LINE-HEIGHT: 28px; HEIGHT: 28px
+}
+.ttd {
+	BORDER-BOTTOM: #5391EE 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 14px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 22px; PADDING-TOP: 5px
+}
+.ntop {
+	BORDER-TOP: #fff 2px solid;BORDER-LEFT: #fff 2px solid; BORDER-RIGHT: #fff 2px solid;BACKGROUND: #D8E0EE;PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 14px;COLOR: #000; LINE-HEIGHT: 28px; HEIGHT: 30px
+}
+
+.new {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-SIZE: 14px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 22px; PADDING-TOP: 5px
+}
+.new2 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 14px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 40px; PADDING-TOP: 5px
+}
+.new3 {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; LINE-HEIGHT: 40px; PADDING-TOP: 5px
+}
+.red {
+	color: #FF0000;
+	font-weight: bold;
+	}
+
+A.red:link {
+	FONT-SIZE: 14px; COLOR: #FF0000;; FONT-FAMILY: Arial
+}
+A.red:hover {
+	FONT-SIZE: 14px; COLOR: #FF0000;; FONT-FAMILY: Arial
+}
+A.red:visited {
+	FONT-SIZE: 14px; COLOR: #FF0000;; FONT-FAMILY: Arial
+}
+.date { float:left;}
+.date th { background:#BED3F3; color:#000; text-align:center; line-height:16px; font-size:12px;}
+.date td { font-size:12px; text-align:center; line-height:16px;}
+.date td.bg01 { background:#ff0000 no-repeat center center; color:#fff; font-weight:bold;}
+.date ul{margin-left:10px;}
+.date li { background:#ff0000 no-repeat right 15px;color:#555452;display:inline;float:left;width:38px; padding-left:5px;}
+
+#head{}
+#menu_top {float:right;background:#F2F2F2;width:78%;height:85px;;text-align:left;padding-left:10px;border:1px solid #5391EE;border-bottom:0;}
+.menuli{float:left;background:#8E909C;border-bottom:1px solid #FFFFFF;border-right:1px solid #FFFFFF;text-align:center;vertical-align:middle;width:11%;list-style:none;FONT-WEIGHT: bold;font-size:14px;}
+.liover{float:left;background:#5391EE;border-bottom:1px solid #FFFFFF;border-right:1px solid #FFFFFF;text-align:center;vertical-align:middle;width:11%;list-style:none;FONT-WEIGHT: bold;font-size:14px;}
+.liup{float:left;background:#5391EE;border-bottom:1px solid #5391EE;border-right:1px solid #FFFFFF;text-align:center;vertical-align:middle;width:11%;list-style:none;FONT-WEIGHT: bold;font-size:14px;}
+#menu{clear:both;border-top:5px solid #5391EE;border-bottom:1px solid #5391EE;border-left:1px solid #5391EE;border-right:1px solid #5391EE;MARGIN-BOTTOM: 10px;background:#D8E0EE;line-height:28px;color:#000;font-size:14px;}
+#menu0 li a,a:link,a:visited{color:#FFFFFF;text-decoration:none;}
+#menu0 li a:hover{color:#FFFFFF;text-decoration: none;}
+#menu span{margin-left:3px;padding-left:3px;}
+#menu span a,a:link,a:visited{color:#000;text-decoration: none;font-size:14px;}
+#menu span a:hover{color:#000;text-decoration:underline;font-size:14px;}

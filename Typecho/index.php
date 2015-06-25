@@ -13,7 +13,7 @@ if (!defined('__TYPECHO_ROOT_DIR__') && !@include_once 'config.inc.php') {
     exit;
 }
 
-/** 初始化组件 */
+/** 初始化组件: 获取Widget_Init实例。 将默认Request， Response传入 */
 Typecho_Widget::widget('Widget_Init');
 
 /** 注册一个初始化插件 */

@@ -157,8 +157,8 @@ class Typecho_Db
     }
 
     /**
-     * getConfig  
-     * 
+     * getConfig
+     *
      * @access public
      * @return void
      */
@@ -304,14 +304,14 @@ class Typecho_Db
                 /** Typecho_Db_Exception */
                 throw new Typecho_Db_Exception('Missing Database Connection');
             }
-            
+
             //获取相应读或写服务器连接池中的一个
-            $selectConnection = rand(0, count($this->_pool[$op]) - 1); 
+            $selectConnection = rand(0, count($this->_pool[$op]) - 1);
             //获取随机获得的连接池配置
             $selectConnectionConfig = $this->_config[$this->_pool[$op][$selectConnection]];
             $selectConnectionHandle = $this->_adapter->connect($selectConnectionConfig);
             $this->_connectedPool[$op] = &$selectConnectionHandle;
-            
+
         }
         $handle = $this->_connectedPool[$op];
 

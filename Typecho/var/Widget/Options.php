@@ -145,7 +145,7 @@ class Widget_Options extends Typecho_Widget
      */
     protected function ___index()
     {
-        return ($this->rewrite || (defined('__TYPECHO_REWRITE__') && __TYPECHO_REWRITE__)) 
+        return ($this->rewrite || (defined('__TYPECHO_REWRITE__') && __TYPECHO_REWRITE__))
             ? $this->rootUrl : Typecho_Common::url('index.php', $this->rootUrl);
     }
 
@@ -286,10 +286,10 @@ class Widget_Options extends Typecho_Widget
     {
         return isset($this->contentType) ? $this->contentType : 'text/html';
     }
-    
+
     /**
      * 软件名称
-     * 
+     *
      * @access protected
      * @return string
      */
@@ -298,10 +298,10 @@ class Widget_Options extends Typecho_Widget
         list($software, $version) = explode(' ', $this->generator);
         return $software;
     }
-    
+
     /**
      * 软件版本
-     * 
+     *
      * @access protected
      * @return string
      */
@@ -310,26 +310,26 @@ class Widget_Options extends Typecho_Widget
         list($software, $version) = explode(' ', $this->generator);
         return $version;
     }
-    
+
     /**
      * 允许上传的文件类型
-     * 
+     *
      * @access protected
      * @return string
      */
     protected function ___allowedAttachmentTypes()
     {
         $attachmentTypesResult = array();
-    
+
         if (NULL != $this->attachmentTypes) {
             $attachmentTypes = str_replace(
-                array('@image@', '@media@', '@doc@'), 
+                array('@image@', '@media@', '@doc@'),
                 array('gif,jpg,jpeg,png,tiff,bmp', 'mp3,wmv,wma,rmvb,rm,avi,flv',
                     'txt,doc,docx,xls,xlsx,ppt,pptx,zip,rar,pdf'), $this->attachmentTypes);
-            
+
             $attachmentTypesResult = array_unique(array_map('trim', explode(',', $attachmentTypes)));
         }
-        
+
         return $attachmentTypesResult;
     }
 
@@ -343,18 +343,20 @@ class Widget_Options extends Typecho_Widget
     {
         $this->db->fetchAll($this->db->select()->from('table.options')
         ->where('user = 0'), array($this, 'push'));
-        
+
         /** 支持皮肤变量重载 */
         if (!empty($this->row['theme:' . $this->row['theme']])) {
             $themeOptions = NULL;
-        
+
             /** 解析变量 */
             if ($themeOptions = unserialize($this->row['theme:' . $this->row['theme']])) {
                 /** 覆盖变量 */
                 $this->row = array_merge($this->row, $themeOptions);
             }
+            //file_put_contents('./themeOptionsSettings.php', "<?php\r\n" . var_export($themeOptions, true)."\r\n/* EOF */");
+
         }
-        
+
         $this->stack[] = &$this->row;
 
         /** 初始化站点信息 */
@@ -383,6 +385,7 @@ class Widget_Options extends Typecho_Widget
 
         /** 自动初始化路由表 */
         $this->routingTable = unserialize($this->routingTable);
+        //file_put_contents('./optionsSettings.php', "<?php\r\n" . var_export($this->routingTable, true)."\r\n/* EOF */");
         if (!isset($this->routingTable[0])) {
             /** 解析路由并缓存 */
             $parser = new Typecho_Router_Parser($this->routingTable);

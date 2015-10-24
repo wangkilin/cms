@@ -1,0 +1,19 @@
+#   <Directory "/var/www/html/OradtWeb1.0/Public/">
+#        AllowOverride All
+#        Order allow,deny
+#        Allow from all
+#    </Directory>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase /git/cms/CodeIgniter-develop/www/
+	RewriteCond %{REQUEST_FILENAME} -d [OR]
+	RewriteCond %{REQUEST_FILENAME} -f
+	RewriteRule ^.*$ - [NC,L]
+	RewriteRule \.(js|ico|gif|jpg|png|css|apk)$ - [NC,L]
+	RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+	RewriteRule ^.*$ - [NC,L]
+</IfModule>
+
+php_value upload_max_filesize 10M  
+php_value post_max_size 20M

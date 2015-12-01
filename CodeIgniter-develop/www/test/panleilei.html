@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="">
+        html{ overflow-x:hidden;}
+        @keyframes move {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.15);
+            }
+        }
+        @-webkit-keyframes move {
+            from {
+                -webkit-transform: scale(1);
+            }
+            to {
+                -webkit-transform: scale(1.15);
+            }
+        }
+        body{margin:0;position: relative;}
+        #main
+        {
+            margin:0 auto;
+            width:100%;
+            position: relative;
+        }
+        .header{ width:100%; height:90px; position:fixed; z-index:3333;}
+        .header img{width:100%; height:90px;}
+        .scroll_item
+        {
+            margin:0;
+            width:100%;
+            overflow:hidden;
+            height:1066px;
+        }
+        .scroll_bg img,.scroll_bgtwo img
+        {
+            width:100%;
+            animation-direction: alternate;
+            animation-duration: 30s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-name: move;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-duration: 30s;
+            -webkit-animation-fill-mode: both;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-name: move;
+            transform-origin: center bottom 0;
+            -webkit-transform-origin: center bottom 0;
+
+            display:block;
+        }
+        .scroll_bgtwo{ width:100%; height:1155px;}
+        .scroll_bgtwo img{ width:100%; height:1155px;}
+        .scroll_bg{ width:100%; height:1066px; position:absolute;}
+        .scroll_bg img{ height:1066px;}
+        .scroll_img { width:366px; height:673px; position:absolute; margin-top:179px; left:50%; margin-left:-183px;}
+        .scrollthr_img{ width:460px; height:249px; position:absolute; margin-top:400px; left:50%; margin-left:-230px;}
+        .scrollfour_img{ width:460px; height:249px; position:absolute; margin-top:480px; margin-left:132px;}
+        .scrollfive_img{ width:463px; height:270px; position:absolute; margin-top:405px; left:50%; margin-left:-231px;}
+        .scrollsix_img{ width:420px; height:220px; position:absolute; margin-top:185px; left:50%; margin-left:-210px;}
+        .scrollseven_img{ width:631px; height:244px; position:absolute; margin-top:355px; left:50%; margin-left:-315px;}
+        .scrolleight_img{ width:465px; height:98px; position:absolute; margin-top:280px; right:0; margin-right:170px;}
+        .scrollnine_img{ width:255px; height:310px; position:absolute; margin-top:393px; left:50%; margin-left:-127px;}
+        #slide_bar
+        {
+            margin: 0 auto;
+            width: 100%;
+        }
+        .slide_bar
+        {
+            position: fixed;
+            right: 10px;
+            top: 300px;
+            z-index: 100;
+        }
+        #slide_bar li
+        {
+            background: rgba(255, 0, 0, 0) url("pan_slide_bar.png") no-repeat scroll 0 -25px;
+            list-style: outside none none;
+            text-indent: -20000px;
+            width: 18px;
+        }
+        #slide_bar li.active
+        {
+            background-position: 0 0;
+        }
+
+    </style>
+    <title>Insert title here</title>
+</head>
+<body>
+<div id="slide_bar">
+    <ul class="slide_bar">
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li class="active">&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+    </ul>
+</div>
+<div id="main">
+    <div class="header"><img src="pan_hearder.png" /></div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_12.png" /></div>
+        <div class="scroll_img"><img src="pan_wordtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bgtwo"><img src="pan_2.png"/></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_3.png" /></div>
+        <div class="scrollthr_img"><img src="pan_wordImoratext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_4.png" /></div>
+        <div class="scrollfour_img"><img src="pan_3wordtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_5.png" /></div>
+        <div class="scrollfive_img"><img src="pan_5wodrdtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_6.png" /></div>
+        <div class="scrollsix_img"><img src="pan_6wordtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_7.png" /></div>
+        <div class="scrollseven_img"><img src="pan_7wordtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_8.png" /></div>
+        <div class="scrolleight_img"><img src="pan_8wordtext.png" /></div>
+    </div>
+    <div class="scroll_item" id="">
+        <div class="scroll_bg"><img src="pan_9.png" /></div>
+        <div class="scrollnine_img"><img src="pan_9wordtext.png" /></div>
+    </div>
+</div>
+</body>
+</html>

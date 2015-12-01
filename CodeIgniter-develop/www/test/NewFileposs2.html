@@ -1,0 +1,319 @@
+<!DOCTYPE lang="fr-FR" style="height:100%; overflow: hidden;">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1600" initial-scale=0.9" />
+<title>Insert title here</title>
+<link rel="stylesheet" href="__PUBLIC__/css/NewFileposs.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript">
+
+//第几个轮播图
+var index=0;
+
+//切换背景监听点
+var points;
+
+//是否监听滚动条
+var isScrollEvent;
+
+$(function(){
+	function getPoints(){
+		points=new Array();
+		$('.fp-easing_mask').each(function(index){
+			points.push({top1:$(this).offset().top-400, top2:$(this).offset().top+parseFloat($(this).height()+300)})
+		});
+	}
+	getPoints();
+	
+	
+	//第一个视频hover播放，而且一次
+	var isFirstPlayed;
+	$('.contenttwo_table ul:first').on('mouseover',function(){
+		if (isFirstPlayed) return;
+		$('video:eq(2)')[0].play();
+	});
+	
+	//左移动
+	$('.left_prev').on('click',function(){
+		index--;
+		leftOrRight(-1);
+	});
+	
+	//右移动
+	$('.right_next').on('click',function(){
+		index++;
+		leftOrRight(1);
+	});
+	
+	function leftOrRight(num){
+		var s=$('.contenttwo_table').scrollLeft();
+		$('.contenttwo_table').animate({'scrollLeft':s+num*(810+205)},'normal','swing',function(){
+			var first=$('video:first').parent();
+			var last=$('video:last').parent();
+			if (num>0){
+				last.after(first);	
+			} else {
+				first.before(last);
+			}
+			resize();
+			$('video').each(function(i){
+				if (i==2){
+					$(this)[0].play();
+				} else {
+					$(this)[0].pause();
+				}
+			});
+			
+			$('.contenttwo_table2 ol li').removeClass('active');
+			$('.contenttwo_table2 ol li:eq('+(index%3)+')').addClass('active');
+		});
+	}
+	
+	//点事件
+	$('.contenttwo_table2 ol li').on('mouseover',function(){
+		var num=$(this).attr('index')-$(this).parent().find('.active').attr('index');
+		if (num==0){
+			return;
+		}
+		index+=num;
+		leftOrRight(num);
+	});
+	
+	//底部箭头用到的
+	var lastTop=0,lastTop2=0;
+	setInterval(function(){
+		if (isScrollEvent || lastTop2==0 || $(this).scrollTop()+parseFloat($(this).height())>=$(document).height()){
+			return;
+		}
+		if(lastTop2!=lastTop){
+			lastTop=lastTop2;
+		} else {
+			$('.bottom').slideDown();
+		}
+	},500);
+	
+	//点击滚屏
+	$('.bottom').on('click',function(){
+		var top=$(window).scrollTop()+parseFloat($(window).height());
+		$('html,body').animate({scrollTop: top+'px'});
+	});
+	
+	//滚动切换背景
+	$(window).on('scroll',function(evt){
+		if (isScrollEvent) return;
+		var top=$(this).scrollTop()+parseFloat($(this).height()/2);
+		$('.bottom').slideUp();
+		lastTop2=top;
+		for(var i=0;i<points.length;i++){
+			if (top>points[i].top1 && top<points[i].top2){
+				$('.fp-easing div[type]').hide();
+				$('.fp-easing div[type]:eq('+i+')').show();
+				return;
+			}
+		}
+	});
+	
+	//ipad旋转
+	$(window).on('orientationchange',function(){
+		orient();
+	});
+	
+	function orient(){
+		if (window.orientation == 0 || window.orientation == 180) {
+			//竖屏
+			$('.fp-easing_mask').each(function(i){
+				$(this).hide().after($('.fp-easing div[type]:first').css({'position': 'static', 'margin-left': 0}).show());
+			});
+			isScrollEvent=true;
+			$('.fp-easing_contenttext').css('top','3%');
+			$('.fp-easing_APP').css('bottom','92%');
+			setTimeout(function(){
+				$('.bottom').hide();
+			},500);
+		} else if (window.orientation == 90 || window.orientation == -90){
+			//横屏
+			$('.fp-easing_mask').each(function(i){
+				var bg=$(this).show().next();
+				$('.all_position').before($('.all_position div[type]:first').css({'position': 'fixed'}).hide());
+			});
+			$('.bottom').show();
+			$('.fp-easing_contenttext').css('top','25%');
+			$('.fp-easing_APP').css('bottom','30%');
+			isScrollEvent=false;
+			setTimeout(function(){
+				var flag;
+				$('.fp-easing div[type]').each(function(){
+					if ($(this).is(':visible')){
+						flag=true;
+						return false;
+					}
+				});
+				if (!flag){
+					$('.fp-easing div[type]:first').show();
+				}
+			},500);
+		}
+	}
+	orient();
+	
+	//自适应
+	$(window).on('resize',function(){
+		resize();
+	});
+	
+	function resize(){
+		$('.contenttwo_table').scrollLeft((810+205)*2-320+(1903-parseInt($(this).width()))/2.08);
+		$('.left_prev').css('left',480-(1903-parseInt($(this).width()))*0.48);
+		$('.right_next').css('left',1386-(1903-parseInt($(this).width()))*0.50);
+	}
+	resize();
+});
+</script>
+</head>
+<body style="height: 100%;background-color:black;" class="section-header-white">
+	<header class="site-header">
+		<div class="headrer_indexpos">
+			<div class="headrer_index">
+				<span><img src="__PUBLIC__/images/publicindex_toplogo.png" /></span>
+				<ul>
+					<li><a href="NewFileposs2.html">APP</a></li>
+					<li><a href="FindImOra.html">Find  ImOra</a></li>
+					<li><a href="AboutImOra.html">About ImOra</a></li>
+					<li><a href="Contactus.html">Contact us</a></li>
+					<li><img src="__PUBLIC__/images/publicindex_serach_bg.png" /></li>
+				</ul>
+			</div>
+			<div class="site_mask"></div>
+		</div>
+	</header>
+	<div class='bottom hand'><img src="__PUBLIC__/images/publicindex_next.png" /></div>
+	<div class="fp-easing" style="height: 100%;">
+		<div class="fp-easing_one" type='bg'>
+			<div class="fp-easing_img"><img src="__PUBLIC__/images/publicindex_contentone.jpg" /></div>
+			<div class="fp-easing_contenttext">
+				<img src="__PUBLIC__/images/publicindex_IMORAtext.png" />
+			</div>
+			<div class="fp-easing_APP">
+				<span><img src="__PUBLIC__/images/publicindex_APP.png" /></span>
+				<span><img src="__PUBLIC__/images/publicindex_Android.png" /></span>
+			</div>
+			<!-- <span class="scroll-to-start icon-down"><img src="__PUBLIC__/images/publicindex_next.png" /></span> -->
+		</div>
+		<div class="fp-easing_twobg" type='bg'>
+			<span class="span_threebg"><img src="__PUBLIC__/images/publicindex_contentthree.jpg" /></span>
+			<!--  <span class="scroll-to-start icon-down"><img src="__PUBLIC__/images/publicindex_next.png" /></span>-->
+		</div>
+		<div class="fp-easing_threebg" type='bg'>
+			<span class="span_fourbg"><img src="__PUBLIC__/images/publicindex_contentfour.jpg" /></span>
+			<!--  <span class="scroll-to-start icon-down"><img src="__PUBLIC__/images/publicindex_next.png" /></span>-->
+		</div>
+		<div class="fp-easing_fourbg" type='bg'>
+			<span class="span_twobg"><img src="__PUBLIC__/images/publicindex_contenttwo.jpg" /></span>
+			<!-- <span class="scroll-to-start icon-down"><img src="__PUBLIC__/images/publicindex_next.png" /></span> -->
+		</div>
+		<div class="all_position">
+			<div class="fp-easing_mask"></div>
+			<div class="fp-easing_contenttwo">
+				<div class="contenttwo_title"><img src="__PUBLIC__/images/publicindex_titletwo.png" /></div>
+				<div class="contenttwo_table">
+					<ul>
+						<li><video poster="__PUBLIC__/video/poster2.jpg" src="__PUBLIC__/video/2.mp4"></video></li>
+						<li><video poster="__PUBLIC__/video/poster3.jpg" src="__PUBLIC__/video/3.mp4"></video></li>
+						<li><video poster="__PUBLIC__/video/poster1.jpg" src="__PUBLIC__/video/1.mp4"></video></li>
+						<li><video poster="__PUBLIC__/video/poster2.jpg" src="__PUBLIC__/video/2.mp4"></video></li>
+						<li><video poster="__PUBLIC__/video/poster3.jpg" src="__PUBLIC__/video/3.mp4"></video></li>
+					</ul>
+				</div>
+				<div class="contenttwo_table2">
+					<ol>
+						<li index='0' class="active hand"></li>
+						<li index='1' class='hand'></li>
+						<li index='2' class='hand'></li>
+					</ol>
+					<span class="left_prev hand"></span>
+					<span class="right_next hand"></span>
+				</div>
+			</div>
+			<div class="fp-easing_mask"></div>
+			<div class="fp-easing_contentthree">
+				<div class="contentthree_title"><img src="__PUBLIC__/images/publicindex_titlethree.png" /></div>
+				<div class="contentthree_text">
+					<div class="contentthree_text_top">
+						<div class="left_text">
+							<span><img src="__PUBLIC__/images/publicindex_contentthree_img1.jpg" /></span>
+							<div class="left_text_c">
+								<i>随时随地更新</i>
+								<p>在手机、平板、网页等不同终端登录
+	名片随时随地更新，无缝隙同步在手机，
+	平板、网页等不同终端登录所有名片随时
+	随地更新，无缝隙同步所有名片随
+	时随地更新。</p>
+							</div>
+						</div>
+						<div class="right_text">
+							<span><img src="__PUBLIC__/images/publicindex_contentthree_img2.jpg" /></span>
+							<div class="left_text_c">
+								<i>随时随地更新</i>
+								<p>在手机、平板、网页等不同终端登录
+	名片随时随地更新，无缝隙同步在手机，
+	平板、网页等不同终端登录所有名片随时
+	随地更新，无缝隙同步所有名片随
+	时随地更新。</p>
+							</div>
+						</div>
+					</div>
+					<div class="contentthree_text_bottom">
+						<div class="left_text">
+							<div class="left_text_c">
+								<i>随时随地更新</i>
+								<p>在手机、平板、网页等不同终端登录
+	名片随时随地更新，无缝隙同步在手机，
+	平板、网页等不同终端登录所有名片随时
+	随地更新，无缝隙同步所有名片随
+	时随地更新。</p>
+							</div>
+							<span><img src="__PUBLIC__/images/publicindex_contentthree_img3.jpg" /></span>
+						</div>
+						<div class="right_text">
+							<div class="left_text_c">
+								<i>随时随地更新</i>
+								<p>在手机、平板、网页等不同终端登录
+	名片随时随地更新，无缝隙同步在手机，
+	平板、网页等不同终端登录所有名片随时
+	随地更新，无缝隙同步所有名片随
+	时随地更新。</p>
+							</div>
+							<span><img src="__PUBLIC__/images/publicindex_contentthree_img4.jpg" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fp-easing_mask"></div>
+			<div class="fp-easing_contentfour">
+				<div class="contentfour_title"><img src="__PUBLIC__/images/publicindex_titletwo.png" /></div>
+				<div class="contentfour_text_c"><img src="__PUBLIC__/images/publicindex_contentfour_img.jpg" /></div>
+			</div>
+			<div class="fp-easing_mask"></div>
+			<div class="fp-easing_contentfive">
+				<div class="contentfive_title"><img src="__PUBLIC__/images/publicindex_titlefivw.png" /></div>
+				<div class="contentfive_text_c">
+					<div class="div1"><img src="__PUBLIC__/images/publicindex_fiveimg1.jpg" /></div>
+					<div class="div2"><img src="__PUBLIC__/images/publicindex_fiveimg2.jpg" /></div>
+					<div class="div3"><img src="__PUBLIC__/images/publicindex_fiveimg3.jpg" /></div>
+					<div class="div4"><img src="__PUBLIC__/images/publicindex_fiveimg4.jpg" /></div>
+				</div>
+			</div>
+			<div class="fp-easing_contentsix">
+				<span class="span_fivebg"><img src="__PUBLIC__/images/publicindex_contentfive.jpg" /></span>
+				<div class="contentsix_text_c">
+					<span><img src="__PUBLIC__/images/publicindex_footerlogo.png" /></span>
+					<p>Copyright © 2015 Apple Inc.</p>
+					<p>京公安网安备 11010500896 京ICP备10214630</p>
+					<div class="contentsix_Language"><img src="__PUBLIC__/images/publicindex_Language.png" /></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

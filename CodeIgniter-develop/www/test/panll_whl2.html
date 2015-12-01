@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragram" content="no-cache">
+    <style type="">
+        html{ overflow-x:hidden;}
+        @keyframes move {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.15);
+            }
+        }
+
+        @-webkit-keyframes move {
+            from {
+                -webkit-transform: scale(1);
+            }
+            to {
+                -webkit-transform: scale(1.15);
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                -moz-transform:translate(0,0);
+                -webkit-transform:translate(0,0);
+                transform:translate(0,0);
+            }
+            100% {
+                -moz-transform:translate(0,-40px);
+                -webkit-transform:translate(0,-40px);
+                transform:translate(0,-40px);
+            }
+        }
+
+        @-webkit-keyframes moveUp {
+            0% {
+                -moz-transform:translate(0,0);
+                -webkit-transform:translate(0,0);
+                transform:translate(0,0);
+            }
+            100% {
+                -moz-transform:translate(0,-40px);
+                -webkit-transform:translate(0,-40px);
+                transform:translate(0,-40px);
+            }
+        }
+
+        body{margin:0;position: relative;}
+
+        .moveUp{
+            -moz-animation-duration: 2s;
+            -moz-animation-fill-mode: both;
+            -moz-animation-iteration-count: 1;
+            -moz-animation-name: moveUp;
+
+            -webkit-animation-duration: 2s;
+           -webkit-animation-fill-mode: both;
+            -webkit-animation-iteration-count: 1;
+           -webkit-animation-name: moveUp;
+
+            animation-duration: 2s;
+            animation-fill-mode: both;
+            animation-iteration-count: 1;
+            animation-name: moveUp;
+        }
+
+        #main
+        {
+            margin:0 auto;
+            width:100%;
+            position: relative;
+        }
+        .header{background-color: #202020;
+        display: table;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 3333;}
+        .header img{float: right;
+    width: 5%;}
+        .header .logo{display: block;
+    float: left;
+    left: 46%;
+    position: relative;
+    top: 8px;
+    width: 3.5%;
+    z-index: 3334;}
+        .scroll_item
+        {
+            margin: -1px 0 0 0;
+            width:100%;
+            overflow:hidden;
+            position: relative;
+        }
+        .scroll_bg img.img,.scroll_bgtwo img.img
+        {
+            animation-direction: alternate;
+            animation-duration: 30s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-name: move;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-duration: 30s;
+            -webkit-animation-fill-mode: both;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-name: move;
+            transform-origin: center bottom 0;
+            -webkit-transform-origin: center bottom 0;
+        }
+
+        .scroll_bg img,.scroll_bgtwo img{
+            width:100%;
+            display:block;position: relative;
+        }
+
+        .scroll_bgtwo{ width:100%;}
+        .scroll_bgtwo img{ width:100%;}
+        .scroll_bg{ width:100%;}
+        .scroll_bg img{ }
+        .scroll_img { width:366px; height:673px; position:absolute; top: 170px; left:50%; margin-left:-183px;}
+        .scrollthr_img{ width:460px; height:249px; position:absolute; top:400px; left:50%; margin-left:-230px;}
+        .scrollfour_img{ width:460px; height:249px; position:absolute; top:480px; margin-left:132px;}
+        .scrollfive_img{ width:463px; height:270px; position:absolute; top:405px; left:50%; margin-left:-231px;}
+        .scrollsix_img{ width:420px; height:220px; position:absolute; top:185px; left:50%; margin-left:-210px;}
+        .scrollseven_img{ width:631px; height:244px; position:absolute; top:355px; left:50%; margin-left:-315px;}
+        .scrolleight_img{ width:465px; height:98px; position:absolute; top:280px; right:0; margin-right:170px;}
+        .scrollnine_img{ width:255px; height:310px; position:absolute; top:393px; left:50%; margin-left:-127px;}
+        #slide_bar
+        {
+            margin: 0 auto;
+            width: 100%;
+        }
+        .slide_bar
+        {
+            position: fixed;
+            right: 10px;
+            top: 300px;
+            z-index: 100;
+        }
+        #slide_bar li
+        {
+            background: rgba(255, 0, 0, 0) url("pan_slide_bar.png") no-repeat scroll 0 -25px;
+            list-style: outside none none;
+            text-indent: -20000px;
+            width: 18px;
+        }
+        #slide_bar li.active
+        {
+            background-position: 0 0;
+        }
+
+    </style>
+    <title>IMORA</title>
+</head>
+<body>
+<div id="slide_bar">
+    <ul class="slide_bar">
+        <li class="active">&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+    </ul>
+</div>
+<div id="main">
+    <div class="header" >
+        <img class="logo" src="__PUBLIC__/images/logo_90x90.gif" />
+        <img src="pan_hearder.png" />
+    </div>
+    <div class="scroll_item scroll_item1" id="pic_1">
+        <div class="scroll_bg delayPic scale1 allPIc"> <img class="img" src="pan_12.png" /></div>
+        <div class="scroll_img picOn moveUp" id="small1"><img src="pan_wordtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item2" id="pic_2">
+        <div class="scroll_bgtwo delayPic scale2 allPIc"><img  src="pan_2.png"/></div>
+    </div>
+    <div class="scroll_item scroll_item3" id="pic_3">
+        <div class="scroll_bg delayPic scale3 allPIc"><img  src="pan_3.png" /></div>
+        <div class="scrollthr_img picOn" id="small3"><img src="pan_wordImoratext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item4" id="pic_4">
+        <div class="scroll_bg delayPic scale4 allPIc"><img  src="pan_4.png" /></div>
+        <div class="scrollfour_img picOn" id="small4"><img src="pan_3wordtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item5" id="pic_5">
+        <div class="scroll_bg delayPic scale5 allPIc"><img  src="pan_5.png" /></div>
+        <div class="scrollfive_img picOn" id="small5"><img src="pan_5wodrdtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item6" id="pic_6">
+        <div class="scroll_bg delayPic scale6 allPIc"><img  src="pan_6.png" /></div>
+        <div class="scrollsix_img picOn" id="small6"><img src="pan_6wordtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item7" id="pic_7">
+        <div class="scroll_bg delayPic scale7 allPIc"><img  src="pan_7.png" /></div>
+        <div class="scrollseven_img picOn" id="small7"><img src="pan_7wordtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item8" id="pic_8">
+        <div class="scroll_bg delayPic scale8 allPIc"><img  src="pan_8.png" /></div>
+        <div class="scrolleight_img picOn" id="small8"><img src="pan_8wordtext.png" /></div>
+    </div>
+    <div class="scroll_item scroll_item9" id="pic_9">
+        <div class="scroll_bg delayPic scale9 allPIc"><img  src="pan_9.png" /></div>
+        <div class="scrollnine_img picOn" id="small9"><img src="pan_9wordtext.png" /></div>
+    </div>
+</div>
+<script src="../js/jquery/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        var t_img; // 定时器
+        var isLoad = true; // 控制变量
+        var hBox = new Array();
+        var tBox= new Array();
+
+        $('body,html').animate({scrollTop:0},10);
+        $(window).on('orientationchange',function(){
+            screen()
+        });
+        function screen(){
+            var isVertivcal = (Math.abs(window.orientation)==90)?false:true;  //90是横屏  180 竖屏
+            if(isVertivcal && window.orientation !==undefined){
+                $("#slide_bar").hide();
+            }else{
+                $("#slide_bar").show();
+            }
+        }
+
+        isImgLoad(function(){
+            // 加载完成
+            $(".allPIc img").each(function(){   //获取 每一屏图片的offset().top  到页面顶部的高度。 存入数组
+                var h = Math.ceil($(this).parent("div").offset().top);
+                hBox.push(h);
+            })
+        });
+
+        // 判断图片加载的函数
+        function isImgLoad(callback){
+            $('.delayPic img').each(function(){
+                // 找到为0就将isLoad设为false，并退出each
+                if($(this).height() === 0){
+                    isLoad = false;
+                    return false;
+                }
+            });
+            // 为true，没有发现为0的。加载完毕
+            if(isLoad){
+                clearTimeout(t_img); // 清除定时器
+                // 回调函数
+                callback();
+                // 为false，因为找到了没有加载完成的图，将调用定时器递归
+            }else{
+                isLoad = true;
+                t_img = setTimeout(function(){
+                    isImgLoad(callback); // 递归扫描
+                },200); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+            }
+        }
+
+        $(window).scroll(function(){
+            $(".delayPic").find("img").removeClass('img');
+            var top = $(window).scrollTop();
+            for( i in hBox){
+                if(top >= hBox[i]){
+                    $(".slide_bar li").eq(i).addClass('active').siblings().removeClass('active');
+                    $(".delayPic").find("img").removeClass('img');
+                    $(".scale"+(parseInt(i)+1)).find("img").addClass('img');
+                    $(".picOn").removeClass('moveUp');
+                    $("#small"+(parseInt(i)+1)).addClass('moveUp');
+                }
+            }
+        })
+
+        $(".slide_bar").on('click','li',function(){
+            var num= parseInt($(this).index())+1;
+            var h = Math.ceil($("#pic_"+num).offset().top);
+            var  iswebkit =/webkit/.test(navigator.userAgent.toLowerCase()),obj;
+            if(iswebkit){
+                obj="body";
+            }else{
+                obj="html";
+            }
+            $(""+obj+"").animate({scrollTop:h+'px'},1000);
+        })
+    })
+</script>
+</body>
+</html>

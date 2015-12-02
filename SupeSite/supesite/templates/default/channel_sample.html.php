@@ -13,7 +13,7 @@
 			<li <!--{if $key == $_SGET['name'] }--> class="current"<!--{/if}-->><a href="$value[url]">$value[name]</a></li>
 			<!--{/loop}-->
 		</ul>
-	</div>
+	</div>
 </div><!--nav end-->
 <div class="column">
 <div class="col1">

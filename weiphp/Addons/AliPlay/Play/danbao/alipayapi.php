@@ -33,19 +33,19 @@ require_once("lib/alipay_submit.class.php");
         //需http://格式的完整路径，不能加?id=123这类自定义参数
         //页面跳转同步通知页面路径
         $return_url = $return_url;
-        //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
+        //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
         //卖家支付宝帐户
         $seller_email =$seller_email;
-        //必填
+        //必填
         //商户订单号
         $out_trade_no = $_POST['out_trade_no'];
-        //商户网站订单系统中唯一订单号，必填
+        //商户网站订单系统中唯一订单号，必填
         //订单名称
         $subject = $_POST['subject'];
-        //必填
+        //必填
         //付款金额
         $price = $_POST['price'];
-        //必填
+        //必填
         //商品数量
         $quantity = "1";
         //必填，建议默认为1，不改变值，把一次交易看成是一次下订单而非购买一件商品
@@ -58,23 +58,23 @@ require_once("lib/alipay_submit.class.php");
         //物流支付方式
         $logistics_payment = $_POST['logistics_payment'];
         //必填，两个值可选：SELLER_PAY（卖家承担运费）、BUYER_PAY（买家承担运费）
-        //订单描述
+        //订单描述
         $body = $_POST['body'];
         //商品展示地址
         $show_url = $_POST['show_url'];
-        //需以http://开头的完整路径，如：http://www.xxx.com/myorder.html
+        //需以http://开头的完整路径，如：http://www.xxx.com/myorder.html
         //收货人姓名
         $receive_name = $_POST['receive_name'];
-        //如：张三
+        //如：张三
         //收货人地址
         $receive_address = $_POST['receive_address'];
-        //如：XX省XXX市XXX区XXX路XXX小区XXX栋XXX单元XXX号
+        //如：XX省XXX市XXX区XXX路XXX小区XXX栋XXX单元XXX号
         //收货人邮编
         $receive_zip = $_POST['receive_zip'];
-        //如：123456
+        //如：123456
         //收货人电话号码
         $receive_phone = $_POST['receive_phone'];
-        //如：0571-88158090
+        //如：0571-88158090
         //收货人手机号码
         $receive_mobile = $_POST['receive_mobile'];
         //如：13312341234

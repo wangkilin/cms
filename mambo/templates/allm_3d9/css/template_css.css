@@ -1,539 +1,539 @@
-
-**********************************************************************************************************/
-
-
-
-td.pathway {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #F5FFFA;
-	padding-top: 0px;
-	padding-left: 0px;
-}
-
-
-
-a.pathway:link, a.pathway:visited {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #F5FFFA;
-}
-
-
-
-a.pathway:hover {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #90EE90;
-}
-
-
-
-/* Links
-
-**********************************************************************************************************/
-
-
-
-a.mainlevel:link, a.mainlevel:visited {
-	color: White;
-	text-align: left;
-	font-weight: bold;
-	border-bottom-width: 1px;
-	border-bottom-style: dotted;
-	border-left-color: #79AF79;
-	padding-left: 2px;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	line-height: 13px;
-}
-
-
-
-a.mainlevel:hover {
-	color: #249525;
-	text-align: left;
-	border-left-width: 5px;
-	border-left-style: solid;
-	border-left-color: #79AF79;
-}
-
-
-
-a.mainmenu:link, a.mainmenu:visited {
-	color: #DCDCDC;
-	border-bottom-style: dotted;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-}
-
-
-
-a.mainmenu:hover, {
-
-	color: #B0C4DE;
-
-	text-align: left;
-
-}
-
-
-
-a.sublevel:link, a.sublevel:visited {
-	color: White;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: normal;
-}
-
-
-
-a.sublevel:hover {
-	color: #DCDCDC;
-	text-align: left;
-}
-
-
-
-/* Module Styles
-
-**********************************************************************************************************/
-
-
-
-table.moduletable {
-
-	width: 100%;
-
-	text-align: center;
-
-	margin-right: 0px;
-
-	margin-left: 0px;
-
-}
-
-
-
-table.moduletable th {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	color: #00994E;
-	text-align: center;
-	padding-top: 3px;
-}
-
-
-
-table.moduletable td {
-
-	font-family: Arial, Helvetica, sans-serif;
-
-	font-size: 11px;
-
-	font-weight: normal;
-
-	text-align: left;
-
-}
-
-
-
-/* Polls Style
-
-**********************************************************************************************************/
-
-
-
-.poll {
-	color: #058B07;
-	line-height: 12px;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-}
-
-
-
-/* Sections Style
-
-**********************************************************************************************************/
-
-
-
-.sectiontableheader {
-	background-color: #2AAD2B;
-	color: #FFFFFF;
-	font-weight: bold;
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	line-height: 13px;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #FFFFFF;
-}
-
-
-
-.sectiontableentry1 {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	background-color: #D3D3D3;
-}
-
-
-
-.sectiontableentry2 {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	background-color: White;
-}
-
-
-
-.pagenav {
-
-	
-
-	font-size: 11px;
-   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	font-weight: bold;
-
-	color: #FFFFFF;
-
-}
-
-
-
-a.pagenav:link, a.pagenav:visited {
-
-	font-weight: bold;
-   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #FFFFFF;
-
-}
-
-
-
-a.pagenav:hover {
-
-	font-weight: bold;
-   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #CCCCCC;
-
-	text-decoration: underline;
-
-}
-
-
-
-
-
-/*****************************************************************************************************/
-
-
-
-.small {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: White;
-}
-
-
-
-.smalldark {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: White;
-	text-decoration: none;
-}
-
-
-
-.createdate {
-	font-size: 10px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #E0FEE0;
-	text-decoration: none;
-	font-weight: medium;
-}
-
-
-
-.modifydate  {
-	font-size: 10px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #F5FFFA;
-	text-decoration: none;
-	font-weight: medium;
-}
-
-
-
-/* Content Styles
-
-**********************************************************************************************************/
-
-
-
-.contentpaneopen, .contentpane {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: White;
-	padding-top: 1px;
-	padding-right: 1px;
-	padding-left: 1px;
-}
-
-
-
-.contentheading, .componentheading {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	color: White;
-	text-align: left;
-	line-height: 16px;
-	padding-left: 5px;
-}
-
-.category {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	color: #DFFFF0;
-}
-
-
-
-a.category:link, a.category:visited {
-	color: #DFFFF0;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-}
-
-
-
-a.category:hover {
-	color: White;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-}
-
-
-
-/* Form Styles
-
-**********************************************************************************************************/
-
-
-
-form { 
-
-	display:inline; 
-font-family: Verdana, Arial, Helvetica, sans-serif;
-	margin: 0px; 
-
-	padding: 0px; 
-
-} 
-
-
-
-.button {
-
-  font-family      : Arial, Helvetica, sans-serif;
-
-  font-style       : normal;
-
-  font-size        : 10px;
-
-  font-weight      : bold;
-
-  background-color : #FFFFFF;
-
-  color            : #000000;
-
-  border           : 1px solid #AABA75;
-
-}
-
-
-
-.inputbox {
-
-  font-family      : Verdana, Arial, Helvetica, sans-serif;
-
-  font-size        : 10px;
-
-  color            : #000000;
-
-  background-color : #FFFFFF;
-
-  border           : 1px solid #AABA75;
-
-}
-
-
-
-/* Links
-
-**********************************************************************************************************/
-
-
-
-a:link, a:visited {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: #F0FFF0;
-	text-decoration: none;
-}
-
-
-
-a:hover {
-	color: White;
-	text-decoration: none;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	}
-
-
-
-/* For content item titles that are hyperlink instead of Read On
-
-**********************************************************************************************************/
-
-
-
-a.contentpagetitle:link, a.contentpagetitle:visited {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	color: #F5F5F5;
-	text-align: left;
-}
-
-
-
-a.contentpagetitle:hover {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	font-weight: bold;
-	text-align: left;
-	color: #ADFF2F;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-
-
-.description {
-	font-size: 11px;
-	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	color: White;
-}
-
-
-
-/* Styles for dhtml tabbed-pages */
-
-.ontab {
-
-	background-color: #ffae00;
-
-	border-left: outset 2px #ff9900;
-
-	border-right: outset 2px #808080;
-
-	border-top: outset 2px #ff9900;
-
-	border-bottom: solid 1px #d5d5d5;
-
-	text-align: center;
-
-	cursor: hand;
-
-	font-weight: bold;
-
-	color: #FFFFFF;
-
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-
-	font-size: 11px;
-
-}
-
-.offtab {
-
-	background-color : #e5e5e5;
-
-	border-left: outset 2px #E0E0E0;
-
-	border-right: outset 2px #E0E0E0;
-
-	border-top: outset 2px #E0E0E0;
-
-	border-bottom: solid 1px #d5d5d5;
-
-	text-align: center;
-
-	cursor: hand;
-
-	font-weight: bold;
-
-	color: #000000;
-
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-
-	font-size: 11px;
-
-}
-
-
-
-.tabheading {
-
-	background-color: #ffae00;
-
-	text-align: left;
-
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-
-	font-size: 11px;
-
-}
-
-
-
-.pagetext {
-	visibility: hidden;
-	display: none;
-	position: relative;
-	top: 0;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: White;
-}
-
-
-
-/* for modifying {moscode} output.  Don't set the colour! */
-
-.moscode {
-
-	background-color: #f0f0f0;
-
-}
-
-
-
-/* Text passed with mosmsg url parameter */
-
-.message {
-
-	font-weight: bold;
-   font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size : 10pt;
-   color : #ff6600;
-
-	text-align: center;
-
+
+**********************************************************************************************************/
+
+
+
+td.pathway {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #F5FFFA;
+	padding-top: 0px;
+	padding-left: 0px;
+}
+
+
+
+a.pathway:link, a.pathway:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #F5FFFA;
+}
+
+
+
+a.pathway:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #90EE90;
+}
+
+
+
+/* Links
+
+**********************************************************************************************************/
+
+
+
+a.mainlevel:link, a.mainlevel:visited {
+	color: White;
+	text-align: left;
+	font-weight: bold;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-left-color: #79AF79;
+	padding-left: 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+
+
+a.mainlevel:hover {
+	color: #249525;
+	text-align: left;
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #79AF79;
+}
+
+
+
+a.mainmenu:link, a.mainmenu:visited {
+	color: #DCDCDC;
+	border-bottom-style: dotted;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+
+
+a.mainmenu:hover, {
+
+	color: #B0C4DE;
+
+	text-align: left;
+
+}
+
+
+
+a.sublevel:link, a.sublevel:visited {
+	color: White;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+
+
+a.sublevel:hover {
+	color: #DCDCDC;
+	text-align: left;
+}
+
+
+
+/* Module Styles
+
+**********************************************************************************************************/
+
+
+
+table.moduletable {
+
+	width: 100%;
+
+	text-align: center;
+
+	margin-right: 0px;
+
+	margin-left: 0px;
+
+}
+
+
+
+table.moduletable th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #00994E;
+	text-align: center;
+	padding-top: 3px;
+}
+
+
+
+table.moduletable td {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	font-weight: normal;
+
+	text-align: left;
+
+}
+
+
+
+/* Polls Style
+
+**********************************************************************************************************/
+
+
+
+.poll {
+	color: #058B07;
+	line-height: 12px;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Sections Style
+
+**********************************************************************************************************/
+
+
+
+.sectiontableheader {
+	background-color: #2AAD2B;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: 13px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFFFFF;
+}
+
+
+
+.sectiontableentry1 {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #D3D3D3;
+}
+
+
+
+.sectiontableentry2 {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: White;
+}
+
+
+
+.pagenav {
+
+	
+
+	font-size: 11px;
+   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+}
+
+
+
+a.pagenav:link, a.pagenav:visited {
+
+	font-weight: bold;
+   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+
+}
+
+
+
+a.pagenav:hover {
+
+	font-weight: bold;
+   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #CCCCCC;
+
+	text-decoration: underline;
+
+}
+
+
+
+
+
+/*****************************************************************************************************/
+
+
+
+.small {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: White;
+}
+
+
+
+.smalldark {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: White;
+	text-decoration: none;
+}
+
+
+
+.createdate {
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #E0FEE0;
+	text-decoration: none;
+	font-weight: medium;
+}
+
+
+
+.modifydate  {
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #F5FFFA;
+	text-decoration: none;
+	font-weight: medium;
+}
+
+
+
+/* Content Styles
+
+**********************************************************************************************************/
+
+
+
+.contentpaneopen, .contentpane {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: White;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+
+
+.contentheading, .componentheading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: White;
+	text-align: left;
+	line-height: 16px;
+	padding-left: 5px;
+}
+
+.category {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #DFFFF0;
+}
+
+
+
+a.category:link, a.category:visited {
+	color: #DFFFF0;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+
+
+a.category:hover {
+	color: White;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Form Styles
+
+**********************************************************************************************************/
+
+
+
+form { 
+
+	display:inline; 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0px; 
+
+	padding: 0px; 
+
+} 
+
+
+
+.button {
+
+  font-family      : Arial, Helvetica, sans-serif;
+
+  font-style       : normal;
+
+  font-size        : 10px;
+
+  font-weight      : bold;
+
+  background-color : #FFFFFF;
+
+  color            : #000000;
+
+  border           : 1px solid #AABA75;
+
+}
+
+
+
+.inputbox {
+
+  font-family      : Verdana, Arial, Helvetica, sans-serif;
+
+  font-size        : 10px;
+
+  color            : #000000;
+
+  background-color : #FFFFFF;
+
+  border           : 1px solid #AABA75;
+
+}
+
+
+
+/* Links
+
+**********************************************************************************************************/
+
+
+
+a:link, a:visited {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #F0FFF0;
+	text-decoration: none;
+}
+
+
+
+a:hover {
+	color: White;
+	text-decoration: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+
+
+
+/* For content item titles that are hyperlink instead of Read On
+
+**********************************************************************************************************/
+
+
+
+a.contentpagetitle:link, a.contentpagetitle:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #F5F5F5;
+	text-align: left;
+}
+
+
+
+a.contentpagetitle:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	color: #ADFF2F;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+
+.description {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: White;
+}
+
+
+
+/* Styles for dhtml tabbed-pages */
+
+.ontab {
+
+	background-color: #ffae00;
+
+	border-left: outset 2px #ff9900;
+
+	border-right: outset 2px #808080;
+
+	border-top: outset 2px #ff9900;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+.offtab {
+
+	background-color : #e5e5e5;
+
+	border-left: outset 2px #E0E0E0;
+
+	border-right: outset 2px #E0E0E0;
+
+	border-top: outset 2px #E0E0E0;
+
+	border-bottom: solid 1px #d5d5d5;
+
+	text-align: center;
+
+	cursor: hand;
+
+	font-weight: bold;
+
+	color: #000000;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.tabheading {
+
+	background-color: #ffae00;
+
+	text-align: left;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+}
+
+
+
+.pagetext {
+	visibility: hidden;
+	display: none;
+	position: relative;
+	top: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: White;
+}
+
+
+
+/* for modifying {moscode} output.  Don't set the colour! */
+
+.moscode {
+
+	background-color: #f0f0f0;
+
+}
+
+
+
+/* Text passed with mosmsg url parameter */
+
+.message {
+
+	font-weight: bold;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size : 10pt;
+   color : #ff6600;
+
+	text-align: center;
+
 }

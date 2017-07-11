@@ -6,22 +6,10 @@
  *@FileName : db.config.php
  *@Author	: WangKilin
  *@Email	: wangkilin@126.com
- *@Date		: 2007-1-10
- *@Homepage	: http://www.yeaheasy.com
  *@Version	: 0.1
  */
 global $YE_db_config;
 $YE_db_config=array();
-/****************** STRAT::mysql config zone *******************************
-$i=0;
-
-$YE_db_config[$i]['dbtype']		=	'mysql';		// database type
-$YE_db_config[$i]['hostname']	=	'124.172.121.31';	// hostname
-$YE_db_config[$i]['port']		=	'3306';			// port
-$YE_db_config[$i]['username']	=	'wangkilin';			// username
-$YE_db_config[$i]['password']	=	'mingxiazhou4728999';		// user password
-$YE_db_config[$i]['database']	=	'wangkilin';		// database name
-/****************** END::mysql config zone *******************************/
 /****************** STRAT::mysql config zone *******************************/
 
 $i=0;
@@ -40,7 +28,7 @@ $YE_db_config[$i]['dbtype']		=	'pgsql';		// database type
 $YE_db_config[$i]['hostname']	=	'localhost';	// hostname
 $YE_db_config[$i]['port']		=	'5432';			// port
 $YE_db_config[$i]['username']	=	'postgres';		// username
-$YE_db_config[$i]['password']	=	'4728999';		// user password
+$YE_db_config[$i]['password']	=	'';		// user password
 $YE_db_config[$i]['database']	=	'yeaheasy';		// database name
 /****************** END::pgsql config zone *******************************/
 
